@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+Licensee: Universidade do Minho
+License Type: Academic
+-->
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="socialdrink.User" table="`User`" lazy="false" discriminator-value="User">
+		<id name="ID" column="ID" type="integer" unsaved-value="0">
+			<generator class="native">
+			</generator>
+		</id>
+		<discriminator column="Discriminator" type="string"/>
+		<many-to-one name="photo" column="PhotoID" class="socialdrink.Photo" cascade="save-update,lock" unique="true" not-null="true" lazy="no-proxy" access="field">
+		</many-to-one>
+		<many-to-one name="address" column="AddressID" class="socialdrink.Address" cascade="save-update,lock,delete" unique="true" not-null="true" lazy="no-proxy" access="field">
+		</many-to-one>
+		<property name="email" column="Email" type="string" length="255" not-null="false" lazy="false"/>
+		<property name="password" column="Password" type="string" length="255" not-null="false" lazy="false"/>
+		<property name="description" column="Description" type="string" length="255" not-null="false" lazy="false"/>
+		<array name="followers" table="User_followers" cascade="all">
+			<key column="UserID"/>
+			<index column="UserIndex" type="integer"/>
+			<element column="Followers" type="string" length="255"/>
+		</array>
+		<set name="ORM_Drinks" lazy="true" cascade="save-update,lock" inverse="false">
+			<key column="UserID" not-null="true"/>
+			<one-to-many class="socialdrink.Drink"/>
+		</set>
+		<subclass name="socialdrink.Consumer" discriminator-value="Consumer" lazy="false">
+			<property name="firstname" column="Firstname" type="string" length="255" not-null="false" lazy="false"/>
+			<property name="lastname" column="Lastname" type="string" length="255" not-null="false" lazy="false"/>
+			<property name="Birthday" column="Birthday" type="date" not-null="false" lazy="false"/>
+			<property name="profession" column="Profession" type="string" length="255" not-null="false" lazy="false"/>
+			<property name="sex" column="Sex" type="string" length="255" not-null="false" lazy="false"/>
+			<array name="following" table="User_following" cascade="all">
+				<key column="UserID"/>
+				<index column="UserIndex" type="integer"/>
+				<element column="Following" type="string" length="255"/>
+			</array>
+			<array name="favoriteDrink" table="User_favoriteDrink" cascade="all">
+				<key column="UserID"/>
+				<index column="UserIndex" type="integer"/>
+				<element column="FavoriteDrink" type="string" length="255"/>
+			</array>
+		</subclass>
+		<subclass name="socialdrink.Bar" discriminator-value="TapHouse" lazy="false">
+			<property name="name" column="Name" type="string" length="255" not-null="false" lazy="false"/>
+			<set name="ORM_Horary" lazy="true" cascade="all-delete-orphan" inverse="false">
+				<key column="UserID" not-null="true"/>
+				<one-to-many class="socialdrink.Weekday"/>
+			</set>
+			<set name="ORM_ContactList" lazy="true" cascade="all-delete-orphan" inverse="false">
+				<key column="UserID" not-null="true"/>
+				<one-to-many class="socialdrink.Contact"/>
+			</set>
+		</subclass>
+	</class>
+</hibernate-mapping>

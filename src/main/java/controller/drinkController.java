@@ -7,8 +7,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.List;
-
 /**
  * Created by carlosmorais on 08/06/16.
  */
@@ -39,7 +37,7 @@ public class drinkController {
                                  @RequestParam("tipoQuantidade") String tipoQuantidade
                                  ){
 
-        model.setViewName("index");
+        model.setViewName("/index.jsp");
         System.out.println("Nome " + nome);
         System.out.println("quantidade " + quantidade);
         System.out.println("tempo " + tempo);
