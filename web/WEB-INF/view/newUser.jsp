@@ -11,6 +11,13 @@
     <link rel="stylesheet" type="text/css" href="./resources/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="./resources/bootstrap/css/bootstrap-theme.min.css" />
     <link rel="stylesheet" type="text/css" href="./resources/bootstrap/css/wizard.css" />
+
+
+    <!-- Include Bootstrap Datepicker -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css" />
+
+
     
 </head>
 <body>
@@ -46,6 +53,15 @@
                     <div class="form-group">
                         <label class="control-label">Ultimo nome</label>
                         <input maxlength="100" type="text" required="required" class="form-control" placeholder="Introduza o seu ultimo nome" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Data de nascimento</label>
+                        <div class="date">
+                            <div class="input-group input-append date" id="datePicker">
+                                <input type="text" class="form-control" name="date" />
+                                <span class="input-group-addon add-on btn"><span class="glyphicon glyphicon-calendar"></span></span>
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Género</label>
@@ -88,9 +104,11 @@
     </form>
 </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="./resources/bootstrap/js/bootstrap.min.js"></script>
-<script src="./resources/bootstrap/js/wizard.js"></script>
 
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
+<script src="./resources/bootstrap/js/bootstrap.min.js"></script>
+<script src="./resources/bootstrap/js/wizard.js"></script>
+<script src="./resources/bootstrap/js/datepicker.js"></script>
 </html>
