@@ -13,6 +13,6 @@ public class htmlController {
 
     @RequestMapping("/page")
     public String page(){
-        return "newBar";
+        return "registo/userWizard";
     }
 }
