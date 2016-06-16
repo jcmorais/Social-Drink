@@ -22,7 +22,7 @@
         <p>Partilha aqui a receita para da tua melhor bebida!</p>
         </div>
     </div>
-    <form  method="post" class="form-horizontal" id="formulario" role="form" action="/Social_Drink/newdrink">
+    <form  method="post" class="form-horizontal" id="formulario" role="form" action="/SocialDrink/newdrink">
 
         <div class="form-group">
             <div class='container'>
