@@ -11,8 +11,7 @@
     <link rel="stylesheet" type="text/css" href="./resources/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="./resources/bootstrap/css/bootstrap-theme.min.css" />
     <link rel="stylesheet" type="text/css" href="./resources/bootstrap/css/wizard.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker3.min.css">
-    <script src="./resources/bootstrap/js/datepicker.js"></script>
+    
 </head>
 <body>
 <jsp:include page="topbar.jsp"/>
@@ -48,17 +47,6 @@
                         <label class="control-label">Ultimo nome</label>
                         <input maxlength="100" type="text" required="required" class="form-control" placeholder="Introduza o seu ultimo nome" />
                     </div>
-                    <div class='input-group date' id='datetimepicker1'>
-                        <input type='text' class="form-control" />
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-                    </div>
-                    <script type="text/javascript">
-                        $(function () {
-                            $('#datetimepicker1').datetimepicker();
-                        });
-                    </script>
                     <div class="form-group">
                         <label class="control-label">Género</label>
                             <div class="radio">
@@ -99,11 +87,10 @@
         </div>
     </form>
 </div>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.min.js"></script>
 <script src="./resources/bootstrap/js/bootstrap.min.js"></script>
 <script src="./resources/bootstrap/js/wizard.js"></script>
-<script src="./resources/bootstrap/js/datepicker.js"></script>
 
 </body>
 </html>
