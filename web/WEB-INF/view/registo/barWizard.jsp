@@ -38,7 +38,7 @@
             </div>
         </div>
     </div>
-    <form role="form">
+    <formform action="register" method="post" commandName="userForm" role="form">
         <div class="row setup-content" id="step-1">
             <jsp:include page="bothStep1.jsp"/>
         </div>
