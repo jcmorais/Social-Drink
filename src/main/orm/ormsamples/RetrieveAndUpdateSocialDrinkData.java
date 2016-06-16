@@ -46,10 +46,10 @@ public class RetrieveAndUpdateSocialDrinkData {
 			socialdrink.Drink lsocialdrinkDrink = lsocialdrinkDrinkDAO.loadDrinkByQuery(null, null);
 			// Update the properties of the persistent object
 			lsocialdrinkDrinkDAO.save(lsocialdrinkDrink);
-			socialdrink.dao.contactTypeDAO lsocialdrinkcontactTypeDAO = lDAOFactory.getcontactTypeDAO();
-			socialdrink.contactType lsocialdrinkcontactType = lsocialdrinkcontactTypeDAO.loadContactTypeByQuery(null, null);
+			socialdrink.dao.ContactTypeDAO lsocialdrinkContactTypeDAO = lDAOFactory.getContactTypeDAO();
+			socialdrink.ContactType lsocialdrinkContactType = lsocialdrinkContactTypeDAO.loadContactTypeByQuery(null, null);
 			// Update the properties of the persistent object
-			lsocialdrinkcontactTypeDAO.save(lsocialdrinkcontactType);
+			lsocialdrinkContactTypeDAO.save(lsocialdrinkContactType);
 			socialdrink.dao.IngredientDAO lsocialdrinkIngredientDAO = lDAOFactory.getIngredientDAO();
 			socialdrink.Ingredient lsocialdrinkIngredient = lsocialdrinkIngredientDAO.loadIngredientByQuery(null, null);
 			// Update the properties of the persistent object
@@ -62,26 +62,14 @@ public class RetrieveAndUpdateSocialDrinkData {
 			socialdrink.DrinkIngredient lsocialdrinkDrinkIngredient = lsocialdrinkDrinkIngredientDAO.loadDrinkIngredientByQuery(null, null);
 			// Update the properties of the persistent object
 			lsocialdrinkDrinkIngredientDAO.save(lsocialdrinkDrinkIngredient);
-			socialdrink.dao.MeasureDAO lsocialdrinkMeasureDAO = lDAOFactory.getMeasureDAO();
-			socialdrink.Measure lsocialdrinkMeasure = lsocialdrinkMeasureDAO.loadMeasureByQuery(null, null);
-			// Update the properties of the persistent object
-			lsocialdrinkMeasureDAO.save(lsocialdrinkMeasure);
 			socialdrink.dao.EvaluationDAO lsocialdrinkEvaluationDAO = lDAOFactory.getEvaluationDAO();
 			socialdrink.Evaluation lsocialdrinkEvaluation = lsocialdrinkEvaluationDAO.loadEvaluationByQuery(null, null);
 			// Update the properties of the persistent object
 			lsocialdrinkEvaluationDAO.save(lsocialdrinkEvaluation);
-			socialdrink.dao.DosageDAO lsocialdrinkDosageDAO = lDAOFactory.getDosageDAO();
-			socialdrink.Dosage lsocialdrinkDosage = lsocialdrinkDosageDAO.loadDosageByQuery(null, null);
+			socialdrink.dao.DrinkTypeDAO lsocialdrinkDrinkTypeDAO = lDAOFactory.getDrinkTypeDAO();
+			socialdrink.DrinkType lsocialdrinkDrinkType = lsocialdrinkDrinkTypeDAO.loadDrinkTypeByQuery(null, null);
 			// Update the properties of the persistent object
-			lsocialdrinkDosageDAO.save(lsocialdrinkDosage);
-			socialdrink.dao.yeldTypeDAO lsocialdrinkyeldTypeDAO = lDAOFactory.getyeldTypeDAO();
-			socialdrink.yeldType lsocialdrinkyeldType = lsocialdrinkyeldTypeDAO.loadYeldTypeByQuery(null, null);
-			// Update the properties of the persistent object
-			lsocialdrinkyeldTypeDAO.save(lsocialdrinkyeldType);
-			socialdrink.dao.drinkTypeDAO lsocialdrinkdrinkTypeDAO = lDAOFactory.getdrinkTypeDAO();
-			socialdrink.drinkType lsocialdrinkdrinkType = lsocialdrinkdrinkTypeDAO.loadDrinkTypeByQuery(null, null);
-			// Update the properties of the persistent object
-			lsocialdrinkdrinkTypeDAO.save(lsocialdrinkdrinkType);
+			lsocialdrinkDrinkTypeDAO.save(lsocialdrinkDrinkType);
 			t.commit();
 		}
 		catch (Exception e) {
@@ -145,11 +133,11 @@ public class RetrieveAndUpdateSocialDrinkData {
 		//lsocialdrinkDrinkCriteria.ID.eq();
 		System.out.println(lsocialdrinkDrinkCriteria.uniqueDrink());
 		
-		System.out.println("Retrieving contactType by contactTypeCriteria");
-		socialdrink.contactTypeCriteria lsocialdrinkcontactTypeCriteria = new socialdrink.contactTypeCriteria();
+		System.out.println("Retrieving ContactType by ContactTypeCriteria");
+		socialdrink.ContactTypeCriteria lsocialdrinkContactTypeCriteria = new socialdrink.ContactTypeCriteria();
 		// Please uncomment the follow line and fill in parameter(s)
-		//lsocialdrinkcontactTypeCriteria.ID.eq();
-		System.out.println(lsocialdrinkcontactTypeCriteria.uniqueContactType());
+		//lsocialdrinkContactTypeCriteria.ID.eq();
+		System.out.println(lsocialdrinkContactTypeCriteria.uniqueContactType());
 		
 		System.out.println("Retrieving Ingredient by IngredientCriteria");
 		socialdrink.IngredientCriteria lsocialdrinkIngredientCriteria = new socialdrink.IngredientCriteria();
@@ -169,35 +157,17 @@ public class RetrieveAndUpdateSocialDrinkData {
 		//lsocialdrinkDrinkIngredientCriteria.ID.eq();
 		System.out.println(lsocialdrinkDrinkIngredientCriteria.uniqueDrinkIngredient());
 		
-		System.out.println("Retrieving Measure by MeasureCriteria");
-		socialdrink.MeasureCriteria lsocialdrinkMeasureCriteria = new socialdrink.MeasureCriteria();
-		// Please uncomment the follow line and fill in parameter(s)
-		//lsocialdrinkMeasureCriteria.ID.eq();
-		System.out.println(lsocialdrinkMeasureCriteria.uniqueMeasure());
-		
 		System.out.println("Retrieving Evaluation by EvaluationCriteria");
 		socialdrink.EvaluationCriteria lsocialdrinkEvaluationCriteria = new socialdrink.EvaluationCriteria();
 		// Please uncomment the follow line and fill in parameter(s)
 		//lsocialdrinkEvaluationCriteria.ID.eq();
 		System.out.println(lsocialdrinkEvaluationCriteria.uniqueEvaluation());
 		
-		System.out.println("Retrieving Dosage by DosageCriteria");
-		socialdrink.DosageCriteria lsocialdrinkDosageCriteria = new socialdrink.DosageCriteria();
+		System.out.println("Retrieving DrinkType by DrinkTypeCriteria");
+		socialdrink.DrinkTypeCriteria lsocialdrinkDrinkTypeCriteria = new socialdrink.DrinkTypeCriteria();
 		// Please uncomment the follow line and fill in parameter(s)
-		//lsocialdrinkDosageCriteria.ID.eq();
-		System.out.println(lsocialdrinkDosageCriteria.uniqueDosage());
-		
-		System.out.println("Retrieving yeldType by yeldTypeCriteria");
-		socialdrink.yeldTypeCriteria lsocialdrinkyeldTypeCriteria = new socialdrink.yeldTypeCriteria();
-		// Please uncomment the follow line and fill in parameter(s)
-		//lsocialdrinkyeldTypeCriteria.ID.eq();
-		System.out.println(lsocialdrinkyeldTypeCriteria.uniqueYeldType());
-		
-		System.out.println("Retrieving drinkType by drinkTypeCriteria");
-		socialdrink.drinkTypeCriteria lsocialdrinkdrinkTypeCriteria = new socialdrink.drinkTypeCriteria();
-		// Please uncomment the follow line and fill in parameter(s)
-		//lsocialdrinkdrinkTypeCriteria.ID.eq();
-		System.out.println(lsocialdrinkdrinkTypeCriteria.uniqueDrinkType());
+		//lsocialdrinkDrinkTypeCriteria.ID.eq();
+		System.out.println(lsocialdrinkDrinkTypeCriteria.uniqueDrinkType());
 		
 	}
 	

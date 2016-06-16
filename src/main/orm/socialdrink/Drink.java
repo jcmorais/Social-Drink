@@ -18,10 +18,7 @@ public class Drink {
 	}
 	
 	private java.util.Set this_getSet (int key) {
-		if (key == socialdrink.ORMConstants.KEY_DRINK_ALBUM) {
-			return ORM_album;
-		}
-		else if (key == socialdrink.ORMConstants.KEY_DRINK_EVALUATION) {
+		if (key == socialdrink.ORMConstants.KEY_DRINK_EVALUATION) {
 			return ORM_evaluation;
 		}
 		else if (key == socialdrink.ORMConstants.KEY_DRINK_INGREDIENTS) {
@@ -40,11 +37,7 @@ public class Drink {
 		}
 		
 		else if (key == socialdrink.ORMConstants.KEY_DRINK_TYPEOFDRINK) {
-			this.typeOfDrink = (socialdrink.drinkType) owner;
-		}
-		
-		else if (key == socialdrink.ORMConstants.KEY_DRINK_YELDTYPE) {
-			this.yeldType = (socialdrink.yeldType) owner;
+			this.typeOfDrink = (socialdrink.DrinkType) owner;
 		}
 	}
 	
@@ -61,6 +54,8 @@ public class Drink {
 	
 	private int ID;
 	
+	private socialdrink.DrinkType typeOfDrink;
+	
 	private socialdrink.Photo photo;
 	
 	private String name;
@@ -70,12 +65,6 @@ public class Drink {
 	private int timeToPrepate;
 	
 	private double yeld;
-	
-	private socialdrink.drinkType typeOfDrink;
-	
-	private socialdrink.yeldType yeldType;
-	
-	private java.util.Set ORM_album = new java.util.HashSet();
 	
 	private java.util.Set ORM_evaluation = new java.util.HashSet();
 	
@@ -127,16 +116,6 @@ public class Drink {
 		return yeld;
 	}
 	
-	private void setORM_Album(java.util.Set value) {
-		this.ORM_album = value;
-	}
-	
-	private java.util.Set getORM_Album() {
-		return ORM_album;
-	}
-	
-	public final socialdrink.PhotoSetCollection album = new socialdrink.PhotoSetCollection(this, _ormAdapter, socialdrink.ORMConstants.KEY_DRINK_ALBUM, socialdrink.ORMConstants.KEY_MUL_ONE_TO_MANY);
-	
 	public void setPhoto(socialdrink.Photo value) {
 		this.photo = value;
 	}
@@ -155,11 +134,11 @@ public class Drink {
 	
 	public final socialdrink.EvaluationSetCollection evaluation = new socialdrink.EvaluationSetCollection(this, _ormAdapter, socialdrink.ORMConstants.KEY_DRINK_EVALUATION, socialdrink.ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
-	public void setTypeOfDrink(socialdrink.drinkType value) {
+	public void setTypeOfDrink(socialdrink.DrinkType value) {
 		this.typeOfDrink = value;
 	}
 	
-	public socialdrink.drinkType getTypeOfDrink() {
+	public socialdrink.DrinkType getTypeOfDrink() {
 		return typeOfDrink;
 	}
 	
@@ -182,14 +161,6 @@ public class Drink {
 	}
 	
 	public final socialdrink.StepSetCollection steps = new socialdrink.StepSetCollection(this, _ormAdapter, socialdrink.ORMConstants.KEY_DRINK_STEPS, socialdrink.ORMConstants.KEY_MUL_ONE_TO_MANY);
-	
-	public void setYeldType(socialdrink.yeldType value) {
-		this.yeldType = value;
-	}
-	
-	public socialdrink.yeldType getYeldType() {
-		return yeldType;
-	}
 	
 	public String toString() {
 		return String.valueOf(getID());

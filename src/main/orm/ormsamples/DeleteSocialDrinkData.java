@@ -46,10 +46,10 @@ public class DeleteSocialDrinkData {
 			socialdrink.Drink lsocialdrinkDrink = lsocialdrinkDrinkDAO.loadDrinkByQuery(null, null);
 			// Delete the persistent object
 			lsocialdrinkDrinkDAO.delete(lsocialdrinkDrink);
-			socialdrink.dao.contactTypeDAO lsocialdrinkcontactTypeDAO = lDAOFactory.getcontactTypeDAO();
-			socialdrink.contactType lsocialdrinkcontactType = lsocialdrinkcontactTypeDAO.loadContactTypeByQuery(null, null);
+			socialdrink.dao.ContactTypeDAO lsocialdrinkContactTypeDAO = lDAOFactory.getContactTypeDAO();
+			socialdrink.ContactType lsocialdrinkContactType = lsocialdrinkContactTypeDAO.loadContactTypeByQuery(null, null);
 			// Delete the persistent object
-			lsocialdrinkcontactTypeDAO.delete(lsocialdrinkcontactType);
+			lsocialdrinkContactTypeDAO.delete(lsocialdrinkContactType);
 			socialdrink.dao.IngredientDAO lsocialdrinkIngredientDAO = lDAOFactory.getIngredientDAO();
 			socialdrink.Ingredient lsocialdrinkIngredient = lsocialdrinkIngredientDAO.loadIngredientByQuery(null, null);
 			// Delete the persistent object
@@ -62,26 +62,14 @@ public class DeleteSocialDrinkData {
 			socialdrink.DrinkIngredient lsocialdrinkDrinkIngredient = lsocialdrinkDrinkIngredientDAO.loadDrinkIngredientByQuery(null, null);
 			// Delete the persistent object
 			lsocialdrinkDrinkIngredientDAO.delete(lsocialdrinkDrinkIngredient);
-			socialdrink.dao.MeasureDAO lsocialdrinkMeasureDAO = lDAOFactory.getMeasureDAO();
-			socialdrink.Measure lsocialdrinkMeasure = lsocialdrinkMeasureDAO.loadMeasureByQuery(null, null);
-			// Delete the persistent object
-			lsocialdrinkMeasureDAO.delete(lsocialdrinkMeasure);
 			socialdrink.dao.EvaluationDAO lsocialdrinkEvaluationDAO = lDAOFactory.getEvaluationDAO();
 			socialdrink.Evaluation lsocialdrinkEvaluation = lsocialdrinkEvaluationDAO.loadEvaluationByQuery(null, null);
 			// Delete the persistent object
 			lsocialdrinkEvaluationDAO.delete(lsocialdrinkEvaluation);
-			socialdrink.dao.DosageDAO lsocialdrinkDosageDAO = lDAOFactory.getDosageDAO();
-			socialdrink.Dosage lsocialdrinkDosage = lsocialdrinkDosageDAO.loadDosageByQuery(null, null);
+			socialdrink.dao.DrinkTypeDAO lsocialdrinkDrinkTypeDAO = lDAOFactory.getDrinkTypeDAO();
+			socialdrink.DrinkType lsocialdrinkDrinkType = lsocialdrinkDrinkTypeDAO.loadDrinkTypeByQuery(null, null);
 			// Delete the persistent object
-			lsocialdrinkDosageDAO.delete(lsocialdrinkDosage);
-			socialdrink.dao.yeldTypeDAO lsocialdrinkyeldTypeDAO = lDAOFactory.getyeldTypeDAO();
-			socialdrink.yeldType lsocialdrinkyeldType = lsocialdrinkyeldTypeDAO.loadYeldTypeByQuery(null, null);
-			// Delete the persistent object
-			lsocialdrinkyeldTypeDAO.delete(lsocialdrinkyeldType);
-			socialdrink.dao.drinkTypeDAO lsocialdrinkdrinkTypeDAO = lDAOFactory.getdrinkTypeDAO();
-			socialdrink.drinkType lsocialdrinkdrinkType = lsocialdrinkdrinkTypeDAO.loadDrinkTypeByQuery(null, null);
-			// Delete the persistent object
-			lsocialdrinkdrinkTypeDAO.delete(lsocialdrinkdrinkType);
+			lsocialdrinkDrinkTypeDAO.delete(lsocialdrinkDrinkType);
 			t.commit();
 		}
 		catch (Exception e) {

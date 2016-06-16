@@ -32,14 +32,11 @@ public abstract class DAOFactory {
 	public abstract CountryDAO getCountryDAO();
 	public abstract PhotoDAO getPhotoDAO();
 	public abstract DrinkDAO getDrinkDAO();
-	public abstract contactTypeDAO getcontactTypeDAO();
+	public abstract ContactTypeDAO getContactTypeDAO();
 	public abstract IngredientDAO getIngredientDAO();
 	public abstract StepDAO getStepDAO();
 	public abstract DrinkIngredientDAO getDrinkIngredientDAO();
-	public abstract MeasureDAO getMeasureDAO();
 	public abstract EvaluationDAO getEvaluationDAO();
-	public abstract DosageDAO getDosageDAO();
-	public abstract yeldTypeDAO getyeldTypeDAO();
-	public abstract drinkTypeDAO getdrinkTypeDAO();
+	public abstract DrinkTypeDAO getDrinkTypeDAO();
 }
 

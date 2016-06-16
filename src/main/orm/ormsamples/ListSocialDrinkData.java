@@ -82,11 +82,11 @@ public void listTestData() throws PersistentException {
 		}
 		System.out.println(length + " record(s) retrieved.");
 		
-		System.out.println("Listing contactType...");
-		socialdrink.contactType[] socialdrinkcontactTypes = lDAOFactory.getcontactTypeDAO().listContactTypeByQuery(null, null);
-		length = Math.min(socialdrinkcontactTypes.length, ROW_COUNT);
+		System.out.println("Listing ContactType...");
+		socialdrink.ContactType[] socialdrinkContactTypes = lDAOFactory.getContactTypeDAO().listContactTypeByQuery(null, null);
+		length = Math.min(socialdrinkContactTypes.length, ROW_COUNT);
 		for (int i = 0; i < length; i++) {
-			System.out.println(socialdrinkcontactTypes[i]);
+			System.out.println(socialdrinkContactTypes[i]);
 		}
 		System.out.println(length + " record(s) retrieved.");
 		
@@ -114,14 +114,6 @@ public void listTestData() throws PersistentException {
 		}
 		System.out.println(length + " record(s) retrieved.");
 		
-		System.out.println("Listing Measure...");
-		socialdrink.Measure[] socialdrinkMeasures = lDAOFactory.getMeasureDAO().listMeasureByQuery(null, null);
-		length = Math.min(socialdrinkMeasures.length, ROW_COUNT);
-		for (int i = 0; i < length; i++) {
-			System.out.println(socialdrinkMeasures[i]);
-		}
-		System.out.println(length + " record(s) retrieved.");
-		
 		System.out.println("Listing Evaluation...");
 		socialdrink.Evaluation[] socialdrinkEvaluations = lDAOFactory.getEvaluationDAO().listEvaluationByQuery(null, null);
 		length = Math.min(socialdrinkEvaluations.length, ROW_COUNT);
@@ -130,27 +122,11 @@ public void listTestData() throws PersistentException {
 		}
 		System.out.println(length + " record(s) retrieved.");
 		
-		System.out.println("Listing Dosage...");
-		socialdrink.Dosage[] socialdrinkDosages = lDAOFactory.getDosageDAO().listDosageByQuery(null, null);
-		length = Math.min(socialdrinkDosages.length, ROW_COUNT);
+		System.out.println("Listing DrinkType...");
+		socialdrink.DrinkType[] socialdrinkDrinkTypes = lDAOFactory.getDrinkTypeDAO().listDrinkTypeByQuery(null, null);
+		length = Math.min(socialdrinkDrinkTypes.length, ROW_COUNT);
 		for (int i = 0; i < length; i++) {
-			System.out.println(socialdrinkDosages[i]);
-		}
-		System.out.println(length + " record(s) retrieved.");
-		
-		System.out.println("Listing yeldType...");
-		socialdrink.yeldType[] socialdrinkyeldTypes = lDAOFactory.getyeldTypeDAO().listYeldTypeByQuery(null, null);
-		length = Math.min(socialdrinkyeldTypes.length, ROW_COUNT);
-		for (int i = 0; i < length; i++) {
-			System.out.println(socialdrinkyeldTypes[i]);
-		}
-		System.out.println(length + " record(s) retrieved.");
-		
-		System.out.println("Listing drinkType...");
-		socialdrink.drinkType[] socialdrinkdrinkTypes = lDAOFactory.getdrinkTypeDAO().listDrinkTypeByQuery(null, null);
-		length = Math.min(socialdrinkdrinkTypes.length, ROW_COUNT);
-		for (int i = 0; i < length; i++) {
-			System.out.println(socialdrinkdrinkTypes[i]);
+			System.out.println(socialdrinkDrinkTypes[i]);
 		}
 		System.out.println(length + " record(s) retrieved.");
 		
@@ -265,17 +241,17 @@ public void listTestData() throws PersistentException {
 		}
 		System.out.println(length + " Drink record(s) retrieved."); 
 		
-		System.out.println("Listing contactType by Criteria...");
-		socialdrink.contactTypeCriteria lsocialdrinkcontactTypeCriteria = new socialdrink.contactTypeCriteria();
+		System.out.println("Listing ContactType by Criteria...");
+		socialdrink.ContactTypeCriteria lsocialdrinkContactTypeCriteria = new socialdrink.ContactTypeCriteria();
 		// Please uncomment the follow line and fill in parameter(s) 
-		//lsocialdrinkcontactTypeCriteria.ID.eq();
-		lsocialdrinkcontactTypeCriteria.setMaxResults(ROW_COUNT);
-		socialdrink.contactType[] socialdrinkcontactTypes = lsocialdrinkcontactTypeCriteria.listContactType();
-		length =socialdrinkcontactTypes== null ? 0 : Math.min(socialdrinkcontactTypes.length, ROW_COUNT); 
+		//lsocialdrinkContactTypeCriteria.ID.eq();
+		lsocialdrinkContactTypeCriteria.setMaxResults(ROW_COUNT);
+		socialdrink.ContactType[] socialdrinkContactTypes = lsocialdrinkContactTypeCriteria.listContactType();
+		length =socialdrinkContactTypes== null ? 0 : Math.min(socialdrinkContactTypes.length, ROW_COUNT); 
 		for (int i = 0; i < length; i++) {
-			 System.out.println(socialdrinkcontactTypes[i]);
+			 System.out.println(socialdrinkContactTypes[i]);
 		}
-		System.out.println(length + " contactType record(s) retrieved."); 
+		System.out.println(length + " ContactType record(s) retrieved."); 
 		
 		System.out.println("Listing Ingredient by Criteria...");
 		socialdrink.IngredientCriteria lsocialdrinkIngredientCriteria = new socialdrink.IngredientCriteria();
@@ -313,18 +289,6 @@ public void listTestData() throws PersistentException {
 		}
 		System.out.println(length + " DrinkIngredient record(s) retrieved."); 
 		
-		System.out.println("Listing Measure by Criteria...");
-		socialdrink.MeasureCriteria lsocialdrinkMeasureCriteria = new socialdrink.MeasureCriteria();
-		// Please uncomment the follow line and fill in parameter(s) 
-		//lsocialdrinkMeasureCriteria.ID.eq();
-		lsocialdrinkMeasureCriteria.setMaxResults(ROW_COUNT);
-		socialdrink.Measure[] socialdrinkMeasures = lsocialdrinkMeasureCriteria.listMeasure();
-		length =socialdrinkMeasures== null ? 0 : Math.min(socialdrinkMeasures.length, ROW_COUNT); 
-		for (int i = 0; i < length; i++) {
-			 System.out.println(socialdrinkMeasures[i]);
-		}
-		System.out.println(length + " Measure record(s) retrieved."); 
-		
 		System.out.println("Listing Evaluation by Criteria...");
 		socialdrink.EvaluationCriteria lsocialdrinkEvaluationCriteria = new socialdrink.EvaluationCriteria();
 		// Please uncomment the follow line and fill in parameter(s) 
@@ -337,41 +301,17 @@ public void listTestData() throws PersistentException {
 		}
 		System.out.println(length + " Evaluation record(s) retrieved."); 
 		
-		System.out.println("Listing Dosage by Criteria...");
-		socialdrink.DosageCriteria lsocialdrinkDosageCriteria = new socialdrink.DosageCriteria();
+		System.out.println("Listing DrinkType by Criteria...");
+		socialdrink.DrinkTypeCriteria lsocialdrinkDrinkTypeCriteria = new socialdrink.DrinkTypeCriteria();
 		// Please uncomment the follow line and fill in parameter(s) 
-		//lsocialdrinkDosageCriteria.ID.eq();
-		lsocialdrinkDosageCriteria.setMaxResults(ROW_COUNT);
-		socialdrink.Dosage[] socialdrinkDosages = lsocialdrinkDosageCriteria.listDosage();
-		length =socialdrinkDosages== null ? 0 : Math.min(socialdrinkDosages.length, ROW_COUNT); 
+		//lsocialdrinkDrinkTypeCriteria.ID.eq();
+		lsocialdrinkDrinkTypeCriteria.setMaxResults(ROW_COUNT);
+		socialdrink.DrinkType[] socialdrinkDrinkTypes = lsocialdrinkDrinkTypeCriteria.listDrinkType();
+		length =socialdrinkDrinkTypes== null ? 0 : Math.min(socialdrinkDrinkTypes.length, ROW_COUNT); 
 		for (int i = 0; i < length; i++) {
-			 System.out.println(socialdrinkDosages[i]);
+			 System.out.println(socialdrinkDrinkTypes[i]);
 		}
-		System.out.println(length + " Dosage record(s) retrieved."); 
-		
-		System.out.println("Listing yeldType by Criteria...");
-		socialdrink.yeldTypeCriteria lsocialdrinkyeldTypeCriteria = new socialdrink.yeldTypeCriteria();
-		// Please uncomment the follow line and fill in parameter(s) 
-		//lsocialdrinkyeldTypeCriteria.ID.eq();
-		lsocialdrinkyeldTypeCriteria.setMaxResults(ROW_COUNT);
-		socialdrink.yeldType[] socialdrinkyeldTypes = lsocialdrinkyeldTypeCriteria.listYeldType();
-		length =socialdrinkyeldTypes== null ? 0 : Math.min(socialdrinkyeldTypes.length, ROW_COUNT); 
-		for (int i = 0; i < length; i++) {
-			 System.out.println(socialdrinkyeldTypes[i]);
-		}
-		System.out.println(length + " yeldType record(s) retrieved."); 
-		
-		System.out.println("Listing drinkType by Criteria...");
-		socialdrink.drinkTypeCriteria lsocialdrinkdrinkTypeCriteria = new socialdrink.drinkTypeCriteria();
-		// Please uncomment the follow line and fill in parameter(s) 
-		//lsocialdrinkdrinkTypeCriteria.ID.eq();
-		lsocialdrinkdrinkTypeCriteria.setMaxResults(ROW_COUNT);
-		socialdrink.drinkType[] socialdrinkdrinkTypes = lsocialdrinkdrinkTypeCriteria.listDrinkType();
-		length =socialdrinkdrinkTypes== null ? 0 : Math.min(socialdrinkdrinkTypes.length, ROW_COUNT); 
-		for (int i = 0; i < length; i++) {
-			 System.out.println(socialdrinkdrinkTypes[i]);
-		}
-		System.out.println(length + " drinkType record(s) retrieved."); 
+		System.out.println(length + " DrinkType record(s) retrieved."); 
 		
 	}
 	

@@ -20,24 +20,16 @@ import org.orm.criteria.*;
 
 public class DrinkIngredientCriteria extends AbstractORMCriteria {
 	public final IntegerExpression ID;
-	public final IntegerExpression dosageId;
-	public final AssociationExpression dosage;
-	public final IntegerExpression measureId;
-	public final AssociationExpression measure;
 	public final IntegerExpression ingredientId;
 	public final AssociationExpression ingredient;
-	public final DoubleExpression amount;
+	public final StringExpression amount;
 	
 	public DrinkIngredientCriteria(Criteria criteria) {
 		super(criteria);
 		ID = new IntegerExpression("ID", this);
-		dosageId = new IntegerExpression("dosage.ID", this);
-		dosage = new AssociationExpression("dosage", this);
-		measureId = new IntegerExpression("measure.ID", this);
-		measure = new AssociationExpression("measure", this);
 		ingredientId = new IntegerExpression("ingredient.ID", this);
 		ingredient = new AssociationExpression("ingredient", this);
-		amount = new DoubleExpression("amount", this);
+		amount = new StringExpression("amount", this);
 	}
 	
 	public DrinkIngredientCriteria(PersistentSession session) {
@@ -46,14 +38,6 @@ public class DrinkIngredientCriteria extends AbstractORMCriteria {
 	
 	public DrinkIngredientCriteria() throws PersistentException {
 		this(socialdrink.SocialDrinkPersistentManager.instance().getSession());
-	}
-	
-	public DosageCriteria createDosageCriteria() {
-		return new DosageCriteria(createCriteria("dosage"));
-	}
-	
-	public MeasureCriteria createMeasureCriteria() {
-		return new MeasureCriteria(createCriteria("measure"));
 	}
 	
 	public IngredientCriteria createIngredientCriteria() {

@@ -67,8 +67,8 @@ public class DAOFactoryImpl extends DAOFactory {
 		return _drinkDAO;
 	}
 	
-	private contactTypeDAO _contactTypeDAO = new contactTypeDAOImpl();
-	public contactTypeDAO getcontactTypeDAO() {
+	private ContactTypeDAO _contactTypeDAO = new ContactTypeDAOImpl();
+	public ContactTypeDAO getContactTypeDAO() {
 		return _contactTypeDAO;
 	}
 	
@@ -87,28 +87,13 @@ public class DAOFactoryImpl extends DAOFactory {
 		return _drinkIngredientDAO;
 	}
 	
-	private MeasureDAO _measureDAO = new MeasureDAOImpl();
-	public MeasureDAO getMeasureDAO() {
-		return _measureDAO;
-	}
-	
 	private EvaluationDAO _evaluationDAO = new EvaluationDAOImpl();
 	public EvaluationDAO getEvaluationDAO() {
 		return _evaluationDAO;
 	}
 	
-	private DosageDAO _dosageDAO = new DosageDAOImpl();
-	public DosageDAO getDosageDAO() {
-		return _dosageDAO;
-	}
-	
-	private yeldTypeDAO _yeldTypeDAO = new yeldTypeDAOImpl();
-	public yeldTypeDAO getyeldTypeDAO() {
-		return _yeldTypeDAO;
-	}
-	
-	private drinkTypeDAO _drinkTypeDAO = new drinkTypeDAOImpl();
-	public drinkTypeDAO getdrinkTypeDAO() {
+	private DrinkTypeDAO _drinkTypeDAO = new DrinkTypeDAOImpl();
+	public DrinkTypeDAO getDrinkTypeDAO() {
 		return _drinkTypeDAO;
 	}
 	

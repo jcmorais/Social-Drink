@@ -18,31 +18,31 @@ import org.orm.PersistentException;
 import org.orm.PersistentSession;
 import org.orm.criteria.*;
 
-public class contactTypeCriteria extends AbstractORMCriteria {
+public class ContactTypeCriteria extends AbstractORMCriteria {
 	public final IntegerExpression ID;
 	public final StringExpression name;
 	
-	public contactTypeCriteria(Criteria criteria) {
+	public ContactTypeCriteria(Criteria criteria) {
 		super(criteria);
 		ID = new IntegerExpression("ID", this);
 		name = new StringExpression("name", this);
 	}
 	
-	public contactTypeCriteria(PersistentSession session) {
-		this(session.createCriteria(contactType.class));
+	public ContactTypeCriteria(PersistentSession session) {
+		this(session.createCriteria(ContactType.class));
 	}
 	
-	public contactTypeCriteria() throws PersistentException {
+	public ContactTypeCriteria() throws PersistentException {
 		this(socialdrink.SocialDrinkPersistentManager.instance().getSession());
 	}
 	
-	public contactType uniqueContactType() {
-		return (contactType) super.uniqueResult();
+	public ContactType uniqueContactType() {
+		return (ContactType) super.uniqueResult();
 	}
 	
-	public contactType[] listContactType() {
+	public ContactType[] listContactType() {
 		java.util.List list = super.list();
-		return (contactType[]) list.toArray(new contactType[list.size()]);
+		return (ContactType[]) list.toArray(new ContactType[list.size()]);
 	}
 }
 

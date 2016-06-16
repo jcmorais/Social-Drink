@@ -21,14 +21,6 @@ public class DrinkIngredient {
 		if (key == socialdrink.ORMConstants.KEY_DRINKINGREDIENT_INGREDIENT) {
 			this.ingredient = (socialdrink.Ingredient) owner;
 		}
-		
-		else if (key == socialdrink.ORMConstants.KEY_DRINKINGREDIENT_MEASURE) {
-			this.measure = (socialdrink.Measure) owner;
-		}
-		
-		else if (key == socialdrink.ORMConstants.KEY_DRINKINGREDIENT_DOSAGE) {
-			this.dosage = (socialdrink.Dosage) owner;
-		}
 	}
 	
 	org.orm.util.ORMAdapter _ormAdapter = new org.orm.util.AbstractORMAdapter() {
@@ -40,13 +32,9 @@ public class DrinkIngredient {
 	
 	private int ID;
 	
-	private socialdrink.Dosage dosage;
-	
-	private socialdrink.Measure measure;
-	
 	private socialdrink.Ingredient ingredient;
 	
-	private Double amount;
+	private String amount;
 	
 	private void setID(int value) {
 		this.ID = value;
@@ -60,15 +48,11 @@ public class DrinkIngredient {
 		return getID();
 	}
 	
-	public void setAmount(double value) {
-		setAmount(new Double(value));
-	}
-	
-	public void setAmount(Double value) {
+	public void setAmount(String value) {
 		this.amount = value;
 	}
 	
-	public Double getAmount() {
+	public String getAmount() {
 		return amount;
 	}
 	
@@ -78,22 +62,6 @@ public class DrinkIngredient {
 	
 	public socialdrink.Ingredient getIngredient() {
 		return ingredient;
-	}
-	
-	public void setMeasure(socialdrink.Measure value) {
-		this.measure = value;
-	}
-	
-	public socialdrink.Measure getMeasure() {
-		return measure;
-	}
-	
-	public void setDosage(socialdrink.Dosage value) {
-		this.dosage = value;
-	}
-	
-	public socialdrink.Dosage getDosage() {
-		return dosage;
 	}
 	
 	public String toString() {

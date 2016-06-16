@@ -44,12 +44,12 @@ public class CreateSocialDrinkData {
 			lsocialdrinkPhotoDAO.save(lsocialdrinkPhoto);
 			socialdrink.dao.DrinkDAO lsocialdrinkDrinkDAO = lDAOFactory.getDrinkDAO();
 			socialdrink.Drink lsocialdrinkDrink = lsocialdrinkDrinkDAO.createDrink();
-			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : steps, ingredients, evaluation, album, yeldType, typeOfDrink, yeld, timeToPrepate
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : steps, ingredients, evaluation, yeld, timeToPrepate, typeOfDrink
 			lsocialdrinkDrinkDAO.save(lsocialdrinkDrink);
-			socialdrink.dao.contactTypeDAO lsocialdrinkcontactTypeDAO = lDAOFactory.getcontactTypeDAO();
-			socialdrink.contactType lsocialdrinkcontactType = lsocialdrinkcontactTypeDAO.createContactType();
+			socialdrink.dao.ContactTypeDAO lsocialdrinkContactTypeDAO = lDAOFactory.getContactTypeDAO();
+			socialdrink.ContactType lsocialdrinkContactType = lsocialdrinkContactTypeDAO.createContactType();
 			// Initialize the properties of the persistent object here
-			lsocialdrinkcontactTypeDAO.save(lsocialdrinkcontactType);
+			lsocialdrinkContactTypeDAO.save(lsocialdrinkContactType);
 			socialdrink.dao.IngredientDAO lsocialdrinkIngredientDAO = lDAOFactory.getIngredientDAO();
 			socialdrink.Ingredient lsocialdrinkIngredient = lsocialdrinkIngredientDAO.createIngredient();
 			// Initialize the properties of the persistent object here
@@ -60,28 +60,16 @@ public class CreateSocialDrinkData {
 			lsocialdrinkStepDAO.save(lsocialdrinkStep);
 			socialdrink.dao.DrinkIngredientDAO lsocialdrinkDrinkIngredientDAO = lDAOFactory.getDrinkIngredientDAO();
 			socialdrink.DrinkIngredient lsocialdrinkDrinkIngredient = lsocialdrinkDrinkIngredientDAO.createDrinkIngredient();
-			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : ingredient, dosage
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : ingredient
 			lsocialdrinkDrinkIngredientDAO.save(lsocialdrinkDrinkIngredient);
-			socialdrink.dao.MeasureDAO lsocialdrinkMeasureDAO = lDAOFactory.getMeasureDAO();
-			socialdrink.Measure lsocialdrinkMeasure = lsocialdrinkMeasureDAO.createMeasure();
-			// Initialize the properties of the persistent object here
-			lsocialdrinkMeasureDAO.save(lsocialdrinkMeasure);
 			socialdrink.dao.EvaluationDAO lsocialdrinkEvaluationDAO = lDAOFactory.getEvaluationDAO();
 			socialdrink.Evaluation lsocialdrinkEvaluation = lsocialdrinkEvaluationDAO.createEvaluation();
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : user
 			lsocialdrinkEvaluationDAO.save(lsocialdrinkEvaluation);
-			socialdrink.dao.DosageDAO lsocialdrinkDosageDAO = lDAOFactory.getDosageDAO();
-			socialdrink.Dosage lsocialdrinkDosage = lsocialdrinkDosageDAO.createDosage();
+			socialdrink.dao.DrinkTypeDAO lsocialdrinkDrinkTypeDAO = lDAOFactory.getDrinkTypeDAO();
+			socialdrink.DrinkType lsocialdrinkDrinkType = lsocialdrinkDrinkTypeDAO.createDrinkType();
 			// Initialize the properties of the persistent object here
-			lsocialdrinkDosageDAO.save(lsocialdrinkDosage);
-			socialdrink.dao.yeldTypeDAO lsocialdrinkyeldTypeDAO = lDAOFactory.getyeldTypeDAO();
-			socialdrink.yeldType lsocialdrinkyeldType = lsocialdrinkyeldTypeDAO.createYeldType();
-			// Initialize the properties of the persistent object here
-			lsocialdrinkyeldTypeDAO.save(lsocialdrinkyeldType);
-			socialdrink.dao.drinkTypeDAO lsocialdrinkdrinkTypeDAO = lDAOFactory.getdrinkTypeDAO();
-			socialdrink.drinkType lsocialdrinkdrinkType = lsocialdrinkdrinkTypeDAO.createDrinkType();
-			// Initialize the properties of the persistent object here
-			lsocialdrinkdrinkTypeDAO.save(lsocialdrinkdrinkType);
+			lsocialdrinkDrinkTypeDAO.save(lsocialdrinkDrinkType);
 			t.commit();
 		}
 		catch (Exception e) {

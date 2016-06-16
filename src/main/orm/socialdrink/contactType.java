@@ -13,8 +13,8 @@
  */
 package socialdrink;
 
-public class contactType {
-	public contactType() {
+public class ContactType {
+	public ContactType() {
 	}
 	
 	private int ID;

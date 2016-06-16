@@ -20,17 +20,14 @@ import org.orm.criteria.*;
 
 public class DrinkDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final IntegerExpression ID;
+	public final IntegerExpression typeOfDrinkId;
+	public final AssociationExpression typeOfDrink;
 	public final IntegerExpression photoId;
 	public final AssociationExpression photo;
 	public final StringExpression name;
 	public final StringExpression description;
 	public final IntegerExpression timeToPrepate;
 	public final DoubleExpression yeld;
-	public final IntegerExpression typeOfDrinkId;
-	public final AssociationExpression typeOfDrink;
-	public final IntegerExpression yeldTypeId;
-	public final AssociationExpression yeldType;
-	public final CollectionExpression album;
 	public final CollectionExpression evaluation;
 	public final CollectionExpression ingredients;
 	public final CollectionExpression steps;
@@ -38,17 +35,14 @@ public class DrinkDetachedCriteria extends AbstractORMDetachedCriteria {
 	public DrinkDetachedCriteria() {
 		super(socialdrink.Drink.class, socialdrink.DrinkCriteria.class);
 		ID = new IntegerExpression("ID", this.getDetachedCriteria());
+		typeOfDrinkId = new IntegerExpression("typeOfDrink.ID", this.getDetachedCriteria());
+		typeOfDrink = new AssociationExpression("typeOfDrink", this.getDetachedCriteria());
 		photoId = new IntegerExpression("photo.ID", this.getDetachedCriteria());
 		photo = new AssociationExpression("photo", this.getDetachedCriteria());
 		name = new StringExpression("name", this.getDetachedCriteria());
 		description = new StringExpression("description", this.getDetachedCriteria());
 		timeToPrepate = new IntegerExpression("timeToPrepate", this.getDetachedCriteria());
 		yeld = new DoubleExpression("yeld", this.getDetachedCriteria());
-		typeOfDrinkId = new IntegerExpression("typeOfDrink.ID", this.getDetachedCriteria());
-		typeOfDrink = new AssociationExpression("typeOfDrink", this.getDetachedCriteria());
-		yeldTypeId = new IntegerExpression("yeldType.ID", this.getDetachedCriteria());
-		yeldType = new AssociationExpression("yeldType", this.getDetachedCriteria());
-		album = new CollectionExpression("ORM_Album", this.getDetachedCriteria());
 		evaluation = new CollectionExpression("ORM_Evaluation", this.getDetachedCriteria());
 		ingredients = new CollectionExpression("ORM_Ingredients", this.getDetachedCriteria());
 		steps = new CollectionExpression("ORM_Steps", this.getDetachedCriteria());
@@ -57,36 +51,25 @@ public class DrinkDetachedCriteria extends AbstractORMDetachedCriteria {
 	public DrinkDetachedCriteria(DetachedCriteria aDetachedCriteria) {
 		super(aDetachedCriteria, socialdrink.DrinkCriteria.class);
 		ID = new IntegerExpression("ID", this.getDetachedCriteria());
+		typeOfDrinkId = new IntegerExpression("typeOfDrink.ID", this.getDetachedCriteria());
+		typeOfDrink = new AssociationExpression("typeOfDrink", this.getDetachedCriteria());
 		photoId = new IntegerExpression("photo.ID", this.getDetachedCriteria());
 		photo = new AssociationExpression("photo", this.getDetachedCriteria());
 		name = new StringExpression("name", this.getDetachedCriteria());
 		description = new StringExpression("description", this.getDetachedCriteria());
 		timeToPrepate = new IntegerExpression("timeToPrepate", this.getDetachedCriteria());
 		yeld = new DoubleExpression("yeld", this.getDetachedCriteria());
-		typeOfDrinkId = new IntegerExpression("typeOfDrink.ID", this.getDetachedCriteria());
-		typeOfDrink = new AssociationExpression("typeOfDrink", this.getDetachedCriteria());
-		yeldTypeId = new IntegerExpression("yeldType.ID", this.getDetachedCriteria());
-		yeldType = new AssociationExpression("yeldType", this.getDetachedCriteria());
-		album = new CollectionExpression("ORM_Album", this.getDetachedCriteria());
 		evaluation = new CollectionExpression("ORM_Evaluation", this.getDetachedCriteria());
 		ingredients = new CollectionExpression("ORM_Ingredients", this.getDetachedCriteria());
 		steps = new CollectionExpression("ORM_Steps", this.getDetachedCriteria());
 	}
 	
+	public DrinkTypeDetachedCriteria createTypeOfDrinkCriteria() {
+		return new DrinkTypeDetachedCriteria(createCriteria("typeOfDrink"));
+	}
+	
 	public PhotoDetachedCriteria createPhotoCriteria() {
 		return new PhotoDetachedCriteria(createCriteria("photo"));
-	}
-	
-	public drinkTypeDetachedCriteria createTypeOfDrinkCriteria() {
-		return new drinkTypeDetachedCriteria(createCriteria("typeOfDrink"));
-	}
-	
-	public yeldTypeDetachedCriteria createYeldTypeCriteria() {
-		return new yeldTypeDetachedCriteria(createCriteria("yeldType"));
-	}
-	
-	public PhotoDetachedCriteria createAlbumCriteria() {
-		return new PhotoDetachedCriteria(createCriteria("ORM_Album"));
 	}
 	
 	public EvaluationDetachedCriteria createEvaluationCriteria() {

@@ -19,7 +19,7 @@ public class Contact {
 	
 	private void this_setOwner(Object owner, int key) {
 		if (key == socialdrink.ORMConstants.KEY_CONTACT_CONTACTTYPE) {
-			this.contactType = (socialdrink.contactType) owner;
+			this.contactType = (socialdrink.ContactType) owner;
 		}
 	}
 	
@@ -32,7 +32,7 @@ public class Contact {
 	
 	private int ID;
 	
-	private socialdrink.contactType contactType;
+	private socialdrink.ContactType contactType;
 	
 	private String contact;
 	
@@ -56,11 +56,11 @@ public class Contact {
 		return contact;
 	}
 	
-	public void setContactType(socialdrink.contactType value) {
+	public void setContactType(socialdrink.ContactType value) {
 		this.contactType = value;
 	}
 	
-	public socialdrink.contactType getContactType() {
+	public socialdrink.ContactType getContactType() {
 		return contactType;
 	}
 	

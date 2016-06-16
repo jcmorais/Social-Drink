@@ -40,8 +40,8 @@ public class ContactCriteria extends AbstractORMCriteria {
 		this(socialdrink.SocialDrinkPersistentManager.instance().getSession());
 	}
 	
-	public contactTypeCriteria createContactTypeCriteria() {
-		return new contactTypeCriteria(createCriteria("contactType"));
+	public ContactTypeCriteria createContactTypeCriteria() {
+		return new ContactTypeCriteria(createCriteria("contactType"));
 	}
 	
 	public Contact uniqueContact() {

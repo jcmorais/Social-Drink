@@ -18,7 +18,7 @@ License Type: Academic
 		<property name="email" column="Email" type="string" length="255" not-null="false" lazy="false"/>
 		<property name="password" column="Password" type="string" length="255" not-null="false" lazy="false"/>
 		<property name="description" column="Description" type="string" length="255" not-null="false" lazy="false"/>
-		<array name="followers" table="User_followers" cascade="all">
+		<array name="followers" table="Entity4" cascade="all">
 			<key column="UserID"/>
 			<index column="UserIndex" type="integer"/>
 			<element column="Followers" type="string" length="255"/>
@@ -33,12 +33,12 @@ License Type: Academic
 			<property name="Birthday" column="Birthday" type="date" not-null="false" lazy="false"/>
 			<property name="profession" column="Profession" type="string" length="255" not-null="false" lazy="false"/>
 			<property name="sex" column="Sex" type="string" length="255" not-null="false" lazy="false"/>
-			<array name="following" table="User_following" cascade="all">
+			<array name="following" table="Entity5" cascade="all">
 				<key column="UserID"/>
 				<index column="UserIndex" type="integer"/>
 				<element column="Following" type="string" length="255"/>
 			</array>
-			<array name="favoriteDrink" table="User_favoriteDrink" cascade="all">
+			<array name="favoriteDrink" table="Entity6" cascade="all">
 				<key column="UserID"/>
 				<index column="UserIndex" type="integer"/>
 				<element column="FavoriteDrink" type="string" length="255"/>

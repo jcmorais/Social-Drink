@@ -20,17 +20,14 @@ import org.orm.criteria.*;
 
 public class DrinkCriteria extends AbstractORMCriteria {
 	public final IntegerExpression ID;
+	public final IntegerExpression typeOfDrinkId;
+	public final AssociationExpression typeOfDrink;
 	public final IntegerExpression photoId;
 	public final AssociationExpression photo;
 	public final StringExpression name;
 	public final StringExpression description;
 	public final IntegerExpression timeToPrepate;
 	public final DoubleExpression yeld;
-	public final IntegerExpression typeOfDrinkId;
-	public final AssociationExpression typeOfDrink;
-	public final IntegerExpression yeldTypeId;
-	public final AssociationExpression yeldType;
-	public final CollectionExpression album;
 	public final CollectionExpression evaluation;
 	public final CollectionExpression ingredients;
 	public final CollectionExpression steps;
@@ -38,17 +35,14 @@ public class DrinkCriteria extends AbstractORMCriteria {
 	public DrinkCriteria(Criteria criteria) {
 		super(criteria);
 		ID = new IntegerExpression("ID", this);
+		typeOfDrinkId = new IntegerExpression("typeOfDrink.ID", this);
+		typeOfDrink = new AssociationExpression("typeOfDrink", this);
 		photoId = new IntegerExpression("photo.ID", this);
 		photo = new AssociationExpression("photo", this);
 		name = new StringExpression("name", this);
 		description = new StringExpression("description", this);
 		timeToPrepate = new IntegerExpression("timeToPrepate", this);
 		yeld = new DoubleExpression("yeld", this);
-		typeOfDrinkId = new IntegerExpression("typeOfDrink.ID", this);
-		typeOfDrink = new AssociationExpression("typeOfDrink", this);
-		yeldTypeId = new IntegerExpression("yeldType.ID", this);
-		yeldType = new AssociationExpression("yeldType", this);
-		album = new CollectionExpression("ORM_Album", this);
 		evaluation = new CollectionExpression("ORM_Evaluation", this);
 		ingredients = new CollectionExpression("ORM_Ingredients", this);
 		steps = new CollectionExpression("ORM_Steps", this);
@@ -62,20 +56,12 @@ public class DrinkCriteria extends AbstractORMCriteria {
 		this(socialdrink.SocialDrinkPersistentManager.instance().getSession());
 	}
 	
+	public DrinkTypeCriteria createTypeOfDrinkCriteria() {
+		return new DrinkTypeCriteria(createCriteria("typeOfDrink"));
+	}
+	
 	public PhotoCriteria createPhotoCriteria() {
 		return new PhotoCriteria(createCriteria("photo"));
-	}
-	
-	public drinkTypeCriteria createTypeOfDrinkCriteria() {
-		return new drinkTypeCriteria(createCriteria("typeOfDrink"));
-	}
-	
-	public yeldTypeCriteria createYeldTypeCriteria() {
-		return new yeldTypeCriteria(createCriteria("yeldType"));
-	}
-	
-	public PhotoCriteria createAlbumCriteria() {
-		return new PhotoCriteria(createCriteria("ORM_Album"));
 	}
 	
 	public EvaluationCriteria createEvaluationCriteria() {

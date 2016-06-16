@@ -13,16 +13,16 @@
  */
 package socialdrink;
 
-public class drinkType {
-	public drinkType() {
+public class DrinkType {
+	public DrinkType() {
 	}
 	
 	public boolean equals(Object aObj) {
 		if (aObj == this)
 			return true;
-		if (!(aObj instanceof drinkType))
+		if (!(aObj instanceof DrinkType))
 			return false;
-		drinkType drinktype = (drinkType)aObj;
+		DrinkType drinktype = (DrinkType)aObj;
 		if ((getName() != null && !getName().equals(drinktype.getName())) || (getName() == null && drinktype.getName() != null))
 			return false;
 		return true;

@@ -26,19 +26,16 @@ License Type: Academic
 		<mapping resource="ormmapping/socialdrink/Address.hbm.xml" />
 		<mapping resource="ormmapping/socialdrink/City.hbm.xml" />
 		<mapping resource="ormmapping/socialdrink/Contact.hbm.xml" />
+		<mapping resource="ormmapping/socialdrink/ContactType.hbm.xml" />
 		<mapping resource="ormmapping/socialdrink/Country.hbm.xml" />
-		<mapping resource="ormmapping/socialdrink/Dosage.hbm.xml" />
 		<mapping resource="ormmapping/socialdrink/Drink.hbm.xml" />
 		<mapping resource="ormmapping/socialdrink/DrinkIngredient.hbm.xml" />
+		<mapping resource="ormmapping/socialdrink/DrinkType.hbm.xml" />
 		<mapping resource="ormmapping/socialdrink/Evaluation.hbm.xml" />
 		<mapping resource="ormmapping/socialdrink/Ingredient.hbm.xml" />
-		<mapping resource="ormmapping/socialdrink/Measure.hbm.xml" />
 		<mapping resource="ormmapping/socialdrink/Photo.hbm.xml" />
 		<mapping resource="ormmapping/socialdrink/Step.hbm.xml" />
 		<mapping resource="ormmapping/socialdrink/User.hbm.xml" />
 		<mapping resource="ormmapping/socialdrink/Weekday.hbm.xml" />
-		<mapping resource="ormmapping/socialdrink/contactType.hbm.xml" />
-		<mapping resource="ormmapping/socialdrink/drinkType.hbm.xml" />
-		<mapping resource="ormmapping/socialdrink/yeldType.hbm.xml" />
 	</session-factory>
 </hibernate-configuration>

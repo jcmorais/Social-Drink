@@ -10,7 +10,7 @@ License Type: Academic
 			<generator class="native">
 			</generator>
 		</id>
-		<many-to-one name="contactType" column="TypeID" class="socialdrink.contactType" cascade="save-update,lock" unique="true" not-null="true" lazy="no-proxy" access="field">
+		<many-to-one name="contactType" column="ContactTypeID" class="socialdrink.ContactType" cascade="save-update,lock" unique="true" not-null="true" lazy="no-proxy" access="field">
 		</many-to-one>
 		<property name="contact" column="Contact" type="string" length="255" not-null="false" lazy="false"/>
 	</class>

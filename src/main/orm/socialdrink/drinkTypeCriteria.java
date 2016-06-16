@@ -18,31 +18,31 @@ import org.orm.PersistentException;
 import org.orm.PersistentSession;
 import org.orm.criteria.*;
 
-public class drinkTypeCriteria extends AbstractORMCriteria {
+public class DrinkTypeCriteria extends AbstractORMCriteria {
 	public final IntegerExpression ID;
 	public final StringExpression name;
 	
-	public drinkTypeCriteria(Criteria criteria) {
+	public DrinkTypeCriteria(Criteria criteria) {
 		super(criteria);
 		ID = new IntegerExpression("ID", this);
 		name = new StringExpression("name", this);
 	}
 	
-	public drinkTypeCriteria(PersistentSession session) {
-		this(session.createCriteria(drinkType.class));
+	public DrinkTypeCriteria(PersistentSession session) {
+		this(session.createCriteria(DrinkType.class));
 	}
 	
-	public drinkTypeCriteria() throws PersistentException {
+	public DrinkTypeCriteria() throws PersistentException {
 		this(socialdrink.SocialDrinkPersistentManager.instance().getSession());
 	}
 	
-	public drinkType uniqueDrinkType() {
-		return (drinkType) super.uniqueResult();
+	public DrinkType uniqueDrinkType() {
+		return (DrinkType) super.uniqueResult();
 	}
 	
-	public drinkType[] listDrinkType() {
+	public DrinkType[] listDrinkType() {
 		java.util.List list = super.list();
-		return (drinkType[]) list.toArray(new drinkType[list.size()]);
+		return (DrinkType[]) list.toArray(new DrinkType[list.size()]);
 	}
 }
 

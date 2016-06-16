@@ -26,13 +26,7 @@ public interface ORMConstants extends org.orm.util.ORMBaseConstants {
 	
 	final int KEY_COUNTRY_CITIES = 668833842;
 	
-	final int KEY_DRINKINGREDIENT_DOSAGE = 839922509;
-	
 	final int KEY_DRINKINGREDIENT_INGREDIENT = 1335614311;
-	
-	final int KEY_DRINKINGREDIENT_MEASURE = -636972152;
-	
-	final int KEY_DRINK_ALBUM = -1943580696;
 	
 	final int KEY_DRINK_EVALUATION = -1174193821;
 	
@@ -43,8 +37,6 @@ public interface ORMConstants extends org.orm.util.ORMBaseConstants {
 	final int KEY_DRINK_STEPS = -1926716256;
 	
 	final int KEY_DRINK_TYPEOFDRINK = 557584160;
-	
-	final int KEY_DRINK_YELDTYPE = 766753477;
 	
 	final int KEY_EVALUATION_USER = 178748110;
 	

@@ -18,29 +18,29 @@ import org.hibernate.criterion.DetachedCriteria;
 import org.orm.PersistentSession;
 import org.orm.criteria.*;
 
-public class drinkTypeDetachedCriteria extends AbstractORMDetachedCriteria {
+public class DrinkTypeDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final IntegerExpression ID;
 	public final StringExpression name;
 	
-	public drinkTypeDetachedCriteria() {
-		super(socialdrink.drinkType.class, socialdrink.drinkTypeCriteria.class);
+	public DrinkTypeDetachedCriteria() {
+		super(socialdrink.DrinkType.class, socialdrink.DrinkTypeCriteria.class);
 		ID = new IntegerExpression("ID", this.getDetachedCriteria());
 		name = new StringExpression("name", this.getDetachedCriteria());
 	}
 	
-	public drinkTypeDetachedCriteria(DetachedCriteria aDetachedCriteria) {
-		super(aDetachedCriteria, socialdrink.drinkTypeCriteria.class);
+	public DrinkTypeDetachedCriteria(DetachedCriteria aDetachedCriteria) {
+		super(aDetachedCriteria, socialdrink.DrinkTypeCriteria.class);
 		ID = new IntegerExpression("ID", this.getDetachedCriteria());
 		name = new StringExpression("name", this.getDetachedCriteria());
 	}
 	
-	public drinkType uniqueDrinkType(PersistentSession session) {
-		return (drinkType) super.createExecutableCriteria(session).uniqueResult();
+	public DrinkType uniqueDrinkType(PersistentSession session) {
+		return (DrinkType) super.createExecutableCriteria(session).uniqueResult();
 	}
 	
-	public drinkType[] listDrinkType(PersistentSession session) {
+	public DrinkType[] listDrinkType(PersistentSession session) {
 		List list = super.createExecutableCriteria(session).list();
-		return (drinkType[]) list.toArray(new drinkType[list.size()]);
+		return (DrinkType[]) list.toArray(new DrinkType[list.size()]);
 	}
 }
 

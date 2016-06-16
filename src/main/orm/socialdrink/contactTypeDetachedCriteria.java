@@ -18,29 +18,29 @@ import org.hibernate.criterion.DetachedCriteria;
 import org.orm.PersistentSession;
 import org.orm.criteria.*;
 
-public class contactTypeDetachedCriteria extends AbstractORMDetachedCriteria {
+public class ContactTypeDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final IntegerExpression ID;
 	public final StringExpression name;
 	
-	public contactTypeDetachedCriteria() {
-		super(socialdrink.contactType.class, socialdrink.contactTypeCriteria.class);
+	public ContactTypeDetachedCriteria() {
+		super(socialdrink.ContactType.class, socialdrink.ContactTypeCriteria.class);
 		ID = new IntegerExpression("ID", this.getDetachedCriteria());
 		name = new StringExpression("name", this.getDetachedCriteria());
 	}
 	
-	public contactTypeDetachedCriteria(DetachedCriteria aDetachedCriteria) {
-		super(aDetachedCriteria, socialdrink.contactTypeCriteria.class);
+	public ContactTypeDetachedCriteria(DetachedCriteria aDetachedCriteria) {
+		super(aDetachedCriteria, socialdrink.ContactTypeCriteria.class);
 		ID = new IntegerExpression("ID", this.getDetachedCriteria());
 		name = new StringExpression("name", this.getDetachedCriteria());
 	}
 	
-	public contactType uniqueContactType(PersistentSession session) {
-		return (contactType) super.createExecutableCriteria(session).uniqueResult();
+	public ContactType uniqueContactType(PersistentSession session) {
+		return (ContactType) super.createExecutableCriteria(session).uniqueResult();
 	}
 	
-	public contactType[] listContactType(PersistentSession session) {
+	public ContactType[] listContactType(PersistentSession session) {
 		List list = super.createExecutableCriteria(session).list();
-		return (contactType[]) list.toArray(new contactType[list.size()]);
+		return (ContactType[]) list.toArray(new ContactType[list.size()]);
 	}
 }
 

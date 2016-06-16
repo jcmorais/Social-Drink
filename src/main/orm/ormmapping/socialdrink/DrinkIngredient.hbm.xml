@@ -10,12 +10,8 @@ License Type: Academic
 			<generator class="native">
 			</generator>
 		</id>
-		<many-to-one name="dosage" column="DosageID" class="socialdrink.Dosage" cascade="save-update,lock" unique="true" not-null="true" lazy="no-proxy" access="field">
-		</many-to-one>
-		<many-to-one name="measure" column="MeasureID" class="socialdrink.Measure" cascade="save-update,lock" unique="true" not-null="false" lazy="no-proxy" access="field">
-		</many-to-one>
 		<many-to-one name="ingredient" column="IngredientID" class="socialdrink.Ingredient" cascade="save-update,lock" unique="true" not-null="true" lazy="no-proxy" access="field">
 		</many-to-one>
-		<property name="amount" column="Amount" type="double" not-null="false" lazy="false"/>
+		<property name="amount" column="Amount" type="string" length="255" not-null="false" lazy="false"/>
 	</class>
 </hibernate-mapping>

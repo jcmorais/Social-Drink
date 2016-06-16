@@ -40,8 +40,8 @@ public class ContactDetachedCriteria extends AbstractORMDetachedCriteria {
 		contact = new StringExpression("contact", this.getDetachedCriteria());
 	}
 	
-	public contactTypeDetachedCriteria createContactTypeCriteria() {
-		return new contactTypeDetachedCriteria(createCriteria("contactType"));
+	public ContactTypeDetachedCriteria createContactTypeCriteria() {
+		return new ContactTypeDetachedCriteria(createCriteria("contactType"));
 	}
 	
 	public Contact uniqueContact(PersistentSession session) {

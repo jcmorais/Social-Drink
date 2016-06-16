@@ -19,8 +19,8 @@ import org.hibernate.LockMode;
 import java.util.List;
 import socialdrink.*;
 
-public class drinkTypeDAOImpl implements socialdrink.dao.drinkTypeDAO {
-	public drinkType loadDrinkTypeByORMID(int ID) throws PersistentException {
+public class DrinkTypeDAOImpl implements socialdrink.dao.DrinkTypeDAO {
+	public DrinkType loadDrinkTypeByORMID(int ID) throws PersistentException {
 		try {
 			PersistentSession session = socialdrink.SocialDrinkPersistentManager.instance().getSession();
 			return loadDrinkTypeByORMID(session, ID);
@@ -31,7 +31,7 @@ public class drinkTypeDAOImpl implements socialdrink.dao.drinkTypeDAO {
 		}
 	}
 	
-	public drinkType getDrinkTypeByORMID(int ID) throws PersistentException {
+	public DrinkType getDrinkTypeByORMID(int ID) throws PersistentException {
 		try {
 			PersistentSession session = socialdrink.SocialDrinkPersistentManager.instance().getSession();
 			return getDrinkTypeByORMID(session, ID);
@@ -42,7 +42,7 @@ public class drinkTypeDAOImpl implements socialdrink.dao.drinkTypeDAO {
 		}
 	}
 	
-	public drinkType loadDrinkTypeByORMID(int ID, org.hibernate.LockMode lockMode) throws PersistentException {
+	public DrinkType loadDrinkTypeByORMID(int ID, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
 			PersistentSession session = socialdrink.SocialDrinkPersistentManager.instance().getSession();
 			return loadDrinkTypeByORMID(session, ID, lockMode);
@@ -53,7 +53,7 @@ public class drinkTypeDAOImpl implements socialdrink.dao.drinkTypeDAO {
 		}
 	}
 	
-	public drinkType getDrinkTypeByORMID(int ID, org.hibernate.LockMode lockMode) throws PersistentException {
+	public DrinkType getDrinkTypeByORMID(int ID, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
 			PersistentSession session = socialdrink.SocialDrinkPersistentManager.instance().getSession();
 			return getDrinkTypeByORMID(session, ID, lockMode);
@@ -64,9 +64,9 @@ public class drinkTypeDAOImpl implements socialdrink.dao.drinkTypeDAO {
 		}
 	}
 	
-	public drinkType loadDrinkTypeByORMID(PersistentSession session, int ID) throws PersistentException {
+	public DrinkType loadDrinkTypeByORMID(PersistentSession session, int ID) throws PersistentException {
 		try {
-			return (drinkType) session.load(socialdrink.drinkType.class, new Integer(ID));
+			return (DrinkType) session.load(socialdrink.DrinkType.class, new Integer(ID));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -74,9 +74,9 @@ public class drinkTypeDAOImpl implements socialdrink.dao.drinkTypeDAO {
 		}
 	}
 	
-	public drinkType getDrinkTypeByORMID(PersistentSession session, int ID) throws PersistentException {
+	public DrinkType getDrinkTypeByORMID(PersistentSession session, int ID) throws PersistentException {
 		try {
-			return (drinkType) session.get(socialdrink.drinkType.class, new Integer(ID));
+			return (DrinkType) session.get(socialdrink.DrinkType.class, new Integer(ID));
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -84,9 +84,9 @@ public class drinkTypeDAOImpl implements socialdrink.dao.drinkTypeDAO {
 		}
 	}
 	
-	public drinkType loadDrinkTypeByORMID(PersistentSession session, int ID, org.hibernate.LockMode lockMode) throws PersistentException {
+	public DrinkType loadDrinkTypeByORMID(PersistentSession session, int ID, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (drinkType) session.load(socialdrink.drinkType.class, new Integer(ID), lockMode);
+			return (DrinkType) session.load(socialdrink.DrinkType.class, new Integer(ID), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -94,9 +94,9 @@ public class drinkTypeDAOImpl implements socialdrink.dao.drinkTypeDAO {
 		}
 	}
 	
-	public drinkType getDrinkTypeByORMID(PersistentSession session, int ID, org.hibernate.LockMode lockMode) throws PersistentException {
+	public DrinkType getDrinkTypeByORMID(PersistentSession session, int ID, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
-			return (drinkType) session.get(socialdrink.drinkType.class, new Integer(ID), lockMode);
+			return (DrinkType) session.get(socialdrink.DrinkType.class, new Integer(ID), lockMode);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -126,7 +126,7 @@ public class drinkTypeDAOImpl implements socialdrink.dao.drinkTypeDAO {
 		}
 	}
 	
-	public drinkType[] listDrinkTypeByQuery(String condition, String orderBy) throws PersistentException {
+	public DrinkType[] listDrinkTypeByQuery(String condition, String orderBy) throws PersistentException {
 		try {
 			PersistentSession session = socialdrink.SocialDrinkPersistentManager.instance().getSession();
 			return listDrinkTypeByQuery(session, condition, orderBy);
@@ -137,7 +137,7 @@ public class drinkTypeDAOImpl implements socialdrink.dao.drinkTypeDAO {
 		}
 	}
 	
-	public drinkType[] listDrinkTypeByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
+	public DrinkType[] listDrinkTypeByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
 			PersistentSession session = socialdrink.SocialDrinkPersistentManager.instance().getSession();
 			return listDrinkTypeByQuery(session, condition, orderBy, lockMode);
@@ -149,7 +149,7 @@ public class drinkTypeDAOImpl implements socialdrink.dao.drinkTypeDAO {
 	}
 	
 	public List queryDrinkType(PersistentSession session, String condition, String orderBy) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From socialdrink.drinkType as drinkType");
+		StringBuffer sb = new StringBuffer("From socialdrink.DrinkType as DrinkType");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -165,14 +165,14 @@ public class drinkTypeDAOImpl implements socialdrink.dao.drinkTypeDAO {
 	}
 	
 	public List queryDrinkType(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From socialdrink.drinkType as drinkType");
+		StringBuffer sb = new StringBuffer("From socialdrink.DrinkType as DrinkType");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
 			sb.append(" Order By ").append(orderBy);
 		try {
 			Query query = session.createQuery(sb.toString());
-			query.setLockMode("drinkType", lockMode);
+			query.setLockMode("DrinkType", lockMode);
 			return query.list();
 		}
 		catch (Exception e) {
@@ -181,10 +181,10 @@ public class drinkTypeDAOImpl implements socialdrink.dao.drinkTypeDAO {
 		}
 	}
 	
-	public drinkType[] listDrinkTypeByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
+	public DrinkType[] listDrinkTypeByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
 		try {
 			List list = queryDrinkType(session, condition, orderBy);
-			return (drinkType[]) list.toArray(new drinkType[list.size()]);
+			return (DrinkType[]) list.toArray(new DrinkType[list.size()]);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -192,10 +192,10 @@ public class drinkTypeDAOImpl implements socialdrink.dao.drinkTypeDAO {
 		}
 	}
 	
-	public drinkType[] listDrinkTypeByQuery(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
+	public DrinkType[] listDrinkTypeByQuery(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
 			List list = queryDrinkType(session, condition, orderBy, lockMode);
-			return (drinkType[]) list.toArray(new drinkType[list.size()]);
+			return (DrinkType[]) list.toArray(new DrinkType[list.size()]);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -203,7 +203,7 @@ public class drinkTypeDAOImpl implements socialdrink.dao.drinkTypeDAO {
 		}
 	}
 	
-	public drinkType loadDrinkTypeByQuery(String condition, String orderBy) throws PersistentException {
+	public DrinkType loadDrinkTypeByQuery(String condition, String orderBy) throws PersistentException {
 		try {
 			PersistentSession session = socialdrink.SocialDrinkPersistentManager.instance().getSession();
 			return loadDrinkTypeByQuery(session, condition, orderBy);
@@ -214,7 +214,7 @@ public class drinkTypeDAOImpl implements socialdrink.dao.drinkTypeDAO {
 		}
 	}
 	
-	public drinkType loadDrinkTypeByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
+	public DrinkType loadDrinkTypeByQuery(String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
 		try {
 			PersistentSession session = socialdrink.SocialDrinkPersistentManager.instance().getSession();
 			return loadDrinkTypeByQuery(session, condition, orderBy, lockMode);
@@ -225,16 +225,16 @@ public class drinkTypeDAOImpl implements socialdrink.dao.drinkTypeDAO {
 		}
 	}
 	
-	public drinkType loadDrinkTypeByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
-		drinkType[] drinkTypes = listDrinkTypeByQuery(session, condition, orderBy);
+	public DrinkType loadDrinkTypeByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
+		DrinkType[] drinkTypes = listDrinkTypeByQuery(session, condition, orderBy);
 		if (drinkTypes != null && drinkTypes.length > 0)
 			return drinkTypes[0];
 		else
 			return null;
 	}
 	
-	public drinkType loadDrinkTypeByQuery(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
-		drinkType[] drinkTypes = listDrinkTypeByQuery(session, condition, orderBy, lockMode);
+	public DrinkType loadDrinkTypeByQuery(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
+		DrinkType[] drinkTypes = listDrinkTypeByQuery(session, condition, orderBy, lockMode);
 		if (drinkTypes != null && drinkTypes.length > 0)
 			return drinkTypes[0];
 		else
@@ -264,7 +264,7 @@ public class drinkTypeDAOImpl implements socialdrink.dao.drinkTypeDAO {
 	}
 	
 	public java.util.Iterator iterateDrinkTypeByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From socialdrink.drinkType as drinkType");
+		StringBuffer sb = new StringBuffer("From socialdrink.DrinkType as DrinkType");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
@@ -280,14 +280,14 @@ public class drinkTypeDAOImpl implements socialdrink.dao.drinkTypeDAO {
 	}
 	
 	public java.util.Iterator iterateDrinkTypeByQuery(PersistentSession session, String condition, String orderBy, org.hibernate.LockMode lockMode) throws PersistentException {
-		StringBuffer sb = new StringBuffer("From socialdrink.drinkType as drinkType");
+		StringBuffer sb = new StringBuffer("From socialdrink.DrinkType as DrinkType");
 		if (condition != null)
 			sb.append(" Where ").append(condition);
 		if (orderBy != null)
 			sb.append(" Order By ").append(orderBy);
 		try {
 			Query query = session.createQuery(sb.toString());
-			query.setLockMode("drinkType", lockMode);
+			query.setLockMode("DrinkType", lockMode);
 			return query.iterate();
 		}
 		catch (Exception e) {
@@ -296,13 +296,13 @@ public class drinkTypeDAOImpl implements socialdrink.dao.drinkTypeDAO {
 		}
 	}
 	
-	public drinkType createDrinkType() {
-		return new socialdrink.drinkType();
+	public DrinkType createDrinkType() {
+		return new socialdrink.DrinkType();
 	}
 	
-	public boolean save(socialdrink.drinkType ldrinkType) throws PersistentException {
+	public boolean save(socialdrink.DrinkType drinkType) throws PersistentException {
 		try {
-			socialdrink.SocialDrinkPersistentManager.instance().saveObject(ldrinkType);
+			socialdrink.SocialDrinkPersistentManager.instance().saveObject(drinkType);
 			return true;
 		}
 		catch (Exception e) {
@@ -311,9 +311,9 @@ public class drinkTypeDAOImpl implements socialdrink.dao.drinkTypeDAO {
 		}
 	}
 	
-	public boolean delete(socialdrink.drinkType ldrinkType) throws PersistentException {
+	public boolean delete(socialdrink.DrinkType drinkType) throws PersistentException {
 		try {
-			socialdrink.SocialDrinkPersistentManager.instance().deleteObject(ldrinkType);
+			socialdrink.SocialDrinkPersistentManager.instance().deleteObject(drinkType);
 			return true;
 		}
 		catch (Exception e) {
@@ -322,9 +322,9 @@ public class drinkTypeDAOImpl implements socialdrink.dao.drinkTypeDAO {
 		}
 	}
 	
-	public boolean refresh(socialdrink.drinkType ldrinkType) throws PersistentException {
+	public boolean refresh(socialdrink.DrinkType drinkType) throws PersistentException {
 		try {
-			socialdrink.SocialDrinkPersistentManager.instance().getSession().refresh(ldrinkType);
+			socialdrink.SocialDrinkPersistentManager.instance().getSession().refresh(drinkType);
 			return true;
 		}
 		catch (Exception e) {
@@ -333,9 +333,9 @@ public class drinkTypeDAOImpl implements socialdrink.dao.drinkTypeDAO {
 		}
 	}
 	
-	public boolean evict(socialdrink.drinkType ldrinkType) throws PersistentException {
+	public boolean evict(socialdrink.DrinkType drinkType) throws PersistentException {
 		try {
-			socialdrink.SocialDrinkPersistentManager.instance().getSession().evict(ldrinkType);
+			socialdrink.SocialDrinkPersistentManager.instance().getSession().evict(drinkType);
 			return true;
 		}
 		catch (Exception e) {
@@ -344,15 +344,15 @@ public class drinkTypeDAOImpl implements socialdrink.dao.drinkTypeDAO {
 		}
 	}
 	
-	public drinkType loadDrinkTypeByCriteria(drinkTypeCriteria drinkTypeCriteria) {
-		drinkType[] drinkTypes = listDrinkTypeByCriteria(drinkTypeCriteria);
+	public DrinkType loadDrinkTypeByCriteria(DrinkTypeCriteria drinkTypeCriteria) {
+		DrinkType[] drinkTypes = listDrinkTypeByCriteria(drinkTypeCriteria);
 		if(drinkTypes == null || drinkTypes.length == 0) {
 			return null;
 		}
 		return drinkTypes[0];
 	}
 	
-	public drinkType[] listDrinkTypeByCriteria(drinkTypeCriteria drinkTypeCriteria) {
+	public DrinkType[] listDrinkTypeByCriteria(DrinkTypeCriteria drinkTypeCriteria) {
 		return drinkTypeCriteria.listDrinkType();
 	}
 }

@@ -20,44 +20,24 @@ import org.orm.criteria.*;
 
 public class DrinkIngredientDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final IntegerExpression ID;
-	public final IntegerExpression dosageId;
-	public final AssociationExpression dosage;
-	public final IntegerExpression measureId;
-	public final AssociationExpression measure;
 	public final IntegerExpression ingredientId;
 	public final AssociationExpression ingredient;
-	public final DoubleExpression amount;
+	public final StringExpression amount;
 	
 	public DrinkIngredientDetachedCriteria() {
 		super(socialdrink.DrinkIngredient.class, socialdrink.DrinkIngredientCriteria.class);
 		ID = new IntegerExpression("ID", this.getDetachedCriteria());
-		dosageId = new IntegerExpression("dosage.ID", this.getDetachedCriteria());
-		dosage = new AssociationExpression("dosage", this.getDetachedCriteria());
-		measureId = new IntegerExpression("measure.ID", this.getDetachedCriteria());
-		measure = new AssociationExpression("measure", this.getDetachedCriteria());
 		ingredientId = new IntegerExpression("ingredient.ID", this.getDetachedCriteria());
 		ingredient = new AssociationExpression("ingredient", this.getDetachedCriteria());
-		amount = new DoubleExpression("amount", this.getDetachedCriteria());
+		amount = new StringExpression("amount", this.getDetachedCriteria());
 	}
 	
 	public DrinkIngredientDetachedCriteria(DetachedCriteria aDetachedCriteria) {
 		super(aDetachedCriteria, socialdrink.DrinkIngredientCriteria.class);
 		ID = new IntegerExpression("ID", this.getDetachedCriteria());
-		dosageId = new IntegerExpression("dosage.ID", this.getDetachedCriteria());
-		dosage = new AssociationExpression("dosage", this.getDetachedCriteria());
-		measureId = new IntegerExpression("measure.ID", this.getDetachedCriteria());
-		measure = new AssociationExpression("measure", this.getDetachedCriteria());
 		ingredientId = new IntegerExpression("ingredient.ID", this.getDetachedCriteria());
 		ingredient = new AssociationExpression("ingredient", this.getDetachedCriteria());
-		amount = new DoubleExpression("amount", this.getDetachedCriteria());
-	}
-	
-	public DosageDetachedCriteria createDosageCriteria() {
-		return new DosageDetachedCriteria(createCriteria("dosage"));
-	}
-	
-	public MeasureDetachedCriteria createMeasureCriteria() {
-		return new MeasureDetachedCriteria(createCriteria("measure"));
+		amount = new StringExpression("amount", this.getDetachedCriteria());
 	}
 	
 	public IngredientDetachedCriteria createIngredientCriteria() {
