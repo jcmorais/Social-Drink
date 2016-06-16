@@ -1,11 +1,19 @@
 package controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import service.drinkService;
+
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.List;
 
 /**
  * Created by carlosmorais on 08/06/16.
@@ -14,6 +22,8 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class drinkController {
 
+    @Autowired
+    private drinkService drinkService;
 
     @RequestMapping(value = "/drink/{drinkId}", method = RequestMethod.GET)
     public String getDrink(@PathVariable("drinkId") String drinkId){
@@ -21,33 +31,48 @@ public class drinkController {
         return "drink";
     }
 
-
-
-    @RequestMapping(value = "/drinkform", method = RequestMethod.GET)
-    public String drinIndex(){
-        return "formularioDrink";
+    @RequestMapping(value = "/newdrink", method = RequestMethod.GET)
+    public ModelAndView newDrink(ModelAndView model){
+        model.addObject("ingredientes", drinkService.getListIngredient());
+        model.setViewName("drink/formularioDrink");
+        return model;
     }
 
 
     @RequestMapping(value = "/newdrink", method = RequestMethod.POST)
     public ModelAndView addDrink(ModelAndView model,
                                  @RequestParam("nome") String nome,
+                                 @RequestParam("descricao") String descricao,
                                  @RequestParam("tempo") int tempo,
                                  @RequestParam("quantidade") int quantidade,
-                                 @RequestParam("tipoQuantidade") String tipoQuantidade
+                                 @RequestParam("tipoBebida") int tipoBebida,
+                                 @RequestParam("passos[]") List<String> passos,
+                                 @RequestParam("ingredientes[]") List<Integer> ingredientes,
+                                 @RequestParam("quantidades[]") List<String> quantidades
                                  ){
 
-        model.setViewName("/index.jsp");
+        model.setViewName("index");
+
+        /*
         System.out.println("Nome " + nome);
+        System.out.println("Descrição " + descricao);
         System.out.println("quantidade " + quantidade);
         System.out.println("tempo " + tempo);
-        System.out.println("tipoQuantidade " + tipoQuantidade);
-        /*
-        @RequestParam("passos") List<String> passos
+        System.out.println("tipoBebida " + tipoBebida);
+
         for (String passo : passos) {
             System.out.println("passo "+passo);
         }
-        */
+
+        for (int s : ingredientes) {
+            System.out.println("ingrediente "+s);
+        }
+
+        for (String s : quantidades) {
+            System.out.println("quantidade "+s);
+        }
+*/
+        this.drinkService.addDrink(nome, descricao, tempo, tipoBebida, quantidade, passos, ingredientes, quantidades);
         return model;
     }
 
