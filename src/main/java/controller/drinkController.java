@@ -34,7 +34,7 @@ public class drinkController {
     @RequestMapping(value = "/newdrink", method = RequestMethod.GET)
     public ModelAndView newDrink(ModelAndView model){
         model.addObject("ingredientes", drinkService.getListIngredient());
-        model.setViewName("drink/formularioDrink");
+        model.setViewName("drink/newDrink");
         return model;
     }
 
