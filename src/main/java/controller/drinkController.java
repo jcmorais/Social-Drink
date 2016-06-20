@@ -21,12 +21,6 @@ public class drinkController {
     @Autowired
     private drinkService drinkService;
 
-    @RequestMapping(value = "/drink", method = RequestMethod.GET)
-    public String getDrink(@PathVariable("drinkId") String drinkId){
-        //vai muscar a drink e adiciona ao model
-        return "drink";
-    }
-
     @RequestMapping(value = "/drink/{drinkId}", method = RequestMethod.GET)
     public String getDrink(@PathVariable("drinkId") String drinkId){
         //vai muscar a drink e adiciona ao model
