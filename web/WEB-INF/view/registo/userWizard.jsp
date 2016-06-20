@@ -37,7 +37,7 @@
             </div>
         </div>
     </div>
-    <form role="form">
+    <form:form method="POST" action="/page" role="form">
         <div class="row setup-content" id="step-1">
             <jsp:include page="bothStep1.jsp"/>
         </div>
@@ -52,7 +52,7 @@
                 </div>
             </div>
         </div>
-    </form>
+    </form:form>
 </div>
 </body>
 

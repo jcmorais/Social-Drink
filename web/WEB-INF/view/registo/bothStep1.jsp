@@ -1,3 +1,4 @@
+<%@ taglib prefix="path" uri="http://www.springframework.org/tags/form" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <div class="col-xs-12">
     <div class="col-md-12">
@@ -12,8 +13,8 @@
             </select>
         </div>
         <div class="form-group col-md-7 col-md-offset-3">
-            <label class="control-label">Email</label>
-            <input  maxlength="100" type="text" required="required" class="form-control" placeholder="Introduza o email"  />
+            <form:label path="email" class="control-label">Email</form:label>
+            <form:input path="email" maxlength="100" type="text" required="required" class="form-control" placeholder="Introduza o email"  />
         </div>
         <div class="form-group col-md-7 col-md-offset-3">
             <label class="control-label">Confirmar o Email</label>
