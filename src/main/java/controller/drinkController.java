@@ -6,13 +6,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import service.drinkService;
 
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
 import java.util.List;
 
 /**
@@ -24,6 +20,12 @@ public class drinkController {
 
     @Autowired
     private drinkService drinkService;
+
+    @RequestMapping(value = "/drink", method = RequestMethod.GET)
+    public String getDrink(@PathVariable("drinkId") String drinkId){
+        //vai muscar a drink e adiciona ao model
+        return "drink";
+    }
 
     @RequestMapping(value = "/drink/{drinkId}", method = RequestMethod.GET)
     public String getDrink(@PathVariable("drinkId") String drinkId){
