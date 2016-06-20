@@ -11,10 +11,12 @@ import java.util.List;
 public interface drinkService {
 
     public void addDrink(Drink drink);
-    public void getDrinkById(int id);
+    public Drink getDrinkById(int id);
 
 
     public Ingredient[] getListIngredient();
 
     public void addDrink(String nome, String descricao, int tempo, int tipoBebida, int quantidade, List<String> passos, List<Integer> ingredientes, List<String> quantidades);
+
+    public Drink[] getAllDrinks();
 }

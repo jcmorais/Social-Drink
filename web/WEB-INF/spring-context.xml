@@ -12,6 +12,7 @@
 
     <context:component-scan base-package="controller" />
     <context:component-scan base-package="service" />
+    <context:component-scan base-package="api" />
     <mvc:resources mapping="/resources/**" location="/resources/"/>
 
 

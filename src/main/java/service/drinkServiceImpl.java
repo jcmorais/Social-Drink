@@ -3,8 +3,6 @@ package service;
 import org.orm.PersistentException;
 import org.springframework.stereotype.Service;
 import socialdrink.*;
-import socialdrink.dao.DrinkDAO;
-import socialdrink.impl.DrinkDAOImpl;
 
 
 import java.util.List;
@@ -17,27 +15,19 @@ import java.util.List;
 public class drinkServiceImpl implements drinkService{
     private Facade facade = new Facade();
 
-    public void addDrink(String nome, int time, int quantidade, String tipoQuantidade, List<String> passos){
-        Drink drink = facade.createDrink();
-        drink.setName(nome);
-        drink.setTimeToPrepate(time);
-        drink.setDescription("bebida mt boa");
-        drink.setYeld(quantidade);
-        //drink.setYeldType();
-        try {
-            facade.save(drink);
-        } catch (PersistentException e) {
-            e.printStackTrace();
-        }
-    }
-
     public void addDrink(Drink drink) {
 
     }
 
-    public void getDrinkById(int id) {
-
+    public Drink getDrinkById(int id) {
+        try {
+            return this.facade.getDrinkByORMID(id);
+        } catch (PersistentException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
+
 
     public Ingredient[] getListIngredient() {
         try {
@@ -86,8 +76,14 @@ public class drinkServiceImpl implements drinkService{
         }
     }
 
-
-
+    public Drink[] getAllDrinks() {
+        try {
+            return this.facade.listDrinkByCriteria(new DrinkCriteria());
+        } catch (PersistentException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
 
 }
