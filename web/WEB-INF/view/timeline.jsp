@@ -17,6 +17,7 @@
 </head>
 <body>
 <div class="container">
+    <jsp:include page="topbar.jsp"/>
     <div class="page-header">
         <h1 id="timeline">Timeline</h1>
     </div>
@@ -46,6 +47,7 @@
                         </div>
                         <div class="col-md-10">
                             <h4 class="timeline-title">João Madeira</h4>
+                            <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 12 horas atrás</small></p>
                         </div>
                     </div>
                 </div>
@@ -58,6 +60,9 @@
         <li>
             <div class="timeline-badge danger"><i class="glyphicon glyphicon-heart"></i></div>
             <div class="timeline-panel">
+                <div class="timeline-heading">
+                    <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 12 horas atrás</small></p>
+                </div>
                 <div class="timeline-body">
                     <div class="col-md-2">
                         <img class="circular-photo" src="./resources/img/images/caipirinha/2.jpg" alt="" />
@@ -74,6 +79,9 @@
         <li class="timeline-inverted">
             <div class="timeline-badge success"><i class="glyphicon glyphicon-stats"></i></div>
             <div class="timeline-panel">
+                <div class="timeline-heading">
+                    <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 12 horas atrás</small></p>
+                </div>
                 <div class="timeline-body">
                     <div class="col-md-2">
                         <img class="circular-photo" src="./resources/img/images/caipirinha/2.jpg" alt="" />
@@ -90,6 +98,9 @@
         <li class="timeline-inverted">
             <div class="timeline-badge info"><i class="glyphicon glyphicon-thumbs-up"></i></div>
             <div class="timeline-panel">
+                <div class="timeline-heading">
+                    <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> 12 horas atrás</small></p>
+                </div>
                 <div class="timeline-body">
                     <div class="col-md-2">
                         <img class="circular-photo" src="./resources/img/images/caipirinha/2.jpg" alt="" />

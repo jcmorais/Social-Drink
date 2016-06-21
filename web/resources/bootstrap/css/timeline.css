@@ -1,3 +1,8 @@
+/*Icon position fix*/
+.glyphicon{
+    margin-top: 15px;
+}
+
 .timeline {
     list-style: none;
     padding: 20px 0 20px;
