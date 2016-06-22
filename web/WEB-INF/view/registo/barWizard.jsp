@@ -7,12 +7,17 @@
 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%><html>
 <head>
-    <title>Registo</title>
+    <title>Novo Bar</title>
 
     <link rel="stylesheet" type="text/css" href="./resources/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="./resources/bootstrap/css/bootstrap-theme.min.css" />
-    <link rel="stylesheet" type="text/css" href="./resources/bootstrap/css/bootstrap-clockpicker.min.css" />
     <link rel="stylesheet" type="text/css" href="./resources/bootstrap/css/wizard.css" />
+
+    <!-- Include Bootstrap Clockpicker -->
+    <link rel="stylesheet" type="text/css" href="./resources/bootstrap/css/bootstrap-clockpicker.min.css" />
+
+    <!-- Include Bootstrap Validator -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/css/bootstrapvalidator.min.css " />
 
 </head>
 <body>
@@ -38,7 +43,7 @@
             </div>
         </div>
     </div>
-    <formform action="register" method="post" commandName="userForm" role="form">
+    <form method="post" id="formBar" role="form" action="/SocialDrink/register/newBar">
         <div class="row setup-content" id="step-1">
             <jsp:include page="bothStep1.jsp"/>
         </div>
@@ -65,5 +70,6 @@
 <script src="./resources/bootstrap/js/bootstrap-clockpicker.min.js"></script>
 <script src="./resources/bootstrap/js/clockpicker.js"></script>
 <script src="./resources/bootstrap/js/wizard.js"></script>
+<script src="./resources/bootstrap/js/validator.js"></script>
 
 </html>
