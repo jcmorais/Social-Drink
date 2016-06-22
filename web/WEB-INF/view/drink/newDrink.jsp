@@ -10,6 +10,9 @@
 
     <!-- Wizard -->
     <link rel="stylesheet" type="text/css" href="./resources/bootstrap/css/wizard.css" />
+    <script src="./resources/bootstrap/js/jquery.validate.min.js"></script>
+    <script src="./resources/bootstrap/js/new-drink-form.js"></script>
+
 </head>
 <body>
 <jsp:include page="../topbar.jsp"/>
@@ -172,6 +175,9 @@
 <script src="./resources/bootstrap/js/bootstrap-list-filter.src.js"></script>
 <script src="./resources/bootstrap/js/bootstrap.min.js"></script>
 <script src="./resources/bootstrap/js/wizard.js"></script>
+<script src="./resources/bootstrap/js/jquery.validate.min.js"></script>
+<script src="./resources/bootstrap/js/new-drink-form.js"></script>
+<script src="./resources/bootstrap/js/messages_pt_PT.js"></script>
 
 
 
