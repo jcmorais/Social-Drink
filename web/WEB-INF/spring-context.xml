@@ -10,22 +10,30 @@
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 
+
     <context:component-scan base-package="controller" />
     <context:component-scan base-package="service" />
-    <context:component-scan base-package="api" />
-    <mvc:resources mapping="/resources/**" location="/resources/"/>
-
-
-    <mvc:annotation-driven />
 
     <bean id="viewResolver"
           class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
+        <property name="viewClass"
+                  value="org.springframework.web.servlet.view.JstlView" />
         <property name="prefix">
             <value>/WEB-INF/view/</value>
         </property>
         <property name="suffix">
             <value>.jsp</value>
         </property>
+    </bean>
+
+
+    <mvc:annotation-driven />
+    <mvc:default-servlet-handler/>
+
+    <mvc:resources mapping="/resources/**" location="/resources/"/>
+
+    <bean id="handlerMapping" class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
+        <property name="alwaysUseFullPath" value="true"></property>
     </bean>
 
 </beans>

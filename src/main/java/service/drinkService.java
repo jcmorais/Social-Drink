@@ -2,6 +2,7 @@ package service;
 
 import socialdrink.Drink;
 import socialdrink.Ingredient;
+import socialdrink.Step;
 
 import java.util.List;
 
@@ -19,4 +20,6 @@ public interface drinkService {
     public void addDrink(String nome, String descricao, int tempo, int tipoBebida, int quantidade, List<String> passos, List<Integer> ingredientes, List<String> quantidades);
 
     public Drink[] getAllDrinks();
+
+    public Step[] getDrinkSteps(int drinkId);
 }

@@ -31,12 +31,11 @@ public class drink {
 
 
     @RequestMapping(value = "/api/drink/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Drink> getUser(@PathVariable("id") String id) {
+    public ResponseEntity<Drink> getUser(@PathVariable("id") int id) {
         System.out.println("Fetching Drink with id " );
-        int drinkId = Integer.valueOf(id);
-        Drink drink = drinkService.getDrinkById(drinkId);
+        Drink drink = drinkService.getDrinkById(id);
         if (drink == null) {
-            System.out.println("Drink with id " + drinkId + " not found");
+            System.out.println("Drink with id " + id + " not found");
             return new ResponseEntity<Drink>(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<Drink>(drink, HttpStatus.OK);

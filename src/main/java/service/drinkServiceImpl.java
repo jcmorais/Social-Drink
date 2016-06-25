@@ -1,5 +1,7 @@
 package service;
 
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 import org.orm.PersistentException;
 import org.springframework.stereotype.Service;
 import socialdrink.*;
@@ -38,6 +40,19 @@ public class drinkServiceImpl implements drinkService{
         return null;
     }
 
+
+    public Step[] getDrinkSteps(int drinkId){
+        try {
+            StepCriteria criteria = new StepCriteria();
+            criteria.add(Restrictions.eq("drinkid", drinkId));
+            criteria.addOrder(Order.asc("number"));
+            facade.listStepByCriteria(criteria);
+        } catch (PersistentException e) {
+            e.printStackTrace();
+        }
+        return  null;
+    }
+
     public void addDrink(String nome, String descricao, int tempo, int tipoBebida, int quantidade, List<String> passos, List<Integer> ingredientes, List<String> quantidades) {
         try {
             Drink drink = facade.createDrink();
@@ -51,7 +66,7 @@ public class drinkServiceImpl implements drinkService{
             int count = 1;
             for (String passo : passos) {
                 Step step = facade.createStep();
-                step.setNumber(++count);
+                step.setNumber(count++);
                 step.setDescription(passo);
                 drink.steps.add(step);
             }
