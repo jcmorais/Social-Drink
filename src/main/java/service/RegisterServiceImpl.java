@@ -2,10 +2,7 @@ package service;
 
 import org.orm.PersistentException;
 import org.springframework.stereotype.Service;
-import socialdrink.Bar;
-import socialdrink.Consumer;
-import socialdrink.Facade;
-import socialdrink.User;
+import socialdrink.*;
 
 import java.util.Date;
 
@@ -32,7 +29,14 @@ public class RegisterServiceImpl implements RegisterService {
             consumer.setFirstname(primeironome);
             consumer.setLastname(ultimonome);
             consumer.setProfession(profissao);
-            //TODO: String cidade to address
+
+            City city = new City();
+            city.setName(cidade);
+
+            Address address = new Address();
+            address.setCity(city);
+
+            consumer.setAddress(address);
             consumer.setSex(genero);
             consumer.setBirthday(dataNasc);
             //TODO: Contacto???
@@ -48,7 +52,28 @@ public class RegisterServiceImpl implements RegisterService {
 
     }
 
-    public void addBar() {
+    public void addBar(String email, String password, String nome, String morada, String cidade, String contacto, String descricao) {
+        try {
+            Bar bar = facade.createBar();
+            bar.setEmail(email);
+            bar.setPassword(password);
+            bar.setName(nome);
 
+            City city = new City();
+            city.setName(cidade);
+
+            Address address = new Address();
+            address.setStreet(morada);
+            address.setCity(city);
+
+            bar.setAddress(address);
+            //TODO: Set contact
+            bar.setDescription(descricao);
+
+            facade.save(bar);
+        } catch (PersistentException e) {
+            e.printStackTrace();
+        }
     }
+
 }
