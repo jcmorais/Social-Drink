@@ -1,6 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
+
 <html>
 <head>
     <meta charset="utf-8">
@@ -51,7 +52,7 @@
         <div class="col-md-4">
             <div class="row">
                 <div class="col-md-12">
-                    <img class="img-responsive center-block drink-main-image" src="<c:url value="/resources/img/images/caipi.jpg"/>" alt="caipi" />
+                    <img class="img-responsive center-block drink-main-image" src="<c:url value="${drink.getPhoto().getFilePath()}"/>"/>
                 </div>
             </div>
             <div class="row">
@@ -128,20 +129,11 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-
-
-
             <div class="flexslider">
                 <ul class="slides">
-                    <li>
-                        <img src="./resources/img/images/caipirinha/1.jpg" />
-                    </li>
-                    <li>
-                        <img src="./resources/img/images/caipirinha/2.jpg" />
-                    </li>
-                    <li>
-                        <img src="./resources/img/images/caipirinha/3.jpg" />
-                    </li>
+                    <c:forEach items="${photos}" var="photo">
+                        <li><img src="<c:url value="${photo.getFilePath()}"/>"/></li>
+                    </c:forEach>
                 </ul>
             </div>
 
@@ -386,7 +378,7 @@
 </body>
 </html>
 
-
+<script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="<c:url value="/resources/bootstrap/js/libraries/flexSlider/jquery.flexslider.js" />"></script>
 <script src="<c:url value="/resources/bootstrap/js/libraries/five-star-rating/js/dist/rating.min.js" />"></script>
 <script src="<c:url value="/resources/bootstrap/js/libraries/lightbox2/dist/js/lightbox.min.js" />"></script>

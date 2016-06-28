@@ -124,8 +124,6 @@ public class Run {
         consumer.setProfession("operário de construção cívil");
         consumer.setEmail("jcmorais93@gmail.com");
         consumer.setPhoto(photo);
-        consumer.setAddress(address);
-
         consumerDAO.save(consumer);
 
 
@@ -162,8 +160,14 @@ public class Run {
         drink.setYeld(1);
         drink.setDescription("bebida mt loka");
         drink.setTimeToPrepate(4);
+        photo = photoDAO.createPhoto();
+        photo.setName("default.jpeg");
+        photo.setFilePath("/images/drink/default.jpeg");
         drink.setPhoto(photo);
+        AlbumDAO albumDAO = new AlbumDAOImpl();
+        Album album = albumDAO.createAlbum();
 
+        drink.setAlbum(album);
         //drinkDAO.save(drink);
         consumer.drinks.add(drink);
 

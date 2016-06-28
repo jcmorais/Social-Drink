@@ -2,15 +2,19 @@ package controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 import service.drinkService;
 import socialdrink.Drink;
 import socialdrink.Step;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -38,6 +42,7 @@ public class drinkController {
         model.addObject("ingredientsLength", drink.ingredients.toArray().length);
         //mudar isto...
         model.addObject("commentsLength", drink.evaluation.toArray().length);
+        model.addObject("photos", drink.getAlbum().fotos.toArray());
         return model;
     }
 
@@ -61,7 +66,10 @@ public class drinkController {
                                  @RequestParam("quantidades[]") List<String> quantidades
                                  ){
 
-        model.setViewName("index");
+        int drinkId = drinkService.addDrink(nome, descricao, tempo, tipoBebida, quantidade, passos, ingredientes, quantidades);
+        model.addObject("successMessage","yes");
+        model.addObject("message","Drink criado com sucesso!");
+        model.setViewName("redirect:drink/"+drinkId+"/photo");
 
         /*
         System.out.println("Nome " + nome);
@@ -81,10 +89,34 @@ public class drinkController {
         for (String s : quantidades) {
             System.out.println("quantidade "+s);
         }
-*/
-        this.drinkService.addDrink(nome, descricao, tempo, tipoBebida, quantidade, passos, ingredientes, quantidades);
+        */
         return model;
     }
 
 
+    @RequestMapping(value="/{drinkId}/photos", method = RequestMethod.GET)
+    ModelAndView uploadFileHandler(ModelAndView model,
+                                   @PathVariable("drinkId") int drinkId){
+        model.setViewName("drink/photos");
+        model.addObject("drinkId", drinkId);
+        return model;
+    }
+
+
+    @RequestMapping(value="/{drinkId}/photo", method = RequestMethod.POST)
+    @ResponseBody
+    String uploadFileHandler(@PathVariable("drinkId") int drinkId,
+                             @RequestParam("photoFile") MultipartFile photoFile) {
+        this.drinkService.setDrinkProfile(drinkId, photoFile);
+        return "foto adicionada com sucesso";
+    }
+
+
+    @RequestMapping(value="/{drinkId}/photos", method = RequestMethod.POST)
+    @ResponseBody
+    String uploadFileHandler(@PathVariable("drinkId") int drinkId,
+                                   @RequestParam("photosFiles") MultipartFile photosFiles[]) {
+        this.drinkService.addPhotosToAlbum(drinkId, photosFiles);
+        return "fotos adicionadas com sucesso ao album";
+    }
 }
