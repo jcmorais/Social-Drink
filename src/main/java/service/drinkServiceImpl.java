@@ -4,9 +4,13 @@ import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.orm.PersistentException;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 import socialdrink.*;
 
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.List;
 
 /**
@@ -53,7 +57,91 @@ public class drinkServiceImpl implements drinkService{
         return  null;
     }
 
-    public void addDrink(String nome, String descricao, int tempo, int tipoBebida, int quantidade, List<String> passos, List<Integer> ingredientes, List<String> quantidades) {
+    public void setDrinkProfile(int drinkId, MultipartFile photoFile) {
+        if (!photoFile.isEmpty()) {
+            try {
+                byte[] bytes = photoFile.getBytes();
+                String photoName = photoFile.getOriginalFilename();
+
+                // Creating the directory to store file
+                /*String rootPath = System.getProperty("catalina.home");
+                System.out.println("PATH: "+rootPath + File.separator + "tmpFiles");*/
+                File dir = new File(System.getProperty("jboss.server.data.dir")+"/images/drink/"+drinkId);
+                System.out.println("PATH:::::"+System.getProperty("jboss.server.data.dir")+"/images/drink/"+drinkId);
+
+                if (!dir.exists())
+                    dir.mkdirs();
+
+                // Create the file on server
+                String[] aux = photoFile.getOriginalFilename().split("\\.");
+                File serverFile = new File(dir.getAbsolutePath()
+                        + File.separator + "profile."+aux[aux.length-1]);
+                BufferedOutputStream stream = new BufferedOutputStream(
+                        new FileOutputStream(serverFile));
+                stream.write(bytes);
+                stream.close();
+
+                System.out.println(photoName+" guardado com sucesso!");
+                System.out.println("PATH:"+dir.getAbsolutePath());
+
+                //save de path on the DB
+                Photo photo = this.facade.createPhoto();
+                photo.setFilePath("/images/drink/"+drinkId+"/profile."+aux[aux.length-1]);
+                photo.setName("profile."+aux[aux.length-1]);
+                Drink drink = facade.getDrinkByORMID(drinkId);
+                drink.setPhoto(photo);
+
+                facade.save(drink);
+            } catch (Exception e) {
+            }
+        }
+
+
+    }
+
+    public void addPhotosToAlbum(int drinkId, MultipartFile[] photosFiles) {
+        for (int i=0;i<photosFiles.length;i++) {
+            if (!photosFiles[i].isEmpty()) {
+                try {
+                    byte[] bytes = photosFiles[i].getBytes();
+                    String photoName = photosFiles[i].getOriginalFilename();
+                    Photo photo = this.facade.createPhoto();
+                    facade.save(photo);
+
+                    File dir = new File(System.getProperty("jboss.server.data.dir") + "/images/drink/" + drinkId+"/album");
+
+                    if (!dir.exists())
+                        dir.mkdirs();
+
+                    // Create the file on server
+                    String[] aux = photosFiles[i].getOriginalFilename().split("\\.");
+                    File serverFile = new File(dir.getAbsolutePath()
+                            + File.separator + photo.getID() +"."+ aux[aux.length - 1]);
+                    BufferedOutputStream stream = new BufferedOutputStream(
+                            new FileOutputStream(serverFile));
+                    stream.write(bytes);
+                    stream.close();
+
+                    System.out.println(photoName + " guardado com sucesso!");
+                    System.out.println("PATH:" + dir.getAbsolutePath());
+
+                    //save de path on the DB
+
+                    photo.setFilePath("/images/drink/" + drinkId+"/album" + "/" + photo.getID() +"."+ aux[aux.length - 1]);
+                    photo.setName(photo.getID()+"." + aux[aux.length - 1]);
+                    Drink drink = facade.getDrinkByORMID(drinkId);
+                    drink.getAlbum().fotos.add(photo);
+                    //drink.setPhoto(photo);
+                    facade.save(drink);
+                } catch (Exception e) {
+                }
+            }
+        }
+    }
+
+
+    public int addDrink(String nome, String descricao, int tempo, int tipoBebida, int quantidade, List<String> passos, List<Integer> ingredientes, List<String> quantidades) {
+        int drinkId=0;
         try {
             Drink drink = facade.createDrink();
             drink.setName(nome);
@@ -61,6 +149,12 @@ public class drinkServiceImpl implements drinkService{
             drink.setTimeToPrepate(tempo);
             drink.setTypeOfDrink(facade.getDrinkTypeByORMID(tipoBebida));
             drink.setYeld(quantidade);
+
+            //default photo
+            Photo photo = this.facade.createPhoto();
+            photo.setFilePath(File.separator+"images"+File.separator+"drink"+File.separator+"default.jpeg");
+            photo.setName("default.jpeg");
+            drink.setPhoto(photo);
 
             //passos de preparação
             int count = 1;
@@ -82,13 +176,14 @@ public class drinkServiceImpl implements drinkService{
             }
 
             System.out.println("New Drink: "+drink.toString());
-
             User user = facade.getUserByORMID(1);
             user.drinks.add(drink);
             facade.save(user);
+            drinkId = drink.getID();
         } catch (PersistentException e) {
             e.printStackTrace();
         }
+        return drinkId;
     }
 
     public Drink[] getAllDrinks() {

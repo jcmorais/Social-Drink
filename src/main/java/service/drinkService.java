@@ -1,5 +1,6 @@
 package service;
 
+import org.springframework.web.multipart.MultipartFile;
 import socialdrink.Drink;
 import socialdrink.Ingredient;
 import socialdrink.Step;
@@ -17,9 +18,13 @@ public interface drinkService {
 
     public Ingredient[] getListIngredient();
 
-    public void addDrink(String nome, String descricao, int tempo, int tipoBebida, int quantidade, List<String> passos, List<Integer> ingredientes, List<String> quantidades);
+    public int addDrink(String nome, String descricao, int tempo, int tipoBebida, int quantidade, List<String> passos, List<Integer> ingredientes, List<String> quantidades);
 
     public Drink[] getAllDrinks();
 
     public Step[] getDrinkSteps(int drinkId);
+
+    void setDrinkProfile(int drinkId, MultipartFile file);
+
+    void addPhotosToAlbum(int drinkId, MultipartFile[] photosFiles);
 }
