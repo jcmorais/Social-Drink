@@ -5,13 +5,10 @@
     <title>Title</title>
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" type="text/css" href="./resources/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="./resources/bootstrap/css/bootstrap-theme.min.css" />
-
-    <!-- Wizard -->
-    <link rel="stylesheet" type="text/css" href="./resources/bootstrap/css/wizard.css" />
-    <script src="./resources/bootstrap/js/jquery.validate.min.js"></script>
-    <script src="./resources/bootstrap/js/new-drink-form.js"></script>
+    <link href="<c:url value="/resources/bootstrap/css/bootstrap.min.css" />" rel="stylesheet">
+    <link href="<c:url value="/resources/bootstrap/css/bootstrap-theme.min.css" />" rel="stylesheet">
+    <link href="<c:url value="/resources/bootstrap/css/style-fred.css" />" rel="stylesheet">
+    <link href="<c:url value="/resources/bootstrap/css/wizard.css" />" rel="stylesheet">
 
 </head>
 <body>
@@ -42,7 +39,7 @@
                     <div class="row ">
                         <div class="col-md-4 col-md-offset-2">
                             <label for="nome">Nome</label>
-                            <input type="text" class="form-control" id="nome" name="nome" placeholder="nome do drink">
+                            <input type="text" class="form-control" id="nome" name="nome" placeholder="nome do drink" required="required">
                         </div>
                         <div class="col-md-4">
                             <label for="nome">Tipo de Bebida</label>
@@ -60,7 +57,7 @@
                     <div class="row">
                         <div class="col-md-8 col-md-offset-2">
                             <label class="control-label">Descrição</label>
-                            <input type="text" class="form-control" id="descricao" name="descricao" placeholder="descrição da bebida">
+                            <input type="text" class="form-control" id="descricao" name="descricao" placeholder="descrição da bebida" required="required">
                         </div>
                     </div>
                 </div>
@@ -71,11 +68,15 @@
                     <div class="row">
                         <div class="col-md-4 col-md-offset-2">
                             <label for="nome">Quantidade</label>
-                            <input type="text" class="form-control" id="quantidade" name="quantidade" placeholder="quantidade">
+                            <div class="input-group">
+                                <input id="quantity-spinner" class="form-control" type="text" value="1" min="1" max="10" style="text-align: center;">
+                            </div>
                         </div>
                         <div class="col-md-4">
                             <label>Tempo de preparação (min)</label>
-                            <input type="text" class="form-control" id="tempo" name="tempo" placeholder="tempo">
+                            <div class="input-group">
+                                <input id="duration-spinner" class="form-control" type="text" value="1" min="1" max="10" style="text-align: center;">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -117,6 +118,7 @@
                                 <th class="col-md-1">#</th>
                                 <th class="col-md-2">Ingrediente</th>
                                 <th class="col-md-2">Quantidade</th>
+                                <th></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -143,16 +145,31 @@
                         <label >Passos de preparação</label>
                         <div class="multi-field-wrapper">
                             <div class="multi-fields">
-                                <div class="multi-field">
-                                    <input type="text" class="form-control" name="passos[]">
-                                    <button type="button" class="btn btn-default" id="removePasso">Remover</button>
+                                <div class="multi-field inline">
+                                    <div class="col-md-10">
+                                        <input id="passos" type="text" class="form-control" name="passos[]">
+                                    </div>
+                                    <div class="col-md-2">
+                                        <button  type="button" class="btn btn-default" id="addPasso">Adicionar passo</button>
+                                    </div>
                                 </div>
                             </div>
-                            <button  type="button" class="btn btn-default" id="addPasso">Adicionar passo</button>
+
                         </div>
                     </div>
                 </div>
             </div>
+            <table class="table center" id="stepsTable">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Passo</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
 
             <div class="container">
                 <div class="form-group col-md-10">
@@ -168,34 +185,24 @@
 
 
 
-
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-<script src="./resources/bootstrap/js/bootstrap.min.js"></script>
-<script src="./resources/bootstrap/js/multiselect.js"></script>
-<script src="./resources/bootstrap/js/bootstrap-list-filter.src.js"></script>
-<script src="./resources/bootstrap/js/bootstrap.min.js"></script>
-<script src="./resources/bootstrap/js/wizard.js"></script>
-<script src="./resources/bootstrap/js/jquery.validate.min.js"></script>
-<script src="./resources/bootstrap/js/new-drink-form.js"></script>
-<script src="./resources/bootstrap/js/messages_pt_PT.js"></script>
-
+<script src="<c:url value="/resources/bootstrap/js/bootstrap.min.js"/>"></script>
+<script src="<c:url value="/resources/bootstrap/js/wizard.js" />"></script>
+<script src="<c:url value="/resources/bootstrap/js/jquery.validate.min.js" />"></script>
+<script src="<c:url value="/resources/bootstrap/js/messages_pt_PT.js" />"></script>
+<script src="<c:url value="/resources/bootstrap/js/bootstrap-number-input.js" />"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js"></script>
+<script src="<c:url value="/resources/bootstrap/js/validator.js" />"></script>
+<script src="<c:url value="/resources/bootstrap/js/new-drink.js" />"></script>
 
 
 
 <script>
-    var countP = 1;
-    function funcPassos() {
-        var table = document.getElementById("tabelaPassos");
-        var row = table.insertRow(countP);
-        var cell1 = row.insertCell(0);
-        var cell2 = row.insertCell(1);
-        cell1.innerHTML = countP;
-        cell2.innerHTML = $('#passo').val();
-        countP = countP + 1;
-        $('#passo').val('');
-        cell2.setAttribute('id','passos');
-    }
+    $('#quantity-spinner').bootstrapNumber();
+    $('#duration-spinner').bootstrapNumber();
 </script>
+
+
 
 
 
@@ -223,9 +230,11 @@
         var cell1 = row.insertCell(0);
         var cell2 = row.insertCell(1);
         var cell3 = row.insertCell(2);
+        var cell4 = row.insertCell(3);
         cell1.innerHTML = count;
         cell2.innerHTML = $(selectedOpts).text();
         cell3.innerHTML = '<input name="quantidades[]" type="text">';
+        cell4.innerHTML = '<a href="#" class="remover">Remover</a>';
         count = count + 1;
         $('#ingrediente').val('');
         cell2.setAttribute('value',$(selectedOpts).attr('value'));
@@ -242,6 +251,12 @@
         $('#lstBox1').append($(selectedOpts).clone());
         $(selectedOpts).remove();
         e.preventDefault();
+    });
+
+    $('#tabelaIng').on("click",".remover",function(){
+        var tr = $(this).closest('tr');
+        tr.remove();
+        return false;
     });
 
 
@@ -295,25 +310,11 @@
         timeout = window.setTimeout(function() {
             showOnlyOptionsSimilarToText($("#lstBox1"), userInput, true);
         }, 500);
-
     });
 
 </script>
 
 
-
-<script>
-    $('.multi-field-wrapper').each(function() {
-        var $wrapper = $('.multi-fields', this);
-        $("#addPasso", $(this)).click(function(e) {
-            $('.multi-field:first-child', $wrapper).clone(true).appendTo($wrapper).find('input').val('').focus();
-        });
-        $('.multi-field #removePasso', $wrapper).click(function() {
-            if ($('.multi-field', $wrapper).length > 1)
-                $(this).parent('.multi-field').remove();
-        });
-    });
-</script>
 
 
 <script>
