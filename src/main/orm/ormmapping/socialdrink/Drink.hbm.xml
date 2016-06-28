@@ -17,7 +17,7 @@ License Type: Academic
 		<property name="name" column="Name" type="string" length="255" not-null="false" lazy="false"/>
 		<property name="description" column="Description" type="string" length="255" not-null="false" lazy="false"/>
 		<property name="timeToPrepate" column="TimeToPrepate" type="integer" not-null="true" lazy="false"/>
-		<property name="yeld" column="Yeld" type="double" not-null="true" lazy="false"/>
+		<property name="yeld" column="Yeld" type="integer" not-null="true" lazy="false"/>
 		<set name="ORM_Evaluation" lazy="true" cascade="save-update,lock" inverse="false">
 			<key column="DrinkID" not-null="true"/>
 			<one-to-many class="socialdrink.Evaluation"/>

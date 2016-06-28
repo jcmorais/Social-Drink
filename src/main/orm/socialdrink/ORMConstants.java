@@ -16,13 +16,13 @@ package socialdrink;
 public interface ORMConstants extends org.orm.util.ORMBaseConstants {
 	final int KEY_ADDRESS_CITY = 428106486;
 	
-	final int KEY_BAR_CONTACTLIST = -749975918;
+	final int KEY_BAR_ADDRESS = 1097507752;
 	
 	final int KEY_BAR_HORARY = -1000558583;
 	
 	final int KEY_CITY_COUNTRY = -1601023774;
 	
-	final int KEY_CONTACT_CONTACTTYPE = 1133654459;
+	final int KEY_CONSUMER_CITY = 511838196;
 	
 	final int KEY_COUNTRY_CITIES = 668833842;
 	
@@ -39,8 +39,6 @@ public interface ORMConstants extends org.orm.util.ORMBaseConstants {
 	final int KEY_DRINK_TYPEOFDRINK = 557584160;
 	
 	final int KEY_EVALUATION_USER = 178748110;
-	
-	final int KEY_USER_ADDRESS = 542279584;
 	
 	final int KEY_USER_DRINKS = 1086286255;
 	

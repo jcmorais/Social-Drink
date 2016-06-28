@@ -24,6 +24,9 @@ public class Facade {
     private IngredientDAO ingredientDAO;
     private StepDAO stepDAO;
     private DrinkIngredientDAO drinkIngredientDAO;
+    private CountryDAO countryDAO;
+    private CityDAO cityDAO;
+    private WeekdayDAO weekdayDAO;
 
 
     public Drink loadDrinkByORMID(int ID) throws PersistentException {
@@ -1262,6 +1265,394 @@ public class Facade {
         return drinkIngredientDAO.loadDrinkIngredientByORMID(ID, lockMode);
     }
 
+    public Country loadCountryByORMID(int ID) throws PersistentException {
+        return countryDAO.loadCountryByORMID(ID);
+    }
+
+    public Country[] listCountryByCriteria(CountryCriteria countryCriteria) {
+        return countryDAO.listCountryByCriteria(countryCriteria);
+    }
+
+    public Iterator iterateCountryByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return countryDAO.iterateCountryByQuery(session, condition, orderBy, lockMode);
+    }
+
+    public Country loadCountryByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return countryDAO.loadCountryByQuery(condition, orderBy, lockMode);
+    }
+
+    public boolean save(Country country) throws PersistentException {
+        return countryDAO.save(country);
+    }
+
+    public boolean refresh(Country country) throws PersistentException {
+        return countryDAO.refresh(country);
+    }
+
+    public List queryCountry(String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return countryDAO.queryCountry(condition, orderBy, lockMode);
+    }
+
+    public List queryCountry(String condition, String orderBy) throws PersistentException {
+        return countryDAO.queryCountry(condition, orderBy);
+    }
+
+    public Iterator iterateCountryByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
+        return countryDAO.iterateCountryByQuery(session, condition, orderBy);
+    }
+
+    public Country loadCountryByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return countryDAO.loadCountryByQuery(session, condition, orderBy, lockMode);
+    }
+
+    public boolean deleteAndDissociate(Country country, PersistentSession session) throws PersistentException {
+        return countryDAO.deleteAndDissociate(country, session);
+    }
+
+    public Country loadCountryByQuery(String condition, String orderBy) throws PersistentException {
+        return countryDAO.loadCountryByQuery(condition, orderBy);
+    }
+
+    public Country createCountry() {
+        return countryDAO.createCountry();
+    }
+
+    public Iterator iterateCountryByQuery(String condition, String orderBy) throws PersistentException {
+        return countryDAO.iterateCountryByQuery(condition, orderBy);
+    }
+
+    public Country[] listCountryByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return countryDAO.listCountryByQuery(condition, orderBy, lockMode);
+    }
+
+    public Country loadCountryByORMID(PersistentSession session, int ID) throws PersistentException {
+        return countryDAO.loadCountryByORMID(session, ID);
+    }
+
+    public Country loadCountryByCriteria(CountryCriteria countryCriteria) {
+        return countryDAO.loadCountryByCriteria(countryCriteria);
+    }
+
+    public Country getCountryByORMID(PersistentSession session, int ID, LockMode lockMode) throws PersistentException {
+        return countryDAO.getCountryByORMID(session, ID, lockMode);
+    }
+
+    public Country loadCountryByORMID(int ID, LockMode lockMode) throws PersistentException {
+        return countryDAO.loadCountryByORMID(ID, lockMode);
+    }
+
+    public Iterator iterateCountryByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return countryDAO.iterateCountryByQuery(condition, orderBy, lockMode);
+    }
+
+    public List queryCountry(PersistentSession session, String condition, String orderBy) throws PersistentException {
+        return countryDAO.queryCountry(session, condition, orderBy);
+    }
+
+    public Country getCountryByORMID(int ID, LockMode lockMode) throws PersistentException {
+        return countryDAO.getCountryByORMID(ID, lockMode);
+    }
+
+    public Country[] listCountryByQuery(String condition, String orderBy) throws PersistentException {
+        return countryDAO.listCountryByQuery(condition, orderBy);
+    }
+
+    public boolean delete(Country country) throws PersistentException {
+        return countryDAO.delete(country);
+    }
+
+    public List queryCountry(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return countryDAO.queryCountry(session, condition, orderBy, lockMode);
+    }
+
+    public boolean evict(Country country) throws PersistentException {
+        return countryDAO.evict(country);
+    }
+
+    public Country getCountryByORMID(int ID) throws PersistentException {
+        return countryDAO.getCountryByORMID(ID);
+    }
+
+    public Country getCountryByORMID(PersistentSession session, int ID) throws PersistentException {
+        return countryDAO.getCountryByORMID(session, ID);
+    }
+
+    public Country[] listCountryByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return countryDAO.listCountryByQuery(session, condition, orderBy, lockMode);
+    }
+
+    public Country loadCountryByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
+        return countryDAO.loadCountryByQuery(session, condition, orderBy);
+    }
+
+    public Country loadCountryByORMID(PersistentSession session, int ID, LockMode lockMode) throws PersistentException {
+        return countryDAO.loadCountryByORMID(session, ID, lockMode);
+    }
+
+    public boolean deleteAndDissociate(Country country) throws PersistentException {
+        return countryDAO.deleteAndDissociate(country);
+    }
+
+    public Country[] listCountryByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
+        return countryDAO.listCountryByQuery(session, condition, orderBy);
+    }
+
+    public City loadCityByORMID(int ID) throws PersistentException {
+        return cityDAO.loadCityByORMID(ID);
+    }
+
+    public City getCityByORMID(PersistentSession session, int ID, LockMode lockMode) throws PersistentException {
+        return cityDAO.getCityByORMID(session, ID, lockMode);
+    }
+
+    public boolean deleteAndDissociate(City city, PersistentSession session) throws PersistentException {
+        return cityDAO.deleteAndDissociate(city, session);
+    }
+
+    public City[] listCityByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return cityDAO.listCityByQuery(condition, orderBy, lockMode);
+    }
+
+    public boolean deleteAndDissociate(City city) throws PersistentException {
+        return cityDAO.deleteAndDissociate(city);
+    }
+
+    public City loadCityByORMID(PersistentSession session, int ID) throws PersistentException {
+        return cityDAO.loadCityByORMID(session, ID);
+    }
+
+    public City loadCityByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return cityDAO.loadCityByQuery(condition, orderBy, lockMode);
+    }
+
+    public City getCityByORMID(int ID, LockMode lockMode) throws PersistentException {
+        return cityDAO.getCityByORMID(ID, lockMode);
+    }
+
+    public Iterator iterateCityByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return cityDAO.iterateCityByQuery(condition, orderBy, lockMode);
+    }
+
+    public boolean refresh(City city) throws PersistentException {
+        return cityDAO.refresh(city);
+    }
+
+    public City getCityByORMID(int ID) throws PersistentException {
+        return cityDAO.getCityByORMID(ID);
+    }
+
+    public List queryCity(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return cityDAO.queryCity(session, condition, orderBy, lockMode);
+    }
+
+    public boolean evict(City city) throws PersistentException {
+        return cityDAO.evict(city);
+    }
+
+    public City createCity() {
+        return cityDAO.createCity();
+    }
+
+    public City[] listCityByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return cityDAO.listCityByQuery(session, condition, orderBy, lockMode);
+    }
+
+    public City loadCityByQuery(String condition, String orderBy) throws PersistentException {
+        return cityDAO.loadCityByQuery(condition, orderBy);
+    }
+
+    public List queryCity(String condition, String orderBy) throws PersistentException {
+        return cityDAO.queryCity(condition, orderBy);
+    }
+
+    public List queryCity(PersistentSession session, String condition, String orderBy) throws PersistentException {
+        return cityDAO.queryCity(session, condition, orderBy);
+    }
+
+    public City[] listCityByCriteria(CityCriteria cityCriteria) {
+        return cityDAO.listCityByCriteria(cityCriteria);
+    }
+
+    public City loadCityByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return cityDAO.loadCityByQuery(session, condition, orderBy, lockMode);
+    }
+
+    public Iterator iterateCityByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
+        return cityDAO.iterateCityByQuery(session, condition, orderBy);
+    }
+
+    public City loadCityByORMID(int ID, LockMode lockMode) throws PersistentException {
+        return cityDAO.loadCityByORMID(ID, lockMode);
+    }
+
+    public City[] listCityByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
+        return cityDAO.listCityByQuery(session, condition, orderBy);
+    }
+
+    public City loadCityByCriteria(CityCriteria cityCriteria) {
+        return cityDAO.loadCityByCriteria(cityCriteria);
+    }
+
+    public Iterator iterateCityByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return cityDAO.iterateCityByQuery(session, condition, orderBy, lockMode);
+    }
+
+    public City getCityByORMID(PersistentSession session, int ID) throws PersistentException {
+        return cityDAO.getCityByORMID(session, ID);
+    }
+
+    public City[] listCityByQuery(String condition, String orderBy) throws PersistentException {
+        return cityDAO.listCityByQuery(condition, orderBy);
+    }
+
+    public Iterator iterateCityByQuery(String condition, String orderBy) throws PersistentException {
+        return cityDAO.iterateCityByQuery(condition, orderBy);
+    }
+
+    public boolean save(City city) throws PersistentException {
+        return cityDAO.save(city);
+    }
+
+    public boolean delete(City city) throws PersistentException {
+        return cityDAO.delete(city);
+    }
+
+    public City loadCityByORMID(PersistentSession session, int ID, LockMode lockMode) throws PersistentException {
+        return cityDAO.loadCityByORMID(session, ID, lockMode);
+    }
+
+    public City loadCityByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
+        return cityDAO.loadCityByQuery(session, condition, orderBy);
+    }
+
+    public List queryCity(String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return cityDAO.queryCity(condition, orderBy, lockMode);
+    }
+
+    public Weekday loadWeekdayByORMID(int ID) throws PersistentException {
+        return weekdayDAO.loadWeekdayByORMID(ID);
+    }
+
+    public List queryWeekday(String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return weekdayDAO.queryWeekday(condition, orderBy, lockMode);
+    }
+
+    public boolean evict(Weekday weekday) throws PersistentException {
+        return weekdayDAO.evict(weekday);
+    }
+
+    public Weekday getWeekdayByORMID(int ID, LockMode lockMode) throws PersistentException {
+        return weekdayDAO.getWeekdayByORMID(ID, lockMode);
+    }
+
+    public Weekday[] listWeekdayByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
+        return weekdayDAO.listWeekdayByQuery(session, condition, orderBy);
+    }
+
+    public Weekday[] listWeekdayByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return weekdayDAO.listWeekdayByQuery(condition, orderBy, lockMode);
+    }
+
+    public Weekday loadWeekdayByORMID(int ID, LockMode lockMode) throws PersistentException {
+        return weekdayDAO.loadWeekdayByORMID(ID, lockMode);
+    }
+
+    public Iterator iterateWeekdayByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return weekdayDAO.iterateWeekdayByQuery(session, condition, orderBy, lockMode);
+    }
+
+    public Weekday loadWeekdayByCriteria(WeekdayCriteria weekdayCriteria) {
+        return weekdayDAO.loadWeekdayByCriteria(weekdayCriteria);
+    }
+
+    public Weekday[] listWeekdayByQuery(String condition, String orderBy) throws PersistentException {
+        return weekdayDAO.listWeekdayByQuery(condition, orderBy);
+    }
+
+    public Weekday createWeekday() {
+        return weekdayDAO.createWeekday();
+    }
+
+    public List queryWeekday(String condition, String orderBy) throws PersistentException {
+        return weekdayDAO.queryWeekday(condition, orderBy);
+    }
+
+    public boolean save(Weekday weekday) throws PersistentException {
+        return weekdayDAO.save(weekday);
+    }
+
+    public Weekday getWeekdayByORMID(int ID) throws PersistentException {
+        return weekdayDAO.getWeekdayByORMID(ID);
+    }
+
+    public Iterator iterateWeekdayByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return weekdayDAO.iterateWeekdayByQuery(condition, orderBy, lockMode);
+    }
+
+    public Weekday loadWeekdayByORMID(PersistentSession session, int ID, LockMode lockMode) throws PersistentException {
+        return weekdayDAO.loadWeekdayByORMID(session, ID, lockMode);
+    }
+
+    public Iterator iterateWeekdayByQuery(String condition, String orderBy) throws PersistentException {
+        return weekdayDAO.iterateWeekdayByQuery(condition, orderBy);
+    }
+
+    public Weekday getWeekdayByORMID(PersistentSession session, int ID, LockMode lockMode) throws PersistentException {
+        return weekdayDAO.getWeekdayByORMID(session, ID, lockMode);
+    }
+
+    public Weekday loadWeekdayByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return weekdayDAO.loadWeekdayByQuery(session, condition, orderBy, lockMode);
+    }
+
+    public Iterator iterateWeekdayByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
+        return weekdayDAO.iterateWeekdayByQuery(session, condition, orderBy);
+    }
+
+    public Weekday[] listWeekdayByCriteria(WeekdayCriteria weekdayCriteria) {
+        return weekdayDAO.listWeekdayByCriteria(weekdayCriteria);
+    }
+
+    public Weekday[] listWeekdayByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return weekdayDAO.listWeekdayByQuery(session, condition, orderBy, lockMode);
+    }
+
+    public Weekday getWeekdayByORMID(PersistentSession session, int ID) throws PersistentException {
+        return weekdayDAO.getWeekdayByORMID(session, ID);
+    }
+
+    public List queryWeekday(PersistentSession session, String condition, String orderBy) throws PersistentException {
+        return weekdayDAO.queryWeekday(session, condition, orderBy);
+    }
+
+    public boolean delete(Weekday weekday) throws PersistentException {
+        return weekdayDAO.delete(weekday);
+    }
+
+    public boolean refresh(Weekday weekday) throws PersistentException {
+        return weekdayDAO.refresh(weekday);
+    }
+
+    public Weekday loadWeekdayByQuery(String condition, String orderBy) throws PersistentException {
+        return weekdayDAO.loadWeekdayByQuery(condition, orderBy);
+    }
+
+    public List queryWeekday(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return weekdayDAO.queryWeekday(session, condition, orderBy, lockMode);
+    }
+
+    public Weekday loadWeekdayByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return weekdayDAO.loadWeekdayByQuery(condition, orderBy, lockMode);
+    }
+
+    public Weekday loadWeekdayByORMID(PersistentSession session, int ID) throws PersistentException {
+        return weekdayDAO.loadWeekdayByORMID(session, ID);
+    }
+
+    public Weekday loadWeekdayByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
+        return weekdayDAO.loadWeekdayByQuery(session, condition, orderBy);
+    }
+
     public Facade(){
         this.drinkDAO = new DrinkDAOImpl();
         this.userDAO = new UserDAOImpl();
@@ -1273,6 +1664,9 @@ public class Facade {
         this.ingredientDAO = new IngredientDAOImpl();
         this.stepDAO = new StepDAOImpl();
         this.drinkIngredientDAO = new DrinkIngredientDAOImpl();
+        this.countryDAO = new CountryDAOImpl();
+        this.cityDAO = new CityDAOImpl();
+        this.weekdayDAO = new WeekdayDAOImpl();
     }
 
 }

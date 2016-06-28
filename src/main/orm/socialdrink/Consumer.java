@@ -17,6 +17,8 @@ public class Consumer extends socialdrink.User {
 	public Consumer() {
 	}
 	
+	private socialdrink.City city;
+	
 	private String firstname;
 	
 	private String lastname;
@@ -85,6 +87,14 @@ public class Consumer extends socialdrink.User {
 	
 	public String getSex() {
 		return sex;
+	}
+	
+	public void setCity(socialdrink.City value) {
+		this.city = value;
+	}
+	
+	public socialdrink.City getCity() {
+		return city;
 	}
 	
 	public String toString() {

@@ -13,12 +13,11 @@ License Type: Academic
 		<discriminator column="Discriminator" type="string"/>
 		<many-to-one name="photo" column="PhotoID" class="socialdrink.Photo" cascade="save-update,lock" unique="true" not-null="true" lazy="no-proxy" access="field">
 		</many-to-one>
-		<many-to-one name="address" column="AddressID" class="socialdrink.Address" cascade="save-update,lock,delete" unique="true" not-null="true" lazy="no-proxy" access="field">
-		</many-to-one>
 		<property name="email" column="Email" type="string" length="255" not-null="false" lazy="false"/>
 		<property name="password" column="Password" type="string" length="255" not-null="false" lazy="false"/>
 		<property name="description" column="Description" type="string" length="255" not-null="false" lazy="false"/>
-		<array name="followers" table="Entity4" cascade="all">
+		<property name="contact" column="Contact" type="string" length="255" not-null="false" lazy="false"/>
+		<array name="followers" table="Entity19" cascade="all">
 			<key column="UserID"/>
 			<index column="UserIndex" type="integer"/>
 			<element column="Followers" type="string" length="255"/>
@@ -27,33 +26,33 @@ License Type: Academic
 			<key column="UserID" not-null="true"/>
 			<one-to-many class="socialdrink.Drink"/>
 		</set>
-		<subclass name="socialdrink.Consumer" discriminator-value="Consumer" lazy="false">
-			<property name="firstname" column="Firstname" type="string" length="255" not-null="false" lazy="false"/>
-			<property name="lastname" column="Lastname" type="string" length="255" not-null="false" lazy="false"/>
-			<property name="Birthday" column="Birthday" type="date" not-null="false" lazy="false"/>
-			<property name="profession" column="Profession" type="string" length="255" not-null="false" lazy="false"/>
-			<property name="sex" column="Sex" type="string" length="255" not-null="false" lazy="false"/>
-			<array name="following" table="Entity5" cascade="all">
-				<key column="UserID"/>
-				<index column="UserIndex" type="integer"/>
-				<element column="Following" type="string" length="255"/>
-			</array>
-			<array name="favoriteDrink" table="Entity6" cascade="all">
-				<key column="UserID"/>
-				<index column="UserIndex" type="integer"/>
-				<element column="FavoriteDrink" type="string" length="255"/>
-			</array>
-		</subclass>
 		<subclass name="socialdrink.Bar" discriminator-value="TapHouse" lazy="false">
+			<many-to-one name="address" column="AddressID" class="socialdrink.Address" cascade="save-update,lock,delete" unique="true" not-null="false" lazy="no-proxy" access="field">
+			</many-to-one>
 			<property name="name" column="Name" type="string" length="255" not-null="false" lazy="false"/>
 			<set name="ORM_Horary" lazy="true" cascade="all-delete-orphan" inverse="false">
 				<key column="UserID" not-null="true"/>
 				<one-to-many class="socialdrink.Weekday"/>
 			</set>
-			<set name="ORM_ContactList" lazy="true" cascade="all-delete-orphan" inverse="false">
-				<key column="UserID" not-null="true"/>
-				<one-to-many class="socialdrink.Contact"/>
-			</set>
+		</subclass>
+		<subclass name="socialdrink.Consumer" discriminator-value="Consumer" lazy="false">
+			<many-to-one name="city" column="CityID" class="socialdrink.City" cascade="save-update,lock" unique="true" not-null="false" lazy="no-proxy" access="field">
+			</many-to-one>
+			<property name="firstname" column="Firstname" type="string" length="255" not-null="false" lazy="false"/>
+			<property name="lastname" column="Lastname" type="string" length="255" not-null="false" lazy="false"/>
+			<property name="Birthday" column="Birthday" type="date" not-null="false" lazy="false"/>
+			<property name="profession" column="Profession" type="string" length="255" not-null="false" lazy="false"/>
+			<property name="sex" column="Sex" type="string" length="255" not-null="false" lazy="false"/>
+			<array name="following" table="Entity20" cascade="all">
+				<key column="UserID"/>
+				<index column="UserIndex" type="integer"/>
+				<element column="Following" type="string" length="255"/>
+			</array>
+			<array name="favoriteDrink" table="Entity21" cascade="all">
+				<key column="UserID"/>
+				<index column="UserIndex" type="integer"/>
+				<element column="FavoriteDrink" type="string" length="255"/>
+			</array>
 		</subclass>
 	</class>
 </hibernate-mapping>

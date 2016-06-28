@@ -21,23 +21,23 @@
         </div>
         <div class="form-group col-md-7 col-md-offset-0">
             <label class="control-label">Nome</label>
-            <input maxlength="100" type="text" required="required" class="form-control" placeholder="Introduza o nome do bar" />
+            <input maxlength="100" type="text" required="required" class="form-control" id="nome" name="nome" placeholder="Introduza o nome do bar" />
         </div>
         <div class="form-group col-md-7 col-md-offset-0">
             <label class="control-label">Morada</label>
-            <input maxlength="200" type="text" required="required" class="form-control" placeholder="Introduza a morada do bar" />
+            <input maxlength="200" type="text" required="required" class="form-control" id="morada" name="morada" placeholder="Introduza a morada do bar" />
         </div>
         <div class="form-group col-md-7 col-md-offset-0">
             <label class="control-label">Cidade</label>
-            <input maxlength="50" type="text" required="required" class="form-control" placeholder="Introduza a cidade" />
+            <input maxlength="50" type="text" required="required" class="form-control" id="cidade" name="cidade" placeholder="Introduza a cidade" />
         </div>
         <div class="form-group col-md-7 col-md-offset-3">
             <label class="control-label">Contacto</label>
-            <input maxlength="10" type="text" required="no" class="form-control" placeholder="Introduza o número de telefone" />
+            <input maxlength="10" type="text" required="no" class="form-control" id="contacto" name="contacto" placeholder="Introduza o número de telefone" />
         </div>
         <div class="form-group col-md-7 col-md-offset-3">
             <label class="control-label">Descrição</label>
-            <textarea maxlength="300" rows="5" type="text" required="no" class="form-control" placeholder="Faça uma breve descrição acerca de si" /></textarea>
+            <textarea maxlength="300" rows="5" type="text" required="no" class="form-control" id="descricao" name="descricao" placeholder="Faça uma breve descrição acerca de si" /></textarea>
         </div>
         <div class="form-group col-md-7 col-md-offset-3">
             <button class="btn btn-default prevBtn btn-lg pull-left" type="button" >Anterior</button>

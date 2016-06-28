@@ -36,13 +36,13 @@ public abstract class User {
 	
 	private socialdrink.Photo photo;
 	
-	private socialdrink.Address address;
-	
 	private String email;
 	
 	private String password;
 	
 	private String description;
+	
+	private String contact;
 	
 	private String[] followers;
 	
@@ -92,12 +92,12 @@ public abstract class User {
 		return followers;
 	}
 	
-	public void setAddress(socialdrink.Address value) {
-		this.address = value;
+	public void setContact(String value) {
+		this.contact = value;
 	}
 	
-	public socialdrink.Address getAddress() {
-		return address;
+	public String getContact() {
+		return contact;
 	}
 	
 	public void setPhoto(socialdrink.Photo value) {

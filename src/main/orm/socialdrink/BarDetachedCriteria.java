@@ -22,30 +22,30 @@ public class BarDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final IntegerExpression ID;
 	public final IntegerExpression photoId;
 	public final AssociationExpression photo;
-	public final IntegerExpression addressId;
-	public final AssociationExpression address;
 	public final StringExpression email;
 	public final StringExpression password;
 	public final StringExpression description;
+	public final StringExpression contact;
 	public final CollectionExpression drinks;
+	public final IntegerExpression addressId;
+	public final AssociationExpression address;
 	public final StringExpression name;
 	public final CollectionExpression horary;
-	public final CollectionExpression contactList;
 	
 	public BarDetachedCriteria() {
 		super(socialdrink.Bar.class, socialdrink.BarCriteria.class);
 		ID = new IntegerExpression("ID", this.getDetachedCriteria());
 		photoId = new IntegerExpression("photo.ID", this.getDetachedCriteria());
 		photo = new AssociationExpression("photo", this.getDetachedCriteria());
-		addressId = new IntegerExpression("address.ID", this.getDetachedCriteria());
-		address = new AssociationExpression("address", this.getDetachedCriteria());
 		email = new StringExpression("email", this.getDetachedCriteria());
 		password = new StringExpression("password", this.getDetachedCriteria());
 		description = new StringExpression("description", this.getDetachedCriteria());
+		contact = new StringExpression("contact", this.getDetachedCriteria());
 		drinks = new CollectionExpression("ORM_Drinks", this.getDetachedCriteria());
+		addressId = new IntegerExpression("address.ID", this.getDetachedCriteria());
+		address = new AssociationExpression("address", this.getDetachedCriteria());
 		name = new StringExpression("name", this.getDetachedCriteria());
 		horary = new CollectionExpression("ORM_Horary", this.getDetachedCriteria());
-		contactList = new CollectionExpression("ORM_ContactList", this.getDetachedCriteria());
 	}
 	
 	public BarDetachedCriteria(DetachedCriteria aDetachedCriteria) {
@@ -53,31 +53,27 @@ public class BarDetachedCriteria extends AbstractORMDetachedCriteria {
 		ID = new IntegerExpression("ID", this.getDetachedCriteria());
 		photoId = new IntegerExpression("photo.ID", this.getDetachedCriteria());
 		photo = new AssociationExpression("photo", this.getDetachedCriteria());
-		addressId = new IntegerExpression("address.ID", this.getDetachedCriteria());
-		address = new AssociationExpression("address", this.getDetachedCriteria());
 		email = new StringExpression("email", this.getDetachedCriteria());
 		password = new StringExpression("password", this.getDetachedCriteria());
 		description = new StringExpression("description", this.getDetachedCriteria());
+		contact = new StringExpression("contact", this.getDetachedCriteria());
 		drinks = new CollectionExpression("ORM_Drinks", this.getDetachedCriteria());
+		addressId = new IntegerExpression("address.ID", this.getDetachedCriteria());
+		address = new AssociationExpression("address", this.getDetachedCriteria());
 		name = new StringExpression("name", this.getDetachedCriteria());
 		horary = new CollectionExpression("ORM_Horary", this.getDetachedCriteria());
-		contactList = new CollectionExpression("ORM_ContactList", this.getDetachedCriteria());
+	}
+	
+	public AddressDetachedCriteria createAddressCriteria() {
+		return new AddressDetachedCriteria(createCriteria("address"));
 	}
 	
 	public WeekdayDetachedCriteria createHoraryCriteria() {
 		return new WeekdayDetachedCriteria(createCriteria("ORM_Horary"));
 	}
 	
-	public ContactDetachedCriteria createContactListCriteria() {
-		return new ContactDetachedCriteria(createCriteria("ORM_ContactList"));
-	}
-	
 	public PhotoDetachedCriteria createPhotoCriteria() {
 		return new PhotoDetachedCriteria(createCriteria("photo"));
-	}
-	
-	public AddressDetachedCriteria createAddressCriteria() {
-		return new AddressDetachedCriteria(createCriteria("address"));
 	}
 	
 	public DrinkDetachedCriteria createDrinksCriteria() {

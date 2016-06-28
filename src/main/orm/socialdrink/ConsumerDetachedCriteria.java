@@ -22,12 +22,13 @@ public class ConsumerDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final IntegerExpression ID;
 	public final IntegerExpression photoId;
 	public final AssociationExpression photo;
-	public final IntegerExpression addressId;
-	public final AssociationExpression address;
 	public final StringExpression email;
 	public final StringExpression password;
 	public final StringExpression description;
+	public final StringExpression contact;
 	public final CollectionExpression drinks;
+	public final IntegerExpression cityId;
+	public final AssociationExpression city;
 	public final StringExpression firstname;
 	public final StringExpression lastname;
 	public final DateExpression Birthday;
@@ -39,12 +40,13 @@ public class ConsumerDetachedCriteria extends AbstractORMDetachedCriteria {
 		ID = new IntegerExpression("ID", this.getDetachedCriteria());
 		photoId = new IntegerExpression("photo.ID", this.getDetachedCriteria());
 		photo = new AssociationExpression("photo", this.getDetachedCriteria());
-		addressId = new IntegerExpression("address.ID", this.getDetachedCriteria());
-		address = new AssociationExpression("address", this.getDetachedCriteria());
 		email = new StringExpression("email", this.getDetachedCriteria());
 		password = new StringExpression("password", this.getDetachedCriteria());
 		description = new StringExpression("description", this.getDetachedCriteria());
+		contact = new StringExpression("contact", this.getDetachedCriteria());
 		drinks = new CollectionExpression("ORM_Drinks", this.getDetachedCriteria());
+		cityId = new IntegerExpression("city.ID", this.getDetachedCriteria());
+		city = new AssociationExpression("city", this.getDetachedCriteria());
 		firstname = new StringExpression("firstname", this.getDetachedCriteria());
 		lastname = new StringExpression("lastname", this.getDetachedCriteria());
 		Birthday = new DateExpression("Birthday", this.getDetachedCriteria());
@@ -57,12 +59,13 @@ public class ConsumerDetachedCriteria extends AbstractORMDetachedCriteria {
 		ID = new IntegerExpression("ID", this.getDetachedCriteria());
 		photoId = new IntegerExpression("photo.ID", this.getDetachedCriteria());
 		photo = new AssociationExpression("photo", this.getDetachedCriteria());
-		addressId = new IntegerExpression("address.ID", this.getDetachedCriteria());
-		address = new AssociationExpression("address", this.getDetachedCriteria());
 		email = new StringExpression("email", this.getDetachedCriteria());
 		password = new StringExpression("password", this.getDetachedCriteria());
 		description = new StringExpression("description", this.getDetachedCriteria());
+		contact = new StringExpression("contact", this.getDetachedCriteria());
 		drinks = new CollectionExpression("ORM_Drinks", this.getDetachedCriteria());
+		cityId = new IntegerExpression("city.ID", this.getDetachedCriteria());
+		city = new AssociationExpression("city", this.getDetachedCriteria());
 		firstname = new StringExpression("firstname", this.getDetachedCriteria());
 		lastname = new StringExpression("lastname", this.getDetachedCriteria());
 		Birthday = new DateExpression("Birthday", this.getDetachedCriteria());
@@ -70,12 +73,12 @@ public class ConsumerDetachedCriteria extends AbstractORMDetachedCriteria {
 		sex = new StringExpression("sex", this.getDetachedCriteria());
 	}
 	
-	public PhotoDetachedCriteria createPhotoCriteria() {
-		return new PhotoDetachedCriteria(createCriteria("photo"));
+	public CityDetachedCriteria createCityCriteria() {
+		return new CityDetachedCriteria(createCriteria("city"));
 	}
 	
-	public AddressDetachedCriteria createAddressCriteria() {
-		return new AddressDetachedCriteria(createCriteria("address"));
+	public PhotoDetachedCriteria createPhotoCriteria() {
+		return new PhotoDetachedCriteria(createCriteria("photo"));
 	}
 	
 	public DrinkDetachedCriteria createDrinksCriteria() {

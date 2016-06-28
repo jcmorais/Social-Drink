@@ -21,17 +21,15 @@ import org.orm.criteria.*;
 public class WeekdayCriteria extends AbstractORMCriteria {
 	public final IntegerExpression ID;
 	public final StringExpression day;
-	public final BooleanExpression isOpen;
-	public final IntegerExpression opening;
-	public final IntegerExpression closure;
+	public final StringExpression opening;
+	public final StringExpression closure;
 	
 	public WeekdayCriteria(Criteria criteria) {
 		super(criteria);
 		ID = new IntegerExpression("ID", this);
 		day = new StringExpression("day", this);
-		isOpen = new BooleanExpression("isOpen", this);
-		opening = new IntegerExpression("opening", this);
-		closure = new IntegerExpression("closure", this);
+		opening = new StringExpression("opening", this);
+		closure = new StringExpression("closure", this);
 	}
 	
 	public WeekdayCriteria(PersistentSession session) {

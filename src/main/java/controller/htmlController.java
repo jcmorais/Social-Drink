@@ -25,4 +25,8 @@ import java.util.Map;
 public class htmlController {
     //Só para testar o html quando estivermos a fazer as paginas
 
+    @RequestMapping("/teste")
+    public String index(){
+        return "/perfis/userProfile";
+    }
 }

@@ -18,20 +18,21 @@
             </div>
             <div class="input-group col-md-offset-1">
                 <label class="c-input c-checkbox">
-                    <input type="checkbox">
+                    <input type="checkbox" name="check1" value="1">
+                    <input type="hidden" name="check1" value="0">
                     <span class="c-indicator"></span>
                 </label>
                 <span class="help-inline">&nbsp;Aberto</span>
             </div>
-            <div class="input-group clockpicker col-md-2 col-md-offset-2" name="open1">
-                <input type="text" class="form-control" value="09:00" >
+            <div class="input-group clockpicker col-md-2 col-md-offset-2">
+                <input type="text" class="form-control" value="09:00" id="open1" name="open1" >
                     <span class="input-group-addon add-on btn">
                         <span class="glyphicon glyphicon-time"></span>
                     </span>
             </div>
             <span class="help-inline">&nbsp;&nbsp;até&nbsp;&nbsp;</span>
-            <div class="input-group clockpicker col-md-2" name="close1">
-                <input type="text" class="form-control" value="18:00" >
+            <div class="input-group clockpicker col-md-2">
+                <input type="text" class="form-control" value="18:00" name="close1" >
                 <span class="input-group-addon add-on btn"><span class="glyphicon glyphicon-time"></span></span>
             </div>
         </div>
@@ -41,20 +42,21 @@
             </div>
             <div class="input-group col-md-offset-1">
                 <label class="c-input c-checkbox">
-                    <input type="checkbox">
+                    <input type="checkbox"  name="check2" value="1">
+                    <input type="hidden"  name="check2" value="0">
                     <span class="c-indicator"></span>
                 </label>
                 <span class="help-inline">&nbsp;Aberto</span>
             </div>
-            <div class="input-group clockpicker col-md-2 col-md-offset-2" name="open2">
-                <input type="text" class="form-control" value="09:00" >
+            <div class="input-group clockpicker col-md-2 col-md-offset-2">
+                <input type="text" class="form-control" value="09:00" name="open2" >
                     <span class="input-group-addon add-on btn">
                         <span class="glyphicon glyphicon-time"></span>
                     </span>
             </div>
             <span class="help-inline">&nbsp;&nbsp;até&nbsp;&nbsp;</span>
-            <div class="input-group clockpicker col-md-2" name="close2">
-                <input type="text" class="form-control" value="18:00" >
+            <div class="input-group clockpicker col-md-2">
+                <input type="text" class="form-control" value="18:00" name="close2" >
                 <span class="input-group-addon add-on btn"><span class="glyphicon glyphicon-time"></span></span>
             </div>
         </div>
@@ -62,22 +64,23 @@
             <div class="col-md-3">
                 <label class="control-label">Quarta-Feira</label>
             </div>
-            <div class="input-group col-md-offset-1">
+            <div class="input-group col-md-offset-1" >
                 <label class="c-input c-checkbox">
-                    <input type="checkbox">
+                    <input type="checkbox" name="check3" value="1">
+                    <input type="hidden" name="check3" value="0">
                     <span class="c-indicator"></span>
                 </label>
                 <span class="help-inline">&nbsp;Aberto</span>
             </div>
-            <div class="input-group clockpicker col-md-2 col-md-offset-2" name="open3">
-                <input type="text" class="form-control" value="09:00" >
+            <div class="input-group clockpicker col-md-2 col-md-offset-2">
+                <input type="text" class="form-control" value="09:00" name="open3" >
                     <span class="input-group-addon add-on btn">
                         <span class="glyphicon glyphicon-time"></span>
                     </span>
             </div>
             <span class="help-inline">&nbsp;&nbsp;até&nbsp;&nbsp;</span>
-            <div class="input-group clockpicker col-md-2" name="close3">
-                <input type="text" class="form-control" value="18:00" >
+            <div class="input-group clockpicker col-md-2">
+                <input type="text" class="form-control" value="18:00" name="close3" >
                 <span class="input-group-addon add-on btn"><span class="glyphicon glyphicon-time"></span></span>
             </div>
         </div>
@@ -87,20 +90,21 @@
             </div>
             <div class="input-group col-md-offset-1">
                 <label class="c-input c-checkbox">
-                    <input type="checkbox">
+                    <input type="checkbox" name="check4" value="1">
+                    <input type="hidden" name="check4" value="0">
                     <span class="c-indicator"></span>
                 </label>
                 <span class="help-inline">&nbsp;Aberto</span>
             </div>
-            <div class="input-group clockpicker col-md-2 col-md-offset-2" name="open4">
-                <input type="text" class="form-control" value="09:00" >
+            <div class="input-group clockpicker col-md-2 col-md-offset-2">
+                <input type="text" class="form-control" value="09:00" name="open4" >
                     <span class="input-group-addon add-on btn">
                         <span class="glyphicon glyphicon-time"></span>
                     </span>
             </div>
             <span class="help-inline">&nbsp;&nbsp;até&nbsp;&nbsp;</span>
-            <div class="input-group clockpicker col-md-2" name="close4">
-                <input type="text" class="form-control" value="18:00" >
+            <div class="input-group clockpicker col-md-2">
+                <input type="text" class="form-control" value="18:00" name="close4" >
                 <span class="input-group-addon add-on btn"><span class="glyphicon glyphicon-time"></span></span>
             </div>
         </div>
@@ -110,20 +114,21 @@
             </div>
             <div class="input-group col-md-offset-1">
                 <label class="c-input c-checkbox">
-                    <input type="checkbox">
+                    <input type="checkbox" name="check5" value="1">
+                    <input type="hidden"  name="check5" value="0">
                     <span class="c-indicator"></span>
                 </label>
                 <span class="help-inline">&nbsp;Aberto</span>
             </div>
-            <div class="input-group clockpicker col-md-2 col-md-offset-2" name="open5">
-                <input type="text" class="form-control" value="09:00" >
+            <div class="input-group clockpicker col-md-2 col-md-offset-2">
+                <input type="text" class="form-control" value="09:00" name="open5" >
                     <span class="input-group-addon add-on btn">
                         <span class="glyphicon glyphicon-time"></span>
                     </span>
             </div>
             <span class="help-inline">&nbsp;&nbsp;até&nbsp;&nbsp;</span>
-            <div class="input-group clockpicker col-md-2" name="close5">
-                <input type="text" class="form-control" value="18:00" >
+            <div class="input-group clockpicker col-md-2">
+                <input type="text" class="form-control" value="18:00" name="close5" >
                 <span class="input-group-addon add-on btn"><span class="glyphicon glyphicon-time"></span></span>
             </div>
         </div>
@@ -133,20 +138,21 @@
             </div>
             <div class="input-group col-md-offset-1">
                 <label class="c-input c-checkbox">
-                    <input type="checkbox">
+                    <input type="checkbox" name="check6" value="1">
+                    <input type="hidden" name="check6" value="0">
                     <span class="c-indicator"></span>
                 </label>
                 <span class="help-inline">&nbsp;Aberto</span>
             </div>
-            <div class="input-group clockpicker col-md-2 col-md-offset-2" name="open6">
-                <input type="text" class="form-control" value="09:00" >
+            <div class="input-group clockpicker col-md-2 col-md-offset-2">
+                <input type="text" class="form-control" value="09:00" name="open6" >
                     <span class="input-group-addon add-on btn">
                         <span class="glyphicon glyphicon-time"></span>
                     </span>
             </div>
             <span class="help-inline">&nbsp;&nbsp;até&nbsp;&nbsp;</span>
-            <div class="input-group clockpicker col-md-2" name="close6">
-                <input type="text" class="form-control" value="18:00" >
+            <div class="input-group clockpicker col-md-2">
+                <input type="text" class="form-control" value="18:00" name="close6" >
                 <span class="input-group-addon add-on btn"><span class="glyphicon glyphicon-time"></span></span>
             </div>
         </div>
@@ -156,20 +162,21 @@
             </div>
             <div class="input-group col-md-offset-1">
                 <label class="c-input c-checkbox">
-                    <input type="checkbox">
+                    <input type="checkbox" name="check7" value="1">
+                    <input type="hidden" name="check7" value="0">
                     <span class="c-indicator"></span>
                 </label>
                 <span class="help-inline">&nbsp;Aberto</span>
             </div>
-            <div class="input-group clockpicker col-md-2 col-md-offset-2" name="open7">
-                <input type="text" class="form-control" value="09:00" >
+            <div class="input-group clockpicker col-md-2 col-md-offset-2">
+                <input type="text" class="form-control" value="09:00" name="open7" >
                     <span class="input-group-addon add-on btn">
                         <span class="glyphicon glyphicon-time"></span>
                     </span>
             </div>
             <span class="help-inline">&nbsp;&nbsp;até&nbsp;&nbsp;</span>
-            <div class="input-group clockpicker col-md-2" name="close7">
-                <input type="text" class="form-control" value="18:00" >
+            <div class="input-group clockpicker col-md-2">
+                <input type="text" class="form-control" value="18:00" name="close7" >
                 <span class="input-group-addon add-on btn"><span class="glyphicon glyphicon-time"></span></span>
             </div>
         </div>

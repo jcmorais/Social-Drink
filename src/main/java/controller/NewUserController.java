@@ -17,7 +17,6 @@ import java.util.Date;
 
 @Controller
 public class NewUserController {
-    //Só para testar o html quando estivermos a fazer as paginas
     @Autowired
     private RegisterService registerService = new RegisterServiceImpl();
 
@@ -44,7 +43,7 @@ public class NewUserController {
 
         registerService.addConsumer(email, password, primeiroNome, ultimoNome, profissao, cidade, genero, dataNasc, contacto, descriçao);
 
-        model.setViewName("index");
+        model.setViewName("redirect:/");
 
 
         return model;

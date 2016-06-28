@@ -22,30 +22,30 @@ public class BarCriteria extends AbstractORMCriteria {
 	public final IntegerExpression ID;
 	public final IntegerExpression photoId;
 	public final AssociationExpression photo;
-	public final IntegerExpression addressId;
-	public final AssociationExpression address;
 	public final StringExpression email;
 	public final StringExpression password;
 	public final StringExpression description;
+	public final StringExpression contact;
 	public final CollectionExpression drinks;
+	public final IntegerExpression addressId;
+	public final AssociationExpression address;
 	public final StringExpression name;
 	public final CollectionExpression horary;
-	public final CollectionExpression contactList;
 	
 	public BarCriteria(Criteria criteria) {
 		super(criteria);
 		ID = new IntegerExpression("ID", this);
 		photoId = new IntegerExpression("photo.ID", this);
 		photo = new AssociationExpression("photo", this);
-		addressId = new IntegerExpression("address.ID", this);
-		address = new AssociationExpression("address", this);
 		email = new StringExpression("email", this);
 		password = new StringExpression("password", this);
 		description = new StringExpression("description", this);
+		contact = new StringExpression("contact", this);
 		drinks = new CollectionExpression("ORM_Drinks", this);
+		addressId = new IntegerExpression("address.ID", this);
+		address = new AssociationExpression("address", this);
 		name = new StringExpression("name", this);
 		horary = new CollectionExpression("ORM_Horary", this);
-		contactList = new CollectionExpression("ORM_ContactList", this);
 	}
 	
 	public BarCriteria(PersistentSession session) {
@@ -56,20 +56,16 @@ public class BarCriteria extends AbstractORMCriteria {
 		this(socialdrink.SocialDrinkPersistentManager.instance().getSession());
 	}
 	
+	public AddressCriteria createAddressCriteria() {
+		return new AddressCriteria(createCriteria("address"));
+	}
+	
 	public WeekdayCriteria createHoraryCriteria() {
 		return new WeekdayCriteria(createCriteria("ORM_Horary"));
 	}
 	
-	public ContactCriteria createContactListCriteria() {
-		return new ContactCriteria(createCriteria("ORM_ContactList"));
-	}
-	
 	public PhotoCriteria createPhotoCriteria() {
 		return new PhotoCriteria(createCriteria("photo"));
-	}
-	
-	public AddressCriteria createAddressCriteria() {
-		return new AddressCriteria(createCriteria("address"));
 	}
 	
 	public DrinkCriteria createDrinksCriteria() {

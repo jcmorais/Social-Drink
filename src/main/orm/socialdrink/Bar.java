@@ -21,9 +21,6 @@ public class Bar extends socialdrink.User {
 		if (key == socialdrink.ORMConstants.KEY_BAR_HORARY) {
 			return ORM_horary;
 		}
-		else if (key == socialdrink.ORMConstants.KEY_BAR_CONTACTLIST) {
-			return ORM_contactList;
-		}
 		
 		return null;
 	}
@@ -35,11 +32,11 @@ public class Bar extends socialdrink.User {
 		
 	};
 	
+	private socialdrink.Address address;
+	
 	private String name;
 	
 	private java.util.Set ORM_horary = new java.util.HashSet();
-	
-	private java.util.Set ORM_contactList = new java.util.HashSet();
 	
 	public void setName(String value) {
 		this.name = value;
@@ -59,15 +56,13 @@ public class Bar extends socialdrink.User {
 	
 	public final socialdrink.WeekdaySetCollection horary = new socialdrink.WeekdaySetCollection(this, _ormAdapter, socialdrink.ORMConstants.KEY_BAR_HORARY, socialdrink.ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
-	private void setORM_ContactList(java.util.Set value) {
-		this.ORM_contactList = value;
+	public void setAddress(socialdrink.Address value) {
+		this.address = value;
 	}
 	
-	private java.util.Set getORM_ContactList() {
-		return ORM_contactList;
+	public socialdrink.Address getAddress() {
+		return address;
 	}
-	
-	public final socialdrink.ContactSetCollection contactList = new socialdrink.ContactSetCollection(this, _ormAdapter, socialdrink.ORMConstants.KEY_BAR_CONTACTLIST, socialdrink.ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
 	public String toString() {
 		return super.toString();

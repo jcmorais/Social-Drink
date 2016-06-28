@@ -10,10 +10,6 @@ public class RetrieveAndUpdateSocialDrinkData {
 		PersistentTransaction t = socialdrink.SocialDrinkPersistentManager.instance().getSession().beginTransaction();
 		try {
 			socialdrink.DAOFactory lDAOFactory = socialdrink.DAOFactory.getDAOFactory();
-			socialdrink.dao.ConsumerDAO lsocialdrinkConsumerDAO = lDAOFactory.getConsumerDAO();
-			socialdrink.Consumer lsocialdrinkConsumer = lsocialdrinkConsumerDAO.loadConsumerByQuery(null, null);
-			// Update the properties of the persistent object
-			lsocialdrinkConsumerDAO.save(lsocialdrinkConsumer);
 			socialdrink.dao.BarDAO lsocialdrinkBarDAO = lDAOFactory.getBarDAO();
 			socialdrink.Bar lsocialdrinkBar = lsocialdrinkBarDAO.loadBarByQuery(null, null);
 			// Update the properties of the persistent object
@@ -22,10 +18,6 @@ public class RetrieveAndUpdateSocialDrinkData {
 			socialdrink.Address lsocialdrinkAddress = lsocialdrinkAddressDAO.loadAddressByQuery(null, null);
 			// Update the properties of the persistent object
 			lsocialdrinkAddressDAO.save(lsocialdrinkAddress);
-			socialdrink.dao.ContactDAO lsocialdrinkContactDAO = lDAOFactory.getContactDAO();
-			socialdrink.Contact lsocialdrinkContact = lsocialdrinkContactDAO.loadContactByQuery(null, null);
-			// Update the properties of the persistent object
-			lsocialdrinkContactDAO.save(lsocialdrinkContact);
 			socialdrink.dao.WeekdayDAO lsocialdrinkWeekdayDAO = lDAOFactory.getWeekdayDAO();
 			socialdrink.Weekday lsocialdrinkWeekday = lsocialdrinkWeekdayDAO.loadWeekdayByQuery(null, null);
 			// Update the properties of the persistent object
@@ -46,10 +38,6 @@ public class RetrieveAndUpdateSocialDrinkData {
 			socialdrink.Drink lsocialdrinkDrink = lsocialdrinkDrinkDAO.loadDrinkByQuery(null, null);
 			// Update the properties of the persistent object
 			lsocialdrinkDrinkDAO.save(lsocialdrinkDrink);
-			socialdrink.dao.ContactTypeDAO lsocialdrinkContactTypeDAO = lDAOFactory.getContactTypeDAO();
-			socialdrink.ContactType lsocialdrinkContactType = lsocialdrinkContactTypeDAO.loadContactTypeByQuery(null, null);
-			// Update the properties of the persistent object
-			lsocialdrinkContactTypeDAO.save(lsocialdrinkContactType);
 			socialdrink.dao.IngredientDAO lsocialdrinkIngredientDAO = lDAOFactory.getIngredientDAO();
 			socialdrink.Ingredient lsocialdrinkIngredient = lsocialdrinkIngredientDAO.loadIngredientByQuery(null, null);
 			// Update the properties of the persistent object
@@ -70,6 +58,10 @@ public class RetrieveAndUpdateSocialDrinkData {
 			socialdrink.DrinkType lsocialdrinkDrinkType = lsocialdrinkDrinkTypeDAO.loadDrinkTypeByQuery(null, null);
 			// Update the properties of the persistent object
 			lsocialdrinkDrinkTypeDAO.save(lsocialdrinkDrinkType);
+			socialdrink.dao.ConsumerDAO lsocialdrinkConsumerDAO = lDAOFactory.getConsumerDAO();
+			socialdrink.Consumer lsocialdrinkConsumer = lsocialdrinkConsumerDAO.loadConsumerByQuery(null, null);
+			// Update the properties of the persistent object
+			lsocialdrinkConsumerDAO.save(lsocialdrinkConsumer);
 			t.commit();
 		}
 		catch (Exception e) {
@@ -79,12 +71,6 @@ public class RetrieveAndUpdateSocialDrinkData {
 	}
 	
 	public void retrieveByCriteria() throws PersistentException {
-		System.out.println("Retrieving Consumer by ConsumerCriteria");
-		socialdrink.ConsumerCriteria lsocialdrinkConsumerCriteria = new socialdrink.ConsumerCriteria();
-		// Please uncomment the follow line and fill in parameter(s)
-		//lsocialdrinkConsumerCriteria.ID.eq();
-		System.out.println(lsocialdrinkConsumerCriteria.uniqueConsumer());
-		
 		System.out.println("Retrieving Bar by BarCriteria");
 		socialdrink.BarCriteria lsocialdrinkBarCriteria = new socialdrink.BarCriteria();
 		// Please uncomment the follow line and fill in parameter(s)
@@ -96,12 +82,6 @@ public class RetrieveAndUpdateSocialDrinkData {
 		// Please uncomment the follow line and fill in parameter(s)
 		//lsocialdrinkAddressCriteria.ID.eq();
 		System.out.println(lsocialdrinkAddressCriteria.uniqueAddress());
-		
-		System.out.println("Retrieving Contact by ContactCriteria");
-		socialdrink.ContactCriteria lsocialdrinkContactCriteria = new socialdrink.ContactCriteria();
-		// Please uncomment the follow line and fill in parameter(s)
-		//lsocialdrinkContactCriteria.ID.eq();
-		System.out.println(lsocialdrinkContactCriteria.uniqueContact());
 		
 		System.out.println("Retrieving Weekday by WeekdayCriteria");
 		socialdrink.WeekdayCriteria lsocialdrinkWeekdayCriteria = new socialdrink.WeekdayCriteria();
@@ -133,12 +113,6 @@ public class RetrieveAndUpdateSocialDrinkData {
 		//lsocialdrinkDrinkCriteria.ID.eq();
 		System.out.println(lsocialdrinkDrinkCriteria.uniqueDrink());
 		
-		System.out.println("Retrieving ContactType by ContactTypeCriteria");
-		socialdrink.ContactTypeCriteria lsocialdrinkContactTypeCriteria = new socialdrink.ContactTypeCriteria();
-		// Please uncomment the follow line and fill in parameter(s)
-		//lsocialdrinkContactTypeCriteria.ID.eq();
-		System.out.println(lsocialdrinkContactTypeCriteria.uniqueContactType());
-		
 		System.out.println("Retrieving Ingredient by IngredientCriteria");
 		socialdrink.IngredientCriteria lsocialdrinkIngredientCriteria = new socialdrink.IngredientCriteria();
 		// Please uncomment the follow line and fill in parameter(s)
@@ -168,6 +142,12 @@ public class RetrieveAndUpdateSocialDrinkData {
 		// Please uncomment the follow line and fill in parameter(s)
 		//lsocialdrinkDrinkTypeCriteria.ID.eq();
 		System.out.println(lsocialdrinkDrinkTypeCriteria.uniqueDrinkType());
+		
+		System.out.println("Retrieving Consumer by ConsumerCriteria");
+		socialdrink.ConsumerCriteria lsocialdrinkConsumerCriteria = new socialdrink.ConsumerCriteria();
+		// Please uncomment the follow line and fill in parameter(s)
+		//lsocialdrinkConsumerCriteria.ID.eq();
+		System.out.println(lsocialdrinkConsumerCriteria.uniqueConsumer());
 		
 	}
 	

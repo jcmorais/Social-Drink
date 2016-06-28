@@ -22,12 +22,13 @@ public class ConsumerCriteria extends AbstractORMCriteria {
 	public final IntegerExpression ID;
 	public final IntegerExpression photoId;
 	public final AssociationExpression photo;
-	public final IntegerExpression addressId;
-	public final AssociationExpression address;
 	public final StringExpression email;
 	public final StringExpression password;
 	public final StringExpression description;
+	public final StringExpression contact;
 	public final CollectionExpression drinks;
+	public final IntegerExpression cityId;
+	public final AssociationExpression city;
 	public final StringExpression firstname;
 	public final StringExpression lastname;
 	public final DateExpression Birthday;
@@ -39,12 +40,13 @@ public class ConsumerCriteria extends AbstractORMCriteria {
 		ID = new IntegerExpression("ID", this);
 		photoId = new IntegerExpression("photo.ID", this);
 		photo = new AssociationExpression("photo", this);
-		addressId = new IntegerExpression("address.ID", this);
-		address = new AssociationExpression("address", this);
 		email = new StringExpression("email", this);
 		password = new StringExpression("password", this);
 		description = new StringExpression("description", this);
+		contact = new StringExpression("contact", this);
 		drinks = new CollectionExpression("ORM_Drinks", this);
+		cityId = new IntegerExpression("city.ID", this);
+		city = new AssociationExpression("city", this);
 		firstname = new StringExpression("firstname", this);
 		lastname = new StringExpression("lastname", this);
 		Birthday = new DateExpression("Birthday", this);
@@ -60,12 +62,12 @@ public class ConsumerCriteria extends AbstractORMCriteria {
 		this(socialdrink.SocialDrinkPersistentManager.instance().getSession());
 	}
 	
-	public PhotoCriteria createPhotoCriteria() {
-		return new PhotoCriteria(createCriteria("photo"));
+	public CityCriteria createCityCriteria() {
+		return new CityCriteria(createCriteria("city"));
 	}
 	
-	public AddressCriteria createAddressCriteria() {
-		return new AddressCriteria(createCriteria("address"));
+	public PhotoCriteria createPhotoCriteria() {
+		return new PhotoCriteria(createCriteria("photo"));
 	}
 	
 	public DrinkCriteria createDrinksCriteria() {

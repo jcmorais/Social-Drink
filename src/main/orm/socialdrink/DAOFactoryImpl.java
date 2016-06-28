@@ -22,11 +22,6 @@ public class DAOFactoryImpl extends DAOFactory {
 		return _userDAO;
 	}
 	
-	private ConsumerDAO _consumerDAO = new ConsumerDAOImpl();
-	public ConsumerDAO getConsumerDAO() {
-		return _consumerDAO;
-	}
-	
 	private BarDAO _barDAO = new BarDAOImpl();
 	public BarDAO getBarDAO() {
 		return _barDAO;
@@ -35,11 +30,6 @@ public class DAOFactoryImpl extends DAOFactory {
 	private AddressDAO _addressDAO = new AddressDAOImpl();
 	public AddressDAO getAddressDAO() {
 		return _addressDAO;
-	}
-	
-	private ContactDAO _contactDAO = new ContactDAOImpl();
-	public ContactDAO getContactDAO() {
-		return _contactDAO;
 	}
 	
 	private WeekdayDAO _weekdayDAO = new WeekdayDAOImpl();
@@ -67,11 +57,6 @@ public class DAOFactoryImpl extends DAOFactory {
 		return _drinkDAO;
 	}
 	
-	private ContactTypeDAO _contactTypeDAO = new ContactTypeDAOImpl();
-	public ContactTypeDAO getContactTypeDAO() {
-		return _contactTypeDAO;
-	}
-	
 	private IngredientDAO _ingredientDAO = new IngredientDAOImpl();
 	public IngredientDAO getIngredientDAO() {
 		return _ingredientDAO;
@@ -95,6 +80,11 @@ public class DAOFactoryImpl extends DAOFactory {
 	private DrinkTypeDAO _drinkTypeDAO = new DrinkTypeDAOImpl();
 	public DrinkTypeDAO getDrinkTypeDAO() {
 		return _drinkTypeDAO;
+	}
+	
+	private ConsumerDAO _consumerDAO = new ConsumerDAOImpl();
+	public ConsumerDAO getConsumerDAO() {
+		return _consumerDAO;
 	}
 	
 }

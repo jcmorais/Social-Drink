@@ -64,7 +64,7 @@ public class Drink {
 	
 	private int timeToPrepate;
 	
-	private double yeld;
+	private int yeld;
 	
 	private java.util.Set ORM_evaluation = new java.util.HashSet();
 	
@@ -108,11 +108,11 @@ public class Drink {
 		return timeToPrepate;
 	}
 	
-	public void setYeld(double value) {
+	public void setYeld(int value) {
 		this.yeld = value;
 	}
 	
-	public double getYeld() {
+	public int getYeld() {
 		return yeld;
 	}
 	

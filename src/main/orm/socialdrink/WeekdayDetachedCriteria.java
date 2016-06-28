@@ -21,26 +21,23 @@ import org.orm.criteria.*;
 public class WeekdayDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final IntegerExpression ID;
 	public final StringExpression day;
-	public final BooleanExpression isOpen;
-	public final IntegerExpression opening;
-	public final IntegerExpression closure;
+	public final StringExpression opening;
+	public final StringExpression closure;
 	
 	public WeekdayDetachedCriteria() {
 		super(socialdrink.Weekday.class, socialdrink.WeekdayCriteria.class);
 		ID = new IntegerExpression("ID", this.getDetachedCriteria());
 		day = new StringExpression("day", this.getDetachedCriteria());
-		isOpen = new BooleanExpression("isOpen", this.getDetachedCriteria());
-		opening = new IntegerExpression("opening", this.getDetachedCriteria());
-		closure = new IntegerExpression("closure", this.getDetachedCriteria());
+		opening = new StringExpression("opening", this.getDetachedCriteria());
+		closure = new StringExpression("closure", this.getDetachedCriteria());
 	}
 	
 	public WeekdayDetachedCriteria(DetachedCriteria aDetachedCriteria) {
 		super(aDetachedCriteria, socialdrink.WeekdayCriteria.class);
 		ID = new IntegerExpression("ID", this.getDetachedCriteria());
 		day = new StringExpression("day", this.getDetachedCriteria());
-		isOpen = new BooleanExpression("isOpen", this.getDetachedCriteria());
-		opening = new IntegerExpression("opening", this.getDetachedCriteria());
-		closure = new IntegerExpression("closure", this.getDetachedCriteria());
+		opening = new StringExpression("opening", this.getDetachedCriteria());
+		closure = new StringExpression("closure", this.getDetachedCriteria());
 	}
 	
 	public Weekday uniqueWeekday(PersistentSession session) {

@@ -10,25 +10,17 @@ public class CreateSocialDrinkData {
 		PersistentTransaction t = socialdrink.SocialDrinkPersistentManager.instance().getSession().beginTransaction();
 		try {
 			socialdrink.DAOFactory lDAOFactory = socialdrink.DAOFactory.getDAOFactory();
-			socialdrink.dao.ConsumerDAO lsocialdrinkConsumerDAO = lDAOFactory.getConsumerDAO();
-			socialdrink.Consumer lsocialdrinkConsumer = lsocialdrinkConsumerDAO.createConsumer();
-			// Initialize the properties of the persistent object here
-			lsocialdrinkConsumerDAO.save(lsocialdrinkConsumer);
 			socialdrink.dao.BarDAO lsocialdrinkBarDAO = lDAOFactory.getBarDAO();
 			socialdrink.Bar lsocialdrinkBar = lsocialdrinkBarDAO.createBar();
-			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : contactList, horary
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : horary
 			lsocialdrinkBarDAO.save(lsocialdrinkBar);
 			socialdrink.dao.AddressDAO lsocialdrinkAddressDAO = lDAOFactory.getAddressDAO();
 			socialdrink.Address lsocialdrinkAddress = lsocialdrinkAddressDAO.createAddress();
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : city
 			lsocialdrinkAddressDAO.save(lsocialdrinkAddress);
-			socialdrink.dao.ContactDAO lsocialdrinkContactDAO = lDAOFactory.getContactDAO();
-			socialdrink.Contact lsocialdrinkContact = lsocialdrinkContactDAO.createContact();
-			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : contactType
-			lsocialdrinkContactDAO.save(lsocialdrinkContact);
 			socialdrink.dao.WeekdayDAO lsocialdrinkWeekdayDAO = lDAOFactory.getWeekdayDAO();
 			socialdrink.Weekday lsocialdrinkWeekday = lsocialdrinkWeekdayDAO.createWeekday();
-			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : closure, opening, isOpen
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : closure, opening
 			lsocialdrinkWeekdayDAO.save(lsocialdrinkWeekday);
 			socialdrink.dao.CityDAO lsocialdrinkCityDAO = lDAOFactory.getCityDAO();
 			socialdrink.City lsocialdrinkCity = lsocialdrinkCityDAO.createCity();
@@ -46,10 +38,6 @@ public class CreateSocialDrinkData {
 			socialdrink.Drink lsocialdrinkDrink = lsocialdrinkDrinkDAO.createDrink();
 			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : steps, ingredients, evaluation, yeld, timeToPrepate, typeOfDrink
 			lsocialdrinkDrinkDAO.save(lsocialdrinkDrink);
-			socialdrink.dao.ContactTypeDAO lsocialdrinkContactTypeDAO = lDAOFactory.getContactTypeDAO();
-			socialdrink.ContactType lsocialdrinkContactType = lsocialdrinkContactTypeDAO.createContactType();
-			// Initialize the properties of the persistent object here
-			lsocialdrinkContactTypeDAO.save(lsocialdrinkContactType);
 			socialdrink.dao.IngredientDAO lsocialdrinkIngredientDAO = lDAOFactory.getIngredientDAO();
 			socialdrink.Ingredient lsocialdrinkIngredient = lsocialdrinkIngredientDAO.createIngredient();
 			// Initialize the properties of the persistent object here
@@ -70,6 +58,10 @@ public class CreateSocialDrinkData {
 			socialdrink.DrinkType lsocialdrinkDrinkType = lsocialdrinkDrinkTypeDAO.createDrinkType();
 			// Initialize the properties of the persistent object here
 			lsocialdrinkDrinkTypeDAO.save(lsocialdrinkDrinkType);
+			socialdrink.dao.ConsumerDAO lsocialdrinkConsumerDAO = lDAOFactory.getConsumerDAO();
+			socialdrink.Consumer lsocialdrinkConsumer = lsocialdrinkConsumerDAO.createConsumer();
+			// Initialize the properties of the persistent object here
+			lsocialdrinkConsumerDAO.save(lsocialdrinkConsumer);
 			t.commit();
 		}
 		catch (Exception e) {

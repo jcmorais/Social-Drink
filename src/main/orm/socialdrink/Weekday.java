@@ -21,11 +21,9 @@ public class Weekday {
 	
 	private String day;
 	
-	private boolean isOpen;
+	private String opening;
 	
-	private int opening;
-	
-	private int closure;
+	private String closure;
 	
 	private void setID(int value) {
 		this.ID = value;
@@ -47,27 +45,19 @@ public class Weekday {
 		return day;
 	}
 	
-	public void setIsOpen(boolean value) {
-		this.isOpen = value;
-	}
-	
-	public boolean getIsOpen() {
-		return isOpen;
-	}
-	
-	public void setOpening(int value) {
+	public void setOpening(String value) {
 		this.opening = value;
 	}
 	
-	public int getOpening() {
+	public String getOpening() {
 		return opening;
 	}
 	
-	public void setClosure(int value) {
+	public void setClosure(String value) {
 		this.closure = value;
 	}
 	
-	public int getClosure() {
+	public String getClosure() {
 		return closure;
 	}
 	

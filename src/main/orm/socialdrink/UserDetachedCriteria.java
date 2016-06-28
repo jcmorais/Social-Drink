@@ -22,11 +22,10 @@ public class UserDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final IntegerExpression ID;
 	public final IntegerExpression photoId;
 	public final AssociationExpression photo;
-	public final IntegerExpression addressId;
-	public final AssociationExpression address;
 	public final StringExpression email;
 	public final StringExpression password;
 	public final StringExpression description;
+	public final StringExpression contact;
 	public final CollectionExpression drinks;
 	
 	public UserDetachedCriteria() {
@@ -34,11 +33,10 @@ public class UserDetachedCriteria extends AbstractORMDetachedCriteria {
 		ID = new IntegerExpression("ID", this.getDetachedCriteria());
 		photoId = new IntegerExpression("photo.ID", this.getDetachedCriteria());
 		photo = new AssociationExpression("photo", this.getDetachedCriteria());
-		addressId = new IntegerExpression("address.ID", this.getDetachedCriteria());
-		address = new AssociationExpression("address", this.getDetachedCriteria());
 		email = new StringExpression("email", this.getDetachedCriteria());
 		password = new StringExpression("password", this.getDetachedCriteria());
 		description = new StringExpression("description", this.getDetachedCriteria());
+		contact = new StringExpression("contact", this.getDetachedCriteria());
 		drinks = new CollectionExpression("ORM_Drinks", this.getDetachedCriteria());
 	}
 	
@@ -47,20 +45,15 @@ public class UserDetachedCriteria extends AbstractORMDetachedCriteria {
 		ID = new IntegerExpression("ID", this.getDetachedCriteria());
 		photoId = new IntegerExpression("photo.ID", this.getDetachedCriteria());
 		photo = new AssociationExpression("photo", this.getDetachedCriteria());
-		addressId = new IntegerExpression("address.ID", this.getDetachedCriteria());
-		address = new AssociationExpression("address", this.getDetachedCriteria());
 		email = new StringExpression("email", this.getDetachedCriteria());
 		password = new StringExpression("password", this.getDetachedCriteria());
 		description = new StringExpression("description", this.getDetachedCriteria());
+		contact = new StringExpression("contact", this.getDetachedCriteria());
 		drinks = new CollectionExpression("ORM_Drinks", this.getDetachedCriteria());
 	}
 	
 	public PhotoDetachedCriteria createPhotoCriteria() {
 		return new PhotoDetachedCriteria(createCriteria("photo"));
-	}
-	
-	public AddressDetachedCriteria createAddressCriteria() {
-		return new AddressDetachedCriteria(createCriteria("address"));
 	}
 	
 	public DrinkDetachedCriteria createDrinksCriteria() {

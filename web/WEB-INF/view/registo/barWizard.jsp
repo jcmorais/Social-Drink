@@ -1,4 +1,4 @@
-<%--
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %><%--
   Created by IntelliJ IDEA.
   User: jpp
   Date: 08/06/16
@@ -9,15 +9,15 @@
 <head>
     <title>Novo Bar</title>
 
-    <link rel="stylesheet" type="text/css" href="./resources/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="./resources/bootstrap/css/bootstrap-theme.min.css" />
-    <link rel="stylesheet" type="text/css" href="./resources/bootstrap/css/wizard.css" />
+    <link href="<c:url value="/resources/bootstrap/css/bootstrap.min.css"/>" rel="stylesheet">
+    <link href="<c:url value="/resources/bootstrap/css/bootstrap-theme.min.css"/>" rel="stylesheet">
+    <link href="<c:url value="/resources/bootstrap/css/wizard.css"/>" rel="stylesheet">
 
     <!-- Include Bootstrap Clockpicker -->
-    <link rel="stylesheet" type="text/css" href="./resources/bootstrap/css/bootstrap-clockpicker.min.css" />
+    <link href="<c:url value="/resources/bootstrap/css/bootstrap-clockpicker.min.css"/>" rel="stylesheet">
 
     <!-- Include Bootstrap Validator -->
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/css/bootstrapvalidator.min.css " />
+    <link href="<c:url value="//cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/css/bootstrapvalidator.min.css "/>" rel="stylesheet">
 
 </head>
 <body>
@@ -65,11 +65,11 @@
 </div>
 </body>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="./resources/bootstrap/js/bootstrap.min.js"></script>
-<script src="./resources/bootstrap/js/bootstrap-clockpicker.min.js"></script>
-<script src="./resources/bootstrap/js/clockpicker.js"></script>
-<script src="./resources/bootstrap/js/wizard.js"></script>
-<script src="./resources/bootstrap/js/validator.js"></script>
+<script src="<c:url value="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" />"></script>
+<script src="<c:url value="/resources/bootstrap/js/bootstrap.min.js" />"></script>
+<script src="<c:url value="/resources/bootstrap/js/bootstrap-clockpicker.min.js" />"></script>
+<script src="<c:url value="/resources/bootstrap/js/clockpicker.js" />"></script>
+<script src="<c:url value="/resources/bootstrap/js/wizard.js" />"></script>
+<script src="<c:url value="/resources/bootstrap/js/validator.js" />"></script>
 
 </html>

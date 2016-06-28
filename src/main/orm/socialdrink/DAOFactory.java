@@ -23,20 +23,18 @@ public abstract class DAOFactory {
 	}
 	
 	public abstract UserDAO getUserDAO();
-	public abstract ConsumerDAO getConsumerDAO();
 	public abstract BarDAO getBarDAO();
 	public abstract AddressDAO getAddressDAO();
-	public abstract ContactDAO getContactDAO();
 	public abstract WeekdayDAO getWeekdayDAO();
 	public abstract CityDAO getCityDAO();
 	public abstract CountryDAO getCountryDAO();
 	public abstract PhotoDAO getPhotoDAO();
 	public abstract DrinkDAO getDrinkDAO();
-	public abstract ContactTypeDAO getContactTypeDAO();
 	public abstract IngredientDAO getIngredientDAO();
 	public abstract StepDAO getStepDAO();
 	public abstract DrinkIngredientDAO getDrinkIngredientDAO();
 	public abstract EvaluationDAO getEvaluationDAO();
 	public abstract DrinkTypeDAO getDrinkTypeDAO();
+	public abstract ConsumerDAO getConsumerDAO();
 }
 
