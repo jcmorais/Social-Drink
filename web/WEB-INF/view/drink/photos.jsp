@@ -8,6 +8,12 @@
 
     <link href="<c:url value="/resources/bootstrap/css/bootstrap.min.css" />" rel="stylesheet">
     <link href="<c:url value="/resources/bootstrap/css/bootstrap-theme.min.css" />" rel="stylesheet">
+
+    <style>
+        .im-centered { border: dashed; padding: 10px}
+        .album-image{ height:250px; width: 250px; padding: 10px;}
+        .hidden{ visibility: hidden}
+    </style>
 </head>
 <body>
 
@@ -21,39 +27,63 @@
     </c:if>
     <form id="photoForm" method="post" action="/SocialDrink/drink/${drinkId}/photo"  enctype="multipart/form-data">
         <div class="container">
-            <h2>Escolha a foto principal do Drink !</h2>
+            <h2>Escolha a foto principal do Drink!</h2>
             <p>Esta será a fotografia principal da sua bebida!</p>
-
             <br>
-
         </div>
-        <br><br>
         <div class="container">
-            <img id="blah" name="photo" src="" alt="your image" style="display: none;"/>
-            <label class="btn btn-default btn-file col-md-3">
-                Selecionar uma foto<input type="file" style="display: none;" name="photoFile" accept="image/jpeg, image/png" onchange="readURL(this);">
-            </label>
-            <div class="container col-md-3"><input class="btn-success" type="submit" onclick="uploadPhoto()" value="Confirmar"></div>
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 im-centered">
+                        <img id="blah" name="photo" src="" alt="your image" style="visibility: hidden;"/>
+                    <br>
+                    <hr>
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="col-md-6">
+                        <label class="btn btn-default btn-file">
+                            Selecionar uma foto
+                            <input type="file" style="display: none;" name="photoFile" accept="image/jpeg, image/png" onchange="readURL(this);">
+                        </label>
+                    </div>
+                    <div class="col-md-6">
+                        <input id="submit-profile-photo" class="btn btn-success" type="submit" onclick="uploadPhoto()" value="Upload!">
+                    </div>
+                </div>
+            </div>
+            </div>
         </div>
-
-        <div class="alert alert-success" id="result" style="display: none;"></div>
     </form>
 </div>
 
 <div class="container">
+    <h1>Adiciona fotos ao àlbum do Drink!</h1>
+    <p>Estas fotografias serão exibidas no album da sua bebida!</p>
+
+</div>
     <form id="albumForm" method="post" action="/SocialDrink/drink/${drinkId}/photos"  enctype="multipart/form-data">
         <div class="container">
-            <h1>Adiciona fotos ao àlbum do Drink !</h1>
-            <label class="btn btn-default btn-file">
-               Selecionar fotos<input id="fileupload" multiple="multiple" type="file" style="display: none;" name="photosFiles" accept="image/jpeg, image/png">
-            </label>
-        </div>
-        <br />
-        <br />
-        <div id="dvPreview"></div>
-        <br><br>
-        <div class="container"><input class="btn-success" type="submit" onclick="uploadAlbum()" value="Confirmar"></div>
-        <div class="alert alert-success" id="resultAlbum" style="display: none;"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2 im-centered">
+                        <div id="dvPreview"></div>
+                        <br>
+                        <hr>
+                        <div class="col-md-6 col-md-offset-3">
+                            <div class="col-md-6">
+                                <label class="btn btn-default btn-file">
+                                    Selecionar fotos<input id="fileupload" multiple="multiple" type="file" style="display: none;" name="photosFiles" accept="image/jpeg, image/png">
+                                </label>
+                            </div>
+                            <div class="col-md-6">
+                                <input id="upload-album" class="btn btn-success" type="submit" onclick="uploadAlbum()" value="Confirmar">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
     </form>
 </div>
 
@@ -76,9 +106,8 @@
 
         $("#photoForm").ajaxForm({
             success:function(data) {
-                $('#result').html(data);
-                document.getElementById("result").style.display = "";
-                $('#blah').notify(data);
+                $('#submit-profile-photo').notify(data,'success');
+                $('#blah').addClass('hidden');
             },
             dataType:"text"
         }).submit();
@@ -90,8 +119,7 @@
 
         $("#albumForm").ajaxForm({
             success:function(data) {
-                $('#resultAlbum').html(data);
-                document.getElementById("resultAlbum").style.display = "";
+                $('#upload-album').notify(data,'success');
             },
             dataType:"text"
         }).submit();
@@ -112,7 +140,8 @@
                         var reader = new FileReader();
                         reader.onload = function (e) {
                             var img = $("<img />");
-                            img.attr("style", "height:250px;width: 250px");
+                            //img.attr("style", "height:250px;width: 250px");
+                            img.addClass("album-image");
                             img.attr("src", e.target.result);
                             dvPreview.append(img);
                         }
