@@ -51,12 +51,6 @@ web/resources/bootstrap/css/images/.DS_Store
 
 web/resources/bootstrap/css/images/.DS_Store
 
-src/main/orm/ormmapping/SocialDrink.cfg.xml
-
-src/main/orm/ormmapping/database.cfg.xml
-
 src/main/orm/socialdrink/ORMConstants.java
-
-src/main/orm/ormmapping/database.cfg.xml
 
 src/main/orm/socialdrink/ORMConstants.java
