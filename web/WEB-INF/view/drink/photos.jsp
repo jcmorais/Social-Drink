@@ -11,28 +11,31 @@
 </head>
 <body>
 
+<jsp:include page="../topbar.jsp"/>
 
-<c:if test="${successMessage == 'yes'}">
-<div class="container">
-    <div class="success">${message}</div>
-</div>
-</c:if>
-
-<h1>Aproveita e adiciona fotos ao teu Drink!</h1>
-
-<div class="container">
-    <form id="photoForm" method="post" action="/SocialDrink/drink/${drinkId}/photo"  enctype="multipart/form-data">
-
+<div style="margin-top: 100px" class="container">
+    <c:if test="${successMessage == 'yes'}">
         <div class="container">
-            <h1>Escolhe a foto principal do Drink !</h1>
-            <label class="btn btn-default btn-file">
-                Seleciona uma foto<input type="file" style="display: none;" name="photoFile" accept="image/jpeg, image/png" onchange="readURL(this);">
-            </label>
+            <div class="success">${message}</div>
+        </div>
+    </c:if>
+    <form id="photoForm" method="post" action="/SocialDrink/drink/${drinkId}/photo"  enctype="multipart/form-data">
+        <div class="container">
+            <h2>Escolha a foto principal do Drink !</h2>
+            <p>Esta será a fotografia principal da sua bebida!</p>
+
             <br>
-            <img id="blah" name="photo" src="#" alt="your image" style="display: none;"/>
+
         </div>
         <br><br>
-        <div class="container"><input type="submit" onclick="uploadPhoto()" value="Confirmar"></div>
+        <div class="container">
+            <img id="blah" name="photo" src="" alt="your image" style="display: none;"/>
+            <label class="btn btn-default btn-file col-md-3">
+                Selecionar uma foto<input type="file" style="display: none;" name="photoFile" accept="image/jpeg, image/png" onchange="readURL(this);">
+            </label>
+            <div class="container col-md-3"><input class="btn-success" type="submit" onclick="uploadPhoto()" value="Confirmar"></div>
+        </div>
+
         <div class="alert alert-success" id="result" style="display: none;"></div>
     </form>
 </div>
@@ -42,14 +45,14 @@
         <div class="container">
             <h1>Adiciona fotos ao àlbum do Drink !</h1>
             <label class="btn btn-default btn-file">
-               Seleciona as fotos<input id="fileupload" multiple="multiple" type="file" style="display: none;" name="photosFiles" accept="image/jpeg, image/png">
+               Selecionar fotos<input id="fileupload" multiple="multiple" type="file" style="display: none;" name="photosFiles" accept="image/jpeg, image/png">
             </label>
         </div>
         <br />
         <br />
         <div id="dvPreview"></div>
         <br><br>
-        <div class="container"><input type="submit" onclick="uploadAlbum()" value="Confirmar"></div>
+        <div class="container"><input class="btn-success" type="submit" onclick="uploadAlbum()" value="Confirmar"></div>
         <div class="alert alert-success" id="resultAlbum" style="display: none;"></div>
     </form>
 </div>
@@ -61,6 +64,9 @@
 <script src="<c:url value="/resources/bootstrap/js/bootstrap.min.js" />"></script>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="http://malsup.github.com/jquery.form.js"></script>
+<script src="<c:url value="/resources/bootstrap/js/notify.min.js" />"></script>
+
+
 
 
 
@@ -72,9 +78,11 @@
             success:function(data) {
                 $('#result').html(data);
                 document.getElementById("result").style.display = "";
+                $('#blah').notify(data);
             },
             dataType:"text"
         }).submit();
+
     }
 
     function uploadAlbum(){
