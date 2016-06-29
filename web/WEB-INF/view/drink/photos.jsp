@@ -120,6 +120,7 @@
         $("#albumForm").ajaxForm({
             success:function(data) {
                 $('#upload-album').notify(data,'success');
+                $('#dvPreview').addClass('hidden');
             },
             dataType:"text"
         }).submit();
@@ -133,6 +134,7 @@
             if (typeof (FileReader) != "undefined") {
                 var dvPreview = $("#dvPreview");
                 dvPreview.html("");
+                $('#dvPreview').removeClass('hidden');
                 var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.gif|.png|.bmp)$/;
                 $($(this)[0].files).each(function () {
                     var file = $(this);
@@ -171,6 +173,7 @@
             reader.readAsDataURL(input.files[0]);
         }
         document.getElementById("blah").style.display = "";
+        $('#blah').removeClass('hidden');
     }
 
     function AddMoreFile(tableID) {

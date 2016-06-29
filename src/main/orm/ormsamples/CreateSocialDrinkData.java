@@ -36,7 +36,7 @@ public class CreateSocialDrinkData {
 			lsocialdrinkPhotoDAO.save(lsocialdrinkPhoto);
 			socialdrink.dao.DrinkDAO lsocialdrinkDrinkDAO = lDAOFactory.getDrinkDAO();
 			socialdrink.Drink lsocialdrinkDrink = lsocialdrinkDrinkDAO.createDrink();
-			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : steps, ingredients, evaluation, yeld, timeToPrepate, typeOfDrink
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : steps, ingredients, evaluation, yeld, timeToPrepate, typeOfDrink, album
 			lsocialdrinkDrinkDAO.save(lsocialdrinkDrink);
 			socialdrink.dao.IngredientDAO lsocialdrinkIngredientDAO = lDAOFactory.getIngredientDAO();
 			socialdrink.Ingredient lsocialdrinkIngredient = lsocialdrinkIngredientDAO.createIngredient();
@@ -58,6 +58,10 @@ public class CreateSocialDrinkData {
 			socialdrink.DrinkType lsocialdrinkDrinkType = lsocialdrinkDrinkTypeDAO.createDrinkType();
 			// Initialize the properties of the persistent object here
 			lsocialdrinkDrinkTypeDAO.save(lsocialdrinkDrinkType);
+			socialdrink.dao.AlbumDAO lsocialdrinkAlbumDAO = lDAOFactory.getAlbumDAO();
+			socialdrink.Album lsocialdrinkAlbum = lsocialdrinkAlbumDAO.createAlbum();
+			// Initialize the properties of the persistent object here
+			lsocialdrinkAlbumDAO.save(lsocialdrinkAlbum);
 			socialdrink.dao.ConsumerDAO lsocialdrinkConsumerDAO = lDAOFactory.getConsumerDAO();
 			socialdrink.Consumer lsocialdrinkConsumer = lsocialdrinkConsumerDAO.createConsumer();
 			// Initialize the properties of the persistent object here

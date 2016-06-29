@@ -82,6 +82,11 @@ public class DAOFactoryImpl extends DAOFactory {
 		return _drinkTypeDAO;
 	}
 	
+	private AlbumDAO _albumDAO = new AlbumDAOImpl();
+	public AlbumDAO getAlbumDAO() {
+		return _albumDAO;
+	}
+	
 	private ConsumerDAO _consumerDAO = new ConsumerDAOImpl();
 	public ConsumerDAO getConsumerDAO() {
 		return _consumerDAO;

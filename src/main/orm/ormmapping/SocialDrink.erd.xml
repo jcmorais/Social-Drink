@@ -670,6 +670,78 @@
       <UserTypes/>
     </Column>
   </Entity>
+  <Entity name="Entity19" PKClustered="0">
+    <Column name="UserID">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>0</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="Followers">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="Entity20" PKClustered="0">
+    <Column name="UserID">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>0</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="Following">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="Entity21" PKClustered="0">
+    <Column name="UserID">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>0</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="FavoriteDrink">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
   <Entity name="User" PKClustered="0">
     <Column name="ID">
       <PrimaryKey>true</PrimaryKey>
@@ -840,7 +912,7 @@
       <UserTypes/>
     </Column>
   </Entity>
-  <Entity name="Entity19" PKClustered="0">
+  <Entity name="Entity22" PKClustered="0">
     <Column name="UserID">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>true</ForeignKey>
@@ -876,7 +948,7 @@
       <UserTypes/>
     </Column>
   </Entity>
-  <Entity name="Entity20" PKClustered="0">
+  <Entity name="Entity23" PKClustered="0">
     <Column name="UserID">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>true</ForeignKey>
@@ -912,7 +984,7 @@
       <UserTypes/>
     </Column>
   </Entity>
-  <Entity name="Entity21" PKClustered="0">
+  <Entity name="Entity24" PKClustered="0">
     <Column name="UserID">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>true</ForeignKey>
@@ -1125,6 +1197,18 @@
       <Index>false</Index>
       <UserTypes/>
     </Column>
+    <Column name="AlbumID">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>socialdrink.Album.ID</ReferencedColumn>
+      <Type>9</Type>
+      <Length>0</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
     <Column name="Name">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>false</ForeignKey>
@@ -1152,6 +1236,18 @@
     <Column name="ID">
       <PrimaryKey>true</PrimaryKey>
       <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>0</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="AlbumID">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>socialdrink.Album.ID</ReferencedColumn>
       <Type>9</Type>
       <Length>0</Length>
       <Nullable>false</Nullable>
@@ -1454,8 +1550,21 @@
       <UserTypes/>
     </Column>
   </Entity>
-  <ForeignKey name="FKEntity19995826">
-    <ReferenceTable>Entity19</ReferenceTable>
+  <Entity name="Album" PKClustered="0">
+    <Column name="ID">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>0</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <ForeignKey name="FKEntity22995850">
+    <ReferenceTable>Entity22</ReferenceTable>
     <ReferencedTable>User</ReferencedTable>
     <Columns>
       <Column>UserID</Column>
@@ -1464,8 +1573,8 @@
       <Column>ID</Column>
     </RefColumns>
   </ForeignKey>
-  <ForeignKey name="FKEntity20995848">
-    <ReferenceTable>Entity20</ReferenceTable>
+  <ForeignKey name="FKEntity23995851">
+    <ReferenceTable>Entity23</ReferenceTable>
     <ReferencedTable>User</ReferencedTable>
     <Columns>
       <Column>UserID</Column>
@@ -1474,8 +1583,8 @@
       <Column>ID</Column>
     </RefColumns>
   </ForeignKey>
-  <ForeignKey name="FKEntity21995849">
-    <ReferenceTable>Entity21</ReferenceTable>
+  <ForeignKey name="FKEntity24995852">
+    <ReferenceTable>Entity24</ReferenceTable>
     <ReferencedTable>User</ReferencedTable>
     <Columns>
       <Column>UserID</Column>
@@ -1579,6 +1688,26 @@
     <ReferencedTable>User</ReferencedTable>
     <Columns>
       <Column>UserID</Column>
+    </Columns>
+    <RefColumns>
+      <Column>ID</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKDrink890549">
+    <ReferenceTable>Drink</ReferenceTable>
+    <ReferencedTable>Album</ReferencedTable>
+    <Columns>
+      <Column>AlbumID</Column>
+    </Columns>
+    <RefColumns>
+      <Column>ID</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKPhoto680858">
+    <ReferenceTable>Photo</ReferenceTable>
+    <ReferencedTable>Album</ReferencedTable>
+    <Columns>
+      <Column>AlbumID</Column>
     </Columns>
     <RefColumns>
       <Column>ID</Column>

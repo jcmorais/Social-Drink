@@ -5,12 +5,16 @@ import org.hibernate.criterion.Restrictions;
 import org.orm.PersistentException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+import org.w3c.dom.Comment;
 import socialdrink.*;
+import socialdrink.dao.AlbumDAO;
+import socialdrink.impl.AlbumDAOImpl;
 
 
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -85,10 +89,10 @@ public class drinkServiceImpl implements drinkService{
                 System.out.println("PATH:"+dir.getAbsolutePath());
 
                 //save de path on the DB
-                Photo photo = this.facade.createPhoto();
+                Drink drink = facade.getDrinkByORMID(drinkId);
+                Photo photo = drink.getPhoto();
                 photo.setFilePath("/images/drink/"+drinkId+"/profile."+aux[aux.length-1]);
                 photo.setName("profile."+aux[aux.length-1]);
-                Drink drink = facade.getDrinkByORMID(drinkId);
                 drink.setPhoto(photo);
 
                 facade.save(drink);
@@ -139,6 +143,22 @@ public class drinkServiceImpl implements drinkService{
         }
     }
 
+    @Override
+    public void addEvaluation(int drinkId, String comment, int value) {
+        try {
+            Evaluation evaluation = facade.createEvaluation();
+            evaluation.setDate(new Date());
+            evaluation.setText(comment);
+            evaluation.setValue(value);
+            evaluation.setUser(facade.getConsumerByORMID(1));
+            Drink drink = facade.getDrinkByORMID(drinkId);
+            drink.evaluation.add(evaluation);
+            facade.save(drink);
+        } catch (PersistentException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public int addDrink(String nome, String descricao, int tempo, int tipoBebida, int quantidade, List<String> passos, List<Integer> ingredientes, List<String> quantidades) {
         int drinkId=0;
@@ -156,9 +176,22 @@ public class drinkServiceImpl implements drinkService{
             photo.setName("default.jpeg");
             drink.setPhoto(photo);
 
+            //album
+            Album album = facade.createAlbum();
+            drink.setAlbum(album);
+
             //passos de preparação
             int count = 1;
+            /*
             for (String passo : passos) {
+                Step step = facade.createStep();
+                step.setNumber(count++);
+                step.setDescription(passo);
+                drink.steps.add(step);
+            }
+            */
+            for (count =1; count < (passos.size()/2); ) {
+                String passo = passos.get(count);
                 Step step = facade.createStep();
                 step.setNumber(count++);
                 step.setDescription(passo);
@@ -167,6 +200,8 @@ public class drinkServiceImpl implements drinkService{
 
             //ingredientes e quantidades da bebida
             count=0;
+            //TODO não percebo pq que os ingredientes vêm duplicados....
+            /*
             for (int ingrediente : ingredientes) {
                 DrinkIngredient drinkIngredient = facade.createDrinkIngredient();
                 drinkIngredient.setIngredient(facade.getIngredientByORMID(ingrediente));
@@ -174,10 +209,19 @@ public class drinkServiceImpl implements drinkService{
                 drink.ingredients.add(drinkIngredient);
                 count++;
             }
+            */
+            for (String q : quantidades) {
+                DrinkIngredient drinkIngredient = facade.createDrinkIngredient();
+                drinkIngredient.setIngredient(facade.getIngredientByORMID(ingredientes.get(count)));
+                drinkIngredient.setAmount(q);
+                drink.ingredients.add(drinkIngredient);
+                count++;
+            }
 
             System.out.println("New Drink: "+drink.toString());
             User user = facade.getUserByORMID(1);
             user.drinks.add(drink);
+
             facade.save(user);
             drinkId = drink.getID();
         } catch (PersistentException e) {

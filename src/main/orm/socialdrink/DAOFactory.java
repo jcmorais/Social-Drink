@@ -35,6 +35,7 @@ public abstract class DAOFactory {
 	public abstract DrinkIngredientDAO getDrinkIngredientDAO();
 	public abstract EvaluationDAO getEvaluationDAO();
 	public abstract DrinkTypeDAO getDrinkTypeDAO();
+	public abstract AlbumDAO getAlbumDAO();
 	public abstract ConsumerDAO getConsumerDAO();
 }
 

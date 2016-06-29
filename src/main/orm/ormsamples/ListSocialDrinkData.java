@@ -106,6 +106,14 @@ public void listTestData() throws PersistentException {
 		}
 		System.out.println(length + " record(s) retrieved.");
 		
+		System.out.println("Listing Album...");
+		socialdrink.Album[] socialdrinkAlbums = lDAOFactory.getAlbumDAO().listAlbumByQuery(null, null);
+		length = Math.min(socialdrinkAlbums.length, ROW_COUNT);
+		for (int i = 0; i < length; i++) {
+			System.out.println(socialdrinkAlbums[i]);
+		}
+		System.out.println(length + " record(s) retrieved.");
+		
 		System.out.println("Listing Consumer...");
 		socialdrink.Consumer[] socialdrinkConsumers = lDAOFactory.getConsumerDAO().listConsumerByQuery(null, null);
 		length = Math.min(socialdrinkConsumers.length, ROW_COUNT);
@@ -260,6 +268,18 @@ public void listTestData() throws PersistentException {
 			 System.out.println(socialdrinkDrinkTypes[i]);
 		}
 		System.out.println(length + " DrinkType record(s) retrieved."); 
+		
+		System.out.println("Listing Album by Criteria...");
+		socialdrink.AlbumCriteria lsocialdrinkAlbumCriteria = new socialdrink.AlbumCriteria();
+		// Please uncomment the follow line and fill in parameter(s) 
+		//lsocialdrinkAlbumCriteria.ID.eq();
+		lsocialdrinkAlbumCriteria.setMaxResults(ROW_COUNT);
+		socialdrink.Album[] socialdrinkAlbums = lsocialdrinkAlbumCriteria.listAlbum();
+		length =socialdrinkAlbums== null ? 0 : Math.min(socialdrinkAlbums.length, ROW_COUNT); 
+		for (int i = 0; i < length; i++) {
+			 System.out.println(socialdrinkAlbums[i]);
+		}
+		System.out.println(length + " Album record(s) retrieved."); 
 		
 		System.out.println("Listing Consumer by Criteria...");
 		socialdrink.ConsumerCriteria lsocialdrinkConsumerCriteria = new socialdrink.ConsumerCriteria();

@@ -27,6 +27,8 @@ public class Facade {
     private CountryDAO countryDAO;
     private CityDAO cityDAO;
     private WeekdayDAO weekdayDAO;
+    private AlbumDAO albumDAO;
+    private EvaluationDAO evaluationDAO;
 
 
     public Drink loadDrinkByORMID(int ID) throws PersistentException {
@@ -1653,6 +1655,254 @@ public class Facade {
         return weekdayDAO.loadWeekdayByQuery(session, condition, orderBy);
     }
 
+    public Album loadAlbumByORMID(int ID) throws PersistentException {
+        return albumDAO.loadAlbumByORMID(ID);
+    }
+
+    public Album getAlbumByORMID(PersistentSession session, int ID, LockMode lockMode) throws PersistentException {
+        return albumDAO.getAlbumByORMID(session, ID, lockMode);
+    }
+
+    public List queryAlbum(PersistentSession session, String condition, String orderBy) throws PersistentException {
+        return albumDAO.queryAlbum(session, condition, orderBy);
+    }
+
+    public boolean evict(Album album) throws PersistentException {
+        return albumDAO.evict(album);
+    }
+
+    public Album loadAlbumByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return albumDAO.loadAlbumByQuery(session, condition, orderBy, lockMode);
+    }
+
+    public List queryAlbum(String condition, String orderBy) throws PersistentException {
+        return albumDAO.queryAlbum(condition, orderBy);
+    }
+
+    public Album loadAlbumByORMID(int ID, LockMode lockMode) throws PersistentException {
+        return albumDAO.loadAlbumByORMID(ID, lockMode);
+    }
+
+    public Album loadAlbumByQuery(String condition, String orderBy) throws PersistentException {
+        return albumDAO.loadAlbumByQuery(condition, orderBy);
+    }
+
+    public List queryAlbum(String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return albumDAO.queryAlbum(condition, orderBy, lockMode);
+    }
+
+    public Album loadAlbumByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return albumDAO.loadAlbumByQuery(condition, orderBy, lockMode);
+    }
+
+    public Album[] listAlbumByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
+        return albumDAO.listAlbumByQuery(session, condition, orderBy);
+    }
+
+    public Album[] listAlbumByCriteria(AlbumCriteria albumCriteria) {
+        return albumDAO.listAlbumByCriteria(albumCriteria);
+    }
+
+    public Album loadAlbumByORMID(PersistentSession session, int ID, LockMode lockMode) throws PersistentException {
+        return albumDAO.loadAlbumByORMID(session, ID, lockMode);
+    }
+
+    public Album getAlbumByORMID(int ID) throws PersistentException {
+        return albumDAO.getAlbumByORMID(ID);
+    }
+
+    public Iterator iterateAlbumByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return albumDAO.iterateAlbumByQuery(condition, orderBy, lockMode);
+    }
+
+    public boolean delete(Album album) throws PersistentException {
+        return albumDAO.delete(album);
+    }
+
+    public Album loadAlbumByORMID(PersistentSession session, int ID) throws PersistentException {
+        return albumDAO.loadAlbumByORMID(session, ID);
+    }
+
+    public boolean refresh(Album album) throws PersistentException {
+        return albumDAO.refresh(album);
+    }
+
+    public boolean save(Album album) throws PersistentException {
+        return albumDAO.save(album);
+    }
+
+    public Album[] listAlbumByQuery(String condition, String orderBy) throws PersistentException {
+        return albumDAO.listAlbumByQuery(condition, orderBy);
+    }
+
+    public Album[] listAlbumByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return albumDAO.listAlbumByQuery(session, condition, orderBy, lockMode);
+    }
+
+    public Album loadAlbumByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
+        return albumDAO.loadAlbumByQuery(session, condition, orderBy);
+    }
+
+    public Album getAlbumByORMID(int ID, LockMode lockMode) throws PersistentException {
+        return albumDAO.getAlbumByORMID(ID, lockMode);
+    }
+
+    public Iterator iterateAlbumByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
+        return albumDAO.iterateAlbumByQuery(session, condition, orderBy);
+    }
+
+    public Album getAlbumByORMID(PersistentSession session, int ID) throws PersistentException {
+        return albumDAO.getAlbumByORMID(session, ID);
+    }
+
+    public Album[] listAlbumByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return albumDAO.listAlbumByQuery(condition, orderBy, lockMode);
+    }
+
+    public Album loadAlbumByCriteria(AlbumCriteria albumCriteria) {
+        return albumDAO.loadAlbumByCriteria(albumCriteria);
+    }
+
+    public Iterator iterateAlbumByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return albumDAO.iterateAlbumByQuery(session, condition, orderBy, lockMode);
+    }
+
+    public Iterator iterateAlbumByQuery(String condition, String orderBy) throws PersistentException {
+        return albumDAO.iterateAlbumByQuery(condition, orderBy);
+    }
+
+    public Album createAlbum() {
+        return albumDAO.createAlbum();
+    }
+
+    public List queryAlbum(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return albumDAO.queryAlbum(session, condition, orderBy, lockMode);
+    }
+
+    public Evaluation loadEvaluationByORMID(int ID) throws PersistentException {
+        return evaluationDAO.loadEvaluationByORMID(ID);
+    }
+
+    public Evaluation[] listEvaluationByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
+        return evaluationDAO.listEvaluationByQuery(session, condition, orderBy);
+    }
+
+    public Evaluation loadEvaluationByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return evaluationDAO.loadEvaluationByQuery(condition, orderBy, lockMode);
+    }
+
+    public Evaluation[] listEvaluationByQuery(String condition, String orderBy) throws PersistentException {
+        return evaluationDAO.listEvaluationByQuery(condition, orderBy);
+    }
+
+    public Iterator iterateEvaluationByQuery(String condition, String orderBy) throws PersistentException {
+        return evaluationDAO.iterateEvaluationByQuery(condition, orderBy);
+    }
+
+    public boolean save(Evaluation evaluation) throws PersistentException {
+        return evaluationDAO.save(evaluation);
+    }
+
+    public List queryEvaluation(String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return evaluationDAO.queryEvaluation(condition, orderBy, lockMode);
+    }
+
+    public boolean refresh(Evaluation evaluation) throws PersistentException {
+        return evaluationDAO.refresh(evaluation);
+    }
+
+    public boolean evict(Evaluation evaluation) throws PersistentException {
+        return evaluationDAO.evict(evaluation);
+    }
+
+    public Evaluation getEvaluationByORMID(PersistentSession session, int ID, LockMode lockMode) throws PersistentException {
+        return evaluationDAO.getEvaluationByORMID(session, ID, lockMode);
+    }
+
+    public List queryEvaluation(PersistentSession session, String condition, String orderBy) throws PersistentException {
+        return evaluationDAO.queryEvaluation(session, condition, orderBy);
+    }
+
+    public Evaluation loadEvaluationByQuery(String condition, String orderBy) throws PersistentException {
+        return evaluationDAO.loadEvaluationByQuery(condition, orderBy);
+    }
+
+    public Evaluation getEvaluationByORMID(PersistentSession session, int ID) throws PersistentException {
+        return evaluationDAO.getEvaluationByORMID(session, ID);
+    }
+
+    public Evaluation[] listEvaluationByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return evaluationDAO.listEvaluationByQuery(condition, orderBy, lockMode);
+    }
+
+    public Iterator iterateEvaluationByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return evaluationDAO.iterateEvaluationByQuery(condition, orderBy, lockMode);
+    }
+
+    public Evaluation[] listEvaluationByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return evaluationDAO.listEvaluationByQuery(session, condition, orderBy, lockMode);
+    }
+
+    public Evaluation loadEvaluationByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return evaluationDAO.loadEvaluationByQuery(session, condition, orderBy, lockMode);
+    }
+
+    public boolean delete(Evaluation evaluation) throws PersistentException {
+        return evaluationDAO.delete(evaluation);
+    }
+
+    public Evaluation[] listEvaluationByCriteria(EvaluationCriteria evaluationCriteria) {
+        return evaluationDAO.listEvaluationByCriteria(evaluationCriteria);
+    }
+
+    public Evaluation loadEvaluationByORMID(int ID, LockMode lockMode) throws PersistentException {
+        return evaluationDAO.loadEvaluationByORMID(ID, lockMode);
+    }
+
+    public List queryEvaluation(String condition, String orderBy) throws PersistentException {
+        return evaluationDAO.queryEvaluation(condition, orderBy);
+    }
+
+    public Evaluation loadEvaluationByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
+        return evaluationDAO.loadEvaluationByQuery(session, condition, orderBy);
+    }
+
+    public List queryEvaluation(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return evaluationDAO.queryEvaluation(session, condition, orderBy, lockMode);
+    }
+
+    public Evaluation loadEvaluationByORMID(PersistentSession session, int ID, LockMode lockMode) throws PersistentException {
+        return evaluationDAO.loadEvaluationByORMID(session, ID, lockMode);
+    }
+
+    public Evaluation getEvaluationByORMID(int ID, LockMode lockMode) throws PersistentException {
+        return evaluationDAO.getEvaluationByORMID(ID, lockMode);
+    }
+
+    public Evaluation getEvaluationByORMID(int ID) throws PersistentException {
+        return evaluationDAO.getEvaluationByORMID(ID);
+    }
+
+    public Evaluation loadEvaluationByORMID(PersistentSession session, int ID) throws PersistentException {
+        return evaluationDAO.loadEvaluationByORMID(session, ID);
+    }
+
+    public Iterator iterateEvaluationByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
+        return evaluationDAO.iterateEvaluationByQuery(session, condition, orderBy);
+    }
+
+    public Evaluation createEvaluation() {
+        return evaluationDAO.createEvaluation();
+    }
+
+    public Iterator iterateEvaluationByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return evaluationDAO.iterateEvaluationByQuery(session, condition, orderBy, lockMode);
+    }
+
+    public Evaluation loadEvaluationByCriteria(EvaluationCriteria evaluationCriteria) {
+        return evaluationDAO.loadEvaluationByCriteria(evaluationCriteria);
+    }
+
     public Facade(){
         this.drinkDAO = new DrinkDAOImpl();
         this.userDAO = new UserDAOImpl();
@@ -1667,6 +1917,8 @@ public class Facade {
         this.countryDAO = new CountryDAOImpl();
         this.cityDAO = new CityDAOImpl();
         this.weekdayDAO = new WeekdayDAOImpl();
+        this.albumDAO = new AlbumDAOImpl();
+        this.evaluationDAO = new EvaluationDAOImpl();
     }
 
 }

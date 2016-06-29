@@ -12,8 +12,8 @@ License Type: Academic
 		<property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
 		<property name="connection.driver_class">org.postgresql.Driver</property>
 		<property name="connection.url">jdbc:postgresql://localhost:5432/socialdrink</property>
-		<property name="connection.username">postgres</property>
-		<property name="connection.password">fred</property>
+		<property name="connection.username">carlosmorais</property>
+		<property name="connection.password"></property>
 		<property name="hibernate.connection.provider_class">org.hibernate.service.jdbc.connections.internal.C3P0ConnectionProvider</property>
 		<property name="hibernate.c3p0.acquire_increment">1</property>
 		<property name="hibernate.c3p0.idle_test_period">0</property>
@@ -24,9 +24,8 @@ License Type: Academic
 		<property name="query.substitutions">true 1, false 0, yes 'Y', no 'N'</property>
 		<!-- mapping files -->
 		<mapping resource="ormmapping/socialdrink/Address.hbm.xml" />
+		<mapping resource="ormmapping/socialdrink/Album.hbm.xml" />
 		<mapping resource="ormmapping/socialdrink/City.hbm.xml" />
-		<mapping resource="ormmapping/socialdrink/Contact.hbm.xml" />
-		<mapping resource="ormmapping/socialdrink/ContactType.hbm.xml" />
 		<mapping resource="ormmapping/socialdrink/Country.hbm.xml" />
 		<mapping resource="ormmapping/socialdrink/Drink.hbm.xml" />
 		<mapping resource="ormmapping/socialdrink/DrinkIngredient.hbm.xml" />

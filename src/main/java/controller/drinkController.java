@@ -41,6 +41,7 @@ public class drinkController {
         model.addObject("steps", steps);
         model.addObject("ingredientsLength", drink.ingredients.toArray().length);
         //mudar isto...
+        model.addObject("evaluations", drink.evaluation.toArray());
         model.addObject("commentsLength", drink.evaluation.toArray().length);
         model.addObject("photos", drink.getAlbum().fotos.toArray());
         return model;
@@ -66,12 +67,6 @@ public class drinkController {
                                  @RequestParam("quantidades[]") List<String> quantidades
                                  ){
 
-        int drinkId = drinkService.addDrink(nome, descricao, tempo, tipoBebida, quantidade, passos, ingredientes, quantidades);
-        model.addObject("successMessage","yes");
-        model.addObject("message","Drink criado com sucesso!");
-        model.setViewName("redirect:drink/"+drinkId+"/photo");
-
-        /*
         System.out.println("Nome " + nome);
         System.out.println("Descrição " + descricao);
         System.out.println("quantidade " + quantidade);
@@ -89,7 +84,15 @@ public class drinkController {
         for (String s : quantidades) {
             System.out.println("quantidade "+s);
         }
-        */
+
+
+        int drinkId = drinkService.addDrink(nome, descricao, tempo, tipoBebida, quantidade, passos, ingredientes, quantidades);
+        model.addObject("successMessage","yes");
+        model.addObject("message","Drink criado com sucesso!");
+        model.setViewName("redirect:"+drinkId+"/photos");
+
+
+
         return model;
     }
 
@@ -119,4 +122,28 @@ public class drinkController {
         this.drinkService.addPhotosToAlbum(drinkId, photosFiles);
         return "fotos adicionadas com sucesso ao album";
     }
+
+
+
+
+    @RequestMapping(value = "/{drinkId}/evaluation", method =  RequestMethod.POST)
+    @ResponseBody
+    String comment(@PathVariable("drinkId") int drinkId,
+                   @RequestParam("comment") String comment,
+                   @RequestParam("stars") int stars){
+        System.out.println("stars:"+stars+"\ncomment: "+comment);
+        drinkService.addEvaluation(drinkId, comment, stars);
+        return "ok";
+    }
+
+
+
+
+
+
+
+
+
+
+
 }

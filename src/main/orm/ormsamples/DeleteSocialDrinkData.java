@@ -58,6 +58,10 @@ public class DeleteSocialDrinkData {
 			socialdrink.DrinkType lsocialdrinkDrinkType = lsocialdrinkDrinkTypeDAO.loadDrinkTypeByQuery(null, null);
 			// Delete the persistent object
 			lsocialdrinkDrinkTypeDAO.delete(lsocialdrinkDrinkType);
+			socialdrink.dao.AlbumDAO lsocialdrinkAlbumDAO = lDAOFactory.getAlbumDAO();
+			socialdrink.Album lsocialdrinkAlbum = lsocialdrinkAlbumDAO.loadAlbumByQuery(null, null);
+			// Delete the persistent object
+			lsocialdrinkAlbumDAO.delete(lsocialdrinkAlbum);
 			socialdrink.dao.ConsumerDAO lsocialdrinkConsumerDAO = lDAOFactory.getConsumerDAO();
 			socialdrink.Consumer lsocialdrinkConsumer = lsocialdrinkConsumerDAO.loadConsumerByQuery(null, null);
 			// Delete the persistent object

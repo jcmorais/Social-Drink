@@ -13,14 +13,14 @@
     <link href="<c:url value="/resources/bootstrap/css/style-fred.css" />" rel="stylesheet">
     <link href="<c:url value="/resources/bootstrap/js/libraries/flexSlider/flexslider.css" />" rel="stylesheet">
     <link href="<c:url value="/resources/bootstrap/js/libraries/five-star-rating/css/rating.css" />" rel="stylesheet">
+    <link href="<c:url value="/resources/bootstrap/css/style-fred.css" />" rel="stylesheet">
 
     <title>Drink</title>
 </head>
 <body>
-<div class="container">
-    <jsp:include page="../topbar.jsp"/>
+<jsp:include page="../topbar.jsp"/>
 
-    <div class="container">
+<div class="container" style="padding-top: 100px">
 <div class="container">
     <div class="row">
         <div class="col-md-4">
@@ -181,200 +181,72 @@
     <div class="row">
         <h3>Comentários</h3>
         <div class="col-md-12 text-center write-comment">
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-md-4">
-                        <label for="comment" class="text-center">Comentar</label>
-                    </div>
-                    <div class="col-md-8">
-                        <textarea id="comment" class="form-control" name="" rows="8" cols="40"></textarea>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <label class="text-center">Avaliar</label>
-                    </div>
-                    <div class="col-md-8">
-                        <div id="avaliar" class="c-rating"></div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                    </div>
-                    <div class="col-md-8 text-left">
-                        <button type="button" class="btn btn-success" name="submit">Submeter</button>
-                    </div>
-                </div>
-
-                <div>
-
-                </div>
-            </div>
+            <jsp:include page="evaluation.jsp"/>
         </div>
     </div>
     <div class="row">
         <h3 class="text-center">Comentários de Utilizadores</h3>
+        <c:forEach items="${evaluations}" var="eval">
         <div class="col-md-6">
             <div class="drink-comment">
                 <div class="col-md-2">
-                    <img class="comment picture circular-photo" src="<c:url value="/resources/img/images/people/adam.jpg"/>" alt="" />
+                    <img class="comment picture circular-photo" src="<c:url value="${eval.getUser().getPhoto().getFilePath()}"/>" alt="" />
                 </div>
                 <div class="col-md-10">
                     <div class="comment-text">
                         <p class="commentator">
-                            João Bastinhas
+                                ${eval.getUser().getFirstname()} ${eval.getUser().getLastname()}
                         <ul class="c-rating show-rating">
+                        <c:if test="${eval.getValue() == '1'}">
+                            <li class="c-rating__item is-active"></li>
+                            <li class="c-rating__item"></li>
+                            <li class="c-rating__item"></li>
+                            <li class="c-rating__item"></li>
+                            <li class="c-rating__item"></li>
+                        </c:if>
+                        <c:if test="${eval.getValue() == '2'}">
+                            <li class="c-rating__item is-active"></li>
+                            <li class="c-rating__item is-active"></li>
+                            <li class="c-rating__item"></li>
+                            <li class="c-rating__item"></li>
+                            <li class="c-rating__item"></li>
+                        </c:if>
+                        <c:if test="${eval.getValue() == '3'}">
                             <li class="c-rating__item is-active"></li>
                             <li class="c-rating__item is-active"></li>
                             <li class="c-rating__item is-active"></li>
                             <li class="c-rating__item"></li>
                             <li class="c-rating__item"></li>
-                        </ul>
+                        </c:if>
+                        <c:if test="${eval.getValue() == '4'}">
+                            <li class="c-rating__item is-active"></li>
+                            <li class="c-rating__item is-active"></li>
+                            <li class="c-rating__item is-active"></li>
+                            <li class="c-rating__item is-active"></li>
+                            <li class="c-rating__item"></li>
+                        </c:if>
+                        <c:if test="${eval.getValue() == '5'}">
+                            <li class="c-rating__item is-active"></li>
+                            <li class="c-rating__item is-active"></li>
+                            <li class="c-rating__item is-active"></li>
+                            <li class="c-rating__item is-active"></li>
+                            <li class="c-rating__item is-active"></li>
+                        </c:if>
+                            <div style="margin-top:5px; margin-left: 5px; color: #999999">${eval.getDate()} </div> </ul>
                         </p>
 
-                        <p>
-                            Very interesting cocktail!asdsfs fsdgdsgdfgfdf dhdfhfhdhh shdasvdbsndsbnfvds shdfsfdsvvsdfvsdhfshdbfbh
-                        </p>
+                        <p>${eval.getText()}</p>
                     </div>
                 </div>
 
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="drink-comment">
-                <div class="col-md-2">
-                    <img class="comment picture circular-photo" src="./resources/img/images/people/adam.jpg" alt="" />
-                </div>
-                <div class="col-md-10">
-                    <div class="comment-text">
-                        <p class="commentator">
-                            João Bastinhas
-                        <ul class="c-rating show-rating">
-                            <li class="c-rating__item is-active"></li>
-                            <li class="c-rating__item is-active"></li>
-                            <li class="c-rating__item is-active"></li>
-                            <li class="c-rating__item"></li>
-                            <li class="c-rating__item"></li>
-                        </ul>
-                        </p>
-
-                        <p>
-                            Very interesting cocktail!asdsfs fsdgdsgdfgfdf dhdfhfhdhh shdasvdbsndsbnfvds shdfsfdsvvsdfvsdhfshdbfbh
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="drink-comment">
-                <div class="col-md-2">
-                    <img class="comment picture circular-photo" src="./resources/img/images/people/adam.jpg" alt="" />
-                </div>
-                <div class="col-md-10">
-                    <div class="comment-text">
-                        <p class="commentator">
-                            João Bastinhas
-                        <ul class="c-rating show-rating">
-                            <li class="c-rating__item is-active"></li>
-                            <li class="c-rating__item is-active"></li>
-                            <li class="c-rating__item is-active"></li>
-                            <li class="c-rating__item"></li>
-                            <li class="c-rating__item"></li>
-                        </ul>
-                        </p>
-
-                        <p>
-                            Very interesting cocktail!asdsfs fsdgdsgdfgfdf dhdfhfhdhh shdasvdbsndsbnfvds shdfsfdsvvsdfvsdhfshdbfbh
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="drink-comment">
-                <div class="col-md-2">
-                    <img class="comment picture circular-photo" src="./resources/img/images/people/adam.jpg" alt="" />
-                </div>
-                <div class="col-md-10">
-                    <div class="comment-text">
-                        <p class="commentator">
-                            João Bastinhas
-                        <ul class="c-rating show-rating">
-                            <li class="c-rating__item is-active"></li>
-                            <li class="c-rating__item is-active"></li>
-                            <li class="c-rating__item is-active"></li>
-                            <li class="c-rating__item"></li>
-                            <li class="c-rating__item"></li>
-                        </ul>
-                        </p>
-
-                        <p>
-                            Very interesting cocktail!asdsfs fsdgdsgdfgfdf dhdfhfhdhh shdasvdbsndsbnfvds shdfsfdsvvsdfvsdhfshdbfbh
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="drink-comment">
-                <div class="col-md-2">
-                    <img class="comment picture circular-photo" src="./resources/img/images/people/adam.jpg" alt="" />
-                </div>
-                <div class="col-md-10">
-                    <div class="comment-text">
-                        <p class="commentator">
-                            João Bastinhas
-                        <ul class="c-rating show-rating">
-                            <li class="c-rating__item is-active"></li>
-                            <li class="c-rating__item is-active"></li>
-                            <li class="c-rating__item is-active"></li>
-                            <li class="c-rating__item"></li>
-                            <li class="c-rating__item"></li>
-                        </ul>
-                        </p>
-
-                        <p>
-                            Very interesting cocktail!asdsfs fsdgdsgdfgfdf dhdfhfhdhh shdasvdbsndsbnfvds shdfsfdsvvsdfvsdhfshdbfbh
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="drink-comment">
-                <div class="col-md-2">
-                    <img class="comment picture circular-photo" src="./resources/img/images/people/adam.jpg" alt="" />
-                </div>
-                <div class="col-md-10">
-                    <div class="comment-text">
-                        <p class="commentator">
-                            João Bastinhas
-                        <ul class="c-rating show-rating">
-                            <li class="c-rating__item is-active"></li>
-                            <li class="c-rating__item is-active"></li>
-                            <li class="c-rating__item is-active"></li>
-                            <li class="c-rating__item"></li>
-                            <li class="c-rating__item"></li>
-                        </ul>
-                        </p>
-
-                        <p>
-                            Very interesting cocktail!asdsfs fsdgdsgdfgfdf dhdfhfhdhh shdasvdbsndsbnfvds shdfsfdsvvsdfvsdhfshdbfbh
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
+        </c:forEach>
 
     </div>
 </div>
 
         </div>
-</div>
 </body>
 </html>
 
@@ -382,7 +254,6 @@
 <script src="<c:url value="/resources/bootstrap/js/libraries/flexSlider/jquery.flexslider.js" />"></script>
 <script src="<c:url value="/resources/bootstrap/js/libraries/five-star-rating/js/dist/rating.min.js" />"></script>
 <script src="<c:url value="/resources/bootstrap/js/libraries/lightbox2/dist/js/lightbox.min.js" />"></script>
-<script src="<c:url value="/resources/bootstrap/js/myJavascript.js" />"></script>
 
 
 <script type="text/javascript" charset="utf-8">

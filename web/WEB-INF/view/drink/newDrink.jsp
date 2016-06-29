@@ -31,7 +31,7 @@
             </div>
         </div>
     </div>
-    <form  method="post" class="form-horizontal" id="formulario" role="form" action="/SocialDrink/newdrink">
+    <form  method="post" class="form-horizontal" id="formulario" role="form" action="/SocialDrink/drink/newdrink">
         <div class="row setup-content" id="step-1">
 
             <div class="form-group">
@@ -69,13 +69,13 @@
                         <div class="col-md-4 col-md-offset-2">
                             <label for="nome">Quantidade</label>
                             <div class="input-group">
-                                <input id="quantity-spinner" class="form-control" type="text" value="1" min="1" max="10" style="text-align: center;">
+                                <input name="quantidade" id="quantity-spinner" class="form-control" type="text" value="1" min="1" max="10" style="text-align: center;">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <label>Tempo de preparação (min)</label>
                             <div class="input-group">
-                                <input id="duration-spinner" class="form-control" type="text" value="1" min="1" max="10" style="text-align: center;">
+                                <input name="tempo" id="duration-spinner" class="form-control" type="text" value="1" min="1" max="10" style="text-align: center;">
                             </div>
                         </div>
                     </div>
@@ -147,7 +147,7 @@
                             <div class="multi-fields">
                                 <div class="multi-field inline">
                                     <div class="col-md-10">
-                                        <input id="passos" type="text" class="form-control" name="passos[]">
+                                        <input id="passos" type="text" class="form-control">
                                     </div>
                                     <div class="col-md-2">
                                         <button  type="button" class="btn btn-default" id="addPasso">Adicionar passo</button>
@@ -195,6 +195,28 @@
 <script src="<c:url value="/resources/bootstrap/js/validator.js" />"></script>
 <script src="<c:url value="/resources/bootstrap/js/new-drink.js" />"></script>
 
+
+
+<!--script>
+
+    function sendForm() {
+        var table = document.getElementById("tabelaIng");
+        for (var i = 1, row; row = table.rows[i]; i++) {
+            var input = $("<input>")
+                    .attr("type", "hidden")
+                    .attr("name", "ingredientes[]").val();
+            $('#form1').append($(input));
+
+            var input = $("<input>")
+                    .attr("type", "hidden")
+                    .attr("name", "mydata").val("bla");
+            $('#form1').append($(input));
+        }
+
+
+    }
+
+</script-->
 
 
 <script>
@@ -318,36 +340,27 @@
 
 
 <script>
-    $("form").submit(function() {
-        console.log("passa aqui");
+    $("form").submit(function(e) {
 
-        debugger;
         $('#tabelaIng tr').each(function() {
             var $tds = $(this).find("td").eq(1);
-
             $.each($tds, function () {
-                console.log($(this).attr('value'));
                 var input = $("<input>")
                         .attr("type", "hidden")
                         .attr("name", "ingredientes[]").val($(this).attr('value'));
                 $('#formulario').append($(input));
             });
         });
-        debugger;
 
-        var MyRows = $('#tabelaIng').find('tbody').find('tr');
-        for (var i = 0; i < MyRows.length; i++) {
-            console.log($(MyRows[i]).find('td:eq(0)').html());
-        }
-
-
-        var e = document.getElementById("tipoBebida");
-        var idTipo = e.options[e.selectedIndex].value;
-        var input = $("<input>")
-                .attr("type", "hidden")
-                .attr("name", "mydata").val('daddos de teste');
-        $('#formulario').append($(input));
-        debugger;
+        $('#stepsTable tr').each(function() {
+            var $tds = $(this).find("td").eq(1);
+            $.each($tds, function () {
+                var input = $("<input>")
+                        .attr("type", "hidden")
+                        .attr("name", "passos[]").val($(this).text());
+                $('#formulario').append($(input));
+            });
+        });
     });
 </script>
 

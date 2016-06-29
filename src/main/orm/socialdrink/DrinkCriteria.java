@@ -20,6 +20,8 @@ import org.orm.criteria.*;
 
 public class DrinkCriteria extends AbstractORMCriteria {
 	public final IntegerExpression ID;
+	public final IntegerExpression albumId;
+	public final AssociationExpression album;
 	public final IntegerExpression typeOfDrinkId;
 	public final AssociationExpression typeOfDrink;
 	public final IntegerExpression photoId;
@@ -35,6 +37,8 @@ public class DrinkCriteria extends AbstractORMCriteria {
 	public DrinkCriteria(Criteria criteria) {
 		super(criteria);
 		ID = new IntegerExpression("ID", this);
+		albumId = new IntegerExpression("album.ID", this);
+		album = new AssociationExpression("album", this);
 		typeOfDrinkId = new IntegerExpression("typeOfDrink.ID", this);
 		typeOfDrink = new AssociationExpression("typeOfDrink", this);
 		photoId = new IntegerExpression("photo.ID", this);
@@ -54,6 +58,10 @@ public class DrinkCriteria extends AbstractORMCriteria {
 	
 	public DrinkCriteria() throws PersistentException {
 		this(socialdrink.SocialDrinkPersistentManager.instance().getSession());
+	}
+	
+	public AlbumCriteria createAlbumCriteria() {
+		return new AlbumCriteria(createCriteria("album"));
 	}
 	
 	public DrinkTypeCriteria createTypeOfDrinkCriteria() {

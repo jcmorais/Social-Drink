@@ -39,6 +39,10 @@ public class Drink {
 		else if (key == socialdrink.ORMConstants.KEY_DRINK_TYPEOFDRINK) {
 			this.typeOfDrink = (socialdrink.DrinkType) owner;
 		}
+		
+		else if (key == socialdrink.ORMConstants.KEY_DRINK_ALBUM) {
+			this.album = (socialdrink.Album) owner;
+		}
 	}
 	
 	org.orm.util.ORMAdapter _ormAdapter = new org.orm.util.AbstractORMAdapter() {
@@ -53,6 +57,8 @@ public class Drink {
 	};
 	
 	private int ID;
+	
+	private socialdrink.Album album;
 	
 	private socialdrink.DrinkType typeOfDrink;
 	
@@ -161,6 +167,14 @@ public class Drink {
 	}
 	
 	public final socialdrink.StepSetCollection steps = new socialdrink.StepSetCollection(this, _ormAdapter, socialdrink.ORMConstants.KEY_DRINK_STEPS, socialdrink.ORMConstants.KEY_MUL_ONE_TO_MANY);
+	
+	public void setAlbum(socialdrink.Album value) {
+		this.album = value;
+	}
+	
+	public socialdrink.Album getAlbum() {
+		return album;
+	}
 	
 	public String toString() {
 		return String.valueOf(getID());

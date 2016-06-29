@@ -27,4 +27,6 @@ public interface drinkService {
     void setDrinkProfile(int drinkId, MultipartFile file);
 
     void addPhotosToAlbum(int drinkId, MultipartFile[] photosFiles);
+
+    void addEvaluation(int drinkId, String comment, int value);
 }

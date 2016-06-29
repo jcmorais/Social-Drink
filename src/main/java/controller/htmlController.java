@@ -27,6 +27,6 @@ public class htmlController {
 
     @RequestMapping("/teste")
     public String index(){
-        return "/perfis/userProfile";
+        return "/drink/evaluation";
     }
 }

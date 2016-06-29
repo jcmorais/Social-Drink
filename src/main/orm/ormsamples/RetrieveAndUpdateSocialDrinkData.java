@@ -58,6 +58,10 @@ public class RetrieveAndUpdateSocialDrinkData {
 			socialdrink.DrinkType lsocialdrinkDrinkType = lsocialdrinkDrinkTypeDAO.loadDrinkTypeByQuery(null, null);
 			// Update the properties of the persistent object
 			lsocialdrinkDrinkTypeDAO.save(lsocialdrinkDrinkType);
+			socialdrink.dao.AlbumDAO lsocialdrinkAlbumDAO = lDAOFactory.getAlbumDAO();
+			socialdrink.Album lsocialdrinkAlbum = lsocialdrinkAlbumDAO.loadAlbumByQuery(null, null);
+			// Update the properties of the persistent object
+			lsocialdrinkAlbumDAO.save(lsocialdrinkAlbum);
 			socialdrink.dao.ConsumerDAO lsocialdrinkConsumerDAO = lDAOFactory.getConsumerDAO();
 			socialdrink.Consumer lsocialdrinkConsumer = lsocialdrinkConsumerDAO.loadConsumerByQuery(null, null);
 			// Update the properties of the persistent object
@@ -142,6 +146,12 @@ public class RetrieveAndUpdateSocialDrinkData {
 		// Please uncomment the follow line and fill in parameter(s)
 		//lsocialdrinkDrinkTypeCriteria.ID.eq();
 		System.out.println(lsocialdrinkDrinkTypeCriteria.uniqueDrinkType());
+		
+		System.out.println("Retrieving Album by AlbumCriteria");
+		socialdrink.AlbumCriteria lsocialdrinkAlbumCriteria = new socialdrink.AlbumCriteria();
+		// Please uncomment the follow line and fill in parameter(s)
+		//lsocialdrinkAlbumCriteria.ID.eq();
+		System.out.println(lsocialdrinkAlbumCriteria.uniqueAlbum());
 		
 		System.out.println("Retrieving Consumer by ConsumerCriteria");
 		socialdrink.ConsumerCriteria lsocialdrinkConsumerCriteria = new socialdrink.ConsumerCriteria();

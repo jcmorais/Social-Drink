@@ -20,6 +20,8 @@ import org.orm.criteria.*;
 
 public class DrinkDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final IntegerExpression ID;
+	public final IntegerExpression albumId;
+	public final AssociationExpression album;
 	public final IntegerExpression typeOfDrinkId;
 	public final AssociationExpression typeOfDrink;
 	public final IntegerExpression photoId;
@@ -35,6 +37,8 @@ public class DrinkDetachedCriteria extends AbstractORMDetachedCriteria {
 	public DrinkDetachedCriteria() {
 		super(socialdrink.Drink.class, socialdrink.DrinkCriteria.class);
 		ID = new IntegerExpression("ID", this.getDetachedCriteria());
+		albumId = new IntegerExpression("album.ID", this.getDetachedCriteria());
+		album = new AssociationExpression("album", this.getDetachedCriteria());
 		typeOfDrinkId = new IntegerExpression("typeOfDrink.ID", this.getDetachedCriteria());
 		typeOfDrink = new AssociationExpression("typeOfDrink", this.getDetachedCriteria());
 		photoId = new IntegerExpression("photo.ID", this.getDetachedCriteria());
@@ -51,6 +55,8 @@ public class DrinkDetachedCriteria extends AbstractORMDetachedCriteria {
 	public DrinkDetachedCriteria(DetachedCriteria aDetachedCriteria) {
 		super(aDetachedCriteria, socialdrink.DrinkCriteria.class);
 		ID = new IntegerExpression("ID", this.getDetachedCriteria());
+		albumId = new IntegerExpression("album.ID", this.getDetachedCriteria());
+		album = new AssociationExpression("album", this.getDetachedCriteria());
 		typeOfDrinkId = new IntegerExpression("typeOfDrink.ID", this.getDetachedCriteria());
 		typeOfDrink = new AssociationExpression("typeOfDrink", this.getDetachedCriteria());
 		photoId = new IntegerExpression("photo.ID", this.getDetachedCriteria());
@@ -62,6 +68,10 @@ public class DrinkDetachedCriteria extends AbstractORMDetachedCriteria {
 		evaluation = new CollectionExpression("ORM_Evaluation", this.getDetachedCriteria());
 		ingredients = new CollectionExpression("ORM_Ingredients", this.getDetachedCriteria());
 		steps = new CollectionExpression("ORM_Steps", this.getDetachedCriteria());
+	}
+	
+	public AlbumDetachedCriteria createAlbumCriteria() {
+		return new AlbumDetachedCriteria(createCriteria("album"));
 	}
 	
 	public DrinkTypeDetachedCriteria createTypeOfDrinkCriteria() {
