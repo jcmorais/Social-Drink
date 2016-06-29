@@ -17,7 +17,7 @@
     <link href="<c:url value="/resources/bootstrap/css/bootstrap-clockpicker.min.css"/>" rel="stylesheet">
 
     <!-- Include Bootstrap Validator -->
-    <link href="<c:url value="//cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/css/bootstrapvalidator.min.css "/>" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/css/bootstrapvalidator.min.css" />
 
 </head>
 <body>
@@ -65,7 +65,7 @@
 </div>
 </body>
 
-<script src="<c:url value="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" />"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="<c:url value="/resources/bootstrap/js/bootstrap.min.js" />"></script>
 <script src="<c:url value="/resources/bootstrap/js/bootstrap-clockpicker.min.js" />"></script>
 <script src="<c:url value="/resources/bootstrap/js/clockpicker.js" />"></script>
