@@ -95,32 +95,7 @@
     </div>
 </section>
 
-<div class="container ptb">
-    <div class="row">
 
-        <div class="sec-title text-center">
-            <h2>Outros serviços</h2>
-            <div class="devider"><i class="fa fa-heart-o fa-lg"></i></div>
-        </div>
-
-    </div>
-    <div class="row">
-
-        <div class="col-md-6">
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-        </div><!--/col-md-6-->
-        <div class="col-md-6">
-            <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software.</p>
-        </div><!--/col-md-6-->
-    </div><!--/row-->
-</div><!-- /.container -->
-<div class="container">
-    <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-            <img src="./resources/img/img-index-theme/items.png" class="img-responsive" alt="">
-        </div>
-    </div><!--/row-->
-</div><!--/.container-->
 
 <div id="themesell-g">
     <div class="container">
@@ -147,155 +122,221 @@
                 <div class="he-wrap tpl6">
                     <img src="./resources/img/img-index-theme/portfolio/portfolio_09.jpg" class="img-responsive" alt="">
                     <div class="he-view">
-                        <div class="bg a0" data-animate="fadeIn">
-                            <h3 class="a1" data-animate="fadeInDown">A Graphic Design Item</h3>
-                            <a data-rel="prettyPhoto" href="./resources/img/img-index-theme/portfolio/portfolio_09.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
-                            <a href="#" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-eye"></i></a>
-                        </div><!-- he bg -->
-                    </div><!-- he view -->
-                </div><!-- he wrap -->
-            </div><!-- end col-12 -->
+                            <div style="background: #2E2E2E; opacity: 0.7">
 
-            <div class="portfolio-item web-design">
-                <div class="he-wrap tpl6">
-                    <img src="./resources/img/img-index-theme/portfolio/portfolio_02.jpg" class="img-responsive" alt="">
-                    <div class="he-view">
-                        <div class="bg a0" data-animate="fadeIn">
-                            <h3 class="a1" data-animate="fadeInDown">A Web Design Item</h3>
-                            <a data-rel="prettyPhoto" href="./resources/img/img-index-theme/portfolio/portfolio_02.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class=" fa fa-search"></i></a>
+                                <h3 class="a1 centered" style="padding-bottom: 25px" data-animate="fadeInDown">A Graphic Design Item</h3>
+                            </div>
+                        <div style="text-align:center;">
+                            <a href="#" class="" data-animate="fadeInUp"></a>
                             <a href="#" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-eye"></i></a>
+                        </div>
+
                         </div><!-- he bg -->
-                    </div><!-- he view -->
                 </div><!-- he wrap -->
             </div><!-- end col-12 -->
 
             <div class="portfolio-item graphic-design">
                 <div class="he-wrap tpl6">
-                    <img src="./resources/img/img-index-theme/portfolio/portfolio_03.jpg" class="img-responsive" alt="">
+                    <img src="./resources/img/img-index-theme/portfolio/portfolio_09.jpg" class="img-responsive" alt="">
                     <div class="he-view">
-                        <div class="bg a0" data-animate="fadeIn">
-                            <h3 class="a1" data-animate="fadeInDown">A Graphic Design Item</h3>
-                            <a data-rel="prettyPhoto" href="./resources/img/img-index-theme/portfolio/portfolio_03.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
+                        <div style="background: #2E2E2E; opacity: 0.7">
+
+                            <h3 class="a1 centered" style="padding-bottom: 25px" data-animate="fadeInDown">A Graphic Design Item</h3>
+                        </div>
+                        <div style="text-align:center;">
+                            <a href="#" class="" data-animate="fadeInUp"></a>
                             <a href="#" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-eye"></i></a>
-                        </div><!-- he bg -->
-                    </div><!-- he view -->
+                        </div>
+
+                    </div><!-- he bg -->
                 </div><!-- he wrap -->
             </div><!-- end col-12 -->
 
             <div class="portfolio-item graphic-design">
                 <div class="he-wrap tpl6">
-                    <img src="./resources/img/img-index-theme/portfolio/portfolio_04.jpg" class="img-responsive" alt="">
+                    <img src="./resources/img/img-index-theme/portfolio/portfolio_09.jpg" class="img-responsive" alt="">
                     <div class="he-view">
-                        <div class="bg a0" data-animate="fadeIn">
-                            <h3 class="a1" data-animate="fadeInDown">A Graphic Design Item</h3>
-                            <a data-rel="prettyPhoto" href="./resources/img/img-index-theme/portfolio/portfolio_04.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
-                            <a href="#" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-eye"></i></a>
-                        </div><!-- he bg -->
-                    </div><!-- he view -->
-                </div><!-- he wrap -->
-            </div><!-- end col-12 -->
+                        <div style="background: #2E2E2E; opacity: 0.7">
 
-            <div class="portfolio-item books">
-                <div class="he-wrap tpl6">
-                    <img src="./resources/img/img-index-theme/portfolio/portfolio_05.jpg" class="img-responsive" alt="">
-                    <div class="he-view">
-                        <div class="bg a0" data-animate="fadeIn">
-                            <h3 class="a1" data-animate="fadeInDown">A Book Design Item</h3>
-                            <a data-rel="prettyPhoto" href="./resources/img/img-index-theme/portfolio/portfolio_05.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
+                            <h3 class="a1 centered" style="padding-bottom: 25px" data-animate="fadeInDown">A Graphic Design Item</h3>
+                        </div>
+                        <div style="text-align:center;">
+                            <a href="#" class="" data-animate="fadeInUp"></a>
                             <a href="#" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-eye"></i></a>
-                        </div><!-- he bg -->
-                    </div><!-- he view -->
+                        </div>
+
+                    </div><!-- he bg -->
                 </div><!-- he wrap -->
             </div><!-- end col-12 -->
 
             <div class="portfolio-item graphic-design">
                 <div class="he-wrap tpl6">
-                    <img src="./resources/img/img-index-theme/portfolio/portfolio_06.jpg" class="img-responsive" alt="">
+                    <img src="./resources/img/img-index-theme/portfolio/portfolio_09.jpg" class="img-responsive" alt="">
                     <div class="he-view">
-                        <div class="bg a0" data-animate="fadeIn">
-                            <h3 class="a1" data-animate="fadeInDown">A Graphic Design Item</h3>
-                            <a data-rel="prettyPhoto" href="./resources/img/img-index-theme/portfolio/portfolio_06.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
-                            <a href="#" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-eye"></i></a>
-                        </div><!-- he bg -->
-                    </div><!-- he view -->
-                </div><!-- he wrap -->
-            </div><!-- end col-12 -->
+                        <div style="background: #2E2E2E; opacity: 0.7">
 
-            <div class="portfolio-item web-design">
-                <div class="he-wrap tpl6">
-                    <img src="./resources/img/img-index-theme/portfolio/portfolio_07.jpg" class="img-responsive" alt="">
-                    <div class="he-view">
-                        <div class="bg a0" data-animate="fadeIn">
-                            <h3 class="a1" data-animate="fadeInDown">A Web Design Item</h3>
-                            <a data-rel="prettyPhoto" href="./resources/img/img-index-theme/portfolio/portfolio_07.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
+                            <h3 class="a1 centered" style="padding-bottom: 25px" data-animate="fadeInDown">A Graphic Design Item</h3>
+                        </div>
+                        <div style="text-align:center;">
+                            <a href="#" class="" data-animate="fadeInUp"></a>
                             <a href="#" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-eye"></i></a>
-                        </div><!-- he bg -->
-                    </div><!-- he view -->
+                        </div>
+
+                    </div><!-- he bg -->
                 </div><!-- he wrap -->
             </div><!-- end col-12 -->
 
             <div class="portfolio-item graphic-design">
                 <div class="he-wrap tpl6">
-                    <img src="./resources/img/img-index-theme/portfolio/portfolio_08.jpg" class="img-responsive" alt="">
+                    <img src="./resources/img/img-index-theme/portfolio/portfolio_09.jpg" class="img-responsive" alt="">
                     <div class="he-view">
-                        <div class="bg a0" data-animate="fadeIn">
-                            <h3 class="a1" data-animate="fadeInDown">A Graphic Design Item</h3>
-                            <a data-rel="prettyPhoto" href="./resources/img/img-index-theme/portfolio/portfolio_08.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
+                        <div style="background: #2E2E2E; opacity: 0.7">
+
+                            <h3 class="a1 centered" style="padding-bottom: 25px" data-animate="fadeInDown">A Graphic Design Item</h3>
+                        </div>
+                        <div style="text-align:center;">
+                            <a href="#" class="" data-animate="fadeInUp"></a>
                             <a href="#" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-eye"></i></a>
-                        </div><!-- he bg -->
-                    </div><!-- he view -->
+                        </div>
+
+                    </div><!-- he bg -->
                 </div><!-- he wrap -->
             </div><!-- end col-12 -->
 
             <div class="portfolio-item graphic-design">
                 <div class="he-wrap tpl6">
-                    <img src="./resources/img/img-index-theme/portfolio/portfolio_01.jpg" class="img-responsive" alt="">
+                    <img src="./resources/img/img-index-theme/portfolio/portfolio_09.jpg" class="img-responsive" alt="">
                     <div class="he-view">
-                        <div class="bg a0" data-animate="fadeIn">
-                            <h3 class="a1" data-animate="fadeInDown">A Graphic Design Item</h3>
-                            <a data-rel="prettyPhoto" href="./resources/img/img-index-theme/portfolio/portfolio_01.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
+                        <div style="background: #2E2E2E; opacity: 0.7">
+
+                            <h3 class="a1 centered" style="padding-bottom: 25px" data-animate="fadeInDown">A Graphic Design Item</h3>
+                        </div>
+                        <div style="text-align:center;">
+                            <a href="#" class="" data-animate="fadeInUp"></a>
                             <a href="#" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-eye"></i></a>
-                        </div><!-- he bg -->
-                    </div><!-- he view -->
+                        </div>
+
+                    </div><!-- he bg -->
                 </div><!-- he wrap -->
             </div><!-- end col-12 -->
 
-            <div class="portfolio-item books">
+            <div class="portfolio-item graphic-design">
                 <div class="he-wrap tpl6">
-                    <img src="./resources/img/img-index-theme/portfolio/portfolio_10.jpg" class="img-responsive" alt="">
+                    <img src="./resources/img/img-index-theme/portfolio/portfolio_09.jpg" class="img-responsive" alt="">
                     <div class="he-view">
-                        <div class="bg a0" data-animate="fadeIn">
-                            <h3 class="a1" data-animate="fadeInDown">A Book Design Item</h3>
-                            <a data-rel="prettyPhoto" href="./resources/img/img-index-theme/portfolio/portfolio_10.jpg" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-search"></i></a>
-                            <a href="" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-eye"></i></a>
-                        </div><!-- he bg -->
-                    </div><!-- he view -->
+                        <div style="background: #2E2E2E; opacity: 0.7">
+
+                            <h3 class="a1 centered" style="padding-bottom: 25px" data-animate="fadeInDown">A Graphic Design Item</h3>
+                        </div>
+                        <div style="text-align:center;">
+                            <a href="#" class="" data-animate="fadeInUp"></a>
+                            <a href="#" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-eye"></i></a>
+                        </div>
+
+                    </div><!-- he bg -->
                 </div><!-- he wrap -->
             </div><!-- end col-12 -->
+
+            <div class="portfolio-item graphic-design">
+                <div class="he-wrap tpl6">
+                    <img src="./resources/img/img-index-theme/portfolio/portfolio_09.jpg" class="img-responsive" alt="">
+                    <div class="he-view">
+                        <div style="background: #2E2E2E; opacity: 0.7">
+
+                            <h3 class="a1 centered" style="padding-bottom: 25px" data-animate="fadeInDown">A Graphic Design Item</h3>
+                        </div>
+                        <div style="text-align:center;">
+                            <a href="#" class="" data-animate="fadeInUp"></a>
+                            <a href="#" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-eye"></i></a>
+                        </div>
+
+                    </div><!-- he bg -->
+                </div><!-- he wrap -->
+            </div><!-- end col-12 -->
+
+            <div class="portfolio-item graphic-design">
+                <div class="he-wrap tpl6">
+                    <img src="./resources/img/img-index-theme/portfolio/portfolio_09.jpg" class="img-responsive" alt="">
+                    <div class="he-view">
+                        <div style="background: #2E2E2E; opacity: 0.7">
+
+                            <h3 class="a1 centered" style="padding-bottom: 25px" data-animate="fadeInDown">A Graphic Design Item</h3>
+                        </div>
+                        <div style="text-align:center;">
+                            <a href="#" class="" data-animate="fadeInUp"></a>
+                            <a href="#" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-eye"></i></a>
+                        </div>
+
+                    </div><!-- he bg -->
+                </div><!-- he wrap -->
+            </div><!-- end col-12 -->
+
+            <div class="portfolio-item graphic-design">
+                <div class="he-wrap tpl6">
+                    <img src="./resources/img/img-index-theme/portfolio/portfolio_09.jpg" class="img-responsive" alt="">
+                    <div class="he-view">
+                        <div style="background: #2E2E2E; opacity: 0.7">
+
+                            <h3 class="a1 centered" style="padding-bottom: 25px" data-animate="fadeInDown">A Graphic Design Item</h3>
+                        </div>
+                        <div style="text-align:center;">
+                            <a href="#" class="" data-animate="fadeInUp"></a>
+                            <a href="#" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-eye"></i></a>
+                        </div>
+
+                    </div><!-- he bg -->
+                </div><!-- he wrap -->
+            </div><!-- end col-12 -->
+
+            <div class="portfolio-item graphic-design">
+                <div class="he-wrap tpl6">
+                    <img src="./resources/img/img-index-theme/portfolio/portfolio_09.jpg" class="img-responsive" alt="">
+                    <div class="he-view">
+                        <div style="background: #2E2E2E; opacity: 0.7">
+
+                            <h3 class="a1 centered" style="padding-bottom: 25px" data-animate="fadeInDown">A Graphic Design Item</h3>
+                        </div>
+                        <div style="text-align:center;">
+                            <a href="#" class="" data-animate="fadeInUp"></a>
+                            <a href="#" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-eye"></i></a>
+                        </div>
+
+                    </div><!-- he bg -->
+                </div><!-- he wrap -->
+            </div><!-- end col-12 -->
+
         </div><!-- portfolio -->
     </div><!-- portfolio container -->
 
-    <div class="container mt">
-        <div class="row clients centered">
-            <p class="mb">Alguns dos nossos parceiros que reconhecem o nosso valor</p>
-            <div class="col-sm-2 col-sm-offset-1">
-                <img src="./resources/img/img-index-theme/client1.png" alt="">
-            </div>
-            <div class="col-sm-2">
-                <img src="./resources/img/img-index-theme/client3.png" alt="">
-            </div>
-            <div class="col-sm-2">
-                <img src="./resources/img/img-index-theme/client2.png" alt="">
-            </div>
-            <div class="col-sm-2">
-                <img src="./resources/img/img-index-theme/client4.png" alt="">
-            </div>
-            <div class="col-sm-2">
-                <img src="./resources/img/img-index-theme/client5.png" alt="">
-            </div>
-        </div><!--/row-->
-    </div><!--/container-->
+
 </div><!--/.G-->
+
+<div class="container ptb">
+    <div class="row">
+
+        <div class="sec-title text-center">
+            <h2>Outros serviços</h2>
+            <div class="devider"><i class="fa fa-heart-o fa-lg"></i></div>
+        </div>
+
+    </div>
+    <div class="row">
+
+        <div class="col-md-6">
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+        </div><!--/col-md-6-->
+        <div class="col-md-6">
+            <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software.</p>
+        </div><!--/col-md-6-->
+    </div><!--/row-->
+</div><!-- /.container -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <img src="./resources/img/img-index-theme/items.png" class="img-responsive" alt="">
+        </div>
+    </div><!--/row-->
+</div><!--/.container-->
 
 
 <div id="themesell-footer">
