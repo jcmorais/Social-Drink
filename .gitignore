@@ -58,3 +58,5 @@ src/main/orm/ormmapping/database.cfg.xml
 src/main/orm/socialdrink/ORMConstants.java
 
 src/main/orm/ormmapping/database.cfg.xml
+
+src/main/orm/socialdrink/ORMConstants.java
