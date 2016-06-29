@@ -172,7 +172,7 @@ public class drinkServiceImpl implements drinkService{
 
             //default photo
             Photo photo = this.facade.createPhoto();
-            photo.setFilePath(File.separator+"images"+File.separator+"drink"+File.separator+"default.jpeg");
+            photo.setFilePath("/images/drink/default.jpeg");
             photo.setName("default.jpeg");
             drink.setPhoto(photo);
 
