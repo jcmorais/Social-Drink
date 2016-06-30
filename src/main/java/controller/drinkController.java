@@ -43,6 +43,7 @@ public class drinkController {
         model.addObject("ingredientsLength", drink.ingredients.toArray().length);
         //mudar isto...
         model.addObject("evaluations", drink.evaluation.toArray());
+        model.addObject("link","http://localhost:8080/SocialDrink/drink/"+drinkId);
         model.addObject("commentsLength", drink.evaluation.toArray().length);
         model.addObject("photos", drink.getAlbum().fotos.toArray());
         return model;
