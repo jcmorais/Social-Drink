@@ -144,7 +144,7 @@ public class drinkServiceImpl implements drinkService{
     }
 
     @Override
-    public void addEvaluation(int drinkId, String comment, int value) {
+    public Evaluation addEvaluation(int drinkId, String comment, int value) {
         try {
             Evaluation evaluation = facade.createEvaluation();
             evaluation.setDate(new Date());
@@ -154,9 +154,11 @@ public class drinkServiceImpl implements drinkService{
             Drink drink = facade.getDrinkByORMID(drinkId);
             drink.evaluation.add(evaluation);
             facade.save(drink);
+            return evaluation;
         } catch (PersistentException e) {
             e.printStackTrace();
         }
+        return null;
     }
 
 

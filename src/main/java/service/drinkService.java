@@ -2,6 +2,7 @@ package service;
 
 import org.springframework.web.multipart.MultipartFile;
 import socialdrink.Drink;
+import socialdrink.Evaluation;
 import socialdrink.Ingredient;
 import socialdrink.Step;
 
@@ -28,5 +29,5 @@ public interface drinkService {
 
     void addPhotosToAlbum(int drinkId, MultipartFile[] photosFiles);
 
-    void addEvaluation(int drinkId, String comment, int value);
+    Evaluation addEvaluation(int drinkId, String comment, int value);
 }

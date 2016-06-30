@@ -8,12 +8,14 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 import service.drinkService;
 import socialdrink.Drink;
+import socialdrink.Evaluation;
 import socialdrink.Step;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.text.SimpleDateFormat;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -123,13 +125,17 @@ public class drinkController {
 
 
     @RequestMapping(value = "/{drinkId}/evaluation", method =  RequestMethod.POST)
-    @ResponseBody
-    String comment(@PathVariable("drinkId") int drinkId,
+    ModelAndView comment(@PathVariable("drinkId") int drinkId,
                    @RequestParam("comment") String comment,
                    @RequestParam("stars") int stars){
         System.out.println("stars:"+stars+"\ncomment: "+comment);
-        drinkService.addEvaluation(drinkId, comment, stars);
-        return "ok";
+        ModelAndView model = new ModelAndView("drink/simpleEval");
+        Evaluation eval = drinkService.addEvaluation(drinkId, comment, stars);
+        model.addObject("eval",eval);
+        SimpleDateFormat ft =
+                new SimpleDateFormat ("yyyy/MM/dd");
+        model.addObject("data",ft.format(eval.getDate()));
+        return model;
     }
 
 

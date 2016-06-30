@@ -235,6 +235,8 @@
     </div>
     <div class="row">
         <h3 class="text-center">Comentários de Utilizadores</h3>
+        <div class="container" id="comments">
+            <div id="userEval"></div>
         <c:forEach items="${evaluations}" var="eval">
             <div class="col-md-6">
                 <div class="drink-comment">
@@ -291,6 +293,7 @@
                 </div>
             </div>
         </c:forEach>
+        </div>
 
     </div>
 </div>

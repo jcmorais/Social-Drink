@@ -96,6 +96,7 @@
             success: function(data)
             {
                 $("#evalForm").hide();
+                $('#userEval').html(data);
             }
         });
 
