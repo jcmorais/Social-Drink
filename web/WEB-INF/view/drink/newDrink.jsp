@@ -340,27 +340,31 @@
 
 
 <script>
+    var flag =1;
+
     $("form").submit(function(e) {
-
-        $('#tabelaIng tr').each(function() {
-            var $tds = $(this).find("td").eq(1);
-            $.each($tds, function () {
-                var input = $("<input>")
-                        .attr("type", "hidden")
-                        .attr("name", "ingredientes[]").val($(this).attr('value'));
-                $('#formulario').append($(input));
+        if(flag==1) {
+            $('#tabelaIng tr').each(function () {
+                var $tds = $(this).find("td").eq(1);
+                $.each($tds, function () {
+                    var input = $("<input>")
+                            .attr("type", "hidden")
+                            .attr("name", "ingredientes[]").val($(this).attr('value'));
+                    $('#formulario').append($(input));
+                });
             });
-        });
 
-        $('#stepsTable tr').each(function() {
-            var $tds = $(this).find("td").eq(1);
-            $.each($tds, function () {
-                var input = $("<input>")
-                        .attr("type", "hidden")
-                        .attr("name", "passos[]").val($(this).text());
-                $('#formulario').append($(input));
+            $('#stepsTable tr').each(function () {
+                var $tds = $(this).find("td").eq(1);
+                $.each($tds, function () {
+                    var input = $("<input>")
+                            .attr("type", "hidden")
+                            .attr("name", "passos[]").val($(this).text());
+                    $('#formulario').append($(input));
+                });
             });
-        });
+        }
+        flag=0;
     });
 </script>
 

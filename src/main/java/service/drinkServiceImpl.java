@@ -94,7 +94,6 @@ public class drinkServiceImpl implements drinkService{
                 photo.setFilePath("/images/drink/"+drinkId+"/profile."+aux[aux.length-1]);
                 photo.setName("profile."+aux[aux.length-1]);
                 drink.setPhoto(photo);
-
                 facade.save(drink);
             } catch (Exception e) {
             }
@@ -135,6 +134,7 @@ public class drinkServiceImpl implements drinkService{
                     photo.setName(photo.getID()+"." + aux[aux.length - 1]);
                     Drink drink = facade.getDrinkByORMID(drinkId);
                     drink.getAlbum().fotos.add(photo);
+
                     //drink.setPhoto(photo);
                     facade.save(drink);
                 } catch (Exception e) {
@@ -182,16 +182,7 @@ public class drinkServiceImpl implements drinkService{
 
             //passos de preparação
             int count = 1;
-            /*
             for (String passo : passos) {
-                Step step = facade.createStep();
-                step.setNumber(count++);
-                step.setDescription(passo);
-                drink.steps.add(step);
-            }
-            */
-            for (count =1; count < (passos.size()/2); ) {
-                String passo = passos.get(count);
                 Step step = facade.createStep();
                 step.setNumber(count++);
                 step.setDescription(passo);
@@ -200,8 +191,6 @@ public class drinkServiceImpl implements drinkService{
 
             //ingredientes e quantidades da bebida
             count=0;
-            //TODO não percebo pq que os ingredientes vêm duplicados....
-            /*
             for (int ingrediente : ingredientes) {
                 DrinkIngredient drinkIngredient = facade.createDrinkIngredient();
                 drinkIngredient.setIngredient(facade.getIngredientByORMID(ingrediente));
@@ -209,19 +198,9 @@ public class drinkServiceImpl implements drinkService{
                 drink.ingredients.add(drinkIngredient);
                 count++;
             }
-            */
-            for (String q : quantidades) {
-                DrinkIngredient drinkIngredient = facade.createDrinkIngredient();
-                drinkIngredient.setIngredient(facade.getIngredientByORMID(ingredientes.get(count)));
-                drinkIngredient.setAmount(q);
-                drink.ingredients.add(drinkIngredient);
-                count++;
-            }
 
-            System.out.println("New Drink: "+drink.toString());
             User user = facade.getUserByORMID(1);
             user.drinks.add(drink);
-
             facade.save(user);
             drinkId = drink.getID();
         } catch (PersistentException e) {

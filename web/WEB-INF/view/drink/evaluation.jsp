@@ -96,7 +96,6 @@
             success: function(data)
             {
                 $("#evalForm").hide();
-                //alert(data); // show response from the php script.
             }
         });
 

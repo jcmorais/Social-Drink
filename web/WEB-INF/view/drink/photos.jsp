@@ -45,7 +45,7 @@
                         </label>
                     </div>
                     <div class="col-md-6">
-                        <input id="submit-profile-photo" class="btn btn-success" type="submit" onclick="uploadPhoto()" value="Upload!">
+                        <input id="submit-profile-photo" class="btn btn-success" onclick="uploadPhoto()" value="Upload!">
                     </div>
                 </div>
             </div>
@@ -74,7 +74,7 @@
                                 </label>
                             </div>
                             <div class="col-md-6">
-                                <input id="upload-album" class="btn btn-success" type="submit" onclick="uploadAlbum()" value="Confirmar">
+                                <input id="upload-album" class="btn btn-success"  onclick="uploadAlbum()" value="Confirmar">
                             </div>
                         </div>
                     </div>
@@ -83,9 +83,8 @@
 
 
 
-
+        </div>
     </form>
-</div>
 
 </body>
 </html>
@@ -190,7 +189,10 @@
 </script>
 
 
+
+
 <style>
+
     .success {
         border: 1px solid;
         margin: 10px 0px;

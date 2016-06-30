@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 
 <html>
+
 <head>
     <meta charset="utf-8">
     <!-- Bootstrap -->
@@ -312,35 +313,34 @@
 
 <script>
     $("form").submit(function() {
-        console.log("passa aqui");
 
-        debugger;
-        $('#tabelaIng tr').each(function() {
-            var $tds = $(this).find("td").eq(1);
 
-            $.each($tds, function () {
-                console.log($(this).attr('value'));
-                var input = $("<input>")
-                        .attr("type", "hidden")
-                        .attr("name", "ingredientes[]").val($(this).attr('value'));
-                $('#formulario').append($(input));
+            $('#tabelaIng tr').each(function () {
+                var $tds = $(this).find("td").eq(1);
+
+                $.each($tds, function () {
+                    console.log($(this).attr('value'));
+                    var input = $("<input>")
+                            .attr("type", "hidden")
+                            .attr("name", "ingredientes[]").val($(this).attr('value'));
+                    $('#formulario').append($(input));
+                });
             });
-        });
-        debugger;
 
-        var MyRows = $('#tabelaIng').find('tbody').find('tr');
-        for (var i = 0; i < MyRows.length; i++) {
-            console.log($(MyRows[i]).find('td:eq(0)').html());
-        }
+            var MyRows = $('#tabelaIng').find('tbody').find('tr');
+            for (var i = 0; i < MyRows.length; i++) {
+                console.log($(MyRows[i]).find('td:eq(0)').html());
+            }
 
 
-        var e = document.getElementById("tipoBebida");
-        var idTipo = e.options[e.selectedIndex].value;
-        var input = $("<input>")
-                .attr("type", "hidden")
-                .attr("name", "mydata").val('daddos de teste');
-        $('#formulario').append($(input));
-        debugger;
+            var e = document.getElementById("tipoBebida");
+            var idTipo = e.options[e.selectedIndex].value;
+            var input = $("<input>")
+                    .attr("type", "hidden")
+                    .attr("name", "mydata").val('daddos de teste');
+            $('#formulario').append($(input));
+
+
     });
 </script>
 
