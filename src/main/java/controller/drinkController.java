@@ -4,17 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 import service.drinkService;
 import socialdrink.Drink;
 import socialdrink.Step;
 
-import javax.servlet.http.HttpServletResponse;
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -34,6 +28,7 @@ public class drinkController {
         Drink drink = drinkService.getDrinkById(drinkId);
         model.addObject("drink", drink);
         model.addObject("ingredients", drink.ingredients.toArray());
+        model.addObject("link","http://localhost:8080/SocialDrink/drink/"+drinkId);
         Step[] steps = new Step[drink.steps.size()+1];
         for (Step step : drink.steps.toArray()) {
             steps[step.getNumber()-1] = step;

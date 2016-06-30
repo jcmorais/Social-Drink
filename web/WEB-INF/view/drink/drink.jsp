@@ -16,6 +16,15 @@
     <link href="<c:url value="/resources/bootstrap/css/style-fred.css" />" rel="stylesheet">
 
     <title>Drink</title>
+
+
+    <meta property="og:url"           content="http://www.your-domain.com/your-page.html" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="Your Website Title" />
+    <meta property="og:description"   content="Your description" />
+    <meta property="og:image"         content="http://www.your-domain.com/path/image.jpg" />
+
+
 </head>
 <body>
 <jsp:include page="../topbar.jsp"/>
@@ -23,13 +32,10 @@
 <div class="container" style="padding-top: 100px">
 <div class="container">
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-6">
             <div class='container'>
-            <h2><c:out value="${drink.name}"></c:out></h2>
-                </div>
-        </div>
-        <div class="col-md-2">
-            <h3>
+            <h2 style="display: inline-block"><c:out value="${drink.name.toUpperCase()}"></c:out></h2>
+            <h3 style="display: inline-block; padding-top: 5px">
                 <ul class="c-rating show-rating">
                     <li class="c-rating__item is-active"></li>
                     <li class="c-rating__item is-active"></li>
@@ -37,13 +43,15 @@
                     <li class="c-rating__item"></li>
                     <li class="c-rating__item"></li>
                 </ul>
-                <div class="">
-                    (11 votos)
-                </div>
-            </h3>
+                </h3>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <p>Com alcool</p>
+
 
         </div>
-        <div class="col-md-4 col-md-offset-2">
+        <div class="col-md-2 col-md-offset-2">
             <h2>Adicionar aos favoritos</h2>
         </div>
     </div>
@@ -56,7 +64,6 @@
                 </div>
             </div>
             <div class="row">
-                <h3 class="text-center">Informação Geral</h3>
                 <div class="col-md-3">
                     <p class="drink-item-information">
                         <c:out value="${ingredientsLength}"></c:out>
@@ -92,37 +99,79 @@
 
             </div>
         </div>
-        <div class="col-md-4 col-md-offset-2">
-            <h3 class="text-center">Descrição</h3>
-            <p class="drink-description"> <c:out value="${drink.description}"></c:out> </p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6 col-md-offset-3">
-            <h3 class="text-center">Share</h3>
+        <div class="col-md-4 col-md-offset-1">
             <div class="row">
-                <div class="col-md-3">
-                    <a href="#"><img class="social-icon" src="<c:url value="/resources/img/images/social/facebook.ico"/>" alt="" /></a>
+
+                <div class="row">
+                        <div class='container'>
+                            <div class="row">
+                                <div class="" style="display: inline-block">
+                                    <h2><c:out value="${drink.name.toUpperCase()}"></c:out></h2>
+                                </div>
+
+                                <div style="display: inline-block; padding-top: 4px; padding-left: 10px" class="">
+                                    <h3>
+                                        <ul class="c-rating show-rating">
+                                            <li class="c-rating__item is-active"></li>
+                                            <li class="c-rating__item is-active"></li>
+                                            <li class="c-rating__item is-active"></li>
+                                            <li class="c-rating__item"></li>
+                                            <li class="c-rating__item"></li>
+                                        </ul>
+                                    </h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <img src="">
+                                    <span>Alcoolico</span>
+                                </div>
+                                <div class="col-md-3">
+                                    <img src="">
+                                    <span>Favourited</span>
+                                </div>
+                            </div>
+
+
+                        </div>
                 </div>
-                <div class="col-md-3">
-                    <a href="#">
-                        <img class="social-icon" src="<c:url value="/resources/img/images/social/google.ico"/>" alt="" />
-                    </a>
-                </div>
-                <div class="col-md-3">
-                    <a href="#">
-                        <img class="social-icon" src="<c:url value="/resources/img/images/social/instagram.ico" />" alt="" />
-                    </a>
-                </div>
-                <div class="col-md-3">
-                    <a href="#">
-                        <img class="social-icon" src="<c:url value="/resources/img/images/social/twitter.ico" />" alt="" />
-                    </a>
+
+
+
+
+
+            </div>
+            <div class="row">
+                <h3 class="text-center">Descrição</h3>
+                <p class="drink-description"> <c:out value="${drink.description}"></c:out> </p>
+            </div>
+            <div class="row">
+                <h3 class="text-center">Share</h3>
+                <div class="row">
+                    <div class="col-md-3">
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=${link}" target="_blank"><img class="social-icon" src="<c:url value="/resources/img/images/social/facebook.ico"/>" alt="" /></a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="https://plus.google.com/share?url=${link}" target="_blank" class="gplus-counter" id="gplus_share">
+                            <img class="social-icon" src="<c:url value="/resources/img/images/social/google.ico"/>" alt="" />
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="#">
+                            <img class="social-icon" src="<c:url value="/resources/img/images/social/instagram.ico" />" alt="" />
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="https://twitter.com/intent/tweet?text=${link}">
+                            <img class="social-icon" src="<c:url value="/resources/img/images/social/twitter.ico" />" alt="" />
+                        </a>
+                    </div>
                 </div>
             </div>
-
+        </div>
         </div>
     </div>
+
     <hr>
 </div>
 <!-- Modo de preparação -->

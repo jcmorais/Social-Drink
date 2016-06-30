@@ -93,12 +93,12 @@ html[xmlns] .flexslider .slides {
   height: auto;
   margin-left: auto;
   margin-right: auto;
-  width: 200px;
+  width: 400px;
   text-align: center;
   -moz-user-select: none;
 }
 .flex-viewport {
-  max-height: 200px;
+  max-height: 400px;
   -webkit-transition: all 1s ease;
   -moz-transition: all 1s ease;
   -ms-transition: all 1s ease;
