@@ -66,6 +66,7 @@
 </body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js"></script>
 <script src="<c:url value="/resources/bootstrap/js/bootstrap.min.js" />"></script>
 <script src="<c:url value="/resources/bootstrap/js/bootstrap-clockpicker.min.js" />"></script>
 <script src="<c:url value="/resources/bootstrap/js/clockpicker.js" />"></script>
