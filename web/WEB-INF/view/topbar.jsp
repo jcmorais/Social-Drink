@@ -1,3 +1,6 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <nav class="navbar navbar-default navbar-fixed-top">
 
     <div class="container-fluid">
@@ -9,7 +12,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#"><img class="img-responsive2" src="./resources/img/logo.png"></a>
+            <a class="navbar-brand" href="#"><img class="img-responsive2" src="<c:url value="/resources/img/logo.png"/>"></a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -21,9 +24,9 @@
                 </div>
             </form>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><img src="./resources/img/homebutton.png"></a></li>
-                <li><a href="#"><img src="./resources/img/drink.png"></a></li>
-                <li><a href="#"><img src="./resources/img/newfollower.png"></a></li>
+                <li><a href="#"><img src="<c:url value="/resources/img/homebutton.png"/>"></a></li>
+                <li><a href="#"><img src="<c:url value="/resources/img/drink.png"/>"></a></li>
+                <li><a href="#"><img src="<c:url value="/resources/img/newfollower.png"/>"></a></li>
                 <li><a href="#">Perfil</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
