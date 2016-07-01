@@ -3,7 +3,6 @@ package socialdrink;
 import org.hibernate.LockMode;
 import org.orm.PersistentException;
 import org.orm.PersistentSession;
-import socialdrink.*;
 import socialdrink.dao.*;
 import socialdrink.impl.*;
 
@@ -31,249 +30,7 @@ public class Facade {
     private EvaluationDAO evaluationDAO;
 
 
-    public Drink loadDrinkByORMID(int ID) throws PersistentException {
-        return drinkDAO.loadDrinkByORMID(ID);
-    }
 
-    public Drink[] listDrinkByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
-        return drinkDAO.listDrinkByQuery(condition, orderBy, lockMode);
-    }
-
-    public Iterator iterateDrinkByQuery(String condition, String orderBy) throws PersistentException {
-        return drinkDAO.iterateDrinkByQuery(condition, orderBy);
-    }
-
-    public Drink loadDrinkByCriteria(DrinkCriteria drinkCriteria) {
-        return drinkDAO.loadDrinkByCriteria(drinkCriteria);
-    }
-
-    public Drink[] listDrinkByCriteria(DrinkCriteria drinkCriteria) {
-        return drinkDAO.listDrinkByCriteria(drinkCriteria);
-    }
-
-    public Drink[] listDrinkByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
-        return drinkDAO.listDrinkByQuery(session, condition, orderBy, lockMode);
-    }
-
-    public Drink getDrinkByORMID(int ID, LockMode lockMode) throws PersistentException {
-        return drinkDAO.getDrinkByORMID(ID, lockMode);
-    }
-
-    public Drink getDrinkByORMID(PersistentSession session, int ID, LockMode lockMode) throws PersistentException {
-        return drinkDAO.getDrinkByORMID(session, ID, lockMode);
-    }
-
-    public Drink loadDrinkByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
-        return drinkDAO.loadDrinkByQuery(condition, orderBy, lockMode);
-    }
-
-    public Drink createDrink() {
-        return drinkDAO.createDrink();
-    }
-
-    public Drink loadDrinkByQuery(String condition, String orderBy) throws PersistentException {
-        return drinkDAO.loadDrinkByQuery(condition, orderBy);
-    }
-
-    public Drink getDrinkByORMID(PersistentSession session, int ID) throws PersistentException {
-        return drinkDAO.getDrinkByORMID(session, ID);
-    }
-
-    public boolean delete(Drink drink) throws PersistentException {
-        return drinkDAO.delete(drink);
-    }
-
-    public List queryDrink(PersistentSession session, String condition, String orderBy) throws PersistentException {
-        return drinkDAO.queryDrink(session, condition, orderBy);
-    }
-
-    public boolean refresh(Drink drink) throws PersistentException {
-        return drinkDAO.refresh(drink);
-    }
-
-    public Drink loadDrinkByORMID(PersistentSession session, int ID, LockMode lockMode) throws PersistentException {
-        return drinkDAO.loadDrinkByORMID(session, ID, lockMode);
-    }
-
-    public Drink loadDrinkByORMID(int ID, LockMode lockMode) throws PersistentException {
-        return drinkDAO.loadDrinkByORMID(ID, lockMode);
-    }
-
-    public Iterator iterateDrinkByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
-        return drinkDAO.iterateDrinkByQuery(session, condition, orderBy);
-    }
-
-    public Drink loadDrinkByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
-        return drinkDAO.loadDrinkByQuery(session, condition, orderBy, lockMode);
-    }
-
-    public Drink getDrinkByORMID(int ID) throws PersistentException {
-        return drinkDAO.getDrinkByORMID(ID);
-    }
-
-    public boolean evict(Drink drink) throws PersistentException {
-        return drinkDAO.evict(drink);
-    }
-
-    public Iterator iterateDrinkByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
-        return drinkDAO.iterateDrinkByQuery(session, condition, orderBy, lockMode);
-    }
-
-    public boolean save(Drink drink) throws PersistentException {
-        return drinkDAO.save(drink);
-    }
-
-    public Drink loadDrinkByORMID(PersistentSession session, int ID) throws PersistentException {
-        return drinkDAO.loadDrinkByORMID(session, ID);
-    }
-
-    public Drink[] listDrinkByQuery(String condition, String orderBy) throws PersistentException {
-        return drinkDAO.listDrinkByQuery(condition, orderBy);
-    }
-
-    public List queryDrink(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
-        return drinkDAO.queryDrink(session, condition, orderBy, lockMode);
-    }
-
-    public List queryDrink(String condition, String orderBy, LockMode lockMode) throws PersistentException {
-        return drinkDAO.queryDrink(condition, orderBy, lockMode);
-    }
-
-    public Iterator iterateDrinkByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
-        return drinkDAO.iterateDrinkByQuery(condition, orderBy, lockMode);
-    }
-
-    public Drink[] listDrinkByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
-        return drinkDAO.listDrinkByQuery(session, condition, orderBy);
-    }
-
-    public List queryDrink(String condition, String orderBy) throws PersistentException {
-        return drinkDAO.queryDrink(condition, orderBy);
-    }
-
-    public Drink loadDrinkByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
-        return drinkDAO.loadDrinkByQuery(session, condition, orderBy);
-    }
-
-    public User loadUserByORMID(int ID) throws PersistentException {
-        return userDAO.loadUserByORMID(ID);
-    }
-
-    public List queryUser(String condition, String orderBy) throws PersistentException {
-        return userDAO.queryUser(condition, orderBy);
-    }
-
-    public boolean delete(User user) throws PersistentException {
-        return userDAO.delete(user);
-    }
-
-    public User getUserByORMID(int ID) throws PersistentException {
-        return userDAO.getUserByORMID(ID);
-    }
-
-    public User[] listUserByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
-        return userDAO.listUserByQuery(condition, orderBy, lockMode);
-    }
-
-    public User[] listUserByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
-        return userDAO.listUserByQuery(session, condition, orderBy);
-    }
-
-    public User loadUserByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
-        return userDAO.loadUserByQuery(session, condition, orderBy);
-    }
-
-    public Iterator iterateUserByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
-        return userDAO.iterateUserByQuery(condition, orderBy, lockMode);
-    }
-
-    public User loadUserByORMID(PersistentSession session, int ID, LockMode lockMode) throws PersistentException {
-        return userDAO.loadUserByORMID(session, ID, lockMode);
-    }
-
-    public User getUserByORMID(int ID, LockMode lockMode) throws PersistentException {
-        return userDAO.getUserByORMID(ID, lockMode);
-    }
-
-    public List queryUser(String condition, String orderBy, LockMode lockMode) throws PersistentException {
-        return userDAO.queryUser(condition, orderBy, lockMode);
-    }
-
-    public User[] listUserByQuery(String condition, String orderBy) throws PersistentException {
-        return userDAO.listUserByQuery(condition, orderBy);
-    }
-
-    public User loadUserByQuery(String condition, String orderBy) throws PersistentException {
-        return userDAO.loadUserByQuery(condition, orderBy);
-    }
-
-    public Iterator iterateUserByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
-        return userDAO.iterateUserByQuery(session, condition, orderBy);
-    }
-
-    public boolean refresh(User user) throws PersistentException {
-        return userDAO.refresh(user);
-    }
-
-    public boolean evict(User user) throws PersistentException {
-        return userDAO.evict(user);
-    }
-
-    public User loadUserByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
-        return userDAO.loadUserByQuery(session, condition, orderBy, lockMode);
-    }
-
-    public List queryUser(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
-        return userDAO.queryUser(session, condition, orderBy, lockMode);
-    }
-
-    public boolean save(User user) throws PersistentException {
-        return userDAO.save(user);
-    }
-
-    public User loadUserByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
-        return userDAO.loadUserByQuery(condition, orderBy, lockMode);
-    }
-
-    public List queryUser(PersistentSession session, String condition, String orderBy) throws PersistentException {
-        return userDAO.queryUser(session, condition, orderBy);
-    }
-
-    public User[] listUserByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
-        return userDAO.listUserByQuery(session, condition, orderBy, lockMode);
-    }
-
-    public Iterator iterateUserByQuery(String condition, String orderBy) throws PersistentException {
-        return userDAO.iterateUserByQuery(condition, orderBy);
-    }
-
-    public User loadUserByCriteria(UserCriteria userCriteria) {
-        return userDAO.loadUserByCriteria(userCriteria);
-    }
-
-    public User getUserByORMID(PersistentSession session, int ID, LockMode lockMode) throws PersistentException {
-        return userDAO.getUserByORMID(session, ID, lockMode);
-    }
-
-    public User loadUserByORMID(int ID, LockMode lockMode) throws PersistentException {
-        return userDAO.loadUserByORMID(ID, lockMode);
-    }
-
-    public User loadUserByORMID(PersistentSession session, int ID) throws PersistentException {
-        return userDAO.loadUserByORMID(session, ID);
-    }
-
-    public User[] listUserByCriteria(UserCriteria userCriteria) {
-        return userDAO.listUserByCriteria(userCriteria);
-    }
-
-    public User getUserByORMID(PersistentSession session, int ID) throws PersistentException {
-        return userDAO.getUserByORMID(session, ID);
-    }
-
-    public Iterator iterateUserByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
-        return userDAO.iterateUserByQuery(session, condition, orderBy, lockMode);
-    }
 
     public Address loadAddressByORMID(int ID) throws PersistentException {
         return addressDAO.loadAddressByORMID(ID);
@@ -1531,129 +1288,6 @@ public class Facade {
         return cityDAO.queryCity(condition, orderBy, lockMode);
     }
 
-    public Weekday loadWeekdayByORMID(int ID) throws PersistentException {
-        return weekdayDAO.loadWeekdayByORMID(ID);
-    }
-
-    public List queryWeekday(String condition, String orderBy, LockMode lockMode) throws PersistentException {
-        return weekdayDAO.queryWeekday(condition, orderBy, lockMode);
-    }
-
-    public boolean evict(Weekday weekday) throws PersistentException {
-        return weekdayDAO.evict(weekday);
-    }
-
-    public Weekday getWeekdayByORMID(int ID, LockMode lockMode) throws PersistentException {
-        return weekdayDAO.getWeekdayByORMID(ID, lockMode);
-    }
-
-    public Weekday[] listWeekdayByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
-        return weekdayDAO.listWeekdayByQuery(session, condition, orderBy);
-    }
-
-    public Weekday[] listWeekdayByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
-        return weekdayDAO.listWeekdayByQuery(condition, orderBy, lockMode);
-    }
-
-    public Weekday loadWeekdayByORMID(int ID, LockMode lockMode) throws PersistentException {
-        return weekdayDAO.loadWeekdayByORMID(ID, lockMode);
-    }
-
-    public Iterator iterateWeekdayByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
-        return weekdayDAO.iterateWeekdayByQuery(session, condition, orderBy, lockMode);
-    }
-
-    public Weekday loadWeekdayByCriteria(WeekdayCriteria weekdayCriteria) {
-        return weekdayDAO.loadWeekdayByCriteria(weekdayCriteria);
-    }
-
-    public Weekday[] listWeekdayByQuery(String condition, String orderBy) throws PersistentException {
-        return weekdayDAO.listWeekdayByQuery(condition, orderBy);
-    }
-
-    public Weekday createWeekday() {
-        return weekdayDAO.createWeekday();
-    }
-
-    public List queryWeekday(String condition, String orderBy) throws PersistentException {
-        return weekdayDAO.queryWeekday(condition, orderBy);
-    }
-
-    public boolean save(Weekday weekday) throws PersistentException {
-        return weekdayDAO.save(weekday);
-    }
-
-    public Weekday getWeekdayByORMID(int ID) throws PersistentException {
-        return weekdayDAO.getWeekdayByORMID(ID);
-    }
-
-    public Iterator iterateWeekdayByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
-        return weekdayDAO.iterateWeekdayByQuery(condition, orderBy, lockMode);
-    }
-
-    public Weekday loadWeekdayByORMID(PersistentSession session, int ID, LockMode lockMode) throws PersistentException {
-        return weekdayDAO.loadWeekdayByORMID(session, ID, lockMode);
-    }
-
-    public Iterator iterateWeekdayByQuery(String condition, String orderBy) throws PersistentException {
-        return weekdayDAO.iterateWeekdayByQuery(condition, orderBy);
-    }
-
-    public Weekday getWeekdayByORMID(PersistentSession session, int ID, LockMode lockMode) throws PersistentException {
-        return weekdayDAO.getWeekdayByORMID(session, ID, lockMode);
-    }
-
-    public Weekday loadWeekdayByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
-        return weekdayDAO.loadWeekdayByQuery(session, condition, orderBy, lockMode);
-    }
-
-    public Iterator iterateWeekdayByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
-        return weekdayDAO.iterateWeekdayByQuery(session, condition, orderBy);
-    }
-
-    public Weekday[] listWeekdayByCriteria(WeekdayCriteria weekdayCriteria) {
-        return weekdayDAO.listWeekdayByCriteria(weekdayCriteria);
-    }
-
-    public Weekday[] listWeekdayByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
-        return weekdayDAO.listWeekdayByQuery(session, condition, orderBy, lockMode);
-    }
-
-    public Weekday getWeekdayByORMID(PersistentSession session, int ID) throws PersistentException {
-        return weekdayDAO.getWeekdayByORMID(session, ID);
-    }
-
-    public List queryWeekday(PersistentSession session, String condition, String orderBy) throws PersistentException {
-        return weekdayDAO.queryWeekday(session, condition, orderBy);
-    }
-
-    public boolean delete(Weekday weekday) throws PersistentException {
-        return weekdayDAO.delete(weekday);
-    }
-
-    public boolean refresh(Weekday weekday) throws PersistentException {
-        return weekdayDAO.refresh(weekday);
-    }
-
-    public Weekday loadWeekdayByQuery(String condition, String orderBy) throws PersistentException {
-        return weekdayDAO.loadWeekdayByQuery(condition, orderBy);
-    }
-
-    public List queryWeekday(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
-        return weekdayDAO.queryWeekday(session, condition, orderBy, lockMode);
-    }
-
-    public Weekday loadWeekdayByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
-        return weekdayDAO.loadWeekdayByQuery(condition, orderBy, lockMode);
-    }
-
-    public Weekday loadWeekdayByORMID(PersistentSession session, int ID) throws PersistentException {
-        return weekdayDAO.loadWeekdayByORMID(session, ID);
-    }
-
-    public Weekday loadWeekdayByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
-        return weekdayDAO.loadWeekdayByQuery(session, condition, orderBy);
-    }
 
     public Album loadAlbumByORMID(int ID) throws PersistentException {
         return albumDAO.loadAlbumByORMID(ID);
@@ -1903,7 +1537,376 @@ public class Facade {
         return evaluationDAO.loadEvaluationByCriteria(evaluationCriteria);
     }
 
+    public Drink loadDrinkByORMID(int ID) throws PersistentException {
+        return drinkDAO.loadDrinkByORMID(ID);
+    }
+
+    public Drink[] listDrinkByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
+        return drinkDAO.listDrinkByQuery(session, condition, orderBy);
+    }
+
+    public Drink createDrink() {
+        return drinkDAO.createDrink();
+    }
+
+    public Iterator iterateDrinkByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return drinkDAO.iterateDrinkByQuery(condition, orderBy, lockMode);
+    }
+
+    public Drink loadDrinkByORMID(PersistentSession session, int ID) throws PersistentException {
+        return drinkDAO.loadDrinkByORMID(session, ID);
+    }
+
+    public List queryDrink(String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return drinkDAO.queryDrink(condition, orderBy, lockMode);
+    }
+
+    public Drink loadDrinkByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return drinkDAO.loadDrinkByQuery(condition, orderBy, lockMode);
+    }
+
+    public Drink getDrinkByORMID(PersistentSession session, int ID) throws PersistentException {
+        return drinkDAO.getDrinkByORMID(session, ID);
+    }
+
+    public boolean evict(Drink drink) throws PersistentException {
+        return drinkDAO.evict(drink);
+    }
+
+    public Drink loadDrinkByORMID(int ID, LockMode lockMode) throws PersistentException {
+        return drinkDAO.loadDrinkByORMID(ID, lockMode);
+    }
+
+    public Drink loadDrinkByCriteria(DrinkCriteria drinkCriteria) {
+        return drinkDAO.loadDrinkByCriteria(drinkCriteria);
+    }
+
+    public List queryDrink(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return drinkDAO.queryDrink(session, condition, orderBy, lockMode);
+    }
+
+    public Drink[] listDrinkByQuery(String condition, String orderBy) throws PersistentException {
+        return drinkDAO.listDrinkByQuery(condition, orderBy);
+    }
+
+    public Drink loadDrinkByQuery(String condition, String orderBy) throws PersistentException {
+        return drinkDAO.loadDrinkByQuery(condition, orderBy);
+    }
+
+    public Drink getDrinkByORMID(int ID) throws PersistentException {
+        return drinkDAO.getDrinkByORMID(ID);
+    }
+
+    public Drink loadDrinkByORMID(PersistentSession session, int ID, LockMode lockMode) throws PersistentException {
+        return drinkDAO.loadDrinkByORMID(session, ID, lockMode);
+    }
+
+    public List queryDrink(PersistentSession session, String condition, String orderBy) throws PersistentException {
+        return drinkDAO.queryDrink(session, condition, orderBy);
+    }
+
+    public Iterator iterateDrinkByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
+        return drinkDAO.iterateDrinkByQuery(session, condition, orderBy);
+    }
+
+    public boolean refresh(Drink drink) throws PersistentException {
+        return drinkDAO.refresh(drink);
+    }
+
+    public Drink getDrinkByORMID(int ID, LockMode lockMode) throws PersistentException {
+        return drinkDAO.getDrinkByORMID(ID, lockMode);
+    }
+
+    public Drink loadDrinkByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
+        return drinkDAO.loadDrinkByQuery(session, condition, orderBy);
+    }
+
+    public Drink[] listDrinkByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return drinkDAO.listDrinkByQuery(condition, orderBy, lockMode);
+    }
+
+    public Drink loadDrinkByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return drinkDAO.loadDrinkByQuery(session, condition, orderBy, lockMode);
+    }
+
+    public List queryDrink(String condition, String orderBy) throws PersistentException {
+        return drinkDAO.queryDrink(condition, orderBy);
+    }
+
+    public boolean save(Drink drink) throws PersistentException {
+        return drinkDAO.save(drink);
+    }
+
+    public Drink getDrinkByORMID(PersistentSession session, int ID, LockMode lockMode) throws PersistentException {
+        return drinkDAO.getDrinkByORMID(session, ID, lockMode);
+    }
+
+    public Drink[] listDrinkByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return drinkDAO.listDrinkByQuery(session, condition, orderBy, lockMode);
+    }
+
+    public Drink[] listDrinkByCriteria(DrinkCriteria drinkCriteria) {
+        return drinkDAO.listDrinkByCriteria(drinkCriteria);
+    }
+
+    public Iterator iterateDrinkByQuery(String condition, String orderBy) throws PersistentException {
+        return drinkDAO.iterateDrinkByQuery(condition, orderBy);
+    }
+
+    public Iterator iterateDrinkByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return drinkDAO.iterateDrinkByQuery(session, condition, orderBy, lockMode);
+    }
+
+    public boolean delete(Drink drink) throws PersistentException {
+        return drinkDAO.delete(drink);
+    }
+
+    public Weekday loadWeekdayByORMID(int ID) throws PersistentException {
+        return weekdayDAO.loadWeekdayByORMID(ID);
+    }
+
+    public Iterator iterateWeekdayByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
+        return weekdayDAO.iterateWeekdayByQuery(session, condition, orderBy);
+    }
+
+    public boolean refresh(Weekday weekday) throws PersistentException {
+        return weekdayDAO.refresh(weekday);
+    }
+
+    public Weekday loadWeekdayByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return weekdayDAO.loadWeekdayByQuery(condition, orderBy, lockMode);
+    }
+
+    public Weekday getWeekdayByORMID(PersistentSession session, int ID, LockMode lockMode) throws PersistentException {
+        return weekdayDAO.getWeekdayByORMID(session, ID, lockMode);
+    }
+
+    public List queryWeekday(String condition, String orderBy) throws PersistentException {
+        return weekdayDAO.queryWeekday(condition, orderBy);
+    }
+
+    public List queryWeekday(String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return weekdayDAO.queryWeekday(condition, orderBy, lockMode);
+    }
+
+    public Weekday[] listWeekdayByCriteria(WeekdayCriteria weekdayCriteria) {
+        return weekdayDAO.listWeekdayByCriteria(weekdayCriteria);
+    }
+
+    public Weekday loadWeekdayByORMID(PersistentSession session, int ID, LockMode lockMode) throws PersistentException {
+        return weekdayDAO.loadWeekdayByORMID(session, ID, lockMode);
+    }
+
+    public Weekday loadWeekdayByCriteria(WeekdayCriteria weekdayCriteria) {
+        return weekdayDAO.loadWeekdayByCriteria(weekdayCriteria);
+    }
+
+    public Weekday[] listWeekdayByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
+        return weekdayDAO.listWeekdayByQuery(session, condition, orderBy);
+    }
+
+    public Weekday loadWeekdayByORMID(int ID, LockMode lockMode) throws PersistentException {
+        return weekdayDAO.loadWeekdayByORMID(ID, lockMode);
+    }
+
+    public Weekday loadWeekdayByQuery(String condition, String orderBy) throws PersistentException {
+        return weekdayDAO.loadWeekdayByQuery(condition, orderBy);
+    }
+
+    public Weekday getWeekdayByORMID(int ID) throws PersistentException {
+        return weekdayDAO.getWeekdayByORMID(ID);
+    }
+
+    public Iterator iterateWeekdayByQuery(String condition, String orderBy) throws PersistentException {
+        return weekdayDAO.iterateWeekdayByQuery(condition, orderBy);
+    }
+
+    public List queryWeekday(PersistentSession session, String condition, String orderBy) throws PersistentException {
+        return weekdayDAO.queryWeekday(session, condition, orderBy);
+    }
+
+    public Weekday loadWeekdayByORMID(PersistentSession session, int ID) throws PersistentException {
+        return weekdayDAO.loadWeekdayByORMID(session, ID);
+    }
+
+    public Weekday loadWeekdayByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
+        return weekdayDAO.loadWeekdayByQuery(session, condition, orderBy);
+    }
+
+    public Iterator iterateWeekdayByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return weekdayDAO.iterateWeekdayByQuery(session, condition, orderBy, lockMode);
+    }
+
+    public List queryWeekday(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return weekdayDAO.queryWeekday(session, condition, orderBy, lockMode);
+    }
+
+    public boolean save(Weekday weekday) throws PersistentException {
+        return weekdayDAO.save(weekday);
+    }
+
+    public Weekday[] listWeekdayByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return weekdayDAO.listWeekdayByQuery(session, condition, orderBy, lockMode);
+    }
+
+    public boolean delete(Weekday weekday) throws PersistentException {
+        return weekdayDAO.delete(weekday);
+    }
+
+    public Weekday createWeekday() {
+        return weekdayDAO.createWeekday();
+    }
+
+    public Weekday[] listWeekdayByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return weekdayDAO.listWeekdayByQuery(condition, orderBy, lockMode);
+    }
+
+    public Weekday getWeekdayByORMID(int ID, LockMode lockMode) throws PersistentException {
+        return weekdayDAO.getWeekdayByORMID(ID, lockMode);
+    }
+
+    public Weekday[] listWeekdayByQuery(String condition, String orderBy) throws PersistentException {
+        return weekdayDAO.listWeekdayByQuery(condition, orderBy);
+    }
+
+    public Weekday loadWeekdayByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return weekdayDAO.loadWeekdayByQuery(session, condition, orderBy, lockMode);
+    }
+
+    public boolean evict(Weekday weekday) throws PersistentException {
+        return weekdayDAO.evict(weekday);
+    }
+
+    public Weekday getWeekdayByORMID(PersistentSession session, int ID) throws PersistentException {
+        return weekdayDAO.getWeekdayByORMID(session, ID);
+    }
+
+    public Iterator iterateWeekdayByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return weekdayDAO.iterateWeekdayByQuery(condition, orderBy, lockMode);
+    }
+
+    public User loadUserByORMID(int ID) throws PersistentException {
+        return userDAO.loadUserByORMID(ID);
+    }
+
+    public User loadUserByCriteria(UserCriteria userCriteria) {
+        return userDAO.loadUserByCriteria(userCriteria);
+    }
+
+    public User[] listUserByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return userDAO.listUserByQuery(session, condition, orderBy, lockMode);
+    }
+
+    public User loadUserByORMID(int ID, LockMode lockMode) throws PersistentException {
+        return userDAO.loadUserByORMID(ID, lockMode);
+    }
+
+    public User getUserByORMID(int ID) throws PersistentException {
+        return userDAO.getUserByORMID(ID);
+    }
+
+    public User[] listUserByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return userDAO.listUserByQuery(condition, orderBy, lockMode);
+    }
+
+    public User[] listUserByCriteria(UserCriteria userCriteria) {
+        return userDAO.listUserByCriteria(userCriteria);
+    }
+
+    public boolean evict(User user) throws PersistentException {
+        return userDAO.evict(user);
+    }
+
+    public Iterator iterateUserByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return userDAO.iterateUserByQuery(session, condition, orderBy, lockMode);
+    }
+
+    public User loadUserByQuery(String condition, String orderBy) throws PersistentException {
+        return userDAO.loadUserByQuery(condition, orderBy);
+    }
+
+    public User loadUserByORMID(PersistentSession session, int ID) throws PersistentException {
+        return userDAO.loadUserByORMID(session, ID);
+    }
+
+    public User getUserByORMID(int ID, LockMode lockMode) throws PersistentException {
+        return userDAO.getUserByORMID(ID, lockMode);
+    }
+
+    public List queryUser(PersistentSession session, String condition, String orderBy) throws PersistentException {
+        return userDAO.queryUser(session, condition, orderBy);
+    }
+
+    public boolean save(User user) throws PersistentException {
+        return userDAO.save(user);
+    }
+
+    public User loadUserByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return userDAO.loadUserByQuery(session, condition, orderBy, lockMode);
+    }
+
+    public User[] listUserByQuery(String condition, String orderBy) throws PersistentException {
+        return userDAO.listUserByQuery(condition, orderBy);
+    }
+
+    public User loadUserByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return userDAO.loadUserByQuery(condition, orderBy, lockMode);
+    }
+
+    public Iterator iterateUserByQuery(String condition, String orderBy) throws PersistentException {
+        return userDAO.iterateUserByQuery(condition, orderBy);
+    }
+
+    public boolean refresh(User user) throws PersistentException {
+        return userDAO.refresh(user);
+    }
+
+    public User loadUserByORMID(PersistentSession session, int ID, LockMode lockMode) throws PersistentException {
+        return userDAO.loadUserByORMID(session, ID, lockMode);
+    }
+
+    public Iterator iterateUserByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return userDAO.iterateUserByQuery(condition, orderBy, lockMode);
+    }
+
+    public List queryUser(String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return userDAO.queryUser(condition, orderBy, lockMode);
+    }
+
+    public List queryUser(String condition, String orderBy) throws PersistentException {
+        return userDAO.queryUser(condition, orderBy);
+    }
+
+    public User getUserByORMID(PersistentSession session, int ID) throws PersistentException {
+        return userDAO.getUserByORMID(session, ID);
+    }
+
+    public User loadUserByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
+        return userDAO.loadUserByQuery(session, condition, orderBy);
+    }
+
+    public User getUserByORMID(PersistentSession session, int ID, LockMode lockMode) throws PersistentException {
+        return userDAO.getUserByORMID(session, ID, lockMode);
+    }
+
+    public List queryUser(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return userDAO.queryUser(session, condition, orderBy, lockMode);
+    }
+
+    public Iterator iterateUserByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
+        return userDAO.iterateUserByQuery(session, condition, orderBy);
+    }
+
+    public boolean delete(User user) throws PersistentException {
+        return userDAO.delete(user);
+    }
+
+    public User[] listUserByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
+        return userDAO.listUserByQuery(session, condition, orderBy);
+    }
+
     public Facade(){
+        this.weekdayDAO = new WeekdayDAOImpl();
         this.drinkDAO = new DrinkDAOImpl();
         this.userDAO = new UserDAOImpl();
         this.addressDAO = new AddressDAOImpl();
@@ -1916,7 +1919,6 @@ public class Facade {
         this.drinkIngredientDAO = new DrinkIngredientDAOImpl();
         this.countryDAO = new CountryDAOImpl();
         this.cityDAO = new CityDAOImpl();
-        this.weekdayDAO = new WeekdayDAOImpl();
         this.albumDAO = new AlbumDAOImpl();
         this.evaluationDAO = new EvaluationDAOImpl();
     }

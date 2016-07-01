@@ -14,7 +14,7 @@
     <title>Title</title>
 </head>
 <body>
-<form  method="post" class="form-horizontal" id="evalForm" role="form" action="/SocialDrink/drink/1/evaluation">
+<form  method="post" class="form-horizontal" id="evalForm" role="form" action="/SocialDrink/drink/${drink.getID()}/evaluation">
     <div class="form-group">
         <div class="row">
             <div class="col-md-4">
@@ -82,12 +82,11 @@
 
 <script>
     $("#evalForm").submit(function(e) {
-        var url = "/SocialDrink/drink/1/evaluation"; // the script where you handle the form input.
+        var url = $('#evalForm').attr('action'); // the script where you handle the form input.
 
         var input = $("<input>")
                 .attr("type", "hidden")
                 .attr("name", "stars").val(myRating.getRating());
-        $('#formulario').append($(input));
         $('#evalForm').append($(input));
         $.ajax({
             type: "POST",
@@ -97,6 +96,7 @@
             {
                 $("#evalForm").hide();
                 $('#userEval').html(data);
+                $('#commentsLength').text(parseInt($('#commentsLength').text().trim(), 10)+1);
             }
         });
 

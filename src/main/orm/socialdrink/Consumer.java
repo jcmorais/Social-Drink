@@ -17,6 +17,21 @@ public class Consumer extends socialdrink.User {
 	public Consumer() {
 	}
 	
+	private java.util.Set this_getSet (int key) {
+		if (key == socialdrink.ORMConstants.KEY_CONSUMER_FAVORITEDRINKS) {
+			return ORM_favoriteDrinks;
+		}
+		
+		return null;
+	}
+	
+	org.orm.util.ORMAdapter _ormAdapter = new org.orm.util.AbstractORMAdapter() {
+		public java.util.Set getSet(int key) {
+			return this_getSet(key);
+		}
+		
+	};
+	
 	private socialdrink.City city;
 	
 	private String firstname;
@@ -31,7 +46,7 @@ public class Consumer extends socialdrink.User {
 	
 	private String[] following;
 	
-	private String[] favoriteDrink;
+	private java.util.Set ORM_favoriteDrinks = new java.util.HashSet();
 	
 	public void setFirstname(String value) {
 		this.firstname = value;
@@ -65,14 +80,6 @@ public class Consumer extends socialdrink.User {
 		return following;
 	}
 	
-	public void setFavoriteDrink(String[] value) {
-		this.favoriteDrink = value;
-	}
-	
-	public String[] getFavoriteDrink() {
-		return favoriteDrink;
-	}
-	
 	public void setProfession(String value) {
 		this.profession = value;
 	}
@@ -96,6 +103,16 @@ public class Consumer extends socialdrink.User {
 	public socialdrink.City getCity() {
 		return city;
 	}
+	
+	private void setORM_FavoriteDrinks(java.util.Set value) {
+		this.ORM_favoriteDrinks = value;
+	}
+	
+	private java.util.Set getORM_FavoriteDrinks() {
+		return ORM_favoriteDrinks;
+	}
+	
+	public final socialdrink.DrinkSetCollection favoriteDrinks = new socialdrink.DrinkSetCollection(this, _ormAdapter, socialdrink.ORMConstants.KEY_CONSUMER_FAVORITEDRINKS, socialdrink.ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
 	public String toString() {
 		return super.toString();

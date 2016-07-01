@@ -37,11 +37,48 @@
                     <h2 style="display: inline-block"><c:out value="${drink.name.toUpperCase()}"></c:out></h2>
                     <h3 style="display: inline-block; padding-top: 5px">
                         <ul class="c-rating show-rating">
-                            <li class="c-rating__item is-active"></li>
-                            <li class="c-rating__item is-active"></li>
-                            <li class="c-rating__item is-active"></li>
-                            <li class="c-rating__item"></li>
-                            <li class="c-rating__item"></li>
+                            <c:if test="${rating == '0'}">
+                                <li class="c-rating__item"></li>
+                                <li class="c-rating__item"></li>
+                                <li class="c-rating__item"></li>
+                                <li class="c-rating__item"></li>
+                                <li class="c-rating__item"></li>
+                            </c:if>
+                            <c:if test="${rating == '1'}">
+                                <li class="c-rating__item is-active"></li>
+                                <li class="c-rating__item"></li>
+                                <li class="c-rating__item"></li>
+                                <li class="c-rating__item"></li>
+                                <li class="c-rating__item"></li>
+                            </c:if>
+                            <c:if test="${rating == '2'}">
+                                <li class="c-rating__item is-active"></li>
+                                <li class="c-rating__item is-active"></li>
+                                <li class="c-rating__item"></li>
+                                <li class="c-rating__item"></li>
+                                <li class="c-rating__item"></li>
+                            </c:if>
+                            <c:if test="${rating == '3'}">
+                                <li class="c-rating__item is-active"></li>
+                                <li class="c-rating__item is-active"></li>
+                                <li class="c-rating__item is-active"></li>
+                                <li class="c-rating__item"></li>
+                                <li class="c-rating__item"></li>
+                            </c:if>
+                            <c:if test="${rating == '4'}">
+                                <li class="c-rating__item is-active"></li>
+                                <li class="c-rating__item is-active"></li>
+                                <li class="c-rating__item is-active"></li>
+                                <li class="c-rating__item is-active"></li>
+                                <li class="c-rating__item"></li>
+                            </c:if>
+                            <c:if test="${rating == '5'}">
+                                <li class="c-rating__item is-active"></li>
+                                <li class="c-rating__item is-active"></li>
+                                <li class="c-rating__item is-active"></li>
+                                <li class="c-rating__item is-active"></li>
+                                <li class="c-rating__item is-active"></li>
+                            </c:if>
                         </ul>
                     </h3>
                 </div>
@@ -89,7 +126,7 @@
                         </p>
                     </div>
                     <div class="col-md-3">
-                        <p class="drink-item-information">
+                        <p id="commentsLength" class="drink-item-information">
                             <c:out value="${commentsLength}"></c:out>
                         </p>
                         <p class="text-center">
@@ -112,11 +149,48 @@
                                 <div style="display: inline-block; padding-top: 4px; padding-left: 10px" class="">
                                     <h3>
                                         <ul class="c-rating show-rating">
-                                            <li class="c-rating__item is-active"></li>
-                                            <li class="c-rating__item is-active"></li>
-                                            <li class="c-rating__item is-active"></li>
-                                            <li class="c-rating__item"></li>
-                                            <li class="c-rating__item"></li>
+                                            <c:if test="${rating == '0'}">
+                                                <li class="c-rating__item"></li>
+                                                <li class="c-rating__item"></li>
+                                                <li class="c-rating__item"></li>
+                                                <li class="c-rating__item"></li>
+                                                <li class="c-rating__item"></li>
+                                            </c:if>
+                                            <c:if test="${rating == '1'}">
+                                                <li class="c-rating__item is-active"></li>
+                                                <li class="c-rating__item"></li>
+                                                <li class="c-rating__item"></li>
+                                                <li class="c-rating__item"></li>
+                                                <li class="c-rating__item"></li>
+                                            </c:if>
+                                            <c:if test="${rating == '2'}">
+                                                <li class="c-rating__item is-active"></li>
+                                                <li class="c-rating__item is-active"></li>
+                                                <li class="c-rating__item"></li>
+                                                <li class="c-rating__item"></li>
+                                                <li class="c-rating__item"></li>
+                                            </c:if>
+                                            <c:if test="${rating == '3'}">
+                                                <li class="c-rating__item is-active"></li>
+                                                <li class="c-rating__item is-active"></li>
+                                                <li class="c-rating__item is-active"></li>
+                                                <li class="c-rating__item"></li>
+                                                <li class="c-rating__item"></li>
+                                            </c:if>
+                                            <c:if test="${rating == '4'}">
+                                                <li class="c-rating__item is-active"></li>
+                                                <li class="c-rating__item is-active"></li>
+                                                <li class="c-rating__item is-active"></li>
+                                                <li class="c-rating__item is-active"></li>
+                                                <li class="c-rating__item"></li>
+                                            </c:if>
+                                            <c:if test="${rating == '5'}">
+                                                <li class="c-rating__item is-active"></li>
+                                                <li class="c-rating__item is-active"></li>
+                                                <li class="c-rating__item is-active"></li>
+                                                <li class="c-rating__item is-active"></li>
+                                                <li class="c-rating__item is-active"></li>
+                                            </c:if>
                                         </ul>
                                     </h3>
                                 </div>

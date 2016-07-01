@@ -30,6 +30,8 @@ public class DrinkDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final StringExpression description;
 	public final IntegerExpression timeToPrepate;
 	public final IntegerExpression yeld;
+	public final IntegerExpression rating;
+	public final IntegerExpression ratingVotes;
 	public final CollectionExpression evaluation;
 	public final CollectionExpression ingredients;
 	public final CollectionExpression steps;
@@ -47,6 +49,8 @@ public class DrinkDetachedCriteria extends AbstractORMDetachedCriteria {
 		description = new StringExpression("description", this.getDetachedCriteria());
 		timeToPrepate = new IntegerExpression("timeToPrepate", this.getDetachedCriteria());
 		yeld = new IntegerExpression("yeld", this.getDetachedCriteria());
+		rating = new IntegerExpression("rating", this.getDetachedCriteria());
+		ratingVotes = new IntegerExpression("ratingVotes", this.getDetachedCriteria());
 		evaluation = new CollectionExpression("ORM_Evaluation", this.getDetachedCriteria());
 		ingredients = new CollectionExpression("ORM_Ingredients", this.getDetachedCriteria());
 		steps = new CollectionExpression("ORM_Steps", this.getDetachedCriteria());
@@ -65,6 +69,8 @@ public class DrinkDetachedCriteria extends AbstractORMDetachedCriteria {
 		description = new StringExpression("description", this.getDetachedCriteria());
 		timeToPrepate = new IntegerExpression("timeToPrepate", this.getDetachedCriteria());
 		yeld = new IntegerExpression("yeld", this.getDetachedCriteria());
+		rating = new IntegerExpression("rating", this.getDetachedCriteria());
+		ratingVotes = new IntegerExpression("ratingVotes", this.getDetachedCriteria());
 		evaluation = new CollectionExpression("ORM_Evaluation", this.getDetachedCriteria());
 		ingredients = new CollectionExpression("ORM_Ingredients", this.getDetachedCriteria());
 		steps = new CollectionExpression("ORM_Steps", this.getDetachedCriteria());

@@ -19,7 +19,7 @@ public class Weekday {
 	
 	private int ID;
 	
-	private String day;
+	private int day;
 	
 	private String opening;
 	
@@ -37,11 +37,11 @@ public class Weekday {
 		return getID();
 	}
 	
-	public void setDay(String value) {
+	public void setDay(int value) {
 		this.day = value;
 	}
 	
-	public String getDay() {
+	public int getDay() {
 		return day;
 	}
 	

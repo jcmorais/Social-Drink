@@ -30,6 +30,8 @@ public class DrinkCriteria extends AbstractORMCriteria {
 	public final StringExpression description;
 	public final IntegerExpression timeToPrepate;
 	public final IntegerExpression yeld;
+	public final IntegerExpression rating;
+	public final IntegerExpression ratingVotes;
 	public final CollectionExpression evaluation;
 	public final CollectionExpression ingredients;
 	public final CollectionExpression steps;
@@ -47,6 +49,8 @@ public class DrinkCriteria extends AbstractORMCriteria {
 		description = new StringExpression("description", this);
 		timeToPrepate = new IntegerExpression("timeToPrepate", this);
 		yeld = new IntegerExpression("yeld", this);
+		rating = new IntegerExpression("rating", this);
+		ratingVotes = new IntegerExpression("ratingVotes", this);
 		evaluation = new CollectionExpression("ORM_Evaluation", this);
 		ingredients = new CollectionExpression("ORM_Ingredients", this);
 		steps = new CollectionExpression("ORM_Steps", this);

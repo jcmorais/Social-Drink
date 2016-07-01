@@ -10,7 +10,7 @@ License Type: Academic
 			<generator class="native">
 			</generator>
 		</id>
-		<property name="day" column="Day" type="string" length="255" not-null="false" lazy="false"/>
+		<property name="day" column="Day" type="integer" not-null="false" lazy="false"/>
 		<property name="opening" column="Opening" type="string" length="255" not-null="true" lazy="false"/>
 		<property name="closure" column="Closure" type="string" length="255" not-null="true" lazy="false"/>
 	</class>

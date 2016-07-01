@@ -75,6 +75,8 @@ public class DrinkSetCollection extends org.orm.util.ORMSet {
 	 * <li>description</li>
 	 * <li>timeToPrepate</li>
 	 * <li>yeld</li>
+	 * <li>rating</li>
+	 * <li>ratingVotes</li>
 	 * </ul>
 	 * @return The persistent objects sorted array
 	 */
@@ -90,6 +92,8 @@ public class DrinkSetCollection extends org.orm.util.ORMSet {
 	 * <li>description</li>
 	 * <li>timeToPrepate</li>
 	 * <li>yeld</li>
+	 * <li>rating</li>
+	 * <li>ratingVotes</li>
 	 * </ul>
 	 * @param ascending true for ascending, false for descending
 	 * @return The persistent objects sorted array

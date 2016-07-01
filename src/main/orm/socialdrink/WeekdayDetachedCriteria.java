@@ -20,14 +20,14 @@ import org.orm.criteria.*;
 
 public class WeekdayDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final IntegerExpression ID;
-	public final StringExpression day;
+	public final IntegerExpression day;
 	public final StringExpression opening;
 	public final StringExpression closure;
 	
 	public WeekdayDetachedCriteria() {
 		super(socialdrink.Weekday.class, socialdrink.WeekdayCriteria.class);
 		ID = new IntegerExpression("ID", this.getDetachedCriteria());
-		day = new StringExpression("day", this.getDetachedCriteria());
+		day = new IntegerExpression("day", this.getDetachedCriteria());
 		opening = new StringExpression("opening", this.getDetachedCriteria());
 		closure = new StringExpression("closure", this.getDetachedCriteria());
 	}
@@ -35,7 +35,7 @@ public class WeekdayDetachedCriteria extends AbstractORMDetachedCriteria {
 	public WeekdayDetachedCriteria(DetachedCriteria aDetachedCriteria) {
 		super(aDetachedCriteria, socialdrink.WeekdayCriteria.class);
 		ID = new IntegerExpression("ID", this.getDetachedCriteria());
-		day = new StringExpression("day", this.getDetachedCriteria());
+		day = new IntegerExpression("day", this.getDetachedCriteria());
 		opening = new StringExpression("opening", this.getDetachedCriteria());
 		closure = new StringExpression("closure", this.getDetachedCriteria());
 	}

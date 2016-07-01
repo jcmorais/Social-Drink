@@ -30,4 +30,6 @@ public interface drinkService {
     void addPhotosToAlbum(int drinkId, MultipartFile[] photosFiles);
 
     Evaluation addEvaluation(int drinkId, String comment, int value);
+
+    Drink[] getBestDrinks();
 }

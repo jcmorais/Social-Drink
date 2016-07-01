@@ -5,10 +5,7 @@ import org.hibernate.criterion.Restrictions;
 import org.orm.PersistentException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-import org.w3c.dom.Comment;
 import socialdrink.*;
-import socialdrink.dao.AlbumDAO;
-import socialdrink.impl.AlbumDAOImpl;
 
 
 import java.io.BufferedOutputStream;
@@ -144,15 +141,17 @@ public class drinkServiceImpl implements drinkService{
     }
 
     @Override
-    public Evaluation addEvaluation(int drinkId, String comment, int value) {
+    public Evaluation addEvaluation(int drinkId, String comment, int starts) {
         try {
             Evaluation evaluation = facade.createEvaluation();
             evaluation.setDate(new Date());
             evaluation.setText(comment);
-            evaluation.setValue(value);
+            evaluation.setValue(starts);
             evaluation.setUser(facade.getConsumerByORMID(1));
             Drink drink = facade.getDrinkByORMID(drinkId);
             drink.evaluation.add(evaluation);
+            drink.setRating(drink.getRating()+ starts);
+            drink.setRatingVotes(drink.getRatingVotes()+1);
             facade.save(drink);
             return evaluation;
         } catch (PersistentException e) {
@@ -181,6 +180,10 @@ public class drinkServiceImpl implements drinkService{
             //album
             Album album = facade.createAlbum();
             drink.setAlbum(album);
+
+            //stars
+            drink.setRating(0);
+            drink.setRatingVotes(0);
 
             //passos de preparação
             int count = 1;
@@ -219,6 +222,22 @@ public class drinkServiceImpl implements drinkService{
         }
         return null;
     }
+
+
+    public Drink[] getBestDrinks(){
+        DrinkCriteria criteria = null;
+        Drink drinks[] = null;
+        try {
+            criteria = new DrinkCriteria();
+            criteria.addOrder(Order.desc("rating"));
+            criteria.setMaxResults(2);
+            drinks = facade.listDrinkByCriteria(criteria);
+        } catch (PersistentException e) {
+            e.printStackTrace();
+        }
+        return drinks;
+    }
+
 
 
 }

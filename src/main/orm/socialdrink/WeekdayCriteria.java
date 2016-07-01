@@ -20,14 +20,14 @@ import org.orm.criteria.*;
 
 public class WeekdayCriteria extends AbstractORMCriteria {
 	public final IntegerExpression ID;
-	public final StringExpression day;
+	public final IntegerExpression day;
 	public final StringExpression opening;
 	public final StringExpression closure;
 	
 	public WeekdayCriteria(Criteria criteria) {
 		super(criteria);
 		ID = new IntegerExpression("ID", this);
-		day = new StringExpression("day", this);
+		day = new IntegerExpression("day", this);
 		opening = new StringExpression("opening", this);
 		closure = new StringExpression("closure", this);
 	}

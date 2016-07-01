@@ -36,6 +36,7 @@ public class drinkController {
         Drink drink = drinkService.getDrinkById(drinkId);
         model.addObject("drink", drink);
         model.addObject("ingredients", drink.ingredients.toArray());
+
         Step[] steps = new Step[drink.steps.size()];
         for (Step step : drink.steps.toArray()) {
             steps[step.getNumber()-1] = step;
@@ -48,6 +49,14 @@ public class drinkController {
         model.addObject("link","http://localhost:8080/SocialDrink/drink/"+drinkId);
         model.addObject("commentsLength", drink.evaluation.toArray().length);
         model.addObject("photos", drink.getAlbum().fotos.toArray());
+
+        int rating = drink.getRating();
+        int ratingVotes = drink.getRatingVotes();
+        if(rating > 0 && ratingVotes > 0)
+            model.addObject("rating",(int)(rating/ratingVotes));
+        else
+            model.addObject("rating", 0);
+
         return model;
     }
 

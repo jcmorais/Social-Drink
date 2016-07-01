@@ -138,7 +138,6 @@ public class Run {
         type.setName("sem álcool");
         drinkTypeDAO.save(type);
 
-
         photo = photoDAO.createPhoto();
         photo.setName("foto da vodka");
         photo.setFilePath("/path/path/filename");
@@ -151,26 +150,113 @@ public class Run {
 
         //adicionar drink
         type = drinkTypeDAO.getDrinkTypeByORMID(1);
-
         DrinkDAO drinkDAO = new DrinkDAOImpl();
         Drink drink = drinkDAO.createDrink();
-
         drink.setTypeOfDrink(type);
-        drink.setName("vodka de morango");
+        drink.setName("Vodka de Morango");
         drink.setYeld(1);
         drink.setDescription("bebida mt loka");
         drink.setTimeToPrepate(4);
+        drink.setRating(0);
+        drink.setRatingVotes(0);
         photo = photoDAO.createPhoto();
         photo.setName("default.jpeg");
         photo.setFilePath("/images/drink/default.jpeg");
         drink.setPhoto(photo);
+        DrinkIngredient drinkIngredient = facade.createDrinkIngredient();
+        drinkIngredient.setIngredient(facade.getIngredientByORMID(2));
+        drinkIngredient.setAmount("3");
+        drink.ingredients.add(drinkIngredient);
+        drinkIngredient = facade.createDrinkIngredient();
+        drinkIngredient.setIngredient(facade.getIngredientByORMID(1));
+        drinkIngredient.setAmount("100 ml");
+        drink.ingredients.add(drinkIngredient);
+        drinkIngredient = facade.createDrinkIngredient();
+        drinkIngredient.setIngredient(facade.getIngredientByORMID(1));
+        drinkIngredient.setAmount("100 ml");
+        drink.ingredients.add(drinkIngredient);
+        drinkIngredient = facade.createDrinkIngredient();
+        drinkIngredient.setIngredient(facade.getIngredientByORMID(6));
+        drinkIngredient.setAmount("um bocadinho");
+        drink.ingredients.add(drinkIngredient);
+        drinkIngredient = facade.createDrinkIngredient();
+        drinkIngredient.setIngredient(facade.getIngredientByORMID(9));
+        drinkIngredient.setAmount("2 copinhos");
+        drink.ingredients.add(drinkIngredient);
+        Step step = facade.createStep();
+        step.setNumber(1);
+        step.setDescription("descrição algo detalhada do passo 1");
+        drink.steps.add(step);
+        step = facade.createStep();
+        step.setNumber(2);
+        step.setDescription("descrição intermédia, com alguns detalhes relevantes");
+        drink.steps.add(step);
+        step = facade.createStep();
+        step.setNumber(3);
+        step.setDescription("descrição fina, bom apetite!!");
+        drink.steps.add(step);
         AlbumDAO albumDAO = new AlbumDAOImpl();
         Album album = albumDAO.createAlbum();
-
         drink.setAlbum(album);
-        //drinkDAO.save(drink);
         consumer.drinks.add(drink);
 
+
+
+        //adicionar drink
+        type = drinkTypeDAO.getDrinkTypeByORMID(1);
+        drinkDAO = new DrinkDAOImpl();
+        drink = drinkDAO.createDrink();
+        drink.setTypeOfDrink(type);
+        drink.setName("Safari Cola");
+        drink.setYeld(1);
+        drink.setDescription("uma descricao desta bebida pode ser um conjunto de texto completamente aleatorio e sem qualquer sentido l" +
+                "ogico");
+        drink.setTimeToPrepate(4);
+        drink.setRating(0);
+        drink.setRatingVotes(0);
+        photo = photoDAO.createPhoto();
+        photo.setName("default.jpeg");
+        photo.setFilePath("/images/drink/default.jpeg");
+        drink.setPhoto(photo);
+        drinkIngredient = facade.createDrinkIngredient();
+        drinkIngredient.setIngredient(facade.getIngredientByORMID(2));
+        drinkIngredient.setAmount("3");
+        drink.ingredients.add(drinkIngredient);
+        drinkIngredient = facade.createDrinkIngredient();
+        drinkIngredient.setIngredient(facade.getIngredientByORMID(1));
+        drinkIngredient.setAmount("100 ml");
+        drink.ingredients.add(drinkIngredient);
+        drinkIngredient = facade.createDrinkIngredient();
+        drinkIngredient.setIngredient(facade.getIngredientByORMID(1));
+        drinkIngredient.setAmount("100 ml");
+        drink.ingredients.add(drinkIngredient);
+        drinkIngredient = facade.createDrinkIngredient();
+        drinkIngredient.setIngredient(facade.getIngredientByORMID(6));
+        drinkIngredient.setAmount("um bocadinho");
+        drink.ingredients.add(drinkIngredient);
+        drinkIngredient = facade.createDrinkIngredient();
+        drinkIngredient.setIngredient(facade.getIngredientByORMID(9));
+        drinkIngredient.setAmount("2 copinhos");
+        drink.ingredients.add(drinkIngredient);
+        step = facade.createStep();
+        step.setNumber(1);
+        step.setDescription("descrição algo detalhada do passo 1");
+        drink.steps.add(step);
+        step = facade.createStep();
+        step.setNumber(2);
+        step.setDescription("descrição intermédia, com alguns detalhes relevantes");
+        drink.steps.add(step);
+        step = facade.createStep();
+        step.setNumber(3);
+        step.setDescription("descrição fina, bom apetite!!");
+        drink.steps.add(step);
+        albumDAO = new AlbumDAOImpl();
+        album = albumDAO.createAlbum();
+        drink.setAlbum(album);
+
+
+
+        consumer.drinks.add(drink);
         consumerDAO.save(consumer);
 
 

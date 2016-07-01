@@ -34,6 +34,7 @@ public class ConsumerDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final DateExpression Birthday;
 	public final StringExpression profession;
 	public final StringExpression sex;
+	public final CollectionExpression favoriteDrinks;
 	
 	public ConsumerDetachedCriteria() {
 		super(socialdrink.Consumer.class, socialdrink.ConsumerCriteria.class);
@@ -52,6 +53,7 @@ public class ConsumerDetachedCriteria extends AbstractORMDetachedCriteria {
 		Birthday = new DateExpression("Birthday", this.getDetachedCriteria());
 		profession = new StringExpression("profession", this.getDetachedCriteria());
 		sex = new StringExpression("sex", this.getDetachedCriteria());
+		favoriteDrinks = new CollectionExpression("ORM_FavoriteDrinks", this.getDetachedCriteria());
 	}
 	
 	public ConsumerDetachedCriteria(DetachedCriteria aDetachedCriteria) {
@@ -71,10 +73,15 @@ public class ConsumerDetachedCriteria extends AbstractORMDetachedCriteria {
 		Birthday = new DateExpression("Birthday", this.getDetachedCriteria());
 		profession = new StringExpression("profession", this.getDetachedCriteria());
 		sex = new StringExpression("sex", this.getDetachedCriteria());
+		favoriteDrinks = new CollectionExpression("ORM_FavoriteDrinks", this.getDetachedCriteria());
 	}
 	
 	public CityDetachedCriteria createCityCriteria() {
 		return new CityDetachedCriteria(createCriteria("city"));
+	}
+	
+	public DrinkDetachedCriteria createFavoriteDrinksCriteria() {
+		return new DrinkDetachedCriteria(createCriteria("ORM_FavoriteDrinks"));
 	}
 	
 	public PhotoDetachedCriteria createPhotoCriteria() {

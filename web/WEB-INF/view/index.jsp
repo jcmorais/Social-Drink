@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -117,194 +118,25 @@
     </div><!--/.container-->
     <div class="portfolio-centered mt">
         <div class="recentitems portfolio">
-
+            <c:forEach items="${bestDrinks}" var="drink">
             <div class="portfolio-item graphic-design">
                 <div class="he-wrap tpl6">
-                    <img src="./resources/img/img-index-theme/portfolio/portfolio_09.jpg" class="img-responsive" alt="">
+                    <img style="display: block; margin-left: auto;
+	margin-right: auto;" src="<c:url value="${drink.getPhoto().getFilePath()}"/>" class="img-responsive" alt="">
                     <div class="he-view">
                             <div style="background: #2E2E2E; opacity: 0.7">
 
-                                <h3 class="a1 centered" style="padding-bottom: 25px" data-animate="fadeInDown">A Graphic Design Item</h3>
+                                <h3 class="a1 centered" style="padding-bottom: 25px" data-animate="fadeInDown">${drink.getName()}</h3>
                             </div>
                         <div style="text-align:center;">
-                            <a href="#" class="" data-animate="fadeInUp"></a>
-                            <a href="#" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-eye"></i></a>
+                            <a href="/SocialDrink/drink/${drink.getID()}" class="" data-animate="fadeInUp"></a>
+                            <a href="/SocialDrink/drink/${drink.getID()}" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-eye"></i></a>
                         </div>
 
                         </div><!-- he bg -->
                 </div><!-- he wrap -->
             </div><!-- end col-12 -->
-
-            <div class="portfolio-item graphic-design">
-                <div class="he-wrap tpl6">
-                    <img src="./resources/img/img-index-theme/portfolio/portfolio_09.jpg" class="img-responsive" alt="">
-                    <div class="he-view">
-                        <div style="background: #2E2E2E; opacity: 0.7">
-
-                            <h3 class="a1 centered" style="padding-bottom: 25px" data-animate="fadeInDown">A Graphic Design Item</h3>
-                        </div>
-                        <div style="text-align:center;">
-                            <a href="#" class="" data-animate="fadeInUp"></a>
-                            <a href="#" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-eye"></i></a>
-                        </div>
-
-                    </div><!-- he bg -->
-                </div><!-- he wrap -->
-            </div><!-- end col-12 -->
-
-            <div class="portfolio-item graphic-design">
-                <div class="he-wrap tpl6">
-                    <img src="./resources/img/img-index-theme/portfolio/portfolio_09.jpg" class="img-responsive" alt="">
-                    <div class="he-view">
-                        <div style="background: #2E2E2E; opacity: 0.7">
-
-                            <h3 class="a1 centered" style="padding-bottom: 25px" data-animate="fadeInDown">A Graphic Design Item</h3>
-                        </div>
-                        <div style="text-align:center;">
-                            <a href="#" class="" data-animate="fadeInUp"></a>
-                            <a href="#" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-eye"></i></a>
-                        </div>
-
-                    </div><!-- he bg -->
-                </div><!-- he wrap -->
-            </div><!-- end col-12 -->
-
-            <div class="portfolio-item graphic-design">
-                <div class="he-wrap tpl6">
-                    <img src="./resources/img/img-index-theme/portfolio/portfolio_09.jpg" class="img-responsive" alt="">
-                    <div class="he-view">
-                        <div style="background: #2E2E2E; opacity: 0.7">
-
-                            <h3 class="a1 centered" style="padding-bottom: 25px" data-animate="fadeInDown">A Graphic Design Item</h3>
-                        </div>
-                        <div style="text-align:center;">
-                            <a href="#" class="" data-animate="fadeInUp"></a>
-                            <a href="#" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-eye"></i></a>
-                        </div>
-
-                    </div><!-- he bg -->
-                </div><!-- he wrap -->
-            </div><!-- end col-12 -->
-
-            <div class="portfolio-item graphic-design">
-                <div class="he-wrap tpl6">
-                    <img src="./resources/img/img-index-theme/portfolio/portfolio_09.jpg" class="img-responsive" alt="">
-                    <div class="he-view">
-                        <div style="background: #2E2E2E; opacity: 0.7">
-
-                            <h3 class="a1 centered" style="padding-bottom: 25px" data-animate="fadeInDown">A Graphic Design Item</h3>
-                        </div>
-                        <div style="text-align:center;">
-                            <a href="#" class="" data-animate="fadeInUp"></a>
-                            <a href="#" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-eye"></i></a>
-                        </div>
-
-                    </div><!-- he bg -->
-                </div><!-- he wrap -->
-            </div><!-- end col-12 -->
-
-            <div class="portfolio-item graphic-design">
-                <div class="he-wrap tpl6">
-                    <img src="./resources/img/img-index-theme/portfolio/portfolio_09.jpg" class="img-responsive" alt="">
-                    <div class="he-view">
-                        <div style="background: #2E2E2E; opacity: 0.7">
-
-                            <h3 class="a1 centered" style="padding-bottom: 25px" data-animate="fadeInDown">A Graphic Design Item</h3>
-                        </div>
-                        <div style="text-align:center;">
-                            <a href="#" class="" data-animate="fadeInUp"></a>
-                            <a href="#" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-eye"></i></a>
-                        </div>
-
-                    </div><!-- he bg -->
-                </div><!-- he wrap -->
-            </div><!-- end col-12 -->
-
-            <div class="portfolio-item graphic-design">
-                <div class="he-wrap tpl6">
-                    <img src="./resources/img/img-index-theme/portfolio/portfolio_09.jpg" class="img-responsive" alt="">
-                    <div class="he-view">
-                        <div style="background: #2E2E2E; opacity: 0.7">
-
-                            <h3 class="a1 centered" style="padding-bottom: 25px" data-animate="fadeInDown">A Graphic Design Item</h3>
-                        </div>
-                        <div style="text-align:center;">
-                            <a href="#" class="" data-animate="fadeInUp"></a>
-                            <a href="#" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-eye"></i></a>
-                        </div>
-
-                    </div><!-- he bg -->
-                </div><!-- he wrap -->
-            </div><!-- end col-12 -->
-
-            <div class="portfolio-item graphic-design">
-                <div class="he-wrap tpl6">
-                    <img src="./resources/img/img-index-theme/portfolio/portfolio_09.jpg" class="img-responsive" alt="">
-                    <div class="he-view">
-                        <div style="background: #2E2E2E; opacity: 0.7">
-
-                            <h3 class="a1 centered" style="padding-bottom: 25px" data-animate="fadeInDown">A Graphic Design Item</h3>
-                        </div>
-                        <div style="text-align:center;">
-                            <a href="#" class="" data-animate="fadeInUp"></a>
-                            <a href="#" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-eye"></i></a>
-                        </div>
-
-                    </div><!-- he bg -->
-                </div><!-- he wrap -->
-            </div><!-- end col-12 -->
-
-            <div class="portfolio-item graphic-design">
-                <div class="he-wrap tpl6">
-                    <img src="./resources/img/img-index-theme/portfolio/portfolio_09.jpg" class="img-responsive" alt="">
-                    <div class="he-view">
-                        <div style="background: #2E2E2E; opacity: 0.7">
-
-                            <h3 class="a1 centered" style="padding-bottom: 25px" data-animate="fadeInDown">A Graphic Design Item</h3>
-                        </div>
-                        <div style="text-align:center;">
-                            <a href="#" class="" data-animate="fadeInUp"></a>
-                            <a href="#" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-eye"></i></a>
-                        </div>
-
-                    </div><!-- he bg -->
-                </div><!-- he wrap -->
-            </div><!-- end col-12 -->
-
-            <div class="portfolio-item graphic-design">
-                <div class="he-wrap tpl6">
-                    <img src="./resources/img/img-index-theme/portfolio/portfolio_09.jpg" class="img-responsive" alt="">
-                    <div class="he-view">
-                        <div style="background: #2E2E2E; opacity: 0.7">
-
-                            <h3 class="a1 centered" style="padding-bottom: 25px" data-animate="fadeInDown">A Graphic Design Item</h3>
-                        </div>
-                        <div style="text-align:center;">
-                            <a href="#" class="" data-animate="fadeInUp"></a>
-                            <a href="#" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-eye"></i></a>
-                        </div>
-
-                    </div><!-- he bg -->
-                </div><!-- he wrap -->
-            </div><!-- end col-12 -->
-
-            <div class="portfolio-item graphic-design">
-                <div class="he-wrap tpl6">
-                    <img src="./resources/img/img-index-theme/portfolio/portfolio_09.jpg" class="img-responsive" alt="">
-                    <div class="he-view">
-                        <div style="background: #2E2E2E; opacity: 0.7">
-
-                            <h3 class="a1 centered" style="padding-bottom: 25px" data-animate="fadeInDown">A Graphic Design Item</h3>
-                        </div>
-                        <div style="text-align:center;">
-                            <a href="#" class="" data-animate="fadeInUp"></a>
-                            <a href="#" class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-eye"></i></a>
-                        </div>
-
-                    </div><!-- he bg -->
-                </div><!-- he wrap -->
-            </div><!-- end col-12 -->
-
+            </c:forEach>
         </div><!-- portfolio -->
     </div><!-- portfolio container -->
 

@@ -26,6 +26,8 @@ public interface ORMConstants extends org.orm.util.ORMBaseConstants {
 	
 	final int KEY_CONSUMER_CITY = 511838196;
 	
+	final int KEY_CONSUMER_FAVORITEDRINKS = 49947360;
+	
 	final int KEY_COUNTRY_CITIES = 668833842;
 	
 	final int KEY_DRINKINGREDIENT_INGREDIENT = 1335614311;

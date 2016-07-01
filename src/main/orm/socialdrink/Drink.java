@@ -72,6 +72,10 @@ public class Drink {
 	
 	private int yeld;
 	
+	private int rating;
+	
+	private int ratingVotes;
+	
 	private java.util.Set ORM_evaluation = new java.util.HashSet();
 	
 	private java.util.Set ORM_ingredients = new java.util.HashSet();
@@ -120,6 +124,22 @@ public class Drink {
 	
 	public int getYeld() {
 		return yeld;
+	}
+	
+	public void setRating(int value) {
+		this.rating = value;
+	}
+	
+	public int getRating() {
+		return rating;
+	}
+	
+	public void setRatingVotes(int value) {
+		this.ratingVotes = value;
+	}
+	
+	public int getRatingVotes() {
+		return ratingVotes;
 	}
 	
 	public void setPhoto(socialdrink.Photo value) {
