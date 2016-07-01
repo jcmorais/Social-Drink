@@ -26,7 +26,7 @@
         <div class="panel panel-default col-md-3">
             <div class="panel-body" >
                 <img class="img-responsive center-block drink-main-image" src="<c:url value="${user.getPhoto().getFilePath()}"/>"/>
-                <c:out value="${user.firstname} ${user.lastname}"></c:out>
+                <c:out value="${user.name}"></c:out>
             </div>
         </div>
         <div class="col-md-7 col-md-offset-1">
@@ -48,17 +48,13 @@
         <div class="col-md-4 col-md-offset-1">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Sobre</h3>
+                    <h3 class="panel-title">Horário</h3>
                 </div>
                 <div class="panel-body">
-                    <div class="col-md-7"><b>Data de nascimento:</b></div>
-                    <div class="col-md-5"><c:out value="${user.birthday}"></c:out></div>
-                    <div class="col-md-7"><b>Profissão:</b></div>
-                    <div class="col-md-5"><c:out value="${user.profession}"></c:out></div>
-                    <div class="col-md-7"><b>Género:</b></div>
-                    <div class="col-md-5"><c:out value="${user.sex}"></c:out></div>
-                    <div class="col-md-7"><b>Localidade:</b></div>
-                    <div class="col-md-5"><c:out value="${user.city.name}"></c:out></div>
+                    <c:forEach var="day" items="${horary}">
+                        <div class="col-md-5"><c:out value="${day.day}"/></div>
+                        <div class="col-md-7"><c:out value="${day.opening} até ${day.closure}"/></div>
+                    </c:forEach>
                 </div>
             </div>
         </div>
@@ -69,9 +65,9 @@
                 </div>
                 <div class="panel-body">
                 </div>
+            </div>
         </div>
-        </div>
-        </div>
+    </div>
     <div class="col-md-12">
         <div class="col-md-3">
             <div class="panel panel-default">
@@ -89,9 +85,15 @@
         <div class="col-md-7 col-md-offset-1">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Avaliações</h3>
+                    <h3 class="panel-title">Localização</h3>
                 </div>
                 <div class="panel-body">
+                    <div class="col-md-7"><b>Morada:</b></div>
+                    <div class="col-md-5"><c:out value="${user.address.street}"></c:out></div>
+                    <div class="col-md-7"><b>Cidade:</b></div>
+                    <div class="col-md-5"><c:out value="${user.address.city.name}"></c:out></div>
+                    <div class="col-md-7"><b>Código-postal:</b></div>
+                    <div class="col-md-5"><c:out value="${user.address.postalCode}"></c:out></div>
                 </div>
             </div>
         </div>
