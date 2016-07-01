@@ -30,7 +30,8 @@ public class UserServiceImpl implements UserService{
     public Weekday[] getHorary(int userId){
         try {
             WeekdayCriteria criteria = new WeekdayCriteria();
-            criteria.add(Restrictions.eq("userid", userId));
+            criteria.add(Restrictions.eq("id", userId));
+            criteria.addOrder(Order.desc("day"));
             facade.listWeekdayByCriteria(criteria);
         } catch (PersistentException e) {
             e.printStackTrace();
