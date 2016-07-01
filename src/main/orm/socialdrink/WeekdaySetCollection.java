@@ -74,6 +74,7 @@ public class WeekdaySetCollection extends org.orm.util.ORMSet {
 	 * <li>day</li>
 	 * <li>opening</li>
 	 * <li>closure</li>
+	 * <li>nameDay</li>
 	 * </ul>
 	 * @return The persistent objects sorted array
 	 */
@@ -88,6 +89,7 @@ public class WeekdaySetCollection extends org.orm.util.ORMSet {
 	 * <li>day</li>
 	 * <li>opening</li>
 	 * <li>closure</li>
+	 * <li>nameDay</li>
 	 * </ul>
 	 * @param ascending true for ascending, false for descending
 	 * @return The persistent objects sorted array

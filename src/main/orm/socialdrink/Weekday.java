@@ -25,6 +25,8 @@ public class Weekday {
 	
 	private String closure;
 	
+	private String nameDay;
+	
 	private void setID(int value) {
 		this.ID = value;
 	}
@@ -59,6 +61,14 @@ public class Weekday {
 	
 	public String getClosure() {
 		return closure;
+	}
+	
+	public void setNameDay(String value) {
+		this.nameDay = value;
+	}
+	
+	public String getNameDay() {
+		return nameDay;
 	}
 	
 	public String toString() {

@@ -321,6 +321,7 @@
                         <div class="comment-text">
                             <p class="commentator">
                                     ${eval.getUser().getFirstname()} ${eval.getUser().getLastname()}
+                            <div style="display:inline-block">
                             <ul class="c-rating show-rating">
                                 <c:if test="${eval.getValue() == '1'}">
                                     <li class="c-rating__item is-active"></li>
@@ -357,7 +358,9 @@
                                     <li class="c-rating__item is-active"></li>
                                     <li class="c-rating__item is-active"></li>
                                 </c:if>
-                                <div style="margin-top:5px; margin-left: 5px; color: #999999">${eval.getDate()} </div> </ul>
+                            </ul>
+                            <div style="margin-top:5px; margin-left: 5px; color: #999999; display:inline-block">${eval.getDate()} </div>
+                        </div>
                             </p>
 
                             <p>${eval.getText()}</p>

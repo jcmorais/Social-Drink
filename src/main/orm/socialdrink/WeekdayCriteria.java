@@ -23,6 +23,7 @@ public class WeekdayCriteria extends AbstractORMCriteria {
 	public final IntegerExpression day;
 	public final StringExpression opening;
 	public final StringExpression closure;
+	public final StringExpression nameDay;
 	
 	public WeekdayCriteria(Criteria criteria) {
 		super(criteria);
@@ -30,6 +31,7 @@ public class WeekdayCriteria extends AbstractORMCriteria {
 		day = new IntegerExpression("day", this);
 		opening = new StringExpression("opening", this);
 		closure = new StringExpression("closure", this);
+		nameDay = new StringExpression("nameDay", this);
 	}
 	
 	public WeekdayCriteria(PersistentSession session) {

@@ -13,5 +13,6 @@ License Type: Academic
 		<property name="day" column="Day" type="integer" not-null="false" lazy="false"/>
 		<property name="opening" column="Opening" type="string" length="255" not-null="true" lazy="false"/>
 		<property name="closure" column="Closure" type="string" length="255" not-null="true" lazy="false"/>
+		<property name="nameDay" column="NameDay" type="string" length="255" not-null="false" lazy="false"/>
 	</class>
 </hibernate-mapping>

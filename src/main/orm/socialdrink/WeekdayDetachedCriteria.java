@@ -23,6 +23,7 @@ public class WeekdayDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final IntegerExpression day;
 	public final StringExpression opening;
 	public final StringExpression closure;
+	public final StringExpression nameDay;
 	
 	public WeekdayDetachedCriteria() {
 		super(socialdrink.Weekday.class, socialdrink.WeekdayCriteria.class);
@@ -30,6 +31,7 @@ public class WeekdayDetachedCriteria extends AbstractORMDetachedCriteria {
 		day = new IntegerExpression("day", this.getDetachedCriteria());
 		opening = new StringExpression("opening", this.getDetachedCriteria());
 		closure = new StringExpression("closure", this.getDetachedCriteria());
+		nameDay = new StringExpression("nameDay", this.getDetachedCriteria());
 	}
 	
 	public WeekdayDetachedCriteria(DetachedCriteria aDetachedCriteria) {
@@ -38,6 +40,7 @@ public class WeekdayDetachedCriteria extends AbstractORMDetachedCriteria {
 		day = new IntegerExpression("day", this.getDetachedCriteria());
 		opening = new StringExpression("opening", this.getDetachedCriteria());
 		closure = new StringExpression("closure", this.getDetachedCriteria());
+		nameDay = new StringExpression("nameDay", this.getDetachedCriteria());
 	}
 	
 	public Weekday uniqueWeekday(PersistentSession session) {
