@@ -26,15 +26,18 @@ public class UserPageController {
     public ModelAndView getDrink(ModelAndView model, @PathVariable("userId") int userId){
         User user = userService.getUserById(userId);
 
-        if(user instanceof Consumer) model.setViewName("perfis/userProfile");
+        if(user instanceof Consumer) {
+            model.setViewName("perfis/userProfile");
+            Consumer consumer = (Consumer) user;
+            model.addObject("user", consumer);
+        }
+        
         if(user instanceof Bar) {
             Bar bar = (Bar) user;
             model.setViewName("perfis/barProfile");
             model.addObject("user",bar);
             model.addObject("horary", bar.horary.toArray());
         }
-
-        //model.addObject("user", user);
 
         return model;
     }
