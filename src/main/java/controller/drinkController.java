@@ -37,12 +37,14 @@ public class drinkController {
         model.addObject("drink", drink);
         model.addObject("ingredients", drink.ingredients.toArray());
 
+        /*
         Step[] steps = new Step[drink.steps.size()];
         for (Step step : drink.steps.toArray()) {
             steps[step.getNumber()-1] = step;
         }
+        */
 
-        model.addObject("steps", steps);
+        model.addObject("steps", drink.steps.toArray());
         model.addObject("ingredientsLength", drink.ingredients.toArray().length);
         //mudar isto...
         model.addObject("evaluations", drink.evaluation.toArray());

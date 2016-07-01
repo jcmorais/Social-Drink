@@ -30,7 +30,7 @@ License Type: Academic
 			<key column="DrinkID" not-null="true"/>
 			<one-to-many class="socialdrink.DrinkIngredient"/>
 		</set>
-		<set name="ORM_Steps" lazy="true" cascade="save-update,lock" inverse="false">
+		<set name="ORM_Steps" lazy="true" cascade="save-update,lock" inverse="false" order-by="Number">
 			<key column="DrinkID" not-null="true"/>
 			<one-to-many class="socialdrink.Step"/>
 		</set>

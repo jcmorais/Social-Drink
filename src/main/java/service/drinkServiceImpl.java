@@ -51,7 +51,7 @@ public class drinkServiceImpl implements drinkService{
             StepCriteria criteria = new StepCriteria();
             criteria.add(Restrictions.eq("drinkid", drinkId));
             criteria.addOrder(Order.asc("number"));
-            facade.listStepByCriteria(criteria);
+            return facade.listStepByCriteria(criteria);
         } catch (PersistentException e) {
             e.printStackTrace();
         }

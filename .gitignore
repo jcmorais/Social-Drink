@@ -66,3 +66,5 @@ web/resources/bootstrap/css/images/.DS_Store
 web/resources/bootstrap/css/images/prettyPhoto/.DS_Store
 
 web/resources/bootstrap/css/images/.DS_Store
+
+src/main/orm/ormmapping/database.cfg.xml

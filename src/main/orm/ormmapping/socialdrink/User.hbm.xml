@@ -17,7 +17,7 @@ License Type: Academic
 		<property name="password" column="Password" type="string" length="255" not-null="false" lazy="false"/>
 		<property name="description" column="Description" type="string" length="255" not-null="false" lazy="false"/>
 		<property name="contact" column="Contact" type="string" length="255" not-null="false" lazy="false"/>
-		<array name="followers" table="Entity32" cascade="all">
+		<array name="followers" table="Entity36" cascade="all">
 			<key column="UserID"/>
 			<index column="UserIndex" type="integer"/>
 			<element column="Followers" type="string" length="255"/>
@@ -30,7 +30,7 @@ License Type: Academic
 			<many-to-one name="address" column="AddressID" class="socialdrink.Address" cascade="save-update,lock,delete" unique="true" not-null="false" lazy="no-proxy" access="field">
 			</many-to-one>
 			<property name="name" column="Name" type="string" length="255" not-null="false" lazy="false"/>
-			<set name="ORM_Horary" lazy="true" cascade="all-delete-orphan" inverse="false">
+			<set name="ORM_Horary" lazy="true" cascade="all-delete-orphan" inverse="false" order-by="Day">
 				<key column="UserID" not-null="true"/>
 				<one-to-many class="socialdrink.Weekday"/>
 			</set>
@@ -43,7 +43,7 @@ License Type: Academic
 			<property name="Birthday" column="Birthday" type="date" not-null="false" lazy="false"/>
 			<property name="profession" column="Profession" type="string" length="255" not-null="false" lazy="false"/>
 			<property name="sex" column="Sex" type="string" length="255" not-null="false" lazy="false"/>
-			<array name="following" table="Entity33" cascade="all">
+			<array name="following" table="Entity37" cascade="all">
 				<key column="UserID"/>
 				<index column="UserIndex" type="integer"/>
 				<element column="Following" type="string" length="255"/>
