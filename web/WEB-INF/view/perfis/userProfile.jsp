@@ -16,6 +16,8 @@
 
     <link href="<c:url value="/resources/bootstrap/css/bootstrap.min.css"/>" rel="stylesheet">
     <link href="<c:url value="/resources/bootstrap/css/bootstrap-theme.min.css"/>" rel="stylesheet">
+    <link href="<c:url value="/resources/bootstrap/css/panels.css"/>" rel="stylesheet">
+
 
 
 </head>

@@ -16,6 +16,8 @@
 
     <link href="<c:url value="/resources/bootstrap/css/bootstrap.min.css"/>" rel="stylesheet">
     <link href="<c:url value="/resources/bootstrap/css/bootstrap-theme.min.css"/>" rel="stylesheet">
+    <link href="<c:url value="/resources/bootstrap/css/panels.css"/>" rel="stylesheet">
+
 
 
 </head>
@@ -52,8 +54,8 @@
                 </div>
                 <div class="panel-body">
                     <c:forEach var="day" items="${horary}">
-                        <div class="col-md-5"><c:out value="${not empty day.nameDay}"/></div>
-                        <div class="col-md-7"><c:out value="${not empty day.opening} até ${not empty day.closure}"/></div>
+                            <div class="col-md-5"><c:out  value="${day.nameDay}"/></div>
+                            <div class="col-md-7"><c:out value="${day.opening} até ${day.closure}"/></div>
                     </c:forEach>
                 </div>
             </div>
