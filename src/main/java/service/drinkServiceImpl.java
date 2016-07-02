@@ -1,6 +1,8 @@
 package service;
 
 import model.DrinkRepresentation;
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Expression;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.orm.PersistentException;
@@ -226,13 +228,17 @@ public class drinkServiceImpl implements drinkService{
     }
 
 
-    public Drink[] getBestDrinks(){
+    public Drink[] getBestDrinks(int tipo){
         DrinkCriteria criteria = null;
         Drink drinks[] = null;
         try {
             criteria = new DrinkCriteria();
+            if(tipo==1)
+                criteria.add(Restrictions.eq("typeOfDrink", facade.getDrinkByORMID(1)));
+            if(tipo==2)
+                criteria.add(Restrictions.eq("typeOfDrink", facade.getDrinkByORMID(2)));
             criteria.addOrder(Order.desc("rating"));
-            criteria.setMaxResults(2);
+            criteria.setMaxResults(10);
             drinks = facade.listDrinkByCriteria(criteria);
         } catch (PersistentException e) {
             e.printStackTrace();
@@ -241,9 +247,11 @@ public class drinkServiceImpl implements drinkService{
     }
 
 
-    public List<DrinkRepresentation> getBestDrinkRepresentation(){
+
+
+    public List<DrinkRepresentation> getBestDrinkRepresentation(int tipo){
         List<DrinkRepresentation> best = new ArrayList<>();
-        for (Drink drink : getBestDrinks()) {
+        for (Drink drink : getBestDrinks(tipo)) {
             best.add(new DrinkRepresentation(drink));
         }
         return best;

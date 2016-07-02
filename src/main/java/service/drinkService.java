@@ -32,7 +32,7 @@ public interface drinkService {
 
     Evaluation addEvaluation(int drinkId, String comment, int value);
 
-    Drink[] getBestDrinks();
+    Drink[] getBestDrinks(int tipo);
 
-    List<DrinkRepresentation> getBestDrinkRepresentation();
+    List<DrinkRepresentation> getBestDrinkRepresentation(int tipo);
 }

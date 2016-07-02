@@ -27,7 +27,17 @@ public class drink {
 
     @RequestMapping(value = "/api/bestdrinks", method = RequestMethod.GET )
     public ResponseEntity<List<DrinkRepresentation>> getBestDrinks() {
-        return new ResponseEntity<List<DrinkRepresentation>>(drinkService.getBestDrinkRepresentation(), HttpStatus.OK);
+        return new ResponseEntity<List<DrinkRepresentation>>(drinkService.getBestDrinkRepresentation(0), HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/api/bestdrinks/comalcool", method = RequestMethod.GET )
+    public ResponseEntity<List<DrinkRepresentation>> getBestDrinksAlcool() {
+        return new ResponseEntity<List<DrinkRepresentation>>(drinkService.getBestDrinkRepresentation(1), HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/api/bestdrinks/semalcool", method = RequestMethod.GET )
+    public ResponseEntity<List<DrinkRepresentation>> getBestDrinksSemAlcool() {
+        return new ResponseEntity<List<DrinkRepresentation>>(drinkService.getBestDrinkRepresentation(2), HttpStatus.OK);
     }
 
 

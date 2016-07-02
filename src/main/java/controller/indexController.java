@@ -19,7 +19,7 @@ public class indexController {
 
     @RequestMapping("/")
     ModelAndView index(ModelAndView model){
-        Drink[] drinks = drinkService.getBestDrinks();
+        Drink[] drinks = drinkService.getBestDrinks(0);
         for (Drink drink : drinks) {
             System.out.println(drink.getName());
         }
