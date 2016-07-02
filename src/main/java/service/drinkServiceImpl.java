@@ -1,5 +1,6 @@
 package service;
 
+import model.DrinkRepresentation;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.orm.PersistentException;
@@ -11,6 +12,7 @@ import socialdrink.*;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -236,6 +238,15 @@ public class drinkServiceImpl implements drinkService{
             e.printStackTrace();
         }
         return drinks;
+    }
+
+
+    public List<DrinkRepresentation> getBestDrinkRepresentation(){
+        List<DrinkRepresentation> best = new ArrayList<>();
+        for (Drink drink : getBestDrinks()) {
+            best.add(new DrinkRepresentation(drink));
+        }
+        return best;
     }
 
 

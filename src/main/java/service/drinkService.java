@@ -1,5 +1,6 @@
 package service;
 
+import model.DrinkRepresentation;
 import org.springframework.web.multipart.MultipartFile;
 import socialdrink.Drink;
 import socialdrink.Evaluation;
@@ -32,4 +33,6 @@ public interface drinkService {
     Evaluation addEvaluation(int drinkId, String comment, int value);
 
     Drink[] getBestDrinks();
+
+    List<DrinkRepresentation> getBestDrinkRepresentation();
 }
