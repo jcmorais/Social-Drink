@@ -37,6 +37,14 @@
                     <h3 class="panel-title">Bebidas</h3>
                 </div>
                 <div class="panel-body" >
+                    <c:forEach var="drink" items="${userdrinks}">
+                        <a href="/SocialDrink/drink/${drink.ID}" style="color: inherit">
+                            <div class="col-md-3">
+                                <h6><c:out value="${drink.name}"/></h6>
+                                <img height="100" width="100" class="img-responsive center-block" src="<c:url value="${drink.getPhoto().getFilePath()}"/>"/>
+                            </div>
+                        </a>
+                    </c:forEach>
                 </div>
             </div>
         </div>

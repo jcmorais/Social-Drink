@@ -6,10 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import service.UserService;
 import service.UserServiceImpl;
-import socialdrink.Bar;
-import socialdrink.Consumer;
-import socialdrink.User;
-import socialdrink.Weekday;
+import socialdrink.*;
 
 import java.util.List;
 
@@ -25,6 +22,19 @@ public class UserPageController {
     @RequestMapping(value = "/{userId}", method = RequestMethod.GET)
     public ModelAndView getDrink(ModelAndView model, @PathVariable("userId") int userId){
         User user = userService.getUserById(userId);
+
+        if (user.drinks.size() > 4) {
+            Drink[] drinks = new Drink[4];
+            Drink[] aux = user.drinks.toArray();
+
+            for (int i = 0; i < 4; i++) {
+                drinks[i] = aux[i];
+            }
+
+            model.addObject("userdrinks",drinks);
+        } else {
+            model.addObject("userdrinks",user.drinks.toArray());
+        }
 
         if(user instanceof Consumer) {
             model.setViewName("perfis/userProfile");
