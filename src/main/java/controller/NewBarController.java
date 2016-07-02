@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import service.RegisterService;
 import service.RegisterServiceImpl;
@@ -29,8 +30,10 @@ public class NewBarController {
     public ModelAndView addUser(ModelAndView model,
                                 @RequestParam("email") String email,
                                 @RequestParam("password") String password,
+                                @RequestParam("photoFile") MultipartFile photoFile,
                                 @RequestParam("nome") String nome,
                                 @RequestParam("morada") String morada,
+                                @RequestParam("codpostal") String codpostal,
                                 @RequestParam("cidade") String cidade,
                                 @RequestParam("contacto") String contacto,
                                 @RequestParam("descricao") String descriçao,
@@ -58,7 +61,7 @@ public class NewBarController {
     ) {
 
 
-        registerService.addBar(email, password, nome, morada, cidade, contacto, descriçao, check1, open1, close1, check2,
+        registerService.addBar(email, password, photoFile, nome, morada, codpostal, cidade, contacto, descriçao, check1, open1, close1, check2,
                 open2, close2, check3, open3, close3, check4, open4, close4, check5, open5, close5, check6, open6,
                 close6, check7, open7, close7);
 

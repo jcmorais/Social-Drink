@@ -182,7 +182,7 @@
         </div>
         <div class="form-group col-md-7 col-md-offset-3">
             <button class="btn btn-default prevBtn btn-lg pull-left" type="button" >Anterior</button>
-            <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Seguinte</button>
+            <button id="submit-bar-form" class="btn btn-success nextBtn btn-lg pull-right" type="submit">Confirmar</button>
         </div>
     </div>
 </div>

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: jpp
@@ -13,11 +14,11 @@
             <h2 align="left">Informação do Bar</h2>
         </div>
         <div class="form-group col-xs-10 col-xs-offset-0 col-md-3">
-            <div class="text-center">
-                <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
-                <h4>Carregue uma foto de perfil</h4>
-                <input type="file" class="form-control">
-            </div>
+            <img id="userphoto" name="photo" src="<c:url value="//images/user/default.png"/>" alt="avatar" />
+            <label class="btn btn-default btn-file">
+                Carregue uma foto de perfil
+                <input type="file" style="display: none;" name="photoFile" accept="image/jpeg, image/png" onchange="readURL(this);">
+            </label>
         </div>
         <div class="form-group col-md-7 col-md-offset-0">
             <label class="control-label">Nome</label>
@@ -26,6 +27,10 @@
         <div class="form-group col-md-7 col-md-offset-0">
             <label class="control-label">Morada</label>
             <input maxlength="200" type="text" required="required" class="form-control" id="morada" name="morada" placeholder="Introduza a morada do bar" />
+        </div>
+        <div class="form-group col-md-7 col-md-offset-0">
+            <label class="control-label">Código-Postal</label>
+            <input maxlength="20" type="text" required="required" class="form-control" id="codpostal" name="codpostal" placeholder="Introduza o código-postal do bar" />
         </div>
         <div class="form-group col-md-7 col-md-offset-0">
             <label class="control-label">Cidade</label>

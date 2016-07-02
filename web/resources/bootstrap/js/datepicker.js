@@ -6,5 +6,5 @@ $('#datePicker')
         format: 'mm/dd/yyyy'
     })
     .on('changeDate', function(e) {
-        $('#eventForm').formValidation('revalidateField', 'date');
+        $('#datePicker').formValidation('revalidateField', 'date');
     });

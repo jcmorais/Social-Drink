@@ -2,10 +2,14 @@ package service;
 
 import org.orm.PersistentException;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 import socialdrink.*;
 import socialdrink.dao.PhotoDAO;
 import socialdrink.impl.PhotoDAOImpl;
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -26,7 +30,7 @@ public class RegisterServiceImpl implements RegisterService {
 
     }
 
-    public void addConsumer(String email, String password, String primeironome, String ultimonome, String profissao,
+    public void addConsumer(String email, String password, MultipartFile photoFile, String primeironome, String ultimonome, String profissao,
                             String cidade, String genero, Date dataNasc, String contacto, String descriçao) {
         try {
             Consumer consumer = facade.createConsumer();
@@ -51,12 +55,11 @@ public class RegisterServiceImpl implements RegisterService {
             consumer.setContact(contacto);
             consumer.setDescription(descriçao);
 
-
-            PhotoDAO photoDAO = new PhotoDAOImpl();
-            Photo photo = photoDAO.createPhoto();
-            photo.setName("default");
-            photo.setFilePath("/images/");
+            Photo photo = this.facade.createPhoto();
+            photo.setFilePath("");
+            photo.setName("");
             consumer.setPhoto(photo);
+            setUserPhoto(consumer.getID(), consumer, photoFile);
 
             facade.save(consumer);
         } catch (PersistentException e) {
@@ -68,7 +71,7 @@ public class RegisterServiceImpl implements RegisterService {
 
     }
 
-    public void addBar(String email, String password, String nome, String morada, String cidade, String contacto,
+    public void addBar(String email, String password, MultipartFile photoFile, String nome, String morada, String codpostal, String cidade, String contacto,
                        String descricao, String check1, String open1, String close1, String check2, String open2,
                        String close2, String check3, String open3, String close3, String check4, String open4,
                        String close4, String check5, String open5, String close5, String check6, String open6,
@@ -91,17 +94,18 @@ public class RegisterServiceImpl implements RegisterService {
             Address address = facade.createAddress();
             address.setStreet(morada);
             address.setCity(city);
+            address.setPostalCode(codpostal);
             facade.save(address);
 
             bar.setAddress(address);
             bar.setContact(contacto);
             bar.setDescription(descricao);
 
-            PhotoDAO photoDAO = new PhotoDAOImpl();
-            Photo photo = photoDAO.createPhoto();
-            photo.setName("default");
-            photo.setFilePath("/images/");
+            Photo photo = this.facade.createPhoto();
+            photo.setFilePath("");
+            photo.setName("");
             bar.setPhoto(photo);
+            setUserPhoto(bar.getID(), bar, photoFile);
 
             if(check1.equals("1,0")) {
                 Weekday monday = facade.createWeekday();
@@ -172,4 +176,38 @@ public class RegisterServiceImpl implements RegisterService {
         }
     }
 
+    public void setUserPhoto(int userId, User user, MultipartFile photoFile) {
+        if (!photoFile.isEmpty()) {
+            try {
+                byte[] bytes = photoFile.getBytes();
+                String photoName = photoFile.getOriginalFilename();
+
+                // Creating the directory to store file
+                /*String rootPath = System.getProperty("catalina.home");
+                System.out.println("PATH: "+rootPath + File.separator + "tmpFiles");*/
+                File dir = new File(System.getProperty("jboss.server.data.dir") + "/images/user/" + userId);
+
+                if (!dir.exists())
+                    dir.mkdirs();
+
+                // Create the file on server
+                String[] aux = photoFile.getOriginalFilename().split("\\.");
+                File serverFile = new File(dir.getAbsolutePath()
+                        + File.separator + "profile." + aux[aux.length - 1]);
+                BufferedOutputStream stream = new BufferedOutputStream(
+                        new FileOutputStream(serverFile));
+                stream.write(bytes);
+                stream.close();
+
+
+                //save de path on the DB
+                Photo photo = user.getPhoto();
+                photo.setFilePath("/images/user/" + userId + "/profile." + aux[aux.length - 1]);
+                photo.setName("profile." + aux[aux.length - 1]);
+                user.setPhoto(photo);
+
+            } catch (Exception e) {
+            }
+        }
+    }
 }

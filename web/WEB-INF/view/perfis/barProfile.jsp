@@ -27,7 +27,7 @@
     <div class="col-md-12">
         <div class="panel panel-default col-md-3">
             <div class="panel-body" >
-                <img class="img-responsive center-block drink-main-image" src="<c:url value="${user.getPhoto().getFilePath()}"/>"/>
+                <img class="img-responsive center-block" src="<c:url value="${user.getPhoto().getFilePath()}"/>"/>
                 <c:out value="${user.name}"></c:out>
             </div>
         </div>

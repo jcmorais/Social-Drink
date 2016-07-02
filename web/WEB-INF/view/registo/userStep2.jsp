@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: jpp
@@ -13,11 +14,11 @@
             <h2 align="left">Informação Pessoal</h2>
         </div>
         <div class="form-group col-xs-10 col-xs-offset-0 col-md-3">
-            <div class="text-center">
-                <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
-                <h4>Carregue uma foto de perfil</h4>
-                <input type="file" class="form-control">
-            </div>
+            <img id="userphoto" name="photo" src="<c:url value="//images/user/default.png"/>" alt="avatar" />
+            <label class="btn btn-default btn-file">
+                Carregue uma foto de perfil
+                <input type="file" style="display: none;" name="photoFile" accept="image/jpeg, image/png" onchange="readURL(this);">
+            </label>
         </div>
         <div class="form-group col-md-7 col-md-offset-0">
             <label class="control-label">Primeiro nome</label>
@@ -61,7 +62,7 @@
         </div>
         <div class="form-group col-md-7 col-md-offset-3">
             <button class="btn btn-default prevBtn btn-lg pull-left" type="button" >Anterior</button>
-            <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Seguinte</button>
+            <button id="submit-user-form" class="btn btn-success nextBtn btn-lg pull-right" type="submit">Confirmar</button>
         </div>
     </div>
 </div>
