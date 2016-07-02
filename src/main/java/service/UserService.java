@@ -1,5 +1,6 @@
 package service;
 
+import socialdrink.Bar;
 import socialdrink.User;
 import socialdrink.Weekday;
 
@@ -8,5 +9,5 @@ import socialdrink.Weekday;
  */
 public interface UserService {
     public User getUserById(int id);
-    public Weekday[] getHorary(int userId);
-    }
+    public Weekday[] orderHorary(Bar bar);
+}

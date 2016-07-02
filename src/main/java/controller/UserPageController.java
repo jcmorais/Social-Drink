@@ -36,7 +36,7 @@ public class UserPageController {
             Bar bar = (Bar) user;
             model.setViewName("perfis/barProfile");
             model.addObject("user",bar);
-            model.addObject("horary", bar.horary.toArray());
+            model.addObject("horary", userService.orderHorary(bar));
         }
 
         return model;

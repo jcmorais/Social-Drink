@@ -52,8 +52,8 @@
                 </div>
                 <div class="panel-body">
                     <c:forEach var="day" items="${horary}">
-                        <div class="col-md-5"><c:out value="${day.day}"/></div>
-                        <div class="col-md-7"><c:out value="${day.opening} até ${day.closure}"/></div>
+                        <div class="col-md-5"><c:out value="${not empty day.nameDay}"/></div>
+                        <div class="col-md-7"><c:out value="${not empty day.opening} até ${not empty day.closure}"/></div>
                     </c:forEach>
                 </div>
             </div>

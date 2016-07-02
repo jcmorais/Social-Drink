@@ -6,11 +6,14 @@ import org.orm.PersistentException;
 import org.springframework.stereotype.Service;
 import socialdrink.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by jpp on 30/06/16.
  */
 @Service("userPageService")
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
     private Facade facade = new Facade();
 
     @Override
@@ -27,15 +30,16 @@ public class UserServiceImpl implements UserService{
         return user;
     }
 
-    public Weekday[] getHorary(int userId){
-        try {
-            WeekdayCriteria criteria = new WeekdayCriteria();
-            criteria.add(Restrictions.eq("id", userId));
-            criteria.addOrder(Order.desc("day"));
-            facade.listWeekdayByCriteria(criteria);
-        } catch (PersistentException e) {
-            e.printStackTrace();
+    @Override
+    public Weekday[] orderHorary(Bar bar) {
+        Weekday[] temp = new Weekday[7];
+
+        for(Weekday aux : bar.horary.toArray()) {
+            temp[aux.getDay()] = aux;
         }
-        return  null;
+
+        return temp;
     }
+
+
 }

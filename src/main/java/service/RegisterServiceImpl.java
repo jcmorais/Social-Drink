@@ -106,6 +106,7 @@ public class RegisterServiceImpl implements RegisterService {
             if(check1.equals("1,0")) {
                 Weekday monday = facade.createWeekday();
                 monday.setDay(1);
+                monday.setNameDay("Segunda-Feira");
                 monday.setOpening(open1);
                 monday.setClosure(close1);
                 bar.horary.add(monday);
@@ -114,6 +115,7 @@ public class RegisterServiceImpl implements RegisterService {
             if(check2.equals("1,0")) {
                 Weekday tuesday = facade.createWeekday();
                 tuesday.setDay(2);
+                tuesday.setNameDay("Terça-Feira");
                 tuesday.setOpening(open2);
                 tuesday.setClosure(close2);
                 bar.horary.add(tuesday);
@@ -122,6 +124,7 @@ public class RegisterServiceImpl implements RegisterService {
             if(check3.equals("1,0")) {
                 Weekday wednesday = facade.createWeekday();
                 wednesday.setDay(3);
+                wednesday.setNameDay("Quarta-Feira");
                 wednesday.setOpening(open3);
                 wednesday.setClosure(close3);
                 bar.horary.add(wednesday);
@@ -130,6 +133,7 @@ public class RegisterServiceImpl implements RegisterService {
             if(check4.equals("1,0")) {
                 Weekday thursday = facade.createWeekday();
                 thursday.setDay(4);
+                thursday.setNameDay("Quinta-Feira");
                 thursday.setOpening(open4);
                 thursday.setClosure(close4);
                 bar.horary.add(thursday);
@@ -138,6 +142,7 @@ public class RegisterServiceImpl implements RegisterService {
             if(check5.equals("1,0")) {
                 Weekday friday = facade.createWeekday();
                 friday.setDay(5);
+                friday.setNameDay("Sexta-Feira");
                 friday.setOpening(open5);
                 friday.setClosure(close5);
                 bar.horary.add(friday);
@@ -146,6 +151,7 @@ public class RegisterServiceImpl implements RegisterService {
             if(check6.equals("1,0")) {
                 Weekday saturday = facade.createWeekday();
                 saturday.setDay(6);
+                saturday.setNameDay("Sábado");
                 saturday.setOpening(open6);
                 saturday.setClosure(close6);
                 bar.horary.add(saturday);
@@ -154,6 +160,7 @@ public class RegisterServiceImpl implements RegisterService {
             if(check7.equals("1,0")) {
                 Weekday sunday = facade.createWeekday();
                 sunday.setDay(7);
+                sunday.setNameDay("Domingo");
                 sunday.setOpening(open7);
                 sunday.setClosure(close7);
                 bar.horary.add(sunday);
