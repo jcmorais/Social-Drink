@@ -27,7 +27,7 @@
                 <li><a href="#"><img src="<c:url value="/resources/img/homebutton.png"/>"></a></li>
                 <li><a href="#"><img src="<c:url value="/resources/img/drink.png"/>"></a></li>
                 <li><a href="#"><img src="<c:url value="/resources/img/newfollower.png"/>"></a></li>
-                <li><a href="#">Perfil</a></li>
+                <li><a href="#"><c:out value="${user.firstname}"></c:out></a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

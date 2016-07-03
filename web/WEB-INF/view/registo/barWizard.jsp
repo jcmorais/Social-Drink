@@ -21,7 +21,7 @@
 
 </head>
 <body>
-<jsp:include page="../topbar.jsp"/>
+<jsp:include page="../topbaranon.jsp"/>
 <div class="container">
     <div class="stepwizard">
         <div class="stepwizard-row setup-panel">

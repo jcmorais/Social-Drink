@@ -2,13 +2,14 @@ package controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.request.SessionScope;
 import org.springframework.web.servlet.ModelAndView;
 import service.UserService;
+import socialdrink.Consumer;
 import socialdrink.Event;
+import socialdrink.User;
 
 /**
  * Created by carlosmorais on 03/07/16.
@@ -16,6 +17,7 @@ import socialdrink.Event;
 
 @Controller
 @RequestMapping(value = "/favorite")
+@SessionAttributes({"session","following"})
 public class socialController {
     @Autowired
     private UserService userService;
@@ -35,15 +37,48 @@ public class socialController {
 
     @RequestMapping(value="/follow/{userId}", method = RequestMethod.POST)
     @ResponseBody
-    String follow(@PathVariable("userId") int userId){
-        userService.followUser(userId);
+    String follow(@PathVariable("userId") String userId, @ModelAttribute("following") int[] following){
+
+        String[] parts = userId.split("_");
+
+        int user = Integer.parseInt(parts[0]);
+        int session = Integer.parseInt(parts[1]);
+
+        Consumer consumer = userService.followUser(session, user);
+
+        ModelAndView model = new ModelAndView();
+
+        int[] updated = new int[consumer.follow.size()];
+
+        for(int i=0; i<updated.length; i++) {
+            updated[i] = consumer.follow.toArray()[i].getID();
+        }
+
+        following = updated;
+
         return "sucesso";
     }
 
     @RequestMapping(value="/unfollow/{userId}", method = RequestMethod.POST)
     @ResponseBody
-    String unfollow(@PathVariable("userId") int userId){
-        userService.unfollowUser(userId);
+    String unfollow(@PathVariable("userId") String userId, @ModelAttribute("following") int[] following){
+
+        String[] parts = userId.split("_");
+        int user = Integer.parseInt(parts[0]);
+        int session = Integer.parseInt(parts[1]);
+
+        Consumer consumer = userService.unfollowUser(session, user);
+
+        ModelAndView model = new ModelAndView();
+
+        int[] updated = new int[consumer.follow.size()];
+
+        for(int i=0; i<updated.length; i++) {
+            updated[i] = consumer.follow.toArray()[i].getID();
+        }
+
+        following = updated;
+
         return "sucesso";
     }
 

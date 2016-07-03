@@ -15,12 +15,13 @@ import java.util.List;
  */
 @Controller
 @RequestMapping(value = "/user")
+@SessionAttributes({"session","following"})
 public class UserPageController {
     @Autowired
     private UserService userService = new UserServiceImpl();
 
     @RequestMapping(value = "/{userId}", method = RequestMethod.GET)
-    public ModelAndView getDrink(ModelAndView model, @PathVariable("userId") int userId){
+    public ModelAndView getUser(ModelAndView model, @PathVariable("userId") int userId){
         User user = userService.getUserById(userId);
 
         if (user.drinks.size() > 4) {
@@ -35,6 +36,8 @@ public class UserPageController {
         } else {
             model.addObject("userdrinks",user.drinks.toArray());
         }
+
+
 
         if(user instanceof Consumer) {
             model.setViewName("perfis/userProfile");
@@ -54,6 +57,19 @@ public class UserPageController {
                 model.addObject("favorites",consumer.favoriteDrinks.toArray());
             }
 
+            if (consumer.follow.size() > 4) {
+                User[] follow = new User[4];
+                User[] auxU = consumer.follow.toArray();
+
+                for (int i = 0; i < 4; i++) {
+                    follow[i] = auxU[i];
+                }
+
+                model.addObject("followers",follow);
+            } else {
+                model.addObject("followers",consumer.follow.toArray());
+            }
+
         }
         
         if(user instanceof Bar) {
@@ -65,5 +81,7 @@ public class UserPageController {
 
         return model;
     }
+
+
 
 }

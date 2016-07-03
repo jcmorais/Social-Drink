@@ -183,8 +183,6 @@ public class RegisterServiceImpl implements RegisterService {
                 String photoName = photoFile.getOriginalFilename();
 
                 // Creating the directory to store file
-                /*String rootPath = System.getProperty("catalina.home");
-                System.out.println("PATH: "+rootPath + File.separator + "tmpFiles");*/
                 File dir = new File(System.getProperty("jboss.server.data.dir") + "/images/user/" + userId);
 
                 if (!dir.exists())

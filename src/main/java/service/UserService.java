@@ -1,9 +1,6 @@
 package service;
 
-import socialdrink.Bar;
-import socialdrink.Event;
-import socialdrink.User;
-import socialdrink.Weekday;
+import socialdrink.*;
 
 /**
  * Created by jpp on 30/06/16.
@@ -16,9 +13,9 @@ public interface UserService {
 
     void removeFavoriteDrink(int drinkId);
 
-    void followUser(int userId);
+    Consumer followUser(int session, int userId);
 
-    void unfollowUser(int userId);
+    Consumer unfollowUser(int session, int userId);
 
     Event[] getUserEvents();
 }

@@ -21,7 +21,12 @@
 
 </head>
 <body>
-<jsp:include page="../topbar.jsp"/>
+<c:if test="${not empty session}">
+    <jsp:include page="../topbar.jsp"/>
+</c:if>
+<c:if test="${empty session}">
+    <jsp:include page="../topbaranon.jsp"/>
+</c:if>
 <div class="container" style="padding-top: 100px">
     <div class="col-md-3">
         <div class="panel panel-default">

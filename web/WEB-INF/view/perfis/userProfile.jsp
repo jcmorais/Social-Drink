@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%--
   Created by IntelliJ IDEA.
   User: jpp
@@ -21,13 +22,41 @@
 
 </head>
 <body>
-<jsp:include page="../topbar.jsp"/>
+<c:if test="${not empty session}">
+    <jsp:include page="../topbar.jsp"/>
+</c:if>
+<c:if test="${empty session}">
+    <jsp:include page="../topbaranon.jsp"/>
+</c:if>
 <div class="container" style="padding-top: 100px">
     <div class="col-md-3">
         <div class="panel panel-default">
             <div class="panel-body" >
                 <img class="img-responsive center-block" src="<c:url value="${user.getPhoto().getFilePath()}"/>"/>
                 <h4><c:out value="${user.firstname} ${user.lastname}"></c:out></h4>
+
+                <c:if test="${ not empty session}">
+                    <c:set var="contains" value="false" />
+                    <c:set var="testID" value="${user.getID()}" />
+
+                    <c:forEach var="item" items="${following}">
+                        <c:if test="${item eq testID}">
+                            <c:set var="contains" value="true" />
+                        </c:if>
+                    </c:forEach>
+
+                    <c:choose>
+                        <c:when test="${contains == 'true'}">
+                            <button id="follow" class="btn btn-success" style="display: none;" value="${user.getID()}_${session.getID()}" type="button" onclick="follow()" >Seguir</button>
+                            <button id="unfollow" class="btn btn-danger"  value="${user.getID()}_${session.getID()}" type="button" onclick="unfollow()" >Não seguir</button>
+                        </c:when>
+                        <c:otherwise>
+                            <button id="follow" class="btn btn-success" value="${user.getID()}_${session.getID()}" type="button" onclick="follow()" >Seguir</button>
+                            <button id="unfollow" class="btn btn-danger" style="display: none;" value="${user.getID()}_${session.getID()}" type="button" onclick="unfollow()" >Não seguir</button>
+                        </c:otherwise>
+                    </c:choose>
+                </c:if>
+
             </div>
         </div>
         <div class="panel panel-default">
@@ -143,5 +172,7 @@
 <script src="<c:url value="/resources/bootstrap/js/retina-1.1.0.js" />"></script>
 <script src="<c:url value="/resources/bootstrap/js/jquery.hoverdir.js" />"></script>
 <script src="<c:url value="/resources/bootstrap/js/jquery.hoverex.min.js" />"></script>
+<script src="<c:url value="/resources/bootstrap/js/follow.js" />"></script>
+
 
 </html>

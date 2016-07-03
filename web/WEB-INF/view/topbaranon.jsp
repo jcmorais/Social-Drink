@@ -28,14 +28,14 @@
                     <span class="input-group-addon" style="width:10%;"><span class="glyphicon glyphicon-search" role="button"></span></span>
                 </div>
             </form>
-            <form class="navbar-form navbar-right" role="form">
+            <form class="navbar-form navbar-right" role="form" action="/SocialDrink/login" method="post">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Nome de Utilizador" autocomplete="off">
+                    <input type="text" class="form-control" placeholder="Email" autocomplete="off" name="email">
                 </div>
                 <div class="input-group">
-                    <input type="password" class="form-control" placeholder="Password" autocomplete="off">
+                    <input type="password" class="form-control" placeholder="Password" autocomplete="off" name="password">
                 </div>
-                <a href="#" class="btn btn-default" role="button">Login</a>
+                <a href="#"><button class="btn btn-default" type="submit">Login</button></a>
                 <a href="/SocialDrink/register" class="btn btn-default" role="button">Registar</a>
             </form>
         </div><!-- /.navbar-collapse -->

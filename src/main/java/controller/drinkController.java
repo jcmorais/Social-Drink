@@ -25,6 +25,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping(value = "/drink")
+@SessionAttributes("session")
 public class drinkController {
 
     @Autowired
