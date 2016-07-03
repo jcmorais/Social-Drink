@@ -66,6 +66,22 @@ public class RetrieveAndUpdateSocialDrinkData {
 			socialdrink.Consumer lsocialdrinkConsumer = lsocialdrinkConsumerDAO.loadConsumerByQuery(null, null);
 			// Update the properties of the persistent object
 			lsocialdrinkConsumerDAO.save(lsocialdrinkConsumer);
+			socialdrink.dao.EventDAO lsocialdrinkEventDAO = lDAOFactory.getEventDAO();
+			socialdrink.Event lsocialdrinkEvent = lsocialdrinkEventDAO.loadEventByQuery(null, null);
+			// Update the properties of the persistent object
+			lsocialdrinkEventDAO.save(lsocialdrinkEvent);
+			socialdrink.dao.EventDrinkDAO lsocialdrinkEventDrinkDAO = lDAOFactory.getEventDrinkDAO();
+			socialdrink.EventDrink lsocialdrinkEventDrink = lsocialdrinkEventDrinkDAO.loadEventDrinkByQuery(null, null);
+			// Update the properties of the persistent object
+			lsocialdrinkEventDrinkDAO.save(lsocialdrinkEventDrink);
+			socialdrink.dao.EventFavoriteDAO lsocialdrinkEventFavoriteDAO = lDAOFactory.getEventFavoriteDAO();
+			socialdrink.EventFavorite lsocialdrinkEventFavorite = lsocialdrinkEventFavoriteDAO.loadEventFavoriteByQuery(null, null);
+			// Update the properties of the persistent object
+			lsocialdrinkEventFavoriteDAO.save(lsocialdrinkEventFavorite);
+			socialdrink.dao.EventEvalDAO lsocialdrinkEventEvalDAO = lDAOFactory.getEventEvalDAO();
+			socialdrink.EventEval lsocialdrinkEventEval = lsocialdrinkEventEvalDAO.loadEventEvalByQuery(null, null);
+			// Update the properties of the persistent object
+			lsocialdrinkEventEvalDAO.save(lsocialdrinkEventEval);
 			t.commit();
 		}
 		catch (Exception e) {
@@ -158,6 +174,30 @@ public class RetrieveAndUpdateSocialDrinkData {
 		// Please uncomment the follow line and fill in parameter(s)
 		//lsocialdrinkConsumerCriteria.ID.eq();
 		System.out.println(lsocialdrinkConsumerCriteria.uniqueConsumer());
+		
+		System.out.println("Retrieving Event by EventCriteria");
+		socialdrink.EventCriteria lsocialdrinkEventCriteria = new socialdrink.EventCriteria();
+		// Please uncomment the follow line and fill in parameter(s)
+		//lsocialdrinkEventCriteria.ID.eq();
+		System.out.println(lsocialdrinkEventCriteria.uniqueEvent());
+		
+		System.out.println("Retrieving EventDrink by EventDrinkCriteria");
+		socialdrink.EventDrinkCriteria lsocialdrinkEventDrinkCriteria = new socialdrink.EventDrinkCriteria();
+		// Please uncomment the follow line and fill in parameter(s)
+		//lsocialdrinkEventDrinkCriteria.ID.eq();
+		System.out.println(lsocialdrinkEventDrinkCriteria.uniqueEventDrink());
+		
+		System.out.println("Retrieving EventFavorite by EventFavoriteCriteria");
+		socialdrink.EventFavoriteCriteria lsocialdrinkEventFavoriteCriteria = new socialdrink.EventFavoriteCriteria();
+		// Please uncomment the follow line and fill in parameter(s)
+		//lsocialdrinkEventFavoriteCriteria.ID.eq();
+		System.out.println(lsocialdrinkEventFavoriteCriteria.uniqueEventFavorite());
+		
+		System.out.println("Retrieving EventEval by EventEvalCriteria");
+		socialdrink.EventEvalCriteria lsocialdrinkEventEvalCriteria = new socialdrink.EventEvalCriteria();
+		// Please uncomment the follow line and fill in parameter(s)
+		//lsocialdrinkEventEvalCriteria.ID.eq();
+		System.out.println(lsocialdrinkEventEvalCriteria.uniqueEventEval());
 		
 	}
 	

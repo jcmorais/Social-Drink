@@ -31,6 +31,7 @@ License Type: Academic
 		<mapping resource="ormmapping/socialdrink/DrinkIngredient.hbm.xml" />
 		<mapping resource="ormmapping/socialdrink/DrinkType.hbm.xml" />
 		<mapping resource="ormmapping/socialdrink/Evaluation.hbm.xml" />
+		<mapping resource="ormmapping/socialdrink/Event.hbm.xml" />
 		<mapping resource="ormmapping/socialdrink/Ingredient.hbm.xml" />
 		<mapping resource="ormmapping/socialdrink/Photo.hbm.xml" />
 		<mapping resource="ormmapping/socialdrink/Step.hbm.xml" />

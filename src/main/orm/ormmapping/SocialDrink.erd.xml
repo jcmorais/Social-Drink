@@ -1078,6 +1078,78 @@
       <UserTypes/>
     </Column>
   </Entity>
+  <Entity name="Entity36" PKClustered="0">
+    <Column name="UserID">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>0</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="Followers">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="Entity37" PKClustered="0">
+    <Column name="UserID">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>0</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="Following">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
+  <Entity name="Entity38" PKClustered="0">
+    <Column name="UserID">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>0</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="Followers">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
   <Entity name="User" PKClustered="0">
     <Column name="ID">
       <PrimaryKey>true</PrimaryKey>
@@ -1085,6 +1157,18 @@
       <Type>9</Type>
       <Length>0</Length>
       <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="UserID">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>socialdrink.User.ID</ReferencedColumn>
+      <Type>9</Type>
+      <Length>0</Length>
+      <Nullable>true</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
@@ -1242,78 +1326,6 @@
       <Type>27</Type>
       <Length>255</Length>
       <Nullable>false</Nullable>
-      <IDGenerator>native</IDGenerator>
-      <Unique>false</Unique>
-      <Index>false</Index>
-      <UserTypes/>
-    </Column>
-  </Entity>
-  <Entity name="Entity36" PKClustered="0">
-    <Column name="UserID">
-      <PrimaryKey>true</PrimaryKey>
-      <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>socialdrink.User.ID</ReferencedColumn>
-      <Type>9</Type>
-      <Length>0</Length>
-      <Nullable>false</Nullable>
-      <IDGenerator>assigned</IDGenerator>
-      <Unique>false</Unique>
-      <Index>false</Index>
-      <UserTypes/>
-    </Column>
-    <Column name="UserIndex">
-      <PrimaryKey>true</PrimaryKey>
-      <ForeignKey>false</ForeignKey>
-      <Type>9</Type>
-      <Length>0</Length>
-      <Nullable>true</Nullable>
-      <IDGenerator>assigned</IDGenerator>
-      <Unique>false</Unique>
-      <Index>false</Index>
-      <UserTypes/>
-    </Column>
-    <Column name="Followers">
-      <PrimaryKey>false</PrimaryKey>
-      <ForeignKey>false</ForeignKey>
-      <Type>27</Type>
-      <Length>255</Length>
-      <Nullable>true</Nullable>
-      <IDGenerator>native</IDGenerator>
-      <Unique>false</Unique>
-      <Index>false</Index>
-      <UserTypes/>
-    </Column>
-  </Entity>
-  <Entity name="Entity37" PKClustered="0">
-    <Column name="UserID">
-      <PrimaryKey>true</PrimaryKey>
-      <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>socialdrink.User.ID</ReferencedColumn>
-      <Type>9</Type>
-      <Length>0</Length>
-      <Nullable>false</Nullable>
-      <IDGenerator>assigned</IDGenerator>
-      <Unique>false</Unique>
-      <Index>false</Index>
-      <UserTypes/>
-    </Column>
-    <Column name="UserIndex">
-      <PrimaryKey>true</PrimaryKey>
-      <ForeignKey>false</ForeignKey>
-      <Type>9</Type>
-      <Length>0</Length>
-      <Nullable>true</Nullable>
-      <IDGenerator>assigned</IDGenerator>
-      <Unique>false</Unique>
-      <Index>false</Index>
-      <UserTypes/>
-    </Column>
-    <Column name="Following">
-      <PrimaryKey>false</PrimaryKey>
-      <ForeignKey>false</ForeignKey>
-      <Type>27</Type>
-      <Length>255</Length>
-      <Nullable>true</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
@@ -1630,7 +1642,7 @@
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>false</ForeignKey>
       <Type>27</Type>
-      <Length>255</Length>
+      <Length>1024</Length>
       <Nullable>true</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
@@ -1676,6 +1688,17 @@
       <Type>9</Type>
       <Length>0</Length>
       <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="UserIndex">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>0</Length>
+      <Nullable>true</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
@@ -1908,26 +1931,90 @@
       <UserTypes/>
     </Column>
   </Entity>
-  <ForeignKey name="FKEntity36995885">
-    <ReferenceTable>Entity36</ReferenceTable>
-    <ReferencedTable>User</ReferencedTable>
-    <Columns>
-      <Column>UserID</Column>
-    </Columns>
-    <RefColumns>
-      <Column>ID</Column>
-    </RefColumns>
-  </ForeignKey>
-  <ForeignKey name="FKEntity37995886">
-    <ReferenceTable>Entity37</ReferenceTable>
-    <ReferencedTable>User</ReferencedTable>
-    <Columns>
-      <Column>UserID</Column>
-    </Columns>
-    <RefColumns>
-      <Column>ID</Column>
-    </RefColumns>
-  </ForeignKey>
+  <Entity name="Event" PKClustered="0">
+    <Column name="ID">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>9</Type>
+      <Length>0</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="DrinkID3">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>socialdrink.Drink.ID</ReferencedColumn>
+      <Type>9</Type>
+      <Length>0</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="DrinkID2">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>socialdrink.Drink.ID</ReferencedColumn>
+      <Type>9</Type>
+      <Length>0</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="DrinkID">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>socialdrink.Drink.ID</ReferencedColumn>
+      <Type>9</Type>
+      <Length>0</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="EvaluationID">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>socialdrink.Evaluation.ID</ReferencedColumn>
+      <Type>9</Type>
+      <Length>0</Length>
+      <Nullable>true</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="UserID">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>socialdrink.User.ID</ReferencedColumn>
+      <Type>9</Type>
+      <Length>0</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="Discriminator">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>false</ForeignKey>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
   <ForeignKey name="FKWeekday1354">
     <ReferenceTable>Weekday</ReferenceTable>
     <ReferencedTable>User</ReferencedTable>
@@ -2093,6 +2180,66 @@
     <ReferencedTable>User</ReferencedTable>
     <Columns>
       <Column>UserID2</Column>
+    </Columns>
+    <RefColumns>
+      <Column>ID</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKUser871195">
+    <ReferenceTable>User</ReferenceTable>
+    <ReferencedTable>User</ReferencedTable>
+    <Columns>
+      <Column>UserID</Column>
+    </Columns>
+    <RefColumns>
+      <Column>ID</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKEvent178252">
+    <ReferenceTable>Event</ReferenceTable>
+    <ReferencedTable>User</ReferencedTable>
+    <Columns>
+      <Column>UserID</Column>
+    </Columns>
+    <RefColumns>
+      <Column>ID</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKEvent999419">
+    <ReferenceTable>Event</ReferenceTable>
+    <ReferencedTable>Evaluation</ReferencedTable>
+    <Columns>
+      <Column>EvaluationID</Column>
+    </Columns>
+    <RefColumns>
+      <Column>ID</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKEvent543392">
+    <ReferenceTable>Event</ReferenceTable>
+    <ReferencedTable>Drink</ReferencedTable>
+    <Columns>
+      <Column>DrinkID</Column>
+    </Columns>
+    <RefColumns>
+      <Column>ID</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKEvent228043">
+    <ReferenceTable>Event</ReferenceTable>
+    <ReferencedTable>Drink</ReferencedTable>
+    <Columns>
+      <Column>DrinkID2</Column>
+    </Columns>
+    <RefColumns>
+      <Column>ID</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKEvent228042">
+    <ReferenceTable>Event</ReferenceTable>
+    <ReferencedTable>Drink</ReferencedTable>
+    <Columns>
+      <Column>DrinkID3</Column>
     </Columns>
     <RefColumns>
       <Column>ID</Column>

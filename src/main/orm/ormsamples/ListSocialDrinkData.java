@@ -122,6 +122,38 @@ public void listTestData() throws PersistentException {
 		}
 		System.out.println(length + " record(s) retrieved.");
 		
+		System.out.println("Listing Event...");
+		socialdrink.Event[] socialdrinkEvents = lDAOFactory.getEventDAO().listEventByQuery(null, null);
+		length = Math.min(socialdrinkEvents.length, ROW_COUNT);
+		for (int i = 0; i < length; i++) {
+			System.out.println(socialdrinkEvents[i]);
+		}
+		System.out.println(length + " record(s) retrieved.");
+		
+		System.out.println("Listing EventDrink...");
+		socialdrink.EventDrink[] socialdrinkEventDrinks = lDAOFactory.getEventDrinkDAO().listEventDrinkByQuery(null, null);
+		length = Math.min(socialdrinkEventDrinks.length, ROW_COUNT);
+		for (int i = 0; i < length; i++) {
+			System.out.println(socialdrinkEventDrinks[i]);
+		}
+		System.out.println(length + " record(s) retrieved.");
+		
+		System.out.println("Listing EventFavorite...");
+		socialdrink.EventFavorite[] socialdrinkEventFavorites = lDAOFactory.getEventFavoriteDAO().listEventFavoriteByQuery(null, null);
+		length = Math.min(socialdrinkEventFavorites.length, ROW_COUNT);
+		for (int i = 0; i < length; i++) {
+			System.out.println(socialdrinkEventFavorites[i]);
+		}
+		System.out.println(length + " record(s) retrieved.");
+		
+		System.out.println("Listing EventEval...");
+		socialdrink.EventEval[] socialdrinkEventEvals = lDAOFactory.getEventEvalDAO().listEventEvalByQuery(null, null);
+		length = Math.min(socialdrinkEventEvals.length, ROW_COUNT);
+		for (int i = 0; i < length; i++) {
+			System.out.println(socialdrinkEventEvals[i]);
+		}
+		System.out.println(length + " record(s) retrieved.");
+		
 	}
 	
 	public void listByCriteria() throws PersistentException {
@@ -292,6 +324,54 @@ public void listTestData() throws PersistentException {
 			 System.out.println(socialdrinkConsumers[i]);
 		}
 		System.out.println(length + " Consumer record(s) retrieved."); 
+		
+		System.out.println("Listing Event by Criteria...");
+		socialdrink.EventCriteria lsocialdrinkEventCriteria = new socialdrink.EventCriteria();
+		// Please uncomment the follow line and fill in parameter(s) 
+		//lsocialdrinkEventCriteria.ID.eq();
+		lsocialdrinkEventCriteria.setMaxResults(ROW_COUNT);
+		socialdrink.Event[] socialdrinkEvents = lsocialdrinkEventCriteria.listEvent();
+		length =socialdrinkEvents== null ? 0 : Math.min(socialdrinkEvents.length, ROW_COUNT); 
+		for (int i = 0; i < length; i++) {
+			 System.out.println(socialdrinkEvents[i]);
+		}
+		System.out.println(length + " Event record(s) retrieved."); 
+		
+		System.out.println("Listing EventDrink by Criteria...");
+		socialdrink.EventDrinkCriteria lsocialdrinkEventDrinkCriteria = new socialdrink.EventDrinkCriteria();
+		// Please uncomment the follow line and fill in parameter(s) 
+		//lsocialdrinkEventDrinkCriteria.ID.eq();
+		lsocialdrinkEventDrinkCriteria.setMaxResults(ROW_COUNT);
+		socialdrink.EventDrink[] socialdrinkEventDrinks = lsocialdrinkEventDrinkCriteria.listEventDrink();
+		length =socialdrinkEventDrinks== null ? 0 : Math.min(socialdrinkEventDrinks.length, ROW_COUNT); 
+		for (int i = 0; i < length; i++) {
+			 System.out.println(socialdrinkEventDrinks[i]);
+		}
+		System.out.println(length + " EventDrink record(s) retrieved."); 
+		
+		System.out.println("Listing EventFavorite by Criteria...");
+		socialdrink.EventFavoriteCriteria lsocialdrinkEventFavoriteCriteria = new socialdrink.EventFavoriteCriteria();
+		// Please uncomment the follow line and fill in parameter(s) 
+		//lsocialdrinkEventFavoriteCriteria.ID.eq();
+		lsocialdrinkEventFavoriteCriteria.setMaxResults(ROW_COUNT);
+		socialdrink.EventFavorite[] socialdrinkEventFavorites = lsocialdrinkEventFavoriteCriteria.listEventFavorite();
+		length =socialdrinkEventFavorites== null ? 0 : Math.min(socialdrinkEventFavorites.length, ROW_COUNT); 
+		for (int i = 0; i < length; i++) {
+			 System.out.println(socialdrinkEventFavorites[i]);
+		}
+		System.out.println(length + " EventFavorite record(s) retrieved."); 
+		
+		System.out.println("Listing EventEval by Criteria...");
+		socialdrink.EventEvalCriteria lsocialdrinkEventEvalCriteria = new socialdrink.EventEvalCriteria();
+		// Please uncomment the follow line and fill in parameter(s) 
+		//lsocialdrinkEventEvalCriteria.ID.eq();
+		lsocialdrinkEventEvalCriteria.setMaxResults(ROW_COUNT);
+		socialdrink.EventEval[] socialdrinkEventEvals = lsocialdrinkEventEvalCriteria.listEventEval();
+		length =socialdrinkEventEvals== null ? 0 : Math.min(socialdrinkEventEvals.length, ROW_COUNT); 
+		for (int i = 0; i < length; i++) {
+			 System.out.println(socialdrinkEventEvals[i]);
+		}
+		System.out.println(length + " EventEval record(s) retrieved."); 
 		
 	}
 	

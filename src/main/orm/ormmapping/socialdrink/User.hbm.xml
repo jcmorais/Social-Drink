@@ -17,11 +17,6 @@ License Type: Academic
 		<property name="password" column="Password" type="string" length="255" not-null="false" lazy="false"/>
 		<property name="description" column="Description" type="string" length="255" not-null="false" lazy="false"/>
 		<property name="contact" column="Contact" type="string" length="255" not-null="false" lazy="false"/>
-		<array name="followers" table="Entity36" cascade="all">
-			<key column="UserID"/>
-			<index column="UserIndex" type="integer"/>
-			<element column="Followers" type="string" length="255"/>
-		</array>
 		<set name="ORM_Drinks" lazy="true" cascade="save-update,lock" inverse="false">
 			<key column="UserID" not-null="true"/>
 			<one-to-many class="socialdrink.Drink"/>
@@ -43,14 +38,18 @@ License Type: Academic
 			<property name="Birthday" column="Birthday" type="date" not-null="false" lazy="false"/>
 			<property name="profession" column="Profession" type="string" length="255" not-null="false" lazy="false"/>
 			<property name="sex" column="Sex" type="string" length="255" not-null="false" lazy="false"/>
-			<array name="following" table="Entity37" cascade="all">
-				<key column="UserID"/>
-				<index column="UserIndex" type="integer"/>
-				<element column="Following" type="string" length="255"/>
-			</array>
-			<set name="ORM_FavoriteDrinks" lazy="true" cascade="save-update,lock" inverse="false">
+			<list name="ORM_FavoriteDrinks" lazy="true" cascade="save-update,lock" inverse="false">
 				<key column="UserID2" not-null="false"/>
+				<index column="UserIndex" type="integer"/>
 				<one-to-many class="socialdrink.Drink"/>
+			</list>
+			<set name="ORM_Follow" lazy="true" cascade="save-update,lock" inverse="false">
+				<key column="UserID" not-null="false"/>
+				<one-to-many class="socialdrink.User"/>
+			</set>
+			<set name="ORM_Events" lazy="true" cascade="save-update,lock" inverse="false">
+				<key column="UserID" not-null="true"/>
+				<one-to-many class="socialdrink.Event"/>
 			</set>
 		</subclass>
 	</class>

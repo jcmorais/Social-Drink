@@ -35,6 +35,8 @@ public class ConsumerCriteria extends AbstractORMCriteria {
 	public final StringExpression profession;
 	public final StringExpression sex;
 	public final CollectionExpression favoriteDrinks;
+	public final CollectionExpression follow;
+	public final CollectionExpression events;
 	
 	public ConsumerCriteria(Criteria criteria) {
 		super(criteria);
@@ -54,6 +56,8 @@ public class ConsumerCriteria extends AbstractORMCriteria {
 		profession = new StringExpression("profession", this);
 		sex = new StringExpression("sex", this);
 		favoriteDrinks = new CollectionExpression("ORM_FavoriteDrinks", this);
+		follow = new CollectionExpression("ORM_Follow", this);
+		events = new CollectionExpression("ORM_Events", this);
 	}
 	
 	public ConsumerCriteria(PersistentSession session) {
@@ -70,6 +74,14 @@ public class ConsumerCriteria extends AbstractORMCriteria {
 	
 	public DrinkCriteria createFavoriteDrinksCriteria() {
 		return new DrinkCriteria(createCriteria("ORM_FavoriteDrinks"));
+	}
+	
+	public UserCriteria createFollowCriteria() {
+		return new UserCriteria(createCriteria("ORM_Follow"));
+	}
+	
+	public EventCriteria createEventsCriteria() {
+		return new EventCriteria(createCriteria("ORM_Events"));
 	}
 	
 	public PhotoCriteria createPhotoCriteria() {

@@ -17,9 +17,20 @@ public class Consumer extends socialdrink.User {
 	public Consumer() {
 	}
 	
-	private java.util.Set this_getSet (int key) {
+	private java.util.List this_getList (int key) {
 		if (key == socialdrink.ORMConstants.KEY_CONSUMER_FAVORITEDRINKS) {
 			return ORM_favoriteDrinks;
+		}
+		
+		return null;
+	}
+	
+	private java.util.Set this_getSet (int key) {
+		if (key == socialdrink.ORMConstants.KEY_CONSUMER_FOLLOW) {
+			return ORM_follow;
+		}
+		else if (key == socialdrink.ORMConstants.KEY_CONSUMER_EVENTS) {
+			return ORM_events;
 		}
 		
 		return null;
@@ -28,6 +39,10 @@ public class Consumer extends socialdrink.User {
 	org.orm.util.ORMAdapter _ormAdapter = new org.orm.util.AbstractORMAdapter() {
 		public java.util.Set getSet(int key) {
 			return this_getSet(key);
+		}
+		
+		public java.util.List getList(int key) {
+			return this_getList(key);
 		}
 		
 	};
@@ -44,9 +59,11 @@ public class Consumer extends socialdrink.User {
 	
 	private String sex;
 	
-	private String[] following;
+	private java.util.List ORM_favoriteDrinks = new java.util.ArrayList();
 	
-	private java.util.Set ORM_favoriteDrinks = new java.util.HashSet();
+	private java.util.Set ORM_follow = new java.util.HashSet();
+	
+	private java.util.Set ORM_events = new java.util.HashSet();
 	
 	public void setFirstname(String value) {
 		this.firstname = value;
@@ -70,14 +87,6 @@ public class Consumer extends socialdrink.User {
 	
 	public java.util.Date getBirthday() {
 		return Birthday;
-	}
-	
-	public void setFollowing(String[] value) {
-		this.following = value;
-	}
-	
-	public String[] getFollowing() {
-		return following;
 	}
 	
 	public void setProfession(String value) {
@@ -104,15 +113,35 @@ public class Consumer extends socialdrink.User {
 		return city;
 	}
 	
-	private void setORM_FavoriteDrinks(java.util.Set value) {
+	private void setORM_FavoriteDrinks(java.util.List value) {
 		this.ORM_favoriteDrinks = value;
 	}
 	
-	private java.util.Set getORM_FavoriteDrinks() {
+	private java.util.List getORM_FavoriteDrinks() {
 		return ORM_favoriteDrinks;
 	}
 	
-	public final socialdrink.DrinkSetCollection favoriteDrinks = new socialdrink.DrinkSetCollection(this, _ormAdapter, socialdrink.ORMConstants.KEY_CONSUMER_FAVORITEDRINKS, socialdrink.ORMConstants.KEY_MUL_ONE_TO_MANY);
+	public final socialdrink.DrinkListCollection favoriteDrinks = new socialdrink.DrinkListCollection(this, _ormAdapter, socialdrink.ORMConstants.KEY_CONSUMER_FAVORITEDRINKS, socialdrink.ORMConstants.KEY_MUL_ONE_TO_MANY);
+	
+	private void setORM_Follow(java.util.Set value) {
+		this.ORM_follow = value;
+	}
+	
+	private java.util.Set getORM_Follow() {
+		return ORM_follow;
+	}
+	
+	public final socialdrink.UserSetCollection follow = new socialdrink.UserSetCollection(this, _ormAdapter, socialdrink.ORMConstants.KEY_CONSUMER_FOLLOW, socialdrink.ORMConstants.KEY_MUL_ONE_TO_MANY);
+	
+	private void setORM_Events(java.util.Set value) {
+		this.ORM_events = value;
+	}
+	
+	private java.util.Set getORM_Events() {
+		return ORM_events;
+	}
+	
+	public final socialdrink.EventSetCollection events = new socialdrink.EventSetCollection(this, _ormAdapter, socialdrink.ORMConstants.KEY_CONSUMER_EVENTS, socialdrink.ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
 	public String toString() {
 		return super.toString();

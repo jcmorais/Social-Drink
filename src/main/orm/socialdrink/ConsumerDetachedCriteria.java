@@ -35,6 +35,8 @@ public class ConsumerDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final StringExpression profession;
 	public final StringExpression sex;
 	public final CollectionExpression favoriteDrinks;
+	public final CollectionExpression follow;
+	public final CollectionExpression events;
 	
 	public ConsumerDetachedCriteria() {
 		super(socialdrink.Consumer.class, socialdrink.ConsumerCriteria.class);
@@ -54,6 +56,8 @@ public class ConsumerDetachedCriteria extends AbstractORMDetachedCriteria {
 		profession = new StringExpression("profession", this.getDetachedCriteria());
 		sex = new StringExpression("sex", this.getDetachedCriteria());
 		favoriteDrinks = new CollectionExpression("ORM_FavoriteDrinks", this.getDetachedCriteria());
+		follow = new CollectionExpression("ORM_Follow", this.getDetachedCriteria());
+		events = new CollectionExpression("ORM_Events", this.getDetachedCriteria());
 	}
 	
 	public ConsumerDetachedCriteria(DetachedCriteria aDetachedCriteria) {
@@ -74,6 +78,8 @@ public class ConsumerDetachedCriteria extends AbstractORMDetachedCriteria {
 		profession = new StringExpression("profession", this.getDetachedCriteria());
 		sex = new StringExpression("sex", this.getDetachedCriteria());
 		favoriteDrinks = new CollectionExpression("ORM_FavoriteDrinks", this.getDetachedCriteria());
+		follow = new CollectionExpression("ORM_Follow", this.getDetachedCriteria());
+		events = new CollectionExpression("ORM_Events", this.getDetachedCriteria());
 	}
 	
 	public CityDetachedCriteria createCityCriteria() {
@@ -82,6 +88,14 @@ public class ConsumerDetachedCriteria extends AbstractORMDetachedCriteria {
 	
 	public DrinkDetachedCriteria createFavoriteDrinksCriteria() {
 		return new DrinkDetachedCriteria(createCriteria("ORM_FavoriteDrinks"));
+	}
+	
+	public UserDetachedCriteria createFollowCriteria() {
+		return new UserDetachedCriteria(createCriteria("ORM_Follow"));
+	}
+	
+	public EventDetachedCriteria createEventsCriteria() {
+		return new EventDetachedCriteria(createCriteria("ORM_Events"));
 	}
 	
 	public PhotoDetachedCriteria createPhotoCriteria() {

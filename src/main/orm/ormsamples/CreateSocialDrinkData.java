@@ -64,8 +64,24 @@ public class CreateSocialDrinkData {
 			lsocialdrinkAlbumDAO.save(lsocialdrinkAlbum);
 			socialdrink.dao.ConsumerDAO lsocialdrinkConsumerDAO = lDAOFactory.getConsumerDAO();
 			socialdrink.Consumer lsocialdrinkConsumer = lsocialdrinkConsumerDAO.createConsumer();
-			// Initialize the properties of the persistent object here
+			// TODO Initialize the properties of the persistent object here, the following properties must be initialized before saving : events
 			lsocialdrinkConsumerDAO.save(lsocialdrinkConsumer);
+			socialdrink.dao.EventDAO lsocialdrinkEventDAO = lDAOFactory.getEventDAO();
+			socialdrink.Event lsocialdrinkEvent = lsocialdrinkEventDAO.createEvent();
+			// Initialize the properties of the persistent object here
+			lsocialdrinkEventDAO.save(lsocialdrinkEvent);
+			socialdrink.dao.EventDrinkDAO lsocialdrinkEventDrinkDAO = lDAOFactory.getEventDrinkDAO();
+			socialdrink.EventDrink lsocialdrinkEventDrink = lsocialdrinkEventDrinkDAO.createEventDrink();
+			// Initialize the properties of the persistent object here
+			lsocialdrinkEventDrinkDAO.save(lsocialdrinkEventDrink);
+			socialdrink.dao.EventFavoriteDAO lsocialdrinkEventFavoriteDAO = lDAOFactory.getEventFavoriteDAO();
+			socialdrink.EventFavorite lsocialdrinkEventFavorite = lsocialdrinkEventFavoriteDAO.createEventFavorite();
+			// Initialize the properties of the persistent object here
+			lsocialdrinkEventFavoriteDAO.save(lsocialdrinkEventFavorite);
+			socialdrink.dao.EventEvalDAO lsocialdrinkEventEvalDAO = lDAOFactory.getEventEvalDAO();
+			socialdrink.EventEval lsocialdrinkEventEval = lsocialdrinkEventEvalDAO.createEventEval();
+			// Initialize the properties of the persistent object here
+			lsocialdrinkEventEvalDAO.save(lsocialdrinkEventEval);
 			t.commit();
 		}
 		catch (Exception e) {

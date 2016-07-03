@@ -17,7 +17,7 @@ License Type: Academic
 		<many-to-one name="photo" column="PhotoID" class="socialdrink.Photo" cascade="save-update,lock" unique="true" not-null="false" lazy="no-proxy" access="field">
 		</many-to-one>
 		<property name="name" column="Name" type="string" length="255" not-null="false" lazy="false"/>
-		<property name="description" column="Description" type="string" length="255" not-null="false" lazy="false"/>
+		<property name="description" column="Description" type="string" length="1024" not-null="false" lazy="false"/>
 		<property name="timeToPrepate" column="TimeToPrepate" type="integer" not-null="true" lazy="false"/>
 		<property name="yeld" column="Yeld" type="integer" not-null="true" lazy="false"/>
 		<property name="rating" column="Rating" type="integer" not-null="true" lazy="false"/>

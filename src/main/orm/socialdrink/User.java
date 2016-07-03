@@ -25,9 +25,19 @@ public abstract class User {
 		return null;
 	}
 	
+	private void this_setOwner(Object owner, int key) {
+		if (key == socialdrink.ORMConstants.KEY_USER_PHOTO) {
+			this.photo = (socialdrink.Photo) owner;
+		}
+	}
+	
 	org.orm.util.ORMAdapter _ormAdapter = new org.orm.util.AbstractORMAdapter() {
 		public java.util.Set getSet(int key) {
 			return this_getSet(key);
+		}
+		
+		public void setOwner(Object owner, int key) {
+			this_setOwner(owner, key);
 		}
 		
 	};
@@ -43,8 +53,6 @@ public abstract class User {
 	private String description;
 	
 	private String contact;
-	
-	private String[] followers;
 	
 	private java.util.Set ORM_drinks = new java.util.HashSet();
 	
@@ -82,14 +90,6 @@ public abstract class User {
 	
 	public String getDescription() {
 		return description;
-	}
-	
-	public void setFollowers(String[] value) {
-		this.followers = value;
-	}
-	
-	public String[] getFollowers() {
-		return followers;
 	}
 	
 	public void setContact(String value) {

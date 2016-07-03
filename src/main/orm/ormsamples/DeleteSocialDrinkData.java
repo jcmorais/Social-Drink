@@ -66,6 +66,22 @@ public class DeleteSocialDrinkData {
 			socialdrink.Consumer lsocialdrinkConsumer = lsocialdrinkConsumerDAO.loadConsumerByQuery(null, null);
 			// Delete the persistent object
 			lsocialdrinkConsumerDAO.delete(lsocialdrinkConsumer);
+			socialdrink.dao.EventDAO lsocialdrinkEventDAO = lDAOFactory.getEventDAO();
+			socialdrink.Event lsocialdrinkEvent = lsocialdrinkEventDAO.loadEventByQuery(null, null);
+			// Delete the persistent object
+			lsocialdrinkEventDAO.delete(lsocialdrinkEvent);
+			socialdrink.dao.EventDrinkDAO lsocialdrinkEventDrinkDAO = lDAOFactory.getEventDrinkDAO();
+			socialdrink.EventDrink lsocialdrinkEventDrink = lsocialdrinkEventDrinkDAO.loadEventDrinkByQuery(null, null);
+			// Delete the persistent object
+			lsocialdrinkEventDrinkDAO.delete(lsocialdrinkEventDrink);
+			socialdrink.dao.EventFavoriteDAO lsocialdrinkEventFavoriteDAO = lDAOFactory.getEventFavoriteDAO();
+			socialdrink.EventFavorite lsocialdrinkEventFavorite = lsocialdrinkEventFavoriteDAO.loadEventFavoriteByQuery(null, null);
+			// Delete the persistent object
+			lsocialdrinkEventFavoriteDAO.delete(lsocialdrinkEventFavorite);
+			socialdrink.dao.EventEvalDAO lsocialdrinkEventEvalDAO = lDAOFactory.getEventEvalDAO();
+			socialdrink.EventEval lsocialdrinkEventEval = lsocialdrinkEventEvalDAO.loadEventEvalByQuery(null, null);
+			// Delete the persistent object
+			lsocialdrinkEventEvalDAO.delete(lsocialdrinkEventEval);
 			t.commit();
 		}
 		catch (Exception e) {

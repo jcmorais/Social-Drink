@@ -29,6 +29,10 @@ public class Facade {
     private AlbumDAO albumDAO;
     private EvaluationDAO evaluationDAO;
 
+    private EventDAO eventDAO;
+    private EventDrinkDAO eventDrinkDAO;
+    private EventEvalDAO eventEvalDAO;
+    private EventFavoriteDAO eventFavoriteDAO;
 
 
 
@@ -280,129 +284,7 @@ public class Facade {
         return barDAO.evict(bar);
     }
 
-    public Consumer loadConsumerByORMID(int ID) throws PersistentException {
-        return consumerDAO.loadConsumerByORMID(ID);
-    }
 
-    public Consumer[] listConsumerByQuery(String condition, String orderBy) throws PersistentException {
-        return consumerDAO.listConsumerByQuery(condition, orderBy);
-    }
-
-    public boolean save(Consumer consumer) throws PersistentException {
-        return consumerDAO.save(consumer);
-    }
-
-    public Consumer[] listConsumerByCriteria(ConsumerCriteria consumerCriteria) {
-        return consumerDAO.listConsumerByCriteria(consumerCriteria);
-    }
-
-    public boolean delete(Consumer consumer) throws PersistentException {
-        return consumerDAO.delete(consumer);
-    }
-
-    public Consumer getConsumerByORMID(int ID) throws PersistentException {
-        return consumerDAO.getConsumerByORMID(ID);
-    }
-
-    public Iterator iterateConsumerByQuery(String condition, String orderBy) throws PersistentException {
-        return consumerDAO.iterateConsumerByQuery(condition, orderBy);
-    }
-
-    public Consumer loadConsumerByORMID(PersistentSession session, int ID, LockMode lockMode) throws PersistentException {
-        return consumerDAO.loadConsumerByORMID(session, ID, lockMode);
-    }
-
-    public Consumer loadConsumerByORMID(int ID, LockMode lockMode) throws PersistentException {
-        return consumerDAO.loadConsumerByORMID(ID, lockMode);
-    }
-
-    public Consumer loadConsumerByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
-        return consumerDAO.loadConsumerByQuery(condition, orderBy, lockMode);
-    }
-
-    public Iterator iterateConsumerByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
-        return consumerDAO.iterateConsumerByQuery(session, condition, orderBy, lockMode);
-    }
-
-    public Consumer loadConsumerByQuery(String condition, String orderBy) throws PersistentException {
-        return consumerDAO.loadConsumerByQuery(condition, orderBy);
-    }
-
-    public Consumer loadConsumerByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
-        return consumerDAO.loadConsumerByQuery(session, condition, orderBy, lockMode);
-    }
-
-    public boolean refresh(Consumer consumer) throws PersistentException {
-        return consumerDAO.refresh(consumer);
-    }
-
-    public List queryConsumer(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
-        return consumerDAO.queryConsumer(session, condition, orderBy, lockMode);
-    }
-
-    public Iterator iterateConsumerByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
-        return consumerDAO.iterateConsumerByQuery(session, condition, orderBy);
-    }
-
-    public Consumer getConsumerByORMID(PersistentSession session, int ID, LockMode lockMode) throws PersistentException {
-        return consumerDAO.getConsumerByORMID(session, ID, lockMode);
-    }
-
-    public Consumer loadConsumerByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
-        return consumerDAO.loadConsumerByQuery(session, condition, orderBy);
-    }
-
-    public Iterator iterateConsumerByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
-        return consumerDAO.iterateConsumerByQuery(condition, orderBy, lockMode);
-    }
-
-    public Consumer[] listConsumerByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
-        return consumerDAO.listConsumerByQuery(session, condition, orderBy, lockMode);
-    }
-
-    public List queryConsumer(PersistentSession session, String condition, String orderBy) throws PersistentException {
-        return consumerDAO.queryConsumer(session, condition, orderBy);
-    }
-
-    public boolean evict(Consumer consumer) throws PersistentException {
-        return consumerDAO.evict(consumer);
-    }
-
-    public List queryConsumer(String condition, String orderBy, LockMode lockMode) throws PersistentException {
-        return consumerDAO.queryConsumer(condition, orderBy, lockMode);
-    }
-
-    public Consumer[] listConsumerByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
-        return consumerDAO.listConsumerByQuery(condition, orderBy, lockMode);
-    }
-
-    public Consumer getConsumerByORMID(PersistentSession session, int ID) throws PersistentException {
-        return consumerDAO.getConsumerByORMID(session, ID);
-    }
-
-    public Consumer getConsumerByORMID(int ID, LockMode lockMode) throws PersistentException {
-        return consumerDAO.getConsumerByORMID(ID, lockMode);
-    }
-
-    public List queryConsumer(String condition, String orderBy) throws PersistentException {
-        return consumerDAO.queryConsumer(condition, orderBy);
-    }
-
-    public Consumer[] listConsumerByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
-        return consumerDAO.listConsumerByQuery(session, condition, orderBy);
-    }
-
-    public Consumer createConsumer() {
-        return consumerDAO.createConsumer();
-    }
-
-    public Consumer loadConsumerByORMID(PersistentSession session, int ID) throws PersistentException {
-        return consumerDAO.loadConsumerByORMID(session, ID);
-    }
-
-    public Consumer loadConsumerByCriteria(ConsumerCriteria consumerCriteria) {
-        return consumerDAO.loadConsumerByCriteria(consumerCriteria);
-    }
 
     public DrinkType loadDrinkTypeByORMID(int ID) throws PersistentException {
         return drinkTypeDAO.loadDrinkTypeByORMID(ID);
@@ -1905,6 +1787,627 @@ public class Facade {
         return userDAO.listUserByQuery(session, condition, orderBy);
     }
 
+    public Consumer loadConsumerByORMID(int ID) throws PersistentException {
+        return consumerDAO.loadConsumerByORMID(ID);
+    }
+
+    public Consumer[] listConsumerByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return consumerDAO.listConsumerByQuery(condition, orderBy, lockMode);
+    }
+
+    public Iterator iterateConsumerByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
+        return consumerDAO.iterateConsumerByQuery(session, condition, orderBy);
+    }
+
+    public boolean delete(Consumer consumer) throws PersistentException {
+        return consumerDAO.delete(consumer);
+    }
+
+    public Consumer loadConsumerByCriteria(ConsumerCriteria consumerCriteria) {
+        return consumerDAO.loadConsumerByCriteria(consumerCriteria);
+    }
+
+    public Iterator iterateConsumerByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return consumerDAO.iterateConsumerByQuery(condition, orderBy, lockMode);
+    }
+
+    public Consumer loadConsumerByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
+        return consumerDAO.loadConsumerByQuery(session, condition, orderBy);
+    }
+
+    public Consumer getConsumerByORMID(PersistentSession session, int ID, LockMode lockMode) throws PersistentException {
+        return consumerDAO.getConsumerByORMID(session, ID, lockMode);
+    }
+
+    public boolean evict(Consumer consumer) throws PersistentException {
+        return consumerDAO.evict(consumer);
+    }
+
+    public Consumer loadConsumerByORMID(int ID, LockMode lockMode) throws PersistentException {
+        return consumerDAO.loadConsumerByORMID(ID, lockMode);
+    }
+
+    public Consumer getConsumerByORMID(PersistentSession session, int ID) throws PersistentException {
+        return consumerDAO.getConsumerByORMID(session, ID);
+    }
+
+    public Consumer loadConsumerByORMID(PersistentSession session, int ID, LockMode lockMode) throws PersistentException {
+        return consumerDAO.loadConsumerByORMID(session, ID, lockMode);
+    }
+
+    public Consumer loadConsumerByQuery(String condition, String orderBy) throws PersistentException {
+        return consumerDAO.loadConsumerByQuery(condition, orderBy);
+    }
+
+    public Consumer createConsumer() {
+        return consumerDAO.createConsumer();
+    }
+
+    public boolean save(Consumer consumer) throws PersistentException {
+        return consumerDAO.save(consumer);
+    }
+
+    public List queryConsumer(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return consumerDAO.queryConsumer(session, condition, orderBy, lockMode);
+    }
+
+    public Consumer getConsumerByORMID(int ID, LockMode lockMode) throws PersistentException {
+        return consumerDAO.getConsumerByORMID(ID, lockMode);
+    }
+
+    public Consumer[] listConsumerByQuery(String condition, String orderBy) throws PersistentException {
+        return consumerDAO.listConsumerByQuery(condition, orderBy);
+    }
+
+    public Consumer loadConsumerByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return consumerDAO.loadConsumerByQuery(condition, orderBy, lockMode);
+    }
+
+    public Consumer loadConsumerByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return consumerDAO.loadConsumerByQuery(session, condition, orderBy, lockMode);
+    }
+
+    public Consumer[] listConsumerByCriteria(ConsumerCriteria consumerCriteria) {
+        return consumerDAO.listConsumerByCriteria(consumerCriteria);
+    }
+
+    public List queryConsumer(String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return consumerDAO.queryConsumer(condition, orderBy, lockMode);
+    }
+
+    public List queryConsumer(PersistentSession session, String condition, String orderBy) throws PersistentException {
+        return consumerDAO.queryConsumer(session, condition, orderBy);
+    }
+
+    public Consumer loadConsumerByORMID(PersistentSession session, int ID) throws PersistentException {
+        return consumerDAO.loadConsumerByORMID(session, ID);
+    }
+
+    public Consumer[] listConsumerByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
+        return consumerDAO.listConsumerByQuery(session, condition, orderBy);
+    }
+
+    public List queryConsumer(String condition, String orderBy) throws PersistentException {
+        return consumerDAO.queryConsumer(condition, orderBy);
+    }
+
+    public Consumer getConsumerByORMID(int ID) throws PersistentException {
+        return consumerDAO.getConsumerByORMID(ID);
+    }
+
+    public Iterator iterateConsumerByQuery(String condition, String orderBy) throws PersistentException {
+        return consumerDAO.iterateConsumerByQuery(condition, orderBy);
+    }
+
+    public boolean refresh(Consumer consumer) throws PersistentException {
+        return consumerDAO.refresh(consumer);
+    }
+
+    public Consumer[] listConsumerByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return consumerDAO.listConsumerByQuery(session, condition, orderBy, lockMode);
+    }
+
+    public Iterator iterateConsumerByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return consumerDAO.iterateConsumerByQuery(session, condition, orderBy, lockMode);
+    }
+
+    public Event loadEventByORMID(int ID) throws PersistentException {
+        return eventDAO.loadEventByORMID(ID);
+    }
+
+    public Iterator iterateEventByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
+        return eventDAO.iterateEventByQuery(session, condition, orderBy);
+    }
+
+    public Event loadEventByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return eventDAO.loadEventByQuery(condition, orderBy, lockMode);
+    }
+
+    public Event loadEventByQuery(String condition, String orderBy) throws PersistentException {
+        return eventDAO.loadEventByQuery(condition, orderBy);
+    }
+
+    public Iterator iterateEventByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return eventDAO.iterateEventByQuery(session, condition, orderBy, lockMode);
+    }
+
+    public Event loadEventByORMID(PersistentSession session, int ID, LockMode lockMode) throws PersistentException {
+        return eventDAO.loadEventByORMID(session, ID, lockMode);
+    }
+
+    public Event getEventByORMID(PersistentSession session, int ID, LockMode lockMode) throws PersistentException {
+        return eventDAO.getEventByORMID(session, ID, lockMode);
+    }
+
+    public Event loadEventByORMID(int ID, LockMode lockMode) throws PersistentException {
+        return eventDAO.loadEventByORMID(ID, lockMode);
+    }
+
+    public Event loadEventByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
+        return eventDAO.loadEventByQuery(session, condition, orderBy);
+    }
+
+    public Iterator iterateEventByQuery(String condition, String orderBy) throws PersistentException {
+        return eventDAO.iterateEventByQuery(condition, orderBy);
+    }
+
+    public Event getEventByORMID(PersistentSession session, int ID) throws PersistentException {
+        return eventDAO.getEventByORMID(session, ID);
+    }
+
+    public Event getEventByORMID(int ID) throws PersistentException {
+        return eventDAO.getEventByORMID(ID);
+    }
+
+    public Event loadEventByCriteria(EventCriteria eventCriteria) {
+        return eventDAO.loadEventByCriteria(eventCriteria);
+    }
+
+    public Iterator iterateEventByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return eventDAO.iterateEventByQuery(condition, orderBy, lockMode);
+    }
+
+    public boolean refresh(Event event) throws PersistentException {
+        return eventDAO.refresh(event);
+    }
+
+    public Event[] listEventByCriteria(EventCriteria eventCriteria) {
+        return eventDAO.listEventByCriteria(eventCriteria);
+    }
+
+    public List queryEvent(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return eventDAO.queryEvent(session, condition, orderBy, lockMode);
+    }
+
+    public List queryEvent(PersistentSession session, String condition, String orderBy) throws PersistentException {
+        return eventDAO.queryEvent(session, condition, orderBy);
+    }
+
+    public Event[] listEventByQuery(String condition, String orderBy) throws PersistentException {
+        return eventDAO.listEventByQuery(condition, orderBy);
+    }
+
+    public List queryEvent(String condition, String orderBy) throws PersistentException {
+        return eventDAO.queryEvent(condition, orderBy);
+    }
+
+    public Event getEventByORMID(int ID, LockMode lockMode) throws PersistentException {
+        return eventDAO.getEventByORMID(ID, lockMode);
+    }
+
+    public Event[] listEventByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return eventDAO.listEventByQuery(session, condition, orderBy, lockMode);
+    }
+
+    public Event loadEventByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return eventDAO.loadEventByQuery(session, condition, orderBy, lockMode);
+    }
+
+    public boolean evict(Event event) throws PersistentException {
+        return eventDAO.evict(event);
+    }
+
+    public List queryEvent(String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return eventDAO.queryEvent(condition, orderBy, lockMode);
+    }
+
+    public Event loadEventByORMID(PersistentSession session, int ID) throws PersistentException {
+        return eventDAO.loadEventByORMID(session, ID);
+    }
+
+    public Event createEvent() {
+        return eventDAO.createEvent();
+    }
+
+    public boolean save(Event event) throws PersistentException {
+        return eventDAO.save(event);
+    }
+
+    public Event[] listEventByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
+        return eventDAO.listEventByQuery(session, condition, orderBy);
+    }
+
+    public boolean delete(Event event) throws PersistentException {
+        return eventDAO.delete(event);
+    }
+
+    public Event[] listEventByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return eventDAO.listEventByQuery(condition, orderBy, lockMode);
+    }
+
+    public EventEval loadEventEvalByORMID(int ID) throws PersistentException {
+        return eventEvalDAO.loadEventEvalByORMID(ID);
+    }
+
+    public EventEval loadEventEvalByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return eventEvalDAO.loadEventEvalByQuery(condition, orderBy, lockMode);
+    }
+
+    public Iterator iterateEventEvalByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return eventEvalDAO.iterateEventEvalByQuery(session, condition, orderBy, lockMode);
+    }
+
+    public EventEval getEventEvalByORMID(PersistentSession session, int ID, LockMode lockMode) throws PersistentException {
+        return eventEvalDAO.getEventEvalByORMID(session, ID, lockMode);
+    }
+
+    public EventEval[] listEventEvalByCriteria(EventEvalCriteria eventEvalCriteria) {
+        return eventEvalDAO.listEventEvalByCriteria(eventEvalCriteria);
+    }
+
+    public EventEval[] listEventEvalByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
+        return eventEvalDAO.listEventEvalByQuery(session, condition, orderBy);
+    }
+
+    public List queryEventEval(PersistentSession session, String condition, String orderBy) throws PersistentException {
+        return eventEvalDAO.queryEventEval(session, condition, orderBy);
+    }
+
+    public EventEval[] listEventEvalByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return eventEvalDAO.listEventEvalByQuery(condition, orderBy, lockMode);
+    }
+
+    public EventEval getEventEvalByORMID(PersistentSession session, int ID) throws PersistentException {
+        return eventEvalDAO.getEventEvalByORMID(session, ID);
+    }
+
+    public EventEval loadEventEvalByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
+        return eventEvalDAO.loadEventEvalByQuery(session, condition, orderBy);
+    }
+
+    public boolean delete(EventEval eventEval) throws PersistentException {
+        return eventEvalDAO.delete(eventEval);
+    }
+
+    public List queryEventEval(String condition, String orderBy) throws PersistentException {
+        return eventEvalDAO.queryEventEval(condition, orderBy);
+    }
+
+    public Iterator iterateEventEvalByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
+        return eventEvalDAO.iterateEventEvalByQuery(session, condition, orderBy);
+    }
+
+    public EventEval loadEventEvalByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return eventEvalDAO.loadEventEvalByQuery(session, condition, orderBy, lockMode);
+    }
+
+    public EventEval[] listEventEvalByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return eventEvalDAO.listEventEvalByQuery(session, condition, orderBy, lockMode);
+    }
+
+    public EventEval loadEventEvalByORMID(PersistentSession session, int ID) throws PersistentException {
+        return eventEvalDAO.loadEventEvalByORMID(session, ID);
+    }
+
+    public List queryEventEval(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return eventEvalDAO.queryEventEval(session, condition, orderBy, lockMode);
+    }
+
+    public EventEval createEventEval() {
+        return eventEvalDAO.createEventEval();
+    }
+
+    public boolean refresh(EventEval eventEval) throws PersistentException {
+        return eventEvalDAO.refresh(eventEval);
+    }
+
+    public EventEval loadEventEvalByCriteria(EventEvalCriteria eventEvalCriteria) {
+        return eventEvalDAO.loadEventEvalByCriteria(eventEvalCriteria);
+    }
+
+    public boolean save(EventEval eventEval) throws PersistentException {
+        return eventEvalDAO.save(eventEval);
+    }
+
+    public boolean evict(EventEval eventEval) throws PersistentException {
+        return eventEvalDAO.evict(eventEval);
+    }
+
+    public EventEval getEventEvalByORMID(int ID) throws PersistentException {
+        return eventEvalDAO.getEventEvalByORMID(ID);
+    }
+
+    public EventEval[] listEventEvalByQuery(String condition, String orderBy) throws PersistentException {
+        return eventEvalDAO.listEventEvalByQuery(condition, orderBy);
+    }
+
+    public Iterator iterateEventEvalByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return eventEvalDAO.iterateEventEvalByQuery(condition, orderBy, lockMode);
+    }
+
+    public List queryEventEval(String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return eventEvalDAO.queryEventEval(condition, orderBy, lockMode);
+    }
+
+    public EventEval loadEventEvalByORMID(int ID, LockMode lockMode) throws PersistentException {
+        return eventEvalDAO.loadEventEvalByORMID(ID, lockMode);
+    }
+
+    public EventEval loadEventEvalByORMID(PersistentSession session, int ID, LockMode lockMode) throws PersistentException {
+        return eventEvalDAO.loadEventEvalByORMID(session, ID, lockMode);
+    }
+
+    public EventEval getEventEvalByORMID(int ID, LockMode lockMode) throws PersistentException {
+        return eventEvalDAO.getEventEvalByORMID(ID, lockMode);
+    }
+
+    public EventEval loadEventEvalByQuery(String condition, String orderBy) throws PersistentException {
+        return eventEvalDAO.loadEventEvalByQuery(condition, orderBy);
+    }
+
+    public Iterator iterateEventEvalByQuery(String condition, String orderBy) throws PersistentException {
+        return eventEvalDAO.iterateEventEvalByQuery(condition, orderBy);
+    }
+
+
+    public EventDrink loadEventDrinkByORMID(int ID) throws PersistentException {
+        return eventDrinkDAO.loadEventDrinkByORMID(ID);
+    }
+
+    public EventDrink getEventDrinkByORMID(PersistentSession session, int ID) throws PersistentException {
+        return eventDrinkDAO.getEventDrinkByORMID(session, ID);
+    }
+
+    public List queryEventDrink(PersistentSession session, String condition, String orderBy) throws PersistentException {
+        return eventDrinkDAO.queryEventDrink(session, condition, orderBy);
+    }
+
+    public List queryEventDrink(String condition, String orderBy) throws PersistentException {
+        return eventDrinkDAO.queryEventDrink(condition, orderBy);
+    }
+
+    public List queryEventDrink(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return eventDrinkDAO.queryEventDrink(session, condition, orderBy, lockMode);
+    }
+
+    public EventDrink loadEventDrinkByORMID(int ID, LockMode lockMode) throws PersistentException {
+        return eventDrinkDAO.loadEventDrinkByORMID(ID, lockMode);
+    }
+
+    public EventDrink[] listEventDrinkByCriteria(EventDrinkCriteria eventDrinkCriteria) {
+        return eventDrinkDAO.listEventDrinkByCriteria(eventDrinkCriteria);
+    }
+
+    public EventDrink getEventDrinkByORMID(int ID, LockMode lockMode) throws PersistentException {
+        return eventDrinkDAO.getEventDrinkByORMID(ID, lockMode);
+    }
+
+    public EventDrink[] listEventDrinkByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return eventDrinkDAO.listEventDrinkByQuery(session, condition, orderBy, lockMode);
+    }
+
+    public Iterator iterateEventDrinkByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
+        return eventDrinkDAO.iterateEventDrinkByQuery(session, condition, orderBy);
+    }
+
+    public EventDrink loadEventDrinkByQuery(String condition, String orderBy) throws PersistentException {
+        return eventDrinkDAO.loadEventDrinkByQuery(condition, orderBy);
+    }
+
+    public EventDrink[] listEventDrinkByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
+        return eventDrinkDAO.listEventDrinkByQuery(session, condition, orderBy);
+    }
+
+    public EventDrink createEventDrink() {
+        return eventDrinkDAO.createEventDrink();
+    }
+
+    public EventDrink loadEventDrinkByORMID(PersistentSession session, int ID) throws PersistentException {
+        return eventDrinkDAO.loadEventDrinkByORMID(session, ID);
+    }
+
+    public EventDrink loadEventDrinkByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return eventDrinkDAO.loadEventDrinkByQuery(condition, orderBy, lockMode);
+    }
+
+    public boolean refresh(EventDrink eventDrink) throws PersistentException {
+        return eventDrinkDAO.refresh(eventDrink);
+    }
+
+    public EventDrink loadEventDrinkByORMID(PersistentSession session, int ID, LockMode lockMode) throws PersistentException {
+        return eventDrinkDAO.loadEventDrinkByORMID(session, ID, lockMode);
+    }
+
+    public boolean evict(EventDrink eventDrink) throws PersistentException {
+        return eventDrinkDAO.evict(eventDrink);
+    }
+
+    public EventDrink[] listEventDrinkByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return eventDrinkDAO.listEventDrinkByQuery(condition, orderBy, lockMode);
+    }
+
+    public EventDrink getEventDrinkByORMID(PersistentSession session, int ID, LockMode lockMode) throws PersistentException {
+        return eventDrinkDAO.getEventDrinkByORMID(session, ID, lockMode);
+    }
+
+    public EventDrink getEventDrinkByORMID(int ID) throws PersistentException {
+        return eventDrinkDAO.getEventDrinkByORMID(ID);
+    }
+
+    public Iterator iterateEventDrinkByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return eventDrinkDAO.iterateEventDrinkByQuery(condition, orderBy, lockMode);
+    }
+
+    public EventDrink[] listEventDrinkByQuery(String condition, String orderBy) throws PersistentException {
+        return eventDrinkDAO.listEventDrinkByQuery(condition, orderBy);
+    }
+
+    public List queryEventDrink(String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return eventDrinkDAO.queryEventDrink(condition, orderBy, lockMode);
+    }
+
+    public EventDrink loadEventDrinkByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return eventDrinkDAO.loadEventDrinkByQuery(session, condition, orderBy, lockMode);
+    }
+
+    public EventDrink loadEventDrinkByCriteria(EventDrinkCriteria eventDrinkCriteria) {
+        return eventDrinkDAO.loadEventDrinkByCriteria(eventDrinkCriteria);
+    }
+
+    public EventDrink loadEventDrinkByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
+        return eventDrinkDAO.loadEventDrinkByQuery(session, condition, orderBy);
+    }
+
+    public boolean save(EventDrink eventDrink) throws PersistentException {
+        return eventDrinkDAO.save(eventDrink);
+    }
+
+    public Iterator iterateEventDrinkByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return eventDrinkDAO.iterateEventDrinkByQuery(session, condition, orderBy, lockMode);
+    }
+
+    public boolean delete(EventDrink eventDrink) throws PersistentException {
+        return eventDrinkDAO.delete(eventDrink);
+    }
+
+    public Iterator iterateEventDrinkByQuery(String condition, String orderBy) throws PersistentException {
+        return eventDrinkDAO.iterateEventDrinkByQuery(condition, orderBy);
+    }
+
+    public EventFavorite loadEventFavoriteByORMID(int ID) throws PersistentException {
+        return eventFavoriteDAO.loadEventFavoriteByORMID(ID);
+    }
+
+    public EventFavorite[] listEventFavoriteByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return eventFavoriteDAO.listEventFavoriteByQuery(condition, orderBy, lockMode);
+    }
+
+    public boolean delete(EventFavorite eventFavorite) throws PersistentException {
+        return eventFavoriteDAO.delete(eventFavorite);
+    }
+
+    public Iterator iterateEventFavoriteByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return eventFavoriteDAO.iterateEventFavoriteByQuery(condition, orderBy, lockMode);
+    }
+
+    public EventFavorite getEventFavoriteByORMID(int ID, LockMode lockMode) throws PersistentException {
+        return eventFavoriteDAO.getEventFavoriteByORMID(ID, lockMode);
+    }
+
+    public EventFavorite[] listEventFavoriteByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
+        return eventFavoriteDAO.listEventFavoriteByQuery(session, condition, orderBy);
+    }
+
+    public EventFavorite[] listEventFavoriteByQuery(String condition, String orderBy) throws PersistentException {
+        return eventFavoriteDAO.listEventFavoriteByQuery(condition, orderBy);
+    }
+
+    public EventFavorite loadEventFavoriteByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return eventFavoriteDAO.loadEventFavoriteByQuery(session, condition, orderBy, lockMode);
+    }
+
+    public EventFavorite getEventFavoriteByORMID(PersistentSession session, int ID, LockMode lockMode) throws PersistentException {
+        return eventFavoriteDAO.getEventFavoriteByORMID(session, ID, lockMode);
+    }
+
+    public EventFavorite[] listEventFavoriteByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return eventFavoriteDAO.listEventFavoriteByQuery(session, condition, orderBy, lockMode);
+    }
+
+    public EventFavorite loadEventFavoriteByQuery(String condition, String orderBy) throws PersistentException {
+        return eventFavoriteDAO.loadEventFavoriteByQuery(condition, orderBy);
+    }
+
+    public EventFavorite getEventFavoriteByORMID(PersistentSession session, int ID) throws PersistentException {
+        return eventFavoriteDAO.getEventFavoriteByORMID(session, ID);
+    }
+
+    public EventFavorite loadEventFavoriteByORMID(PersistentSession session, int ID, LockMode lockMode) throws PersistentException {
+        return eventFavoriteDAO.loadEventFavoriteByORMID(session, ID, lockMode);
+    }
+
+    public Iterator iterateEventFavoriteByQuery(String condition, String orderBy) throws PersistentException {
+        return eventFavoriteDAO.iterateEventFavoriteByQuery(condition, orderBy);
+    }
+
+    public EventFavorite loadEventFavoriteByORMID(PersistentSession session, int ID) throws PersistentException {
+        return eventFavoriteDAO.loadEventFavoriteByORMID(session, ID);
+    }
+
+    public List queryEventFavorite(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return eventFavoriteDAO.queryEventFavorite(session, condition, orderBy, lockMode);
+    }
+
+    public EventFavorite getEventFavoriteByORMID(int ID) throws PersistentException {
+        return eventFavoriteDAO.getEventFavoriteByORMID(ID);
+    }
+
+    public boolean save(EventFavorite eventFavorite) throws PersistentException {
+        return eventFavoriteDAO.save(eventFavorite);
+    }
+
+    public List queryEventFavorite(PersistentSession session, String condition, String orderBy) throws PersistentException {
+        return eventFavoriteDAO.queryEventFavorite(session, condition, orderBy);
+    }
+
+    public EventFavorite loadEventFavoriteByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
+        return eventFavoriteDAO.loadEventFavoriteByQuery(session, condition, orderBy);
+    }
+
+    public EventFavorite createEventFavorite() {
+        return eventFavoriteDAO.createEventFavorite();
+    }
+
+    public Iterator iterateEventFavoriteByQuery(PersistentSession session, String condition, String orderBy) throws PersistentException {
+        return eventFavoriteDAO.iterateEventFavoriteByQuery(session, condition, orderBy);
+    }
+
+    public EventFavorite loadEventFavoriteByORMID(int ID, LockMode lockMode) throws PersistentException {
+        return eventFavoriteDAO.loadEventFavoriteByORMID(ID, lockMode);
+    }
+
+    public List queryEventFavorite(String condition, String orderBy) throws PersistentException {
+        return eventFavoriteDAO.queryEventFavorite(condition, orderBy);
+    }
+
+    public List queryEventFavorite(String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return eventFavoriteDAO.queryEventFavorite(condition, orderBy, lockMode);
+    }
+
+    public EventFavorite loadEventFavoriteByQuery(String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return eventFavoriteDAO.loadEventFavoriteByQuery(condition, orderBy, lockMode);
+    }
+
+    public EventFavorite loadEventFavoriteByCriteria(EventFavoriteCriteria eventFavoriteCriteria) {
+        return eventFavoriteDAO.loadEventFavoriteByCriteria(eventFavoriteCriteria);
+    }
+
+    public Iterator iterateEventFavoriteByQuery(PersistentSession session, String condition, String orderBy, LockMode lockMode) throws PersistentException {
+        return eventFavoriteDAO.iterateEventFavoriteByQuery(session, condition, orderBy, lockMode);
+    }
+
+    public EventFavorite[] listEventFavoriteByCriteria(EventFavoriteCriteria eventFavoriteCriteria) {
+        return eventFavoriteDAO.listEventFavoriteByCriteria(eventFavoriteCriteria);
+    }
+
+    public boolean refresh(EventFavorite eventFavorite) throws PersistentException {
+        return eventFavoriteDAO.refresh(eventFavorite);
+    }
+
+    public boolean evict(EventFavorite eventFavorite) throws PersistentException {
+        return eventFavoriteDAO.evict(eventFavorite);
+    }
+
     public Facade(){
         this.weekdayDAO = new WeekdayDAOImpl();
         this.drinkDAO = new DrinkDAOImpl();
@@ -1921,6 +2424,11 @@ public class Facade {
         this.cityDAO = new CityDAOImpl();
         this.albumDAO = new AlbumDAOImpl();
         this.evaluationDAO = new EvaluationDAOImpl();
+
+        this.eventDAO = new EventDAOImpl();
+        this.eventDrinkDAO = new EventDrinkDAOImpl();
+        this.eventEvalDAO = new EventEvalDAOImpl();
+        this.eventFavoriteDAO = new EventFavoriteDAOImpl();
     }
 
 }

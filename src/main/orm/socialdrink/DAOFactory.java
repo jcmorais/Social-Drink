@@ -37,5 +37,9 @@ public abstract class DAOFactory {
 	public abstract DrinkTypeDAO getDrinkTypeDAO();
 	public abstract AlbumDAO getAlbumDAO();
 	public abstract ConsumerDAO getConsumerDAO();
+	public abstract EventDAO getEventDAO();
+	public abstract EventDrinkDAO getEventDrinkDAO();
+	public abstract EventFavoriteDAO getEventFavoriteDAO();
+	public abstract EventEvalDAO getEventEvalDAO();
 }
 

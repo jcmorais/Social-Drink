@@ -92,5 +92,25 @@ public class DAOFactoryImpl extends DAOFactory {
 		return _consumerDAO;
 	}
 	
+	private EventDAO _eventDAO = new EventDAOImpl();
+	public EventDAO getEventDAO() {
+		return _eventDAO;
+	}
+	
+	private EventDrinkDAO _eventDrinkDAO = new EventDrinkDAOImpl();
+	public EventDrinkDAO getEventDrinkDAO() {
+		return _eventDrinkDAO;
+	}
+	
+	private EventFavoriteDAO _eventFavoriteDAO = new EventFavoriteDAOImpl();
+	public EventFavoriteDAO getEventFavoriteDAO() {
+		return _eventFavoriteDAO;
+	}
+	
+	private EventEvalDAO _eventEvalDAO = new EventEvalDAOImpl();
+	public EventEvalDAO getEventEvalDAO() {
+		return _eventEvalDAO;
+	}
+	
 }
 

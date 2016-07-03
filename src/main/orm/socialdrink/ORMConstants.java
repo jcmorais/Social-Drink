@@ -26,7 +26,11 @@ public interface ORMConstants extends org.orm.util.ORMBaseConstants {
 	
 	final int KEY_CONSUMER_CITY = 511838196;
 	
+	final int KEY_CONSUMER_EVENTS = -1975922334;
+	
 	final int KEY_CONSUMER_FAVORITEDRINKS = 49947360;
+	
+	final int KEY_CONSUMER_FOLLOW = -1953551366;
 	
 	final int KEY_COUNTRY_CITIES = 668833842;
 	
@@ -45,6 +49,14 @@ public interface ORMConstants extends org.orm.util.ORMBaseConstants {
 	final int KEY_DRINK_TYPEOFDRINK = 557584160;
 	
 	final int KEY_EVALUATION_USER = 178748110;
+	
+	final int KEY_EVENTDRINK_DRINK = -652970153;
+	
+	final int KEY_EVENTEVAL_DRINK = -1197288113;
+	
+	final int KEY_EVENTEVAL_EVALUATION = 248259813;
+	
+	final int KEY_EVENTFAVORITE_DRINK = -267022001;
 	
 	final int KEY_USER_DRINKS = 1086286255;
 	
