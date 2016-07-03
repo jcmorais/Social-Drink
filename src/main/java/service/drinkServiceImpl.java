@@ -146,22 +146,29 @@ public class drinkServiceImpl implements drinkService{
 
     @Override
     public Evaluation addEvaluation(int drinkId, String comment, int starts) {
+        Evaluation evaluation=null;
         try {
-            Evaluation evaluation = facade.createEvaluation();
+            evaluation = facade.createEvaluation();
             evaluation.setDate(new Date());
             evaluation.setText(comment);
             evaluation.setValue(starts);
-            evaluation.setUser(facade.getConsumerByORMID(1));
+            Consumer consumer = facade.getConsumerByORMID(1);
+            evaluation.setUser(consumer);
             Drink drink = facade.getDrinkByORMID(drinkId);
             drink.evaluation.add(evaluation);
             drink.setRating(drink.getRating()+ starts);
             drink.setRatingVotes(drink.getRatingVotes()+1);
             facade.save(drink);
-            return evaluation;
+            //Event
+            EventEval event = facade.createEventEval();
+            event.setEvaluation(evaluation);
+            event.setDrink(drink);
+            consumer.events.add(event);
+            facade.save(consumer);
         } catch (PersistentException e) {
             e.printStackTrace();
         }
-        return null;
+        return evaluation;
     }
 
 
@@ -209,6 +216,13 @@ public class drinkServiceImpl implements drinkService{
             }
 
             User user = facade.getUserByORMID(1);
+
+            if(user instanceof Consumer) {
+                EventDrink event = facade.createEventDrink();
+                event.setDrink(drink);
+                ((Consumer) user).events.add(event);
+            }
+
             user.drinks.add(drink);
             facade.save(user);
             drinkId = drink.getID();

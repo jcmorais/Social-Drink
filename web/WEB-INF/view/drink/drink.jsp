@@ -89,7 +89,8 @@
 
             </div>
             <div class="col-md-2 col-md-offset-2">
-                <h2>Adicionar aos favoritos</h2>
+                <button id="addFavorite" value="${drink.getID()}" type="button" onclick="addFavorite()" >Adicionar aos favoritos</button>
+                <button id="removeFavorite" value="${drink.getID()}" type="button" onclick="removeFavorite()" >Remover dos favoritms</button>
             </div>
         </div>
         <hr>
@@ -389,4 +390,36 @@
     $(window).load(function() {
         $('.flexslider').flexslider();
     });
+</script>
+
+
+
+<script>
+    function addFavorite() {
+        var url = '/SocialDrink/favorite/add/'+$('#addFavorite').val(); // the script where you handle the form input.
+        alert(url);
+        $.ajax({
+                type: "POST",
+                url: url,
+                data: null, // serializes the form's elements.
+                success: function(data)
+                {
+                    alert('sucesso');
+                }
+            });
+    }
+
+    function removeFavorite() {
+        var url = '/SocialDrink/favorite/remove/'+$('#removeFavorite').val(); // the script where you handle the form input.
+        alert(url);
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: null, // serializes the form's elements.
+            success: function(data)
+            {
+                alert('sucesso');
+            }
+        });
+    }
 </script>
