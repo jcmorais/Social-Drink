@@ -23,62 +23,71 @@
 <body>
 <jsp:include page="../topbar.jsp"/>
 <div class="container" style="padding-top: 100px">
-    <div class="col-md-12">
-        <div class="panel panel-default col-md-3">
+    <div class="col-md-3">
+        <div class="panel panel-default">
             <div class="panel-body" >
                 <img class="img-responsive center-block" src="<c:url value="${user.getPhoto().getFilePath()}"/>"/>
                 <c:out value="${user.name}"></c:out>
             </div>
         </div>
-        <div class="col-md-7 col-md-offset-1">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Bebidas</h3>
-                </div>
-                <div class="panel-body" >
-                    <c:forEach items="${userdrinks}" var="drink">
-                        <a href="/SocialDrink/drink/${drink.getID()}">
-                            <div class="col-md-3">
-                                <div class="he-wrap tpl6">
-                                    <img width="100" height="100"
-                                         src="<c:url value="${drink.getPhoto().getFilePath()}"/>" class="img-responsive" alt="">
-                                    <div class="he-view">
-                                        <div style="background: #2E2E2E; opacity: 0.7">
-                                            <h3 class="a1 centered" data-animate="fadeInDown">${drink.getName()}</h3>
-                                        </div>
-                                        <div style="text-align:center;">
-                                            <a class="" data-animate="fadeInUp"></a>
-                                            <a class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-eye"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </c:forEach>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-12">
-        <div class="panel panel-default col-md-3">
+        <div class="panel panel-default">
             <div class="panel-body" >
                 <c:out value="${user.description}"></c:out>
             </div>
         </div>
-        <div class="col-md-4 col-md-offset-1">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Contactos</h3>
+            </div>
+            <div class="panel-body" >
+                <div class="col-md-6"><b>Email:</b></div>
+                <div class="col-md-6"><c:out value="${user.email}"></c:out></div>
+                <div class="col-md-6"><b>Telefone:</b></div>
+                <div class="col-md-6"><c:out value="${user.contact}"></c:out></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-9">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Bebidas</h3>
+            </div>
+            <div class="panel-body" >
+                <c:forEach items="${userdrinks}" var="drink">
+                    <a href="/SocialDrink/drink/${drink.getID()}">
+                        <div class="col-md-3">
+                            <div class="he-wrap tpl6">
+                                <img width="100" height="100"
+                                     src="<c:url value="${drink.getPhoto().getFilePath()}"/>" class="img-responsive" alt="">
+                                <div class="he-view">
+                                    <div style="background: #2E2E2E; opacity: 0.7">
+                                        <h3 class="a1 centered" data-animate="fadeInDown">${drink.getName()}</h3>
+                                    </div>
+                                    <div style="text-align:center;">
+                                        <a class="" data-animate="fadeInUp"></a>
+                                        <a class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-eye"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </c:forEach>
+            </div>
+        </div>
+        <div class="col-md-7">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">Horário</h3>
                 </div>
                 <div class="panel-body">
                     <c:forEach var="day" items="${horary}">
-                            <div class="col-md-5"><c:out  value="${day.nameDay}"/></div>
-                            <div class="col-md-7"><c:out value="${day.opening} até ${day.closure}"/></div>
+                        <div class="col-md-5"><c:out  value="${day.nameDay}"/></div>
+                        <div class="col-md-7"><c:out value="${day.opening} até ${day.closure}"/></div>
                     </c:forEach>
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-5">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">Seguidores</h3>
@@ -94,22 +103,7 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-md-12">
-        <div class="col-md-3">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Contactos</h3>
-                </div>
-                <div class="panel-body" >
-                    <div class="col-md-6"><b>Email:</b></div>
-                    <div class="col-md-6"><c:out value="${user.email}"></c:out></div>
-                    <div class="col-md-6"><b>Telefone:</b></div>
-                    <div class="col-md-6"><c:out value="${user.contact}"></c:out></div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-7 col-md-offset-1">
+        <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">Localização</h3>
