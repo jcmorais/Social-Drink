@@ -85,7 +85,7 @@
         <div class="col-md-3">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Amigos</h3>
+                    <h3 class="panel-title">Seguidores</h3>
                 </div>
                 <div class="panel-body">
                     <c:forEach var="follower" items="${followers}">

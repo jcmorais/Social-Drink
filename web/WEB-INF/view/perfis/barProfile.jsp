@@ -81,9 +81,16 @@
         <div class="col-md-3">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Amigos</h3>
+                    <h3 class="panel-title">Seguidores</h3>
                 </div>
                 <div class="panel-body">
+                    <c:forEach var="follower" items="${followers}">
+                        <a href="/SocialDrink/user/${follower.ID}" style="color: inherit">
+                            <div class="col-md-2">
+                                <img height="50" width="50" class="img-responsive center-block" src="<c:url value="${follower.getPhoto().getFilePath()}"/>"/>
+                            </div>
+                        </a>
+                    </c:forEach>
                 </div>
             </div>
         </div>
