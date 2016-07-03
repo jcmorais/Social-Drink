@@ -39,8 +39,8 @@
         <div class="form-group col-md-2 col-md-offset-3">
             <label class="control-label" for="genero">Género</label>
             <select class="form-control" id="genero" name="genero">
-                <option value="masc">Masculino</option>
-                <option value="fem">Feminino</option>
+                <option value="Masculino">Masculino</option>
+                <option value="Feminino">Feminino</option>
             </select>
         </div>
         <div class="form-group col-md-2">

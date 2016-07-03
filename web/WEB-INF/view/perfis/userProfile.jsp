@@ -116,9 +116,28 @@
         <div class="col-md-7 col-md-offset-1">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Avaliações</h3>
+                    <h3 class="panel-title">Favoritos</h3>
                 </div>
                 <div class="panel-body">
+                    <c:forEach items="${favorites}" var="favorite">
+                        <a href="/SocialDrink/drink/${favorite.getID()}">
+                            <div class="col-md-3">
+                                <div class="he-wrap tpl6">
+                                    <img width="100" height="100"
+                                         src="<c:url value="${favorite.getPhoto().getFilePath()}"/>" class="img-responsive" alt="">
+                                    <div class="he-view">
+                                        <div style="background: #2E2E2E; opacity: 0.7">
+                                            <h3 class="a1 centered" data-animate="fadeInDown">${favorite.getName()}</h3>
+                                        </div>
+                                        <div style="text-align:center;">
+                                            <a class="" data-animate="fadeInUp"></a>
+                                            <a class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-eye"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </c:forEach>
                 </div>
             </div>
         </div>

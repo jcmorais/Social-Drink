@@ -40,6 +40,20 @@ public class UserPageController {
             model.setViewName("perfis/userProfile");
             Consumer consumer = (Consumer) user;
             model.addObject("user", consumer);
+
+            if (consumer.favoriteDrinks.size() > 4) {
+                Drink[] favorites = new Drink[4];
+                Drink[] aux = consumer.favoriteDrinks.toArray();
+
+                for (int i = 0; i < 4; i++) {
+                    favorites[i] = aux[i];
+                }
+
+                model.addObject("favorites",favorites);
+            } else {
+                model.addObject("favorites",consumer.favoriteDrinks.toArray());
+            }
+
         }
         
         if(user instanceof Bar) {
