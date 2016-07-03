@@ -12,13 +12,12 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Social Drink</title>
+    <title><c:out value="${user.name}"></c:out></title>
 
     <link href="<c:url value="/resources/bootstrap/css/bootstrap.min.css"/>" rel="stylesheet">
     <link href="<c:url value="/resources/bootstrap/css/bootstrap-theme.min.css"/>" rel="stylesheet">
     <link href="<c:url value="/resources/bootstrap/css/panels.css"/>" rel="stylesheet">
-
-
+    <link href="<c:url value="/resources/bootstrap/css/style-index-template.css"/>" rel="stylesheet">
 
 </head>
 <body>
@@ -37,11 +36,22 @@
                     <h3 class="panel-title">Bebidas</h3>
                 </div>
                 <div class="panel-body" >
-                    <c:forEach var="drink" items="${userdrinks}">
-                        <a href="/SocialDrink/drink/${drink.ID}" style="color: inherit">
+                    <c:forEach items="${userdrinks}" var="drink">
+                        <a href="/SocialDrink/drink/${drink.getID()}">
                             <div class="col-md-3">
-                                <h6><c:out value="${drink.name}"/></h6>
-                                <img height="100" width="100" class="img-responsive center-block" src="<c:url value="${drink.getPhoto().getFilePath()}"/>"/>
+                                <div class="he-wrap tpl6">
+                                    <img width="100" height="100"
+                                         src="<c:url value="${drink.getPhoto().getFilePath()}"/>" class="img-responsive" alt="">
+                                    <div class="he-view">
+                                        <div style="background: #2E2E2E; opacity: 0.7">
+                                            <h3 class="a1 centered" data-animate="fadeInDown">${drink.getName()}</h3>
+                                        </div>
+                                        <div style="text-align:center;">
+                                            <a class="" data-animate="fadeInUp"></a>
+                                            <a class="dmbutton a2" data-animate="fadeInUp"><i class="fa fa-eye"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </a>
                     </c:forEach>
@@ -110,6 +120,12 @@
     </div>
 </div>
 </body>
+
 <script src="<c:url value="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" />"></script>
 <script src="<c:url value="/resources/bootstrap/js/bootstrap.min.js" />"></script>
+<script src="<c:url value="/resources/bootstrap/js/bootstrap.min.js" />"></script>
+<script src="<c:url value="/resources/bootstrap/js/retina-1.1.0.js" />"></script>
+<script src="<c:url value="/resources/bootstrap/js/jquery.hoverdir.js" />"></script>
+<script src="<c:url value="/resources/bootstrap/js/jquery.hoverex.min.js" />"></script>
+
 </html>

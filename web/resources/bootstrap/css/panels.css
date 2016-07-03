@@ -1,3 +1,7 @@
 .panel-body  {
     word-break:break-all
 }
+
+.panel-default > .panel-heading {
+    background: #FBFBFB;
+}
