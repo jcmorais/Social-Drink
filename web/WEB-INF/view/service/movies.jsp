@@ -21,9 +21,9 @@
                     <c:forEach items="${movies}" var="movie">
                         <div class="col-md-3 movie">
                             <p class="title"> ${movie.getTitle()} </p>
-                            <img class="image" src="<c:url value="${movie.getImg_path()}"/>"/>
+                            <img class="image center-block" src="<c:url value="${movie.getImg_path()}"/>"/>
                             <p class="year centered"> ${movie.getYear()}  </p>
-                            <button class="btn">View</button>
+                            <button class="btn center-block">View</button>
                         </div>
                     </c:forEach>
                 </div>

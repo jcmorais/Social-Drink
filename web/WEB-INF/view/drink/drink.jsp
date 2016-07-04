@@ -62,7 +62,7 @@
                             Minutos
                         </p>
                     </div>
-                    <div class="col-md-3">
+                    <div class="">
                         <p id="commentsLength" class="drink-item-information">
                             <c:out value="${commentsLength}"></c:out>
                         </p>
@@ -70,7 +70,11 @@
                             Comentários
                         </p>
                     </div>
-
+                </div>
+                <div class="row">
+                    <div class="">
+                        <a  class="btn btn-primary btn-lg center-block" onclick="movies(${drink.getID()})" id="openBtn">Ver Filmes Sugeridos</a>
+                    </div>
                 </div>
             </div>
             <div class="col-md-4 col-md-offset-1">
@@ -222,7 +226,7 @@
             </div>
         </div>
         <div>
-            <a  class="btn btn-primary btn-lg" onclick="movies(${drink.getID()})" id="openBtn">Ver Filmes Sugeridos</a>
+
             <!--button   type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#moviesModal">
                 Filmes sugeridos
             </button-->
