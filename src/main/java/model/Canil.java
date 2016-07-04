@@ -11,7 +11,7 @@ public class Canil {
     private String schedule;
     private String email;
     private int phone;
-    private String opening_date;
+    private long opening_date;
     private String city;
     private Double lat;
     private Double lng;
@@ -72,11 +72,11 @@ public class Canil {
         this.phone = phone;
     }
 
-    public String getOpening_date() {
+    public long getOpening_date() {
         return opening_date;
     }
 
-    public void setOpening_date(String opening_date) {
+    public void setOpening_date(long opening_date) {
         this.opening_date = opening_date;
     }
 

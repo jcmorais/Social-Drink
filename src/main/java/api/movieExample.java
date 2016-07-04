@@ -31,7 +31,7 @@ public class movieExample {
         canil.setEmail("email@email.pt");;
         canil.setSchedule("From 9am to 8 pm on week days & From 9am to 1pm on weekends");
         canil.setPhone(123456789);
-        canil.setOpening_date("10010010101010101010101");
+        canil.setOpening_date(1466204400000L);
         canil.setLat(41.157944);
         canil.setLng(-8.629105);
         List<Canil> list = new ArrayList<>();
