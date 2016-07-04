@@ -10,7 +10,7 @@ $(document).ready(function(){
     $('#addPasso').click(function(event){
         event.preventDefault();
         stepDescription=$('#passos').val();
-        var newRow = '<tr"><td class="step-number">'+stepNumber+'</td><td>'+stepDescription+'</td><td><a href="#" class="remover">Remover</a></td></tr>';
+        var newRow = '<tr"><td class="col-md-1 step-number">'+stepNumber+'</td><td class="col-md-9">'+stepDescription+'</td><td class="text-right"><a href="#" class="remover col-md-2">Remover</a></td></tr>';
         stepNumber++;
         $('#stepsTable tr:last').after(newRow);
         $('#passos').val('');

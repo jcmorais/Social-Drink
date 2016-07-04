@@ -69,13 +69,13 @@
                         <div class="col-md-4 col-md-offset-2">
                             <label for="nome">Quantidade</label>
                             <div class="input-group">
-                                <input name="quantidade" id="quantity-spinner" class="form-control" type="text" value="1" min="1" max="10" style="text-align: center;">
+                                <input name="quantidade" id="quantity-spinner" size="40" class="form-control" type="text" value="1" min="1" max="10" style="text-align: center;">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <label>Tempo de preparação (min)</label>
                             <div class="input-group">
-                                <input name="tempo" id="duration-spinner" class="form-control" type="text" value="1" min="1" max="10" style="text-align: center;">
+                                <input name="tempo" id="duration-spinner" size="40" class="form-control" type="text" value="1" min="1" max="10" style="text-align: center;">
                             </div>
                         </div>
                     </div>
@@ -93,24 +93,37 @@
             <div class="form-group container">
 
                 <div class="row">
-                    <div class="col-md-3 col-md-offset-2">
+                    <div class="col-md-4 col-md-offset-1">
                         <label>Ingredientes</label>
-                        <input id="searchinput" class="form-control" type="search" placeholder="Search..." />
-                        <select class="form-control" id="lstBox1" multiple="multiple" size=8>
-                            <c:forEach items="${ingredientes}" var="ingrediente">
-                                <option value="${ingrediente.getID()}">${ingrediente.getName()}</option>
-                            </c:forEach>
-                        </select>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <input id="searchinput" class="form-control" type="search" placeholder="Search..." />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <select class="form-control" id="lstBox1" multiple="multiple" size=8>
+                                    <c:forEach items="${ingredientes}" var="ingrediente">
+                                        <option value="${ingrediente.getID()}">${ingrediente.getName()}</option>
+                                    </c:forEach>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="list-arrows col-md-1 text-center">
+                            <label class="add-ingridient"></label>
+                            <button class="btn btn-default btn-sm move-right" id="btnRight">
+                                <span class="glyphicon glyphicon-chevron-right">Adicionar</span>
+                            </button>
+
+                        </div>
+
                     </div>
 
-                    <div class="list-arrows col-md-1 text-center">
-                        <label></label>
-                        <button class="btn btn-default btn-sm move-right" id="btnRight">
-                            <span class="glyphicon glyphicon-chevron-right"></span>
-                        </button>
-                    </div>
 
-                    <div class="col-md-4">
+
+                    <div class="col-md-4 col-md-offset-1">
                         <label>Tabela de Ingredientes</label>
                         <table id="tabelaIng" class="table table-center">
                             <thead>
@@ -141,7 +154,7 @@
 
             <div class="form-group container">
                 <div class="row">
-                    <div class="col-md-6 col-md-offset-2">
+                    <div class="col-md-8 col-md-offset-2">
                         <label >Passos de preparação</label>
                         <div class="multi-field-wrapper">
                             <div class="multi-fields">
@@ -159,17 +172,20 @@
                     </div>
                 </div>
             </div>
-            <table class="table center" id="stepsTable">
-                <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Passo</th>
-                    <th></th>
-                </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
+            <div class="col-md-8 col-md-offset-2">
+                <table class="table center" id="stepsTable">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Passo</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+
 
             <div class="container">
                 <div class="form-group col-md-10">
