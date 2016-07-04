@@ -22,10 +22,10 @@
 
 </head>
 <body>
-<c:if test="${not empty session}">
+<c:if test="${sessionid != -1}">
     <jsp:include page="../topbar.jsp"/>
 </c:if>
-<c:if test="${empty session}">
+<c:if test="${sessionid == -1}">
     <jsp:include page="../topbaranon.jsp"/>
 </c:if>
 <div class="container" style="padding-top: 100px">
