@@ -23,22 +23,20 @@ public class RestServiceImpl implements RestService {
     Facade facade = new Facade();
 
     //Movies
-    private String urlMovies = "http://reel-ea1516.herokuapp.com/api/v1/genres/2";
-    private String urlFamilyMovies = "http://reel-ea1516.herokuapp.com/api/v1/genres/2";
+    private String urlMovies = "http://reel-ea1516.herokuapp.com/api/v1/genres/";
+    private String urlFamilyMovies = "http://reel-ea1516.herokuapp.com/api/v1/genres/";
 
     //Canil
     private String urlCanil = "http://localhost:8080/SocialDrink/canil";
 
     public Movies getListMoviesByDrinkID(int drinkId){
-        String url=urlMovies;
+        String url=urlMovies+drinkId;
         try {
             if(facade.getDrinkByORMID(drinkId).getTypeOfDrink().getID()!=1)
-                url=urlFamilyMovies;
+                url=urlFamilyMovies+drinkId;
         } catch (PersistentException e) {
             e.printStackTrace();
         }
-
-
 
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<Movies> response = restTemplate.exchange(
