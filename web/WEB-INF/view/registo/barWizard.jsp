@@ -13,6 +13,7 @@
     <link href="<c:url value="/resources/bootstrap/css/bootstrap.min.css"/>" rel="stylesheet">
     <link href="<c:url value="/resources/bootstrap/css/bootstrap-theme.min.css"/>" rel="stylesheet">
     <link href="<c:url value="/resources/bootstrap/css/wizard.css"/>" rel="stylesheet">
+    <link href="<c:url value="/resources/bootstrap/css/style-index-template.css"/>" rel="stylesheet">
 
     <!-- Include Bootstrap Clockpicker -->
     <link href="<c:url value="/resources/bootstrap/css/bootstrap-clockpicker.min.css"/>" rel="stylesheet">
@@ -23,19 +24,19 @@
 </head>
 <body>
 <jsp:include page="../topbaranon.jsp"/>
-<div class="container">
+<div class="container" style="padding-top: 100px">
     <div class="stepwizard">
         <div class="stepwizard-row setup-panel">
             <div class="stepwizard-step">
-                <a href="#step-1" type="button" class="btn btn-primary btn-circle">1</a>
+                <a href="#step-1" type="button" class="btn btn-primary btn-circle" style="background: #0eb493">1</a>
                 <p>Informações de Conta</p>
             </div>
             <div class="stepwizard-step">
-                <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
+                <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled" style="background: #0eb493">2</a>
                 <p>Informações do Bar</p>
             </div>
             <div class="stepwizard-step">
-                <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
+                <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled" style="background: #0eb493">3</a>
                 <p>Horário de funcionamento</p>
             </div>
         </div>

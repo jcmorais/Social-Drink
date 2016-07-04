@@ -19,7 +19,7 @@ import java.util.List;
  * Created by jpp on 03/07/16.
  */
 @Controller
-@SessionAttributes({"session","following"})
+@SessionAttributes({"session","following","sessionid"})
 public class LoginController {
     @Autowired
     private LoginService loginService = new LoginServiceImpl();
@@ -42,19 +42,17 @@ public class LoginController {
         else {
             model.addObject("session", session);
             model.addObject("following", following.toArray());
+            model.addObject("sessionid", session.getID());
             model.setViewName("redirect:/user/" + session.getID());
         }
 
         return model;
     }
 
-    @RequestMapping(value = "/logout", method = RequestMethod.POST)
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public ModelAndView logout(ModelAndView model) {
-
-        User session = null;
-
-        model.addObject("session", session);
-        model.addObject("following", null);
+        
+        model.addObject("sessionid", "-1");
         model.setViewName("redirect:/");
 
         return model;

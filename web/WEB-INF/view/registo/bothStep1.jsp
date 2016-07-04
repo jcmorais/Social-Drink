@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <div class="col-xs-12">
     <div class="col-md-12">
-        <div class="col-md-7 col-md-offset-3">
-            <h2 align="left">Informação de Conta</h2>
+        <div class="sec-title col-md-7 col-md-offset-3">
+            <h2>Informação de Conta</h2>
         </div>
         <div class="form-group col-md-7 col-md-offset-3">
             <label class="control-label">Email</label>
@@ -21,7 +21,7 @@
             <input maxlength="100" type="password" required="required" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Introduza novamente a password" />
         </div>
         <div class="form-group col-md-7 col-md-offset-3">
-            <button class="btn btn-primary nextBtn btn-lg pull-right" type="button">Seguinte</button>
+            <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" style="background: #0eb493">Seguinte</button>
         </div>
     </div>
 </div>

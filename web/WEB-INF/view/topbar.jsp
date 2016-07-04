@@ -26,8 +26,9 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/SocialDrink/timeline"><img src="<c:url value="/resources/img/homebutton.png"/>"></a></li>
                 <li><a href="/SocialDrink/drink/newdrink"><img src="<c:url value="/resources/img/drink.png"/>"></a></li>
-                <li><a href="#"><img src="<c:url value="/resources/img/newfollower.png"/>"></a></li>
-                <li><a href="/SocialDrink/user/${session.getID()}"><img class="img-responsive center-block" src="<c:url value="${user.getPhoto().getFilePath()}"/>"/></a></li>
+                <li><a href="/SocialDrink/user/${session.getID()}"><img width="25" height="25" class="img-responsive center-block" src="<c:url value="${user.getPhoto().getFilePath()}"/>"/></a></li>
+                <li><a href="/SocialDrink/logout"><img src="<c:url value="/resources/img/newfollower.png"/>"></a></li>
+
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

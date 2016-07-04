@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: jpp
@@ -10,9 +11,10 @@
     <meta charset="utf-8">
     <title>Registo</title>
 
-    <link rel="stylesheet" type="text/css" href="./resources/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="./resources/bootstrap/css/bootstrap-theme.min.css" />
-    <link rel="stylesheet" type="text/css" href="./resources/bootstrap/css/wizard.css" />
+    <link href="<c:url value="/resources/bootstrap/css/bootstrap.min.css"/>" rel="stylesheet">
+    <link href="<c:url value="/resources/bootstrap/css/bootstrap-theme.min.css"/>" rel="stylesheet">
+    <link href="<c:url value="/resources/bootstrap/css/wizard.css"/>" rel="stylesheet">
+    <link href="<c:url value="/resources/bootstrap/css/style-index-template.css"/>" rel="stylesheet">
 
     <!-- Include Bootstrap Datepicker -->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.min.css" />
@@ -23,32 +25,28 @@
 </head>
 <body>
 <jsp:include page="../topbar.jsp"/>
-<div class="container">
+<div class="container" style="padding-top: 100px">
     <form method="post" id="preForm" role="form" action="/SocialDrink/register">
         <div class="row setup-content">
             <div class="col-xs-12">
                 <div class="col-md-12">
-                    <div class="col-md-6 col-md-offset-5">
+                    <div class="sec-title text-center col-md-7 col-md-offset-3">
                         <h2 align="left">Registe-se</h2>
                     </div>
-                    <div class="col-md-6 col-md-offset-5">
-                        <h3 align="left">Facebook</h3>
+                    <div class="col-md-5 col-md-offset-3" style="padding-top: 20px">
+                        <h4>Por favor escolha o seu tipo de utilizador para ter uma experiência mais adequada às suas necessidades.<br>
+                        Se é dono de um estabelecimente escolha o tipo de utilizador Bar. <br>
+                        Se é apenas um consumidor ou criador de bebidas por conta própria escolha o tipo de utilizador Utilizador</h4>
                     </div>
-                    <div class="col-md-6 col-md-offset-5">
-                        <h3 align="left">Google</h3>
-                    </div>
-                    <div class="col-md-6 col-md-offset-5">
-                        <h4 align="center">ou</h4>
-                    </div>
-                    <div class="form-group col-md-6 col-md-offset-5">
-                        <label for="tipoConta">Tipo de Conta</label>
+                    <div class="form-group col-md-5 col-md-offset-3" style="padding-top: 20px">
+                        <label for="tipoConta"><h4>Tipo de Conta</h4></label>
                         <select class="form-control" id="tipoConta" name="tipoConta">
                             <option value="utilizador">Utilizador</option>
                             <option value="bar">Bar</option>
                         </select>
                     </div>
-                    <div class="form-group col-md-6 col-md-offset-7">
-                        <button class="btn btn-primary nextBtn btn-lg" type="submit" value="Register">Registar</button>
+                    <div class="form-group col-md-7 col-md-offset-3" style="padding-top: 20px">
+                        <button class="btn btn-primary nextBtn btn-lg" type="submit" value="Register" style="background: #0eb493">Registar</button>
                     </div>
                 </div>
             </div>

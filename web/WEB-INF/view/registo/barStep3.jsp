@@ -9,8 +9,8 @@
 
 <div class="col-xs-12">
     <div class="col-md-12">
-        <div class="col-md-7 col-md-offset-3">
-            <h2 align="left">Hórario de Funcionamento</h2>
+        <div class="sec-title col-md-7 col-md-offset-3">
+            <h2>Hórario de Funcionamento</h2>
         </div>
         <div class="form-group form-inline col-md-7 col-md-offset-3">
             <div class="col-md-3">
@@ -181,8 +181,8 @@
             </div>
         </div>
         <div class="form-group col-md-7 col-md-offset-3">
-            <button class="btn btn-default prevBtn btn-lg pull-left" type="button" >Anterior</button>
-            <button id="submit-bar-form" class="btn btn-success nextBtn btn-lg pull-right" type="submit">Confirmar</button>
+            <button class="btn btn-default prevBtn btn-lg pull-left" type="button" style="background: #0eb493">Anterior</button>
+            <button id="submit-bar-form" class="btn btn-success nextBtn btn-lg pull-right" type="submit" style="background: #0eb493">Confirmar</button>
         </div>
     </div>
 </div>
