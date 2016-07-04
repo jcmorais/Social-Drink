@@ -18,13 +18,6 @@
     <title>Drink</title>
 
 
-    <meta property="og:url"           content="http://www.your-domain.com/your-page.html" />
-    <meta property="og:type"          content="website" />
-    <meta property="og:title"         content="Your Website Title" />
-    <meta property="og:description"   content="Your description" />
-    <meta property="og:image"         content="http://www.your-domain.com/path/image.jpg" />
-
-
 </head>
 <body>
 <c:if test="${not empty session}">
@@ -33,71 +26,10 @@
 <c:if test="${empty session}">
     <jsp:include page="../topbaranon.jsp"/>
 </c:if>
+
 <div class="container" style="padding-top: 100px">
     <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <div class='container'>
-                    <h2 style="display: inline-block"><c:out value="${drink.name.toUpperCase()}"></c:out></h2>
-                    <h3 style="display: inline-block; padding-top: 5px">
-                        <ul class="c-rating show-rating">
-                            <c:if test="${rating == '0'}">
-                                <li class="c-rating__item"></li>
-                                <li class="c-rating__item"></li>
-                                <li class="c-rating__item"></li>
-                                <li class="c-rating__item"></li>
-                                <li class="c-rating__item"></li>
-                            </c:if>
-                            <c:if test="${rating == '1'}">
-                                <li class="c-rating__item is-active"></li>
-                                <li class="c-rating__item"></li>
-                                <li class="c-rating__item"></li>
-                                <li class="c-rating__item"></li>
-                                <li class="c-rating__item"></li>
-                            </c:if>
-                            <c:if test="${rating == '2'}">
-                                <li class="c-rating__item is-active"></li>
-                                <li class="c-rating__item is-active"></li>
-                                <li class="c-rating__item"></li>
-                                <li class="c-rating__item"></li>
-                                <li class="c-rating__item"></li>
-                            </c:if>
-                            <c:if test="${rating == '3'}">
-                                <li class="c-rating__item is-active"></li>
-                                <li class="c-rating__item is-active"></li>
-                                <li class="c-rating__item is-active"></li>
-                                <li class="c-rating__item"></li>
-                                <li class="c-rating__item"></li>
-                            </c:if>
-                            <c:if test="${rating == '4'}">
-                                <li class="c-rating__item is-active"></li>
-                                <li class="c-rating__item is-active"></li>
-                                <li class="c-rating__item is-active"></li>
-                                <li class="c-rating__item is-active"></li>
-                                <li class="c-rating__item"></li>
-                            </c:if>
-                            <c:if test="${rating == '5'}">
-                                <li class="c-rating__item is-active"></li>
-                                <li class="c-rating__item is-active"></li>
-                                <li class="c-rating__item is-active"></li>
-                                <li class="c-rating__item is-active"></li>
-                                <li class="c-rating__item is-active"></li>
-                            </c:if>
-                        </ul>
-                    </h3>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <p>Com alcool</p>
 
-
-            </div>
-            <div class="col-md-2 col-md-offset-2">
-                <button id="addFavorite" value="${drink.getID()}" type="button" onclick="addFavorite()" >Adicionar aos favoritos</button>
-                <button id="removeFavorite" value="${drink.getID()}" type="button" onclick="removeFavorite()" >Remover dos favoritms</button>
-            </div>
-        </div>
-        <hr>
         <div class="row">
             <div class="col-md-4">
                 <div class="row">
@@ -202,12 +134,52 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-3">
-                                    <img src="">
-                                    <span>Alcoolico</span>
+                                    <c:if test="${drink.getTypeOfDrink().getName() == 'álcool'}">
+                                        <a class="btn icon-btn btn-danger">
+                                            <span class="glyphicon btn-glyphicon glyphicon-glass img-circle text-danger"></span>
+                                            Alcoolico
+                                        </a>
+                                    </c:if>
+                                    <c:if test="${drink.getTypeOfDrink().getName() != 'álcool'}">
+                                        <a class="btn icon-btn btn-info">
+                                            <span class="glyphicon btn-glyphicon glyphicon-sunglasses img-circle text-info"></span>
+                                            Não alcoolico
+                                        </a>
+                                    </c:if>
                                 </div>
                                 <div class="col-md-3">
-                                    <img src="">
-                                    <span>Favourited</span>
+                                    <!--a class="btn icon-btn btn-primary" href="#">
+                                        <span class="glyphicon btn-glyphicon glyphicon-heart img-circle text-primary"></span>
+                                        Adicionado aos Favoritos
+                                    </a-->
+                                    <c:if test="${isFavorite == 'false'}">
+                                        <div id="addFavorite">
+                                            <a class="btn icon-btn btn-success" onclick="addFavorite(${drink.getID()})">
+                                                <span class="glyphicon btn-glyphicon glyphicon-heart-empty img-circle text-success"></span>
+                                                Adicionar aos Favoritos
+                                            </a>
+                                        </div>
+                                        <div id="removeFavorite" style="display: none;">
+                                            <a class="btn icon-btn btn-warning" onclick="removeFavorite(${drink.getID()})">
+                                                <span class="glyphicon btn-glyphicon glyphicon-minus img-circle text-warning"></span>
+                                                Remover dos favoritos
+                                            </a>
+                                        </div>
+                                    </c:if>
+                                    <c:if test="${isFavorite == 'true'}">
+                                        <div id="addFavorite" style="display: none;">
+                                            <a class="btn icon-btn btn-success" onclick="addFavorite(${drink.getID()})"  >
+                                                <span class="glyphicon btn-glyphicon glyphicon-heart-empty img-circle text-success"></span>
+                                                Adicionar aos Favoritos
+                                            </a>
+                                        </div>
+                                        <div id="removeFavorite">
+                                            <a class="btn icon-btn btn-warning"  onclick="removeFavorite(${drink.getID()})">
+                                                <span class="glyphicon btn-glyphicon glyphicon-minus img-circle text-warning"></span>
+                                                Remover dos favoritos
+                                            </a>
+                                        </div>
+                                    </c:if>
                                 </div>
                             </div>
 
@@ -236,12 +208,12 @@
                             </a>
                         </div>
                         <div class="col-md-3">
-                            <a href="#">
+                            <a target="_blank" href="#">
                                 <img class="social-icon" src="<c:url value="/resources/img/images/social/instagram.ico" />" alt="" />
                             </a>
                         </div>
                         <div class="col-md-3">
-                            <a href="https://twitter.com/intent/tweet?text=${link}">
+                            <a target="_blank" href="https://twitter.com/intent/tweet?text=${link}">
                                 <img class="social-icon" src="<c:url value="/resources/img/images/social/twitter.ico" />" alt="" />
                             </a>
                         </div>
@@ -249,136 +221,144 @@
                 </div>
             </div>
         </div>
-    </div>
+        <div>
+            <a  class="btn btn-primary btn-lg" onclick="movies(${drink.getID()})" id="openBtn">Ver Filmes Sugeridos</a>
+            <!--button   type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#moviesModal">
+                Filmes sugeridos
+            </button-->
+        </div>
 
-    <hr>
-</div>
-<!-- Modo de preparação -->
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="flexslider">
-                <ul class="slides">
-                    <c:forEach items="${photos}" var="photo">
-                        <li><img src="<c:url value="${photo.getFilePath()}"/>"/></li>
-                    </c:forEach>
-                </ul>
-            </div>
-
+        <div id="moviesContainner">
 
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-3 col-md-offset-2">
-            <table class="table table-striped table-bordered text-center">
-                <tr>
-                    <th class="text-center">Ingrediente</th>
-                    <th class="text-center">Quantidade</th>
-                </tr>
 
-                <c:forEach items="${ingredients}" var="ingredient">
-                    <tr>
-                        <td> <c:out value="${ingredient.ingredient.name}"/> </td>
-                        <td> <c:out value="${ingredient.amount}"/> </td>
-                    </tr>
-                </c:forEach>
-
-            </table>
-        </div>
-        <div class="col-md-3 col-md-offset-2">
-            <table class="table table-striped table-bordered text-center">
-                <tr>
-                    <th class="text-center" colspan="2">
-                        Preparação
-                    </th>
-                </tr>
-                <c:forEach items="${steps}" var="step">
-                    <tr>
-                        <td> <c:out value="${step.number}"/> </td>
-                        <td> <c:out value="${step.description}"/> </td>
-                    </tr>
-                </c:forEach>
-            </table>
-        </div>
-    </div>
-    <hr>
-</div>
-
-<!-- comentarios -->
-<div class="container">
-    <div class="row">
-        <h3>Comentários</h3>
-        <div class="col-md-12 text-center write-comment">
-            <jsp:include page="evaluation.jsp"/>
-        </div>
-    </div>
-    <div class="row">
-        <h3 class="text-center">Comentários de Utilizadores</h3>
-        <div class="container" id="comments">
-            <div id="userEval"></div>
-        <c:forEach items="${evaluations}" var="eval">
-            <div class="col-md-6">
-                <div class="drink-comment">
-                    <div class="col-md-2">
-                        <img class="comment picture circular-photo" src="<c:url value="${eval.getUser().getPhoto().getFilePath()}"/>" alt="" />
-                    </div>
-                    <div class="col-md-10">
-                        <div class="comment-text">
-                            <p class="commentator">
-                                    ${eval.getUser().getFirstname()} ${eval.getUser().getLastname()}
-                            <div style="display:inline-block">
-                            <ul class="c-rating show-rating">
-                                <c:if test="${eval.getValue() == '1'}">
-                                    <li class="c-rating__item is-active"></li>
-                                    <li class="c-rating__item"></li>
-                                    <li class="c-rating__item"></li>
-                                    <li class="c-rating__item"></li>
-                                    <li class="c-rating__item"></li>
-                                </c:if>
-                                <c:if test="${eval.getValue() == '2'}">
-                                    <li class="c-rating__item is-active"></li>
-                                    <li class="c-rating__item is-active"></li>
-                                    <li class="c-rating__item"></li>
-                                    <li class="c-rating__item"></li>
-                                    <li class="c-rating__item"></li>
-                                </c:if>
-                                <c:if test="${eval.getValue() == '3'}">
-                                    <li class="c-rating__item is-active"></li>
-                                    <li class="c-rating__item is-active"></li>
-                                    <li class="c-rating__item is-active"></li>
-                                    <li class="c-rating__item"></li>
-                                    <li class="c-rating__item"></li>
-                                </c:if>
-                                <c:if test="${eval.getValue() == '4'}">
-                                    <li class="c-rating__item is-active"></li>
-                                    <li class="c-rating__item is-active"></li>
-                                    <li class="c-rating__item is-active"></li>
-                                    <li class="c-rating__item is-active"></li>
-                                    <li class="c-rating__item"></li>
-                                </c:if>
-                                <c:if test="${eval.getValue() == '5'}">
-                                    <li class="c-rating__item is-active"></li>
-                                    <li class="c-rating__item is-active"></li>
-                                    <li class="c-rating__item is-active"></li>
-                                    <li class="c-rating__item is-active"></li>
-                                    <li class="c-rating__item is-active"></li>
-                                </c:if>
-                            </ul>
-                            <div style="margin-top:5px; margin-left: 5px; color: #999999; display:inline-block">${eval.getDate()} </div>
-                        </div>
-                            </p>
-
-                            <p>${eval.getText()}</p>
-                        </div>
-                    </div>
-
+    <!-- Modo de preparação -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="flexslider">
+                    <ul class="slides">
+                        <c:forEach items="${photos}" var="photo">
+                            <li><img src="<c:url value="${photo.getFilePath()}"/>"/></li>
+                        </c:forEach>
+                    </ul>
                 </div>
-            </div>
-        </c:forEach>
-        </div>
 
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <table class="table table-striped table-bordered text-center">
+                    <tr>
+                        <th class="text-center">Ingrediente</th>
+                        <th class="text-center">Quantidade</th>
+                    </tr>
+
+                    <c:forEach items="${ingredients}" var="ingredient">
+                        <tr>
+                            <td> <c:out value="${ingredient.ingredient.name}"/> </td>
+                            <td> <c:out value="${ingredient.amount}"/> </td>
+                        </tr>
+                    </c:forEach>
+
+                </table>
+            </div>
+            <div class="col-md-7 col-md-offset-1">
+                <table class="table table-striped table-bordered text-center">
+                    <tr>
+                        <th class="text-center" colspan="2">
+                            Preparação
+                        </th>
+                    </tr>
+                    <c:forEach items="${steps}" var="step">
+                        <tr>
+                            <td> <c:out value="${step.number}"/> </td>
+                            <td> <c:out value="${step.description}"/> </td>
+                        </tr>
+                    </c:forEach>
+                </table>
+            </div>
+        </div>
+        <hr>
     </div>
-</div>
+
+    <!-- comentarios -->
+    <div class="container">
+        <div class="row">
+            <h3>Comentários</h3>
+            <div class="col-md-12 text-center write-comment">
+                <jsp:include page="evaluation.jsp"/>
+            </div>
+        </div>
+        <div class="row">
+            <h3 class="text-center">Comentários de Utilizadores</h3>
+            <div class="container" id="comments">
+                <div id="userEval"></div>
+                <c:forEach items="${evaluations}" var="eval">
+                    <div class="col-md-6">
+                        <div class="drink-comment">
+                            <div class="col-md-2">
+                                <img class="comment picture circular-photo" src="<c:url value="${eval.getUser().getPhoto().getFilePath()}"/>" alt="" />
+                            </div>
+                            <div class="col-md-10">
+                                <div class="comment-text">
+                                    <p class="commentator">
+                                            ${eval.getUser().getFirstname()} ${eval.getUser().getLastname()}
+                                    <div style="display:inline-block">
+                                        <ul class="c-rating show-rating">
+                                            <c:if test="${eval.getValue() == '1'}">
+                                                <li class="c-rating__item is-active"></li>
+                                                <li class="c-rating__item"></li>
+                                                <li class="c-rating__item"></li>
+                                                <li class="c-rating__item"></li>
+                                                <li class="c-rating__item"></li>
+                                            </c:if>
+                                            <c:if test="${eval.getValue() == '2'}">
+                                                <li class="c-rating__item is-active"></li>
+                                                <li class="c-rating__item is-active"></li>
+                                                <li class="c-rating__item"></li>
+                                                <li class="c-rating__item"></li>
+                                                <li class="c-rating__item"></li>
+                                            </c:if>
+                                            <c:if test="${eval.getValue() == '3'}">
+                                                <li class="c-rating__item is-active"></li>
+                                                <li class="c-rating__item is-active"></li>
+                                                <li class="c-rating__item is-active"></li>
+                                                <li class="c-rating__item"></li>
+                                                <li class="c-rating__item"></li>
+                                            </c:if>
+                                            <c:if test="${eval.getValue() == '4'}">
+                                                <li class="c-rating__item is-active"></li>
+                                                <li class="c-rating__item is-active"></li>
+                                                <li class="c-rating__item is-active"></li>
+                                                <li class="c-rating__item is-active"></li>
+                                                <li class="c-rating__item"></li>
+                                            </c:if>
+                                            <c:if test="${eval.getValue() == '5'}">
+                                                <li class="c-rating__item is-active"></li>
+                                                <li class="c-rating__item is-active"></li>
+                                                <li class="c-rating__item is-active"></li>
+                                                <li class="c-rating__item is-active"></li>
+                                                <li class="c-rating__item is-active"></li>
+                                            </c:if>
+                                        </ul>
+                                        <div style="margin-top:5px; margin-left: 5px; color: #999999; display:inline-block">${eval.getDate()} </div>
+                                    </div>
+                                    </p>
+
+                                    <p>${eval.getText()}</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </c:forEach>
+            </div>
+
+        </div>
+    </div>
 
 </div>
 </body>
@@ -399,31 +379,60 @@
 
 
 <script>
-    function addFavorite() {
-        var url = '/SocialDrink/favorite/add/'+$('#addFavorite').val(); // the script where you handle the form input.
-        alert(url);
-        $.ajax({
-                type: "POST",
-                url: url,
-                data: null, // serializes the form's elements.
-                success: function(data)
-                {
-                    alert('sucesso');
-                }
-            });
-    }
-
-    function removeFavorite() {
-        var url = '/SocialDrink/favorite/remove/'+$('#removeFavorite').val(); // the script where you handle the form input.
-        alert(url);
+    function addFavorite(drinkId) {
+        var url = '/SocialDrink/favorite/add/'+drinkId; // the script where you handle the form input.
         $.ajax({
             type: "POST",
             url: url,
             data: null, // serializes the form's elements.
             success: function(data)
             {
-                alert('sucesso');
+                $("#removeFavorite").attr("style","display: ");
+                $("#addFavorite").attr("style","display: ");
+                $('#addFavorite').hide();
+                $('#removeFavorite').show;
+            }
+        });
+    }
+
+    function removeFavorite(drinkId) {
+        var url = '/SocialDrink/favorite/remove/'+drinkId; // the script where you handle the form input.
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: null, // serializes the form's elements.
+            success: function(data)
+            {
+                $("#removeFavorite").attr("style","display: ");
+                $("#addFavorite").attr("style","display: ");
+                $("#addFavorite").show();
+                $("#removeFavorite").hide();
             }
         });
     }
 </script>
+
+
+
+<script>
+
+
+    function movies(drinkId) {
+        var url = '/SocialDrink/service/movies/'+drinkId; // the script where you handle the form input.
+        $.ajax({
+            type: "GET",
+            url: url,
+            data: null, // serializes the form's elements.
+            success: function (data) {
+                $('#moviesContainner').html(data);
+                $('#moviesModal').modal({
+                    show: true
+                });
+            }
+        });
+
+    }
+</script>
+
+<script type="text/javascript" src="<c:url value="/resources/bootstrap/js/modal.js" />"></script>
+<script type="text/javascript" src="<c:url value="/resources/bootstrap/js/myJavascript.js" />"></script>

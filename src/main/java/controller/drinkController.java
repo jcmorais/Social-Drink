@@ -1,23 +1,23 @@
 package controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
-import org.springframework.web.servlet.ModelAndView;
-import service.drinkService;
-import socialdrink.Drink;
-import socialdrink.Evaluation;
-import socialdrink.Step;
+        import org.springframework.beans.factory.annotation.Autowired;
+        import org.springframework.stereotype.Controller;
+        import org.springframework.web.bind.annotation.*;
+        import org.springframework.web.multipart.MultipartFile;
+        import org.springframework.web.multipart.MultipartHttpServletRequest;
+        import org.springframework.web.servlet.ModelAndView;
+        import service.drinkService;
+        import socialdrink.Drink;
+        import socialdrink.Evaluation;
+        import socialdrink.Step;
 
-import javax.servlet.http.HttpServletResponse;
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.text.SimpleDateFormat;
-import java.util.LinkedList;
-import java.util.List;
+        import javax.servlet.http.HttpServletResponse;
+        import java.io.BufferedOutputStream;
+        import java.io.File;
+        import java.io.FileOutputStream;
+        import java.text.SimpleDateFormat;
+        import java.util.LinkedList;
+        import java.util.List;
 
 /**
  * Created by carlosmorais on 08/06/16.
@@ -37,17 +37,9 @@ public class drinkController {
         Drink drink = drinkService.getDrinkById(drinkId);
         model.addObject("drink", drink);
         model.addObject("ingredients", drink.ingredients.toArray());
-
-        /*
-        Step[] steps = new Step[drink.steps.size()];
-        for (Step step : drink.steps.toArray()) {
-            steps[step.getNumber()-1] = step;
-        }
-        */
-
+        model.addObject("isFavorite", drinkService.isFavoriteDrink(drinkId));
         model.addObject("steps", drink.steps.toArray());
         model.addObject("ingredientsLength", drink.ingredients.toArray().length);
-        //mudar isto...
         model.addObject("evaluations", drink.evaluation.toArray());
         model.addObject("link","http://localhost:8080/SocialDrink/drink/"+drinkId);
         model.addObject("commentsLength", drink.evaluation.toArray().length);
@@ -81,7 +73,7 @@ public class drinkController {
                                  @RequestParam("passos[]") List<String> passos,
                                  @RequestParam("ingredientes[]") List<Integer> ingredientes,
                                  @RequestParam("quantidades[]") List<String> quantidades
-                                 ){
+    ){
 
         System.out.println("Nome " + nome);
         System.out.println("Descrição " + descricao);
@@ -130,7 +122,7 @@ public class drinkController {
     @RequestMapping(value="/{drinkId}/photos", method = RequestMethod.POST)
     @ResponseBody
     String uploadFileHandler(@PathVariable("drinkId") int drinkId,
-                                   @RequestParam("photosFiles") MultipartFile photosFiles[]) {
+                             @RequestParam("photosFiles") MultipartFile photosFiles[]) {
         this.drinkService.addPhotosToAlbum(drinkId, photosFiles);
         return "fotos adicionadas com sucesso ao album";
     }
@@ -138,8 +130,8 @@ public class drinkController {
 
     @RequestMapping(value = "/{drinkId}/evaluation", method =  RequestMethod.POST)
     ModelAndView comment(@PathVariable("drinkId") int drinkId,
-                   @RequestParam("comment") String comment,
-                   @RequestParam("stars") int stars){
+                         @RequestParam("comment") String comment,
+                         @RequestParam("stars") int stars){
         System.out.println("stars:"+stars+"\ncomment: "+comment);
         ModelAndView model = new ModelAndView("drink/simpleEval");
         Evaluation eval = drinkService.addEvaluation(drinkId, comment, stars);
@@ -149,15 +141,6 @@ public class drinkController {
         model.addObject("data",ft.format(eval.getDate()));
         return model;
     }
-
-
-
-
-
-
-
-
-
 
 
 }
