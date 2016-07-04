@@ -35,4 +35,6 @@ public interface drinkService {
     Drink[] getBestDrinks(int tipo);
 
     List<DrinkRepresentation> getBestDrinkRepresentation(int tipo);
+
+    boolean isFavoriteDrink(int drinkId);
 }

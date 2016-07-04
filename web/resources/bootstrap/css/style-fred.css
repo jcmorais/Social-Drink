@@ -36,37 +36,37 @@
 }
 
 .circular-photo {
-	width: 80px;
-	height: 80px;
-	border-radius: 150px;
-	-webkit-border-radius: 150px;
-	-moz-border-radius: 150px;
-	background: url(http://link-to-your/image.jpg) no-repeat;
-	}
+  width: 80px;
+  height: 80px;
+  border-radius: 150px;
+  -webkit-border-radius: 150px;
+  -moz-border-radius: 150px;
+  background: url(http://link-to-your/image.jpg) no-repeat;
+}
 
-  .comment-picture{
-    display: inline-block;
-  }
+.comment-picture{
+  display: inline-block;
+}
 
-  .write-comment{
-    margin-top: 20px;
-    margin-bottom: 50px;
-  }
+.write-comment{
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
 
 
 
-  .comment{
-    margin-bottom: 20px;
-  }
+.comment{
+  margin-bottom: 20px;
+}
 
-  .comment-text > .commentator{
-    font-weight: bold;
-  }
+.comment-text > .commentator{
+  font-weight: bold;
+}
 
-  .comment-text{
-    margin-left: 10px;
-    display: inline-block;
-  }
+.comment-text{
+  margin-left: 10px;
+  display: inline-block;
+}
 
 .spinner {
   width: 100px;
@@ -102,4 +102,14 @@
   position: absolute;
   top: 0;
   left: 4px;
+}
+
+.btn-glyphicon {
+  padding:8px;
+  background:#ffffff;
+  margin-right:4px;
+}
+.icon-btn {
+  padding: 1px 15px 3px 2px;
+  border-radius:50px;
 }

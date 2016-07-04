@@ -63,7 +63,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void removeFavoriteDrink(int drinkId) {
         try {
-            Consumer consumer = (Consumer) facade.getUserByORMID(1);
+            Consumer consumer = facade.getConsumerByORMID(1);
             Iterator<Drink> it = consumer.favoriteDrinks.getIterator();
             boolean flag = true;
             while (it.hasNext() && flag){

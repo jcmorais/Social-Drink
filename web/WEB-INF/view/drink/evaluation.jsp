@@ -17,15 +17,15 @@
 <form  method="post" class="form-horizontal" id="evalForm" role="form" action="/SocialDrink/drink/${drink.getID()}/evaluation">
     <div class="form-group">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-2 col-md-offset-2">
                 <label for="comment" class="text-center">Comentar</label>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-6">
                 <textarea id="comment" name="comment" class="form-control" name="" rows="8" cols="40"></textarea>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-2 col-md-offset-2">
                 <label class="text-center">Avaliar</label>
             </div>
             <div class="col-md-8">

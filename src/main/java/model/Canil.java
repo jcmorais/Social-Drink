@@ -1,7 +1,5 @@
 package model;
 
-import java.math.BigInteger;
-
 /**
  * Created by carlosmorais on 02/07/16.
  */
@@ -15,8 +13,8 @@ public class Canil {
     private int phone;
     private String opening_date;
     private String city;
-    private int lat;
-    private int lng;
+    private Double lat;
+    private Double lng;
 
     public int getId() {
         return id;
@@ -90,19 +88,19 @@ public class Canil {
         this.city = city;
     }
 
-    public int getLat() {
+    public Double getLat() {
         return lat;
     }
 
-    public void setLat(int lat) {
+    public void setLat(Double lat) {
         this.lat = lat;
     }
 
-    public int getLng() {
+    public Double getLng() {
         return lng;
     }
 
-    public void setLng(int lng) {
+    public void setLng(Double lng) {
         this.lng = lng;
     }
 

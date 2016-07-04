@@ -1,0 +1,106 @@
+.row-centered {
+    text-align:center;
+}
+.col-centered {
+    display:inline-block;
+    float:none;
+    /* reset the text-align */
+    text-align:left;
+    /* inline-block space fix */
+    margin-right:-4px;
+}
+
+.animal{
+  height: 600px;
+  background:#52504E;
+  opacity: 0.8;
+  margin: 30px;
+}
+
+.animal > .logo{
+  height: 40px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.animal-title{
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: 5px;
+  margin-left: 15px;
+  color: white;
+  font-size: 40px;
+
+}
+
+.animal-text{
+  color: white;
+  text-align: justify;
+  margin-top: 10px;
+}
+
+.animal-address{
+  color: white;
+  font-weight: bold;
+  display: inline;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+
+.contacts{
+}
+
+.contact{
+  margin-bottom: 10px;
+}
+.contacts > .head{
+  text-decoration: underline;
+  color: white;
+  font-size: 15px;
+}
+.contact > .schedule{
+  color: white;
+  display: inline;
+}
+
+.contact > .phone{
+  display: inline;
+  color: white;
+}
+
+.icon{
+  color: white;
+  vertical-align: middle;
+}
+
+.contact > a.mail{
+  color: white;
+  vertical-align: middle;
+}
+
+.contact > a.map{
+  color: white;
+}
+
+
+
+/*CSS FOR THE MOVIES*/
+
+.movie{
+  margin-top: 40px;
+}
+
+.movie > .title{
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.movie > .year{
+  margin-top: 10px;
+  text-align: center;
+
+}
+
+.movie > .image{
+  height: 200px;
+}

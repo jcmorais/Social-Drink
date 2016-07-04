@@ -147,7 +147,7 @@
     <div class="row">
 
         <div class="sec-title text-center">
-            <h2>Outros serviços</h2>
+            <h2>Outros serviços - Adote um animal</h2>
             <div class="devider"><i class="fa fa-heart-o fa-lg"></i></div>
         </div>
 
@@ -155,20 +155,33 @@
     <div class="row">
 
         <div class="col-md-6">
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+            <p>São os muitos os locais onde pode adoptar um animal. As associações são um bom ponto de partida, assim como canis municipais. Veja aqui uma lista das associações que existem no nosso país e escolha a mais perto da sua residência..</p>
         </div><!--/col-md-6-->
         <div class="col-md-6">
-            <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software.</p>
+            <p>A presença de um animal de estimação em casa tráz felicidade e bem estar. Bolinhas de pelo alegres, fofinhas e cheias de vida, grandes ou pequenas, brancas, pretas, marrons ou amarelas, pulam e brincam o dia todo como se fossem brinquedinhos com energia infinita..</p>
         </div><!--/col-md-6-->
     </div><!--/row-->
+
+
 </div><!-- /.container -->
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
-            <img src="./resources/img/img-index-theme/items.png" class="img-responsive" alt="">
+            <img src="./resources/img/img-index-theme/dog2.jpg" class="img-responsive" alt="">
         </div>
     </div><!--/row-->
 </div><!--/.container-->
+
+<div>
+    <a  class="btn btn-primary btn-lg" onclick="canis()" id="openBtn">Ver lista de canis</a>
+    <!--button   type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#moviesModal">
+        Filmes sugeridos
+    </button-->
+</div>
+
+<div id="canisContainner">
+
+</div>
 
 
 <div id="themesell-footer">
@@ -282,3 +295,25 @@
 
 </body>
 </html>
+
+
+
+<script>
+
+
+    function canis() {
+        var url = '/SocialDrink/service/canis'; // the script where you handle the form input.
+        $.ajax({
+            type: "GET",
+            url: url,
+            data: null, // serializes the form's elements.
+            success: function (data) {
+                $('#canisContainner').html(data);
+                $('#canisModal').modal({
+                    show: true
+                });
+            }
+        });
+
+    }
+</script>

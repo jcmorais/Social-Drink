@@ -19,7 +19,7 @@ import java.util.List;
 
 @RestController
 public class movieExample {
-    @RequestMapping(value = "/canies", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/canil", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Canil>> getCanilList() {
         Canil canil = new Canil();
         canil.setName("Pet Club");
@@ -31,6 +31,8 @@ public class movieExample {
         canil.setSchedule("From 9am to 8 pm on week days & From 9am to 1pm on weekends");
         canil.setPhone(123456789);
         canil.setOpening_date("10010010101010101010101");
+        canil.setLat(41.157944);
+        canil.setLng(-8.629105);
         List<Canil> list = new ArrayList<>();
         list.add(canil);
         return new ResponseEntity<List<Canil>>(list, HttpStatus.OK);

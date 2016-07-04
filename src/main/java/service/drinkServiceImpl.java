@@ -95,6 +95,7 @@ public class drinkServiceImpl implements drinkService{
                 photo.setFilePath("/images/drink/"+drinkId+"/profile."+aux[aux.length-1]);
                 photo.setName("profile."+aux[aux.length-1]);
                 drink.setPhoto(photo);
+
                 facade.save(drink);
             } catch (Exception e) {
             }
@@ -271,6 +272,18 @@ public class drinkServiceImpl implements drinkService{
         return best;
     }
 
+    @Override
+    public boolean isFavoriteDrink(int drinkId) {
+        boolean res = false;
+        try {
+            Drink drink = facade.getDrinkByORMID(drinkId);
+            if(facade.getConsumerByORMID(1).favoriteDrinks.contains(drink))
+                res = true;
+        } catch (PersistentException e) {
+            e.printStackTrace();
+        }
+        return res;
+    }
 
 
 }
