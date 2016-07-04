@@ -2,6 +2,8 @@ package model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.util.List;
+
 /**
  * Created by carlosmorais on 02/07/16.
  */
@@ -12,8 +14,7 @@ public class Movie {
     public int year;
     public String img_path;
     public String overview;
-    public int runtime;
-    public String language;
+    private List<String> genres;
 
 
     public int getId() {
@@ -36,15 +37,6 @@ public class Movie {
         return overview;
     }
 
-    public int getRuntime() {
-        return runtime;
-    }
-
-    public String getLanguage() {
-        return language;
-    }
-
-
     public void setId(int id) {
         this.id = id;
     }
@@ -65,25 +57,23 @@ public class Movie {
         this.overview = overview;
     }
 
-    public void setRuntime(int runtime) {
-        this.runtime = runtime;
+    public List<String> getGenres() {
+        return genres;
     }
 
-    public void setLanguage(String language) {
-        this.language = language;
+    public void setGenres(List<String> genres) {
+        this.genres = genres;
     }
-
 
     @Override
     public String toString() {
         return "Movie{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
-                ", year='" + year + '\'' +
+                ", year=" + year +
                 ", img_path='" + img_path + '\'' +
                 ", overview='" + overview + '\'' +
-                ", runtime=" + runtime +
-                ", language='" + language + '\'' +
+                ", genres=" + genres +
                 '}';
     }
 }

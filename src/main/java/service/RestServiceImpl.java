@@ -2,6 +2,7 @@ package service;
 
 import model.Canil;
 import model.Movie;
+import model.Movies;
 import org.orm.PersistentException;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
@@ -22,13 +23,13 @@ public class RestServiceImpl implements RestService {
     Facade facade = new Facade();
 
     //Movies
-    private String urlMovies = "http://localhost:8080/SocialDrink/movie";
-    private String urlFamilyMovies = "http://localhost:8080/SocialDrink/movie";
+    private String urlMovies = "http://reel-ea1516.herokuapp.com/api/v1/genres/2";
+    private String urlFamilyMovies = "http://reel-ea1516.herokuapp.com/api/v1/genres/2";
 
     //Canil
     private String urlCanil = "http://localhost:8080/SocialDrink/canil";
 
-    public List<Movie> getListMoviesByDrinkID(int drinkId){
+    public Movies getListMoviesByDrinkID(int drinkId){
         String url=urlMovies;
         try {
             if(facade.getDrinkByORMID(drinkId).getTypeOfDrink().getID()!=1)
@@ -37,12 +38,14 @@ public class RestServiceImpl implements RestService {
             e.printStackTrace();
         }
 
+
+
         RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<List<Movie>> response = restTemplate.exchange(
+        ResponseEntity<Movies> response = restTemplate.exchange(
                 url,
                 HttpMethod.GET,
                 null,
-                new ParameterizedTypeReference<List<Movie>>() {});
+                new ParameterizedTypeReference<Movies>() {});
         return response.getBody();
     }
 

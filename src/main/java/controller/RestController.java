@@ -32,7 +32,7 @@ public class RestController {
     @ResponseBody
     ModelAndView movies(ModelAndView model,
                         @PathVariable("drinkId") int drinkId) {
-        model.addObject("movies", restService.getListMoviesByDrinkID(drinkId));
+        model.addObject("movies", restService.getListMoviesByDrinkID(drinkId).getMovies());
         model.setViewName("service/movies");
         return model;
     }
