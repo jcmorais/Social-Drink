@@ -12,7 +12,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#"><img class="img-responsive2" src="<c:url value="/resources/img/logo.png"/>"></a>
+            <a class="navbar-brand" href="#"><img class="img-responsive2" src="${pageContext.request.contextPath}/images/topbar/logo.png"></a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -24,10 +24,10 @@
                 </div>
             </form>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/SocialDrink/timeline"><img src="<c:url value="/resources/img/homebutton.png"/>"></a></li>
-                <li><a href="/SocialDrink/drink/newdrink"><img src="<c:url value="/resources/img/drink.png"/>"></a></li>
+                <li><a href="/SocialDrink/timeline"><img src="${pageContext.request.contextPath}/images/topbar/homebutton.png"></a></li>
+                <li><a href="/SocialDrink/drink/newdrink"><img src="${pageContext.request.contextPath}/images/topbar/drink.png"></a></li>
                 <li><a href="/SocialDrink/user/${session.getID()}"><img width="25" height="25" class="img-responsive center-block" src="<c:url value="${user.getPhoto().getFilePath()}"/>"/></a></li>
-                <li><a href="/SocialDrink/logout"><img src="<c:url value="/resources/img/newfollower.png"/>"></a></li>
+                <li><a href="/SocialDrink/logout"><img src="${pageContext.request.contextPath}/images/topbar/logout.png"></a></li>
 
             </ul>
         </div><!-- /.navbar-collapse -->
