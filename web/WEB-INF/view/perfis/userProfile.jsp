@@ -35,26 +35,50 @@
                 <img class="img-responsive center-block" src="<c:url value="${user.getPhoto().getFilePath()}"/>"/>
                 <h4><c:out value="${user.firstname} ${user.lastname}"></c:out></h4>
 
+
+                <c:if test="${session.getID() ne user.getID()}">
                 <c:if test="${ not empty session}">
-                    <c:set var="contains" value="false" />
+                    <c:set var="contains" value='false' />
                     <c:set var="testID" value="${user.getID()}" />
 
-                    <c:forEach var="item" items="${following}">
-                        <c:if test="${item eq testID}">
+                    <c:forEach var="item" items="${followers}">
+                        <p>Test${testID} Item${item}</p>
+                        <c:if test="${item == testID}">
                             <c:set var="contains" value="true" />
                         </c:if>
                     </c:forEach>
 
-                    <c:choose>
-                        <c:when test="${contains == 'true'}">
-                            <button id="follow" class="btn btn-success" style="display: none;" value="${user.getID()}_${session.getID()}" type="button" onclick="follow()" >Seguir</button>
-                            <button id="unfollow" class="btn btn-danger"  value="${user.getID()}_${session.getID()}" type="button" onclick="unfollow()" >Não seguir</button>
-                        </c:when>
-                        <c:otherwise>
-                            <button id="follow" class="btn btn-success" value="${user.getID()}_${session.getID()}" type="button" onclick="follow()" >Seguir</button>
-                            <button id="unfollow" class="btn btn-danger" style="display: none;" value="${user.getID()}_${session.getID()}" type="button" onclick="unfollow()" >Não seguir</button>
-                        </c:otherwise>
-                    </c:choose>
+
+                        <c:if test="${contains == 'false'}">
+                            <div id="follow">
+                                <a class="btn icon-btn btn-success" onclick="follow(${user.getID()},${session.getID()})">
+                                    <span class="glyphicon btn-glyphicon glyphicon-heart-empty img-circle text-success"></span>
+                                    Seguir
+                                </a>
+                            </div>
+                            <div id="unfollow" style="display: none;">
+                                <a class="btn icon-btn btn-warning" onclick="unfollow(${user.getID()},${session.getID()})">
+                                    <span class="glyphicon btn-glyphicon glyphicon-minus img-circle text-warning"></span>
+                                    Não Seguir
+                                </a>
+                            </div>
+                        </c:if>
+                        <c:if test="${contains == 'true'}">
+                            <div id="follow" style="display: none;">
+                                <a class="btn icon-btn btn-success" onclick="follow(${user.getID()},${session.getID()})">
+                                    <span class="glyphicon btn-glyphicon glyphicon-heart-empty img-circle text-success"></span>
+                                    Seguir
+                                </a>
+                            </div>
+                            <div id="unfollow">
+                                <a class="btn icon-btn btn-warning" onclick="unfollow(${user.getID()},${session.getID()})">
+                                    <span class="glyphicon btn-glyphicon glyphicon-minus img-circle text-warning"></span>
+                                    Não Seguir
+                                </a>
+                            </div>
+                        </c:if>
+
+                </c:if>
                 </c:if>
 
             </div>

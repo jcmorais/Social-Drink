@@ -132,7 +132,7 @@ public class Run {
 
             Photo photo = facade.createPhoto();
             photo.setName("default");
-            photo.setFilePath("/images/");
+            photo.setFilePath("/images/user/1/defaul.png");
 
             Consumer consumer = facade.createConsumer();
             consumer.setBirthday(new Date());
@@ -144,61 +144,28 @@ public class Run {
             consumer.setProfession("operário de construção cívil");
             consumer.setEmail("jcmorais93@gmail.com");
             consumer.setPhoto(photo);
+            facade.save(consumer);
 
-            //novo drink
-            DrinkType type = facade.getDrinkTypeByORMID(1);
-            DrinkDAO drinkDAO = new DrinkDAOImpl();
-            Drink drink = drinkDAO.createDrink();
-            drink.setTypeOfDrink(type);
-            drink.setName("Halls Mix");
-            drink.setYeld(1);
-            drink.setDescription("Esse drink quem me ensinou foi um amigo na faculdade, a primeira vez que eu provei foi numa choppada. Quem nunca experimentou deveria experimentar! Drink Espetacular que reune o sabor da batida da fruta com a sensação de refrescância da halls! Além de ser um drink barato, tem um sabor diferenciado dos demais!");
-            drink.setTimeToPrepate(6);
-            drink.setRating(0);
-            drink.setRatingVotes(0);
+
+            address = facade.createAddress();
+            address.setCity(facade.getCityByORMID(1));
+            address.setPostalCode("4800-091");
+            address.setStreet("rua do padre amaro");
+
             photo = facade.createPhoto();
-            photo.setName("default.jpeg");
-            photo.setFilePath("/images/drink/default.jpeg");
-            drink.setPhoto(photo);
-            DrinkIngredient drinkIngredient = facade.createDrinkIngredient();
-            drinkIngredient.setIngredient(facade.getIngredientByORMID(16));
-            drinkIngredient.setAmount("1 lata");
-            drink.ingredients.add(drinkIngredient);
-            drinkIngredient = facade.createDrinkIngredient();
-            drinkIngredient.setIngredient(facade.getIngredientByORMID(17));
-            drinkIngredient.setAmount("100 ml");
-            drink.ingredients.add(drinkIngredient);
-            drinkIngredient = facade.createDrinkIngredient();
-            drinkIngredient.setIngredient(facade.getIngredientByORMID(1));
-            drinkIngredient.setAmount("250 ml");
-            drink.ingredients.add(drinkIngredient);
-            drinkIngredient = facade.createDrinkIngredient();
-            drinkIngredient.setIngredient(facade.getIngredientByORMID(3));
-            drinkIngredient.setAmount("6 cubos");
-            drink.ingredients.add(drinkIngredient);
-            drinkIngredient = facade.createDrinkIngredient();
-            drinkIngredient.setIngredient(facade.getIngredientByORMID(18));
-            drinkIngredient.setAmount("3");
-            drink.ingredients.add(drinkIngredient);
-            Step step = facade.createStep();
-            step.setNumber(1);
-            step.setDescription("Leve as balas halls ao fogo com água para que ela não grude na panela.");
-            drink.steps.add(step);
-            step = facade.createStep();
-            step.setNumber(2);
-            step.setDescription("Mexa as balas na panela até que derretam por completo formando uma calda.");
-            drink.steps.add(step);
-            step = facade.createStep();
-            step.setNumber(3);
-            step.setDescription("Coloque a calda feita com bala halls em um liquidificador junto com os morangos e o leite condensado.");
-            drink.steps.add(step);
-            step.setNumber(4);
-            step.setDescription("Acrescente a Vodka e bata tudo..");
-            drink.steps.add(step);
-            AlbumDAO albumDAO = new AlbumDAOImpl();
-            Album album = albumDAO.createAlbum();
-            drink.setAlbum(album);
-            consumer.drinks.add(drink);
+            photo.setName("default");
+            photo.setFilePath("/images/");
+
+            consumer = facade.createConsumer();
+            consumer.setBirthday(new Date());
+            consumer.setDescription("utilizador de teste");
+            consumer.setFirstname("Jose");
+            consumer.setLastname("morais");
+            consumer.setSex("masc");
+            consumer.setPassword("12345");
+            consumer.setProfession("operário de construção cívil");
+            consumer.setEmail("jcmorais93@gmail.com");
+            consumer.setPhoto(photo);
             facade.save(consumer);
         }
 
@@ -416,6 +383,7 @@ public class Run {
         Data data = new Data();
 
 
+
         data.createIngredients();
 
         data.createTypesOfDrink();
@@ -430,5 +398,6 @@ public class Run {
 
 
         data.test();
+
     }
 }

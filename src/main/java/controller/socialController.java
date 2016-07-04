@@ -35,65 +35,52 @@ public class socialController {
         return model;
     }
 
-    @RequestMapping(value="/follow/{userId}", method = RequestMethod.POST)
+    @RequestMapping(value="/follow/{userId}/{sessionId}", method = RequestMethod.POST)
     @ResponseBody
-    String follow(@PathVariable("userId") String userId, @ModelAttribute("following") int[] following){
+    String follow(@PathVariable("userId") int userId,
+                  @PathVariable("sessionId") int sessionId,
+                  @ModelAttribute("following") int[] following){
 
-        String[] parts = userId.split("_");
-
-        int user = Integer.parseInt(parts[0]);
-        int session = Integer.parseInt(parts[1]);
-
-        Consumer consumer = userService.followUser(session, user);
-
+        Consumer consumer = userService.followUser(sessionId, userId);
         ModelAndView model = new ModelAndView();
-
         int[] updated = new int[consumer.follow.size()];
-
         for(int i=0; i<updated.length; i++) {
             updated[i] = consumer.follow.toArray()[i].getID();
         }
-
         following = updated;
-
         return "sucesso";
     }
 
-    @RequestMapping(value="/unfollow/{userId}", method = RequestMethod.POST)
+    @RequestMapping(value="/unfollow/{userId}/{sessionId}", method = RequestMethod.POST)
     @ResponseBody
-    String unfollow(@PathVariable("userId") String userId, @ModelAttribute("following") int[] following){
+    String unfollow(@PathVariable("userId") int userId,
+                    @PathVariable("sessionId") int sessionId,
+                    @ModelAttribute("following") int[] following){
 
-        String[] parts = userId.split("_");
-        int user = Integer.parseInt(parts[0]);
-        int session = Integer.parseInt(parts[1]);
-
-        Consumer consumer = userService.unfollowUser(session, user);
-
+        Consumer consumer = userService.unfollowUser(sessionId, userId);
         ModelAndView model = new ModelAndView();
-
         int[] updated = new int[consumer.follow.size()];
-
         for(int i=0; i<updated.length; i++) {
             updated[i] = consumer.follow.toArray()[i].getID();
         }
-
         following = updated;
-
         return "sucesso";
     }
 
-    @RequestMapping(value="/add/{drinkId}", method = RequestMethod.POST)
+    @RequestMapping(value="/add/{drinkId}/{userId}", method = RequestMethod.POST)
     @ResponseBody
-    String addFavorite(@PathVariable("drinkId") int drinkId){
-        userService.addFavoriteDrink(drinkId);
+    String addFavorite(@PathVariable("drinkId") int drinkId,
+                       @PathVariable("userId") int userId){
+        userService.addFavoriteDrink(drinkId, userId);
         return "sucesso";
     }
 
 
-    @RequestMapping(value="/remove/{drinkId}", method = RequestMethod.POST)
+    @RequestMapping(value="/remove/{drinkId}/{userId}", method = RequestMethod.POST)
     @ResponseBody
-    String removeFavorite(@PathVariable("drinkId") int drinkId){
-        userService.removeFavoriteDrink(drinkId);
+    String removeFavorite(@PathVariable("drinkId") int drinkId,
+                          @PathVariable("userId") int userId){
+        userService.removeFavoriteDrink(drinkId, userId);
         return "sucesso";
     }
 }

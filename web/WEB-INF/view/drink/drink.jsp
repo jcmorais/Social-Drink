@@ -84,7 +84,7 @@
                         <div class='container'>
                             <div class="row">
                                 <div class="" style="display: inline-block">
-                                    <h2><c:out value="${drink.name.toUpperCase()}"></c:out></h2>
+                                    <h2><c:out value="${drink.name.toUpperCase()}${session.getID()}"></c:out></h2>
                                 </div>
 
                                 <div style="display: inline-block; padding-top: 4px; padding-left: 10px" class="">
@@ -151,20 +151,22 @@
                                         </a>
                                     </c:if>
                                 </div>
+                                <c:if test="${not empty session}">
                                 <div class="col-md-3">
                                     <!--a class="btn icon-btn btn-primary" href="#">
                                         <span class="glyphicon btn-glyphicon glyphicon-heart img-circle text-primary"></span>
                                         Adicionado aos Favoritos
                                     </a-->
+
                                     <c:if test="${isFavorite == 'false'}">
                                         <div id="addFavorite">
-                                            <a class="btn icon-btn btn-success" onclick="addFavorite(${drink.getID()})">
+                                            <a class="btn icon-btn btn-success" onclick="addFavorite(${drink.getID()},${session.getID()})">
                                                 <span class="glyphicon btn-glyphicon glyphicon-heart-empty img-circle text-success"></span>
                                                 Adicionar aos Favoritos
                                             </a>
                                         </div>
                                         <div id="removeFavorite" style="display: none;">
-                                            <a class="btn icon-btn btn-warning" onclick="removeFavorite(${drink.getID()})">
+                                            <a class="btn icon-btn btn-warning" onclick="removeFavorite(${drink.getID()},${session.getID()})">
                                                 <span class="glyphicon btn-glyphicon glyphicon-minus img-circle text-warning"></span>
                                                 Remover dos favoritos
                                             </a>
@@ -172,19 +174,20 @@
                                     </c:if>
                                     <c:if test="${isFavorite == 'true'}">
                                         <div id="addFavorite" style="display: none;">
-                                            <a class="btn icon-btn btn-success" onclick="addFavorite(${drink.getID()})"  >
+                                            <a class="btn icon-btn btn-success" onclick="addFavorite(${drink.getID()},${session.getID()})"  >
                                                 <span class="glyphicon btn-glyphicon glyphicon-heart-empty img-circle text-success"></span>
                                                 Adicionar aos Favoritos
                                             </a>
                                         </div>
                                         <div id="removeFavorite">
-                                            <a class="btn icon-btn btn-warning"  onclick="removeFavorite(${drink.getID()})">
+                                            <a class="btn icon-btn btn-warning"  onclick="removeFavorite(${drink.getID()},${session.getID()})">
                                                 <span class="glyphicon btn-glyphicon glyphicon-minus img-circle text-warning"></span>
                                                 Remover dos favoritos
                                             </a>
                                         </div>
                                     </c:if>
                                 </div>
+                                </c:if>
                             </div>
 
 
@@ -290,12 +293,14 @@
 
     <!-- comentarios -->
     <div class="container">
+<c:if test="${not empty session}">
         <div class="row">
             <h3>Comentários</h3>
             <div class="col-md-12 text-center write-comment">
                 <jsp:include page="evaluation.jsp"/>
             </div>
         </div>
+    </c:if>
         <div class="row">
             <h3 class="text-center">Comentários de Utilizadores</h3>
             <div class="container" id="comments">
@@ -383,8 +388,8 @@
 
 
 <script>
-    function addFavorite(drinkId) {
-        var url = '/SocialDrink/favorite/add/'+drinkId; // the script where you handle the form input.
+    function addFavorite(drinkId, userId) {
+        var url = '/SocialDrink/favorite/add/'+drinkId+'/'+userId; // the script where you handle the form input.
         $.ajax({
             type: "POST",
             url: url,
@@ -399,8 +404,8 @@
         });
     }
 
-    function removeFavorite(drinkId) {
-        var url = '/SocialDrink/favorite/remove/'+drinkId; // the script where you handle the form input.
+    function removeFavorite(drinkId, userId) {
+        var url = '/SocialDrink/favorite/remove/'+drinkId+'/'+userId; // the script where you handle the form input.
         $.ajax({
             type: "POST",
             url: url,

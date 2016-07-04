@@ -9,9 +9,9 @@ public interface UserService {
     public User getUserById(int id);
     public Weekday[] orderHorary(Bar bar);
 
-    void addFavoriteDrink(int drinkId);
+    void addFavoriteDrink(int drinkId, int userId);
 
-    void removeFavoriteDrink(int drinkId);
+    void removeFavoriteDrink(int drinkId, int userId);
 
     Consumer followUser(int session, int userId);
 

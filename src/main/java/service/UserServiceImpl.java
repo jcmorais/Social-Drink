@@ -44,9 +44,9 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public void addFavoriteDrink(int drinkId) {
+    public void addFavoriteDrink(int drinkId, int userId) {
         try {
-            Consumer consumer = facade.getConsumerByORMID(1);
+            Consumer consumer = facade.getConsumerByORMID(userId);
             consumer.favoriteDrinks.add(facade.getDrinkByORMID(drinkId));
 
             //Event
@@ -61,9 +61,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void removeFavoriteDrink(int drinkId) {
+    public void removeFavoriteDrink(int drinkId, int userId) {
         try {
-            Consumer consumer = facade.getConsumerByORMID(1);
+            Consumer consumer = facade.getConsumerByORMID(userId);
             Iterator<Drink> it = consumer.favoriteDrinks.getIterator();
             boolean flag = true;
             while (it.hasNext() && flag){
@@ -83,13 +83,7 @@ public class UserServiceImpl implements UserService {
     public Consumer followUser(int session, int userId) {
         try {
             Consumer consumer = facade.getConsumerByORMID(session);
-            consumer.follow.add(facade.getUserByORMID(userId));
-            /*
-            //Event
-            EventFollow event = facade.createEventFollow();
-            event.setFollow(facade.getUserByORMID(userId));
-            consumer.events.add(event);
-            */
+            consumer.follow.add(facade.getConsumerByORMID(userId));
             facade.save(consumer);
             return consumer;
         } catch (PersistentException e) {
@@ -101,11 +95,12 @@ public class UserServiceImpl implements UserService {
     @Override
     public Consumer unfollowUser(int session, int userId) {
         try {
-            Consumer consumer = (Consumer) facade.getUserByORMID(session);
+            Consumer consumer = facade.getConsumerByORMID(session);
             Iterator<User> it = consumer.follow.getIterator();
             boolean flag = true;
             while (it.hasNext() && flag){
                 User user = it.next();
+
                 if (userId == user.getID()){
                     flag = false;
                     it.remove();
