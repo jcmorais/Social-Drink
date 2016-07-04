@@ -22,9 +22,9 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <form class="navbar-form navbar-left" role="search">
+            <form class="navbar-form navbar-left" role="search" action="/SocialDrink/search/results" method="get">
                 <div class="input-group">
-                    <input type="text" class="form-control" role="search" placeholder="Pesquisar pessoa, bar, bebida..." autocomplete="off">
+                    <input type="text" class="form-control" role="search" id="searchWord" name="searchWord" placeholder="Pesquisar pessoa, bar, bebida..." autocomplete="off">
                     <span class="input-group-addon" style="width:10%;"><span class="glyphicon glyphicon-search" role="button"></span></span>
                 </div>
             </form>

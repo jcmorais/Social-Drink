@@ -39,14 +39,16 @@
             <h2>Utilizadores</h2>
             <c:forEach var="consumerRes" items="${consumersRes}">
                 <a href="/SocialDrink/user/${consumerRes.getID()}" style="color: inherit">
-                    <div class="col-md-2">
-                        <img height="150" width="150" class="img-responsive center-block" src="<c:url value="${consumerRes.getPhoto().getFilePath()}"/>"/>
-                    </div>
-                    <div class="col-md-9">
-                        <h3><c:out value="${consumerRes.firstname} ${consumerRes.lastname}"></c:out></h3>
-                        <h5><c:out value="${consumerRes.profession}"></c:out></h5>
-                        <h5><c:out value="Nasceu a ${consumerRes.birthday}"></c:out></h5>
-                        <h5><c:out value="De ${consumerRes.city.name}"></c:out></h5>
+                    <div class="col-md-12">
+                        <div class="col-md-2">
+                            <img height="150" width="150" class="img-responsive center-block" src="<c:url value="${consumerRes.getPhoto().getFilePath()}"/>"/>
+                        </div>
+                        <div class="col-md-9">
+                            <h3><c:out value="${consumerRes.firstname} ${consumerRes.lastname}"></c:out></h3>
+                            <h5><c:out value="${consumerRes.profession}"></c:out></h5>
+                            <h5><c:out value="Nasceu a ${consumerRes.birthday}"></c:out></h5>
+                            <h5><c:out value="De ${consumerRes.city.name}"></c:out></h5>
+                        </div>
                     </div>
                 </a>
             </c:forEach>
@@ -63,7 +65,7 @@
                         </div>
                         <div class="col-md-9">
                             <h3><c:out value="${barRes.name}"></c:out></h3>
-                            <h5><c:out value="Localizado em ${barRes.city.name}"></c:out></h5>
+                            <h5><c:out value="Localizado em ${barRes.address.city.name}"></c:out></h5>
                         </div>
                     </div>
                 </a>
