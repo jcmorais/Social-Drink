@@ -21,12 +21,16 @@
                     <c:forEach items="${canis}" var="canil">
                         <div class="col-md-4 col-centered animal">
                             <!--img class="logo" src="pata.gif" alt="" /-->
-                            <p class="animal-title">
-                                    ${canil.getName()}
-                            </p>
+                            <div class="row">
+                                <div class="col-md-8 col-md-offset-2">
+                                    <p class="animal-title center-block">
+                                            ${canil.getName()}
+                                    </p>
+                                </div>
+                            </div>
                             <hr>
-          <span class="glyphicon glyphicon-home icon">
-          </span>
+                          <span class="glyphicon glyphicon-home icon">
+                          </span>
                             <p class="animal-address">${canil.getAddress()}</p>
                             <p class="animal-text">${canil.getDescription()}</p>
                             <hr>

@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="./resources/bootstrap/css/bootstrap-theme.min.css" />
     <link href="./resources/bootstrap/css/font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="./resources/bootstrap/css/style-index-template.css" rel="stylesheet">
+    <link href="./resources/bootstrap/css/style-fred2.css" rel="stylesheet">
 
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
@@ -165,19 +166,19 @@
 
 </div><!-- /.container -->
 <div class="container">
-    <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-            <img src="./resources/img/img-index-theme/dog2.jpg" class="img-responsive" alt="">
+    <div class="row animal-photo-section">
+        <div class="col-md-8 col-md-offset-2">
+            <img src="./resources/img/img-index-theme/dog2.jpg" class="img-responsive image-canil center-block" alt="">
+            <br>
+            <div class="col-md-4 col-md-offset-4">
+                <a  class="btn btn-primary btn-lg center-block" onclick="canis()" id="openBtn">Ver lista de canis</a>
+            </div>
+
         </div>
-    </div><!--/row-->
+    </div>
 </div><!--/.container-->
 
-<div>
-    <a  class="btn btn-primary btn-lg" onclick="canis()" id="openBtn">Ver lista de canis</a>
-    <!--button   type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#moviesModal">
-        Filmes sugeridos
-    </button-->
-</div>
+
 
 <div id="canisContainner">
 

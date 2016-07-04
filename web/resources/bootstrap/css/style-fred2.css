@@ -11,14 +11,12 @@
 }
 
 .animal{
+  border-radius: 25px;
+  padding: 20px;
   height: 600px;
   background:#52504E;
   opacity: 0.8;
   margin: 30px;
-
-  border-radius: 25px;
-  padding: 20px;
-  height: 150px;
 }
 
 .animal > .logo{
@@ -49,6 +47,7 @@
   display: inline;
   vertical-align: middle;
   margin-left: 10px;
+  font-size: 15px;
 }
 
 .contacts{
@@ -65,24 +64,29 @@
 .contact > .schedule{
   color: white;
   display: inline;
+  font-size: 15px;
 }
 
 .contact > .phone{
   display: inline;
   color: white;
+  font-size: 15px;
 }
 
 .icon{
   color: white;
   vertical-align: middle;
+  margin-right: 5px;
 }
 
 .contact > a.mail{
   color: white;
   vertical-align: middle;
+  font-size: 15px;
 }
 
 .contact > a.map{
+  font-size: 15px;
   color: white;
 }
 
