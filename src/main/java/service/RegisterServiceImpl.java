@@ -56,9 +56,11 @@ public class RegisterServiceImpl implements RegisterService {
             consumer.setDescription(descriçao);
 
             Photo photo = this.facade.createPhoto();
-            photo.setFilePath("");
+            photo.setFilePath("/images/user/default.png");
             photo.setName("");
-            consumer.setPhoto(photo);
+
+            if(photo != null) consumer.setPhoto(photo);
+
             setUserPhoto(consumer.getID(), consumer, photoFile);
 
             facade.save(consumer);
@@ -83,7 +85,7 @@ public class RegisterServiceImpl implements RegisterService {
             bar.setName(nome);
 
             Country country = facade.createCountry();
-            country.setName("China");
+            country.setName("Portugal");
             facade.save(country);
 
             City city = facade.createCity();
@@ -102,7 +104,7 @@ public class RegisterServiceImpl implements RegisterService {
             bar.setDescription(descricao);
 
             Photo photo = this.facade.createPhoto();
-            photo.setFilePath("");
+            photo.setFilePath("/images/user/default.png");
             photo.setName("");
             bar.setPhoto(photo);
             setUserPhoto(bar.getID(), bar, photoFile);

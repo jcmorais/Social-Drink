@@ -12,7 +12,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
     <title><c:out value="${user.firstname} ${user.lastname}"></c:out></title>
 
     <link href="<c:url value="/resources/bootstrap/css/bootstrap.min.css"/>" rel="stylesheet">
@@ -82,6 +82,9 @@
                 <h3 class="panel-title">Bebidas</h3>
             </div>
             <div class="panel-body" >
+                <c:if test="${empty userdrinks}">
+                    Não existem bebidas.
+                </c:if>
                 <c:forEach items="${userdrinks}" var="drink">
                     <a href="/SocialDrink/drink/${drink.getID()}">
                         <div class="col-md-3">
@@ -126,6 +129,9 @@
                     <h3 class="panel-title">Seguidores</h3>
                 </div>
                 <div class="panel-body">
+                    <c:if test="${empty followers}">
+                        Não existem seguidores.
+                    </c:if>
                     <c:forEach var="follower" items="${followers}">
                         <a href="/SocialDrink/user/${follower.ID}" style="color: inherit">
                             <div class="col-md-2">
@@ -142,6 +148,9 @@
                     <h3 class="panel-title">Favoritos</h3>
                 </div>
                 <div class="panel-body">
+                    <c:if test="${empty favorites}">
+                        Não existem bebidas favoritas.
+                    </c:if>
                     <c:forEach items="${favorites}" var="favorite">
                         <a href="/SocialDrink/drink/${favorite.getID()}">
                             <div class="col-md-3">

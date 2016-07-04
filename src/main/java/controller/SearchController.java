@@ -23,7 +23,7 @@ public class SearchController {
     @Autowired
     private SearchService loginService = new SearchServiceImpl();
 
-    @RequestMapping(value = "/search/results", method = RequestMethod.POST)
+    @RequestMapping(value = "/search/results", method = RequestMethod.GET)
     public ModelAndView getUser(ModelAndView model, @RequestParam("searchWord") String searchWord){
 
         System.out.println(searchWord);

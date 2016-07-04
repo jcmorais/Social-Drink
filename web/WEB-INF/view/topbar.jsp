@@ -17,12 +17,10 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <form class="navbar-form navbar-left" id="searchbar" name="searchbar" role="form" action="/SocialDrink/search/results" method="post">
-                <div class="form-group">
-                    <input type="text" class="form-control" role="search" placeholder="Pesquisar pessoa, bar, bebida..." id="searchWord" name="searchWord">
-                        <button type="submit" class="btn">
-                            <span class="glyphicon glyphicon-search"></span>
-                        </button>
+            <form class="navbar-form navbar-left" role="search">
+                <div class="input-group">
+                    <input type="text" class="form-control" role="search" id="searchWord" name="searchWord" placeholder="Pesquisar pessoa, bar, bebida..." autocomplete="off">
+                    <span class="input-group-addon" style="width:10%;"><span class="glyphicon glyphicon-search" role="button"></span></span>
                 </div>
             </form>
             <ul class="nav navbar-nav navbar-right">

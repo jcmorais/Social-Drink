@@ -11,7 +11,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
     <title><c:out value="${user.name}"></c:out></title>
 
     <link href="<c:url value="/resources/bootstrap/css/bootstrap.min.css"/>" rel="stylesheet">
@@ -58,6 +58,9 @@
                 <h3 class="panel-title">Bebidas</h3>
             </div>
             <div class="panel-body" >
+                <c:if test="${empty userdrinks}">
+                    Não existem bebidas.
+                </c:if>
                 <c:forEach items="${userdrinks}" var="drink">
                     <a href="/SocialDrink/drink/${drink.getID()}">
                         <div class="col-md-3">
@@ -79,7 +82,7 @@
                 </c:forEach>
             </div>
         </div>
-        <div class="col-md-7">
+        <div class="col-md-6">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">Horário</h3>
@@ -92,23 +95,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-5">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Seguidores</h3>
-                </div>
-                <div class="panel-body">
-                    <c:forEach var="follower" items="${followers}">
-                        <a href="/SocialDrink/user/${follower.ID}" style="color: inherit">
-                            <div class="col-md-2">
-                                <img height="50" width="50" class="img-responsive center-block" src="<c:url value="${follower.getPhoto().getFilePath()}"/>"/>
-                            </div>
-                        </a>
-                    </c:forEach>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-12">
+        <div class="col-md-6">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">Localização</h3>
