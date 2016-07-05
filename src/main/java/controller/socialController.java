@@ -17,7 +17,7 @@ import socialdrink.User;
 
 @Controller
 @RequestMapping(value = "/favorite")
-@SessionAttributes({"session","following"})
+@SessionAttributes({"session","sessionid","following"})
 public class socialController {
     @Autowired
     private UserService userService;

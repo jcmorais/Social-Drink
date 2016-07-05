@@ -132,7 +132,7 @@ public class Run {
 
             Photo photo = facade.createPhoto();
             photo.setName("default");
-            photo.setFilePath("/images/user/1/defaul.png");
+            photo.setFilePath("/images/user/1/default.png");
 
             Consumer consumer = facade.createConsumer();
             consumer.setBirthday(new Date());
@@ -394,10 +394,10 @@ public class Run {
 
         data.createDriks();
 
-        data.favoriteDrinks();
+        //data.favoriteDrinks();
 
 
-        data.test();
+        //data.test();
 
     }
 }

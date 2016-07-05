@@ -61,8 +61,8 @@ public class RegisterServiceImpl implements RegisterService {
 
             if(photo != null) consumer.setPhoto(photo);
 
+            facade.save(consumer);
             setUserPhoto(consumer.getID(), consumer, photoFile);
-
             facade.save(consumer);
         } catch (PersistentException e) {
             e.printStackTrace();
@@ -107,7 +107,6 @@ public class RegisterServiceImpl implements RegisterService {
             photo.setFilePath("/images/user/default.png");
             photo.setName("");
             bar.setPhoto(photo);
-            setUserPhoto(bar.getID(), bar, photoFile);
 
             if(check1.equals("1,0")) {
                 Weekday monday = facade.createWeekday();
@@ -172,6 +171,8 @@ public class RegisterServiceImpl implements RegisterService {
                 bar.horary.add(sunday);
             }
 
+            facade.save(bar);
+            setUserPhoto(bar.getID(), bar, photoFile);
             facade.save(bar);
         } catch (PersistentException e) {
             e.printStackTrace();

@@ -17,7 +17,7 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <form class="navbar-form navbar-left" role="search">
+            <form class="navbar-form navbar-left" role="search" action="/SocialDrink/search/results" method="get">
                 <div class="input-group">
                     <input type="text" class="form-control" role="search" id="searchWord" name="searchWord" placeholder="Pesquisar pessoa, bar, bebida..." autocomplete="off">
                     <span class="input-group-addon" style="width:10%;"><span class="glyphicon glyphicon-search" role="button"></span></span>
@@ -26,7 +26,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/SocialDrink/timeline"><img src="${pageContext.request.contextPath}/images/topbar/homebutton.png"></a></li>
                 <li><a href="/SocialDrink/drink/newdrink"><img src="${pageContext.request.contextPath}/images/topbar/drink.png"></a></li>
-                <li><a href="/SocialDrink/user/${session.getID()}"><img width="25" height="25" class="img-responsive center-block" src="<c:url value="${user.getPhoto().getFilePath()}"/>"/></a></li>
+                <li><a href="/SocialDrink/user/${sessionid}"><img width="25" height="25" class="img-responsive center-block" src="<c:url value="${user.getPhoto().getFilePath()}"/>"/></a></li>
                 <li><a href="/SocialDrink/logout"><img src="${pageContext.request.contextPath}/images/topbar/logout.png"></a></li>
 
             </ul>

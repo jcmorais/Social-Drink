@@ -4,12 +4,14 @@ package controller;
  import org.springframework.web.bind.annotation.RequestMapping;
  import org.springframework.web.bind.annotation.RequestMethod;
  import org.springframework.web.bind.annotation.RequestParam;
+ import org.springframework.web.bind.annotation.SessionAttributes;
  import org.springframework.web.servlet.ModelAndView;
 
 /**
  * Created by jpp on 22/06/16.
  */
 @Controller
+@SessionAttributes("sessionid")
 public class PreRegisterController {
     //Só para testar o html quando estivermos a fazer as paginas
 

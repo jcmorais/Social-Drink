@@ -210,7 +210,6 @@
 <script src="./resources/bootstrap/js/jquery.isotope.min.js"></script>
 <script src="./resources/bootstrap/js/custom.js"></script>
 
-
 <script>
     // Portfolio
     (function($) {
