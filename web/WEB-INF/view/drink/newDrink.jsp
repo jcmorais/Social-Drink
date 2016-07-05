@@ -24,15 +24,15 @@
     <div class="stepwizard">
         <div class="stepwizard-row setup-panel">
             <div class="stepwizard-step">
-                <a href="#step-1" type="button" class="btn btn-primary btn-circle">1</a>
+                <a href="#step-1" type="button" class="btn btn-primary btn-circle" style="background: #0eb493">1</a>
                 <p>Informação do Drink</p>
             </div>
             <div class="stepwizard-step">
-                <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
+                <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled" style="background: #0eb493">2</a>
                 <p>Ingredientes</p>
             </div>
             <div class="stepwizard-step">
-                <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
+                <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled" style="background: #0eb493">3</a>
                 <p>Passos de Preparação</p>
             </div>
         </div>
@@ -90,7 +90,7 @@
 
             <div class="container">
                 <div class="form-group col-md-10 col-md-offset-8">
-                    <button class="btn btn-primary nextBtn btn-lg pull-right" type="button">Seguinte</button>
+                    <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" style="background: #0eb493">Seguinte</button>
                 </div>
             </div>
         </div>
@@ -151,8 +151,8 @@
 
             <div class="container">
                 <div class="form-group col-md-10">
-                    <button class="btn col-md-offset-2 btn-default prevBtn btn-lg pull-left" type="button" >Anterior</button>
-                    <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" >Seguinte</button>
+                    <button class="btn col-md-offset-2 btn-default prevBtn btn-lg pull-left" type="button" style="background: #0eb493">Anterior</button>
+                    <button class="btn btn-primary nextBtn btn-lg pull-right" type="button" style="background: #0eb493">Seguinte</button>
                 </div>
             </div>
         </div>
@@ -195,8 +195,8 @@
 
             <div class="container">
                 <div class="form-group col-md-10">
-                    <button class="btn col-md-offset-2  btn-default prevBtn btn-lg pull-left" type="button">Anterior</button>
-                    <button class="btn btn-success btn-lg pull-right" type="submit">Finish!</button>
+                    <button class="btn col-md-offset-2  btn-default prevBtn btn-lg pull-left" type="button" style="background: #0eb493">Anterior</button>
+                    <button class="btn btn-success btn-lg pull-right" type="submit" style="background: #0eb493">Finish!</button>
                 </div>
             </div>
         </div>
