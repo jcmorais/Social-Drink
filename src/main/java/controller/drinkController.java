@@ -132,10 +132,10 @@ public class drinkController {
     @RequestMapping(value = "/{drinkId}/evaluation", method =  RequestMethod.POST)
     ModelAndView comment(@PathVariable("drinkId") int drinkId,
                          @RequestParam("comment") String comment,
-                         @RequestParam("stars") int stars){
-        System.out.println("stars:"+stars+"\ncomment: "+comment);
+                         @RequestParam("stars") int stars,
+                         @RequestParam("userId") int userId){
         ModelAndView model = new ModelAndView("drink/simpleEval");
-        Evaluation eval = drinkService.addEvaluation(drinkId, comment, stars);
+        Evaluation eval = drinkService.addEvaluation(userId, drinkId, comment, stars);
         model.addObject("eval",eval);
         SimpleDateFormat ft =
                 new SimpleDateFormat ("yyyy/MM/dd");

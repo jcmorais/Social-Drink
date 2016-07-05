@@ -81,7 +81,14 @@
 
 
 <script>
+
+    var userId = ${sessionid};
     $("#evalForm").submit(function(e) {
+        var input = $("<input>")
+                .attr("type", "hidden")
+                .attr("name", "userId").val(userId);
+        $('#evalForm').append($(input));
+
         var url = $('#evalForm').attr('action'); // the script where you handle the form input.
 
         var input = $("<input>")

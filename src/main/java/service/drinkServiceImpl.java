@@ -146,14 +146,14 @@ public class drinkServiceImpl implements drinkService{
     }
 
     @Override
-    public Evaluation addEvaluation(int drinkId, String comment, int starts) {
+    public Evaluation addEvaluation(int userId, int drinkId, String comment, int starts) {
         Evaluation evaluation=null;
         try {
             evaluation = facade.createEvaluation();
             evaluation.setDate(new Date());
             evaluation.setText(comment);
             evaluation.setValue(starts);
-            Consumer consumer = facade.getConsumerByORMID(1);
+            Consumer consumer = facade.getConsumerByORMID(userId);
             evaluation.setUser(consumer);
             Drink drink = facade.getDrinkByORMID(drinkId);
             drink.evaluation.add(evaluation);
