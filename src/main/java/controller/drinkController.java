@@ -25,7 +25,7 @@ package controller;
 
 @Controller
 @RequestMapping(value = "/drink")
-@SessionAttributes("session")
+@SessionAttributes({"session", "sessionid"})
 public class drinkController {
 
     @Autowired
