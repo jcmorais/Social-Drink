@@ -45,10 +45,10 @@
                 <h3 class="panel-title">Contactos</h3>
             </div>
             <div class="panel-body" >
-                <div class="col-md-6"><b>Email:</b></div>
-                <div class="col-md-6"><c:out value="${user.email}"></c:out></div>
-                <div class="col-md-6"><b>Telefone:</b></div>
-                <div class="col-md-6"><c:out value="${user.contact}"></c:out></div>
+                <div class="col-md-5"><b>Email:</b></div>
+                <div class="col-md-7"><c:out value="${user.email}"></c:out></div>
+                <div class="col-md-5"><b>Telefone:</b></div>
+                <div class="col-md-7"><c:out value="${user.contact}"></c:out></div>
             </div>
         </div>
     </div>
@@ -101,12 +101,12 @@
                     <h3 class="panel-title">Localização</h3>
                 </div>
                 <div class="panel-body">
-                    <div class="col-md-7"><b>Morada:</b></div>
-                    <div class="col-md-5"><c:out value="${user.address.street}"></c:out></div>
-                    <div class="col-md-7"><b>Cidade:</b></div>
-                    <div class="col-md-5"><c:out value="${user.address.city.name}"></c:out></div>
-                    <div class="col-md-7"><b>Código-postal:</b></div>
-                    <div class="col-md-5"><c:out value="${user.address.postalCode}"></c:out></div>
+                    <div class="col-md-5"><b>Morada:</b></div>
+                    <div class="col-md-7"><c:out value="${user.address.street}"></c:out></div>
+                    <div class="col-md-5"><b>Cidade:</b></div>
+                    <div class="col-md-7"><c:out value="${user.address.city.name}"></c:out></div>
+                    <div class="col-md-5"><b>Código-postal:</b></div>
+                    <div class="col-md-7"><c:out value="${user.address.postalCode}"></c:out></div>
                 </div>
             </div>
         </div>

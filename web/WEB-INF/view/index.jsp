@@ -26,7 +26,12 @@
 
 </head>
 <body>
-<jsp:include page="topbaranon.jsp"/>
+<c:if test="${sessionid != -1}">
+    <jsp:include page="topbar.jsp"/>
+</c:if>
+<c:if test="${sessionid == -1}">
+    <jsp:include page="topbaranon.jsp"/>
+</c:if>
 <div id="main-header">
     <div class="logo">
     </div><!--/logo-->

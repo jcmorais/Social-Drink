@@ -83,10 +83,10 @@
                     <h3 class="panel-title">Contactos</h3>
                 </div>
                 <div class="panel-body" >
-                    <div class="col-md-6"><b>Email:</b></div>
-                    <div class="col-md-6"><c:out value="${user.email}"></c:out></div>
-                    <div class="col-md-6"><b>Telefone:</b></div>
-                    <div class="col-md-6"><c:out value="${user.contact}"></c:out></div>
+                    <div class="col-md-5"><b>Email:</b></div>
+                    <div class="col-md-7"><c:out value="${user.email}"></c:out></div>
+                    <div class="col-md-5"><b>Telefone:</b></div>
+                    <div class="col-md-7"><c:out value="${user.contact}"></c:out></div>
                 </div>
             </div>
     </div>
@@ -148,8 +148,8 @@
                     </c:if>
                     <c:forEach var="follower" items="${followers}">
                         <a href="/SocialDrink/user/${follower.ID}/${sessionid}" style="color: inherit">
-                            <div class="col-md-2">
-                                <img height="50" width="50" class="img-responsive center-block" src="<c:url value="${follower.getPhoto().getFilePath()}"/>"/>
+                            <div class="col-md-4">
+                                <img height="100" width="100" class="img-responsive center-block" src="<c:url value="${follower.getPhoto().getFilePath()}"/>"/>
                             </div>
                         </a>
                     </c:forEach>

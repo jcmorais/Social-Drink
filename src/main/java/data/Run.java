@@ -202,9 +202,29 @@ public class Run {
             City city = facade.createCity();
             city.setName("Guimaraes");
 
+            City city2 = facade.createCity();
+            city2.setName("Braga");
+
+            City city3 = facade.createCity();
+            city3.setName("Viana do Castelo");
+
+            City city4 = facade.createCity();
+            city4.setName("Porto");
+
+            City city5 = facade.createCity();
+            city5.setName("Ponte de Lima");
+
+            City city6 = facade.createCity();
+            city6.setName("Coimbra");
+
             Country country = facade.createCountry();
             country.setName("Portugal");
             country.cities.add(city);
+            country.cities.add(city2);
+            country.cities.add(city3);
+            country.cities.add(city4);
+            country.cities.add(city5);
+            country.cities.add(city6);
             facade.save(country);
         }
 
@@ -220,7 +240,7 @@ public class Run {
             consumer.setContact("912345678");
             consumer.setFirstname("Carlos");
             consumer.setLastname("Morais");
-            consumer.setSex("masculino");
+            consumer.setSex("Masculino");
             consumer.setPassword("12345");
             consumer.setProfession("estudante");
             consumer.setEmail("jcm@gmail.com");
@@ -237,13 +257,13 @@ public class Run {
             consumer.setDescription("gosto de aproveitar a vida e trabalhar");
             consumer.setFirstname("Pedro");
             consumer.setLastname("Pereira");
-            consumer.setSex("masculino");
+            consumer.setSex("Masculino");
             consumer.setPassword("12345");
             consumer.setProfession("programador");
             consumer.setEmail("jpc@gmail.com");
             consumer.setContact("918765432");
             consumer.setPhoto(photo);
-            consumer.setCity(facade.getCityByORMID(1));
+            consumer.setCity(facade.getCityByORMID(2));
             facade.save(consumer);
 
 
@@ -333,7 +353,7 @@ public class Run {
 
             day = facade.createWeekday();
             day.setDay(5);
-            day.setNameDay("Sexa-Feira");
+            day.setNameDay("Sexta-Feira");
             day.setOpening("20:00");
             day.setClosure("04:00");
             bar.horary.add(day);
@@ -353,7 +373,107 @@ public class Run {
             bar.horary.add(day);
             facade.save(bar);
 
+            photo = facade.createPhoto();
+            photo.setName("profile.png");
+            photo.setFilePath("/images/user/5/profile.png");
 
+            consumer = facade.createConsumer();
+            consumer.setBirthday(new Date());
+            consumer.setDescription("Gosto de desfrutar de uma bebida com os meus amigos");
+            consumer.setContact("913245678");
+            consumer.setFirstname("Ana");
+            consumer.setLastname("Silva");
+            consumer.setSex("Feminino");
+            consumer.setPassword("12345");
+            consumer.setProfession("Estudante");
+            consumer.setEmail("asi@gmail.com");
+            consumer.setPhoto(photo);
+            consumer.setCity(facade.getCityByORMID(1));
+            facade.save(consumer);
+
+            photo = facade.createPhoto();
+            photo.setName("profile.png");
+            photo.setFilePath("/images/user/6/profile.png");
+
+            consumer = facade.createConsumer();
+            consumer.setBirthday(new Date());
+            consumer.setDescription("Sou um grande apreciador de vinhos");
+            consumer.setContact("913545678");
+            consumer.setFirstname("Fred");
+            consumer.setLastname("Carvalho");
+            consumer.setSex("Masculino");
+            consumer.setPassword("12345");
+            consumer.setProfession("Gerente");
+            consumer.setEmail("frdc@gmail.com");
+            consumer.setPhoto(photo);
+            consumer.setCity(facade.getCityByORMID(1));
+            facade.save(consumer);
+
+            photo = facade.createPhoto();
+            photo.setName("profile.png");
+            photo.setFilePath("/images/user/7/profile.png");
+
+            consumer = facade.createConsumer();
+            consumer.setBirthday(new Date());
+            consumer.setDescription("Apreciador de cocktails nao alcoolicos");
+            consumer.setContact("963245678");
+            consumer.setFirstname("Joana");
+            consumer.setLastname("Ferreira");
+            consumer.setSex("Feminino");
+            consumer.setPassword("12345");
+            consumer.setProfession("Estudante");
+            consumer.setEmail("juferr@gmail.com");
+            consumer.setPhoto(photo);
+            consumer.setCity(facade.getCityByORMID(1));
+            facade.save(consumer);
+
+            address = facade.createAddress();
+            address.setCity(facade.getCityByORMID(1));
+            address.setPostalCode("4880-777");
+            address.setStreet("rua do Joaquim");
+
+            photo = facade.createPhoto();
+            photo.setName("profile.png");
+            photo.setFilePath("/images/user/8/profile.png");
+
+            bar = facade.createBar();
+            bar.setName("Bar 3");
+            bar.setEmail("bar3@gmail.com");
+            bar.setDescription("Bar com excelente ambiente e bebidas inovadoras");
+            bar.setAddress(address);
+            bar.setPassword("12345");
+            bar.setContact("253278253");
+            bar.setPhoto(photo);
+
+
+            day = facade.createWeekday();
+            day.setDay(3);
+            day.setNameDay("Segunda-Feira");
+            day.setOpening("18:00");
+            day.setClosure("00:00");
+            bar.horary.add(day);
+
+            day = facade.createWeekday();
+            day.setDay(5);
+            day.setNameDay("Sexta-Feira");
+            day.setOpening("20:00");
+            day.setClosure("04:00");
+            bar.horary.add(day);
+
+            day = facade.createWeekday();
+            day.setDay(6);
+            day.setNameDay("Sabado");
+            day.setOpening("20:00");
+            day.setClosure("04:00");
+            bar.horary.add(day);
+
+            day = facade.createWeekday();
+            day.setDay(7);
+            day.setNameDay("Domingo");
+            day.setOpening("20:00");
+            day.setClosure("04:00");
+            bar.horary.add(day);
+            facade.save(bar);
 
         }
 

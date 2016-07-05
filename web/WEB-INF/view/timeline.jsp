@@ -20,7 +20,7 @@
 
 </head>
 <body>
-<div class="container">
+<div class="container" style="padding-top: 100px">
     <jsp:include page="topbar.jsp"/>
     <div class="page-header">
         <h1 id="timeline">Timeline</h1>

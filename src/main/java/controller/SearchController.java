@@ -24,8 +24,6 @@ public class SearchController {
     @RequestMapping(value = "/search/results", method = RequestMethod.GET)
     public ModelAndView getUser(ModelAndView model, @RequestParam("searchWord") String searchWord){
 
-        System.out.println(searchWord);
-
         List<Consumer> consumersRes = loginService.searchConsumer(searchWord);
         List<Bar> barsRes = loginService.searchBar(searchWord);
         List<Drink> drinksRes = loginService.searchDrink(searchWord);
