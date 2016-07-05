@@ -83,7 +83,7 @@
                         <div class='container'>
                             <div class="row">
                                 <div class="" style="display: inline-block">
-                                    <h2><c:out value="${drink.name.toUpperCase()}${session.getID()}"></c:out></h2>
+                                    <h2><c:out value="${drink.name.toUpperCase()}${sessionid}"></c:out></h2>
                                 </div>
 
                                 <div style="display: inline-block; padding-top: 4px; padding-left: 10px" class="">
@@ -159,13 +159,13 @@
 
                                     <c:if test="${isFavorite == 'false'}">
                                         <div id="addFavorite">
-                                            <a class="btn icon-btn btn-success" onclick="addFavorite(${drink.getID()},${session.getID()})">
+                                            <a class="btn icon-btn btn-success" onclick="addFavorite(${drink.getID()},${sessionid})">
                                                 <span class="glyphicon btn-glyphicon glyphicon-heart-empty img-circle text-success"></span>
                                                 Adicionar aos Favoritos
                                             </a>
                                         </div>
                                         <div id="removeFavorite" style="display: none;">
-                                            <a class="btn icon-btn btn-warning" onclick="removeFavorite(${drink.getID()},${session.getID()})">
+                                            <a class="btn icon-btn btn-warning" onclick="removeFavorite(${drink.getID()},${sessionid})">
                                                 <span class="glyphicon btn-glyphicon glyphicon-minus img-circle text-warning"></span>
                                                 Remover dos favoritos
                                             </a>
@@ -173,13 +173,13 @@
                                     </c:if>
                                     <c:if test="${isFavorite == 'true'}">
                                         <div id="addFavorite" style="display: none;">
-                                            <a class="btn icon-btn btn-success" onclick="addFavorite(${drink.getID()},${session.getID()})"  >
+                                            <a class="btn icon-btn btn-success" onclick="addFavorite(${drink.getID()},${sessionid})"  >
                                                 <span class="glyphicon btn-glyphicon glyphicon-heart-empty img-circle text-success"></span>
                                                 Adicionar aos Favoritos
                                             </a>
                                         </div>
                                         <div id="removeFavorite">
-                                            <a class="btn icon-btn btn-warning"  onclick="removeFavorite(${drink.getID()},${session.getID()})">
+                                            <a class="btn icon-btn btn-warning"  onclick="removeFavorite(${drink.getID()},${sessionid})">
                                                 <span class="glyphicon btn-glyphicon glyphicon-minus img-circle text-warning"></span>
                                                 Remover dos favoritos
                                             </a>
