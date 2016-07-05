@@ -10,6 +10,10 @@ import java.util.Date;
 /**
  * Created by carlosmorais on 11/06/16.
  */
+
+/**
+ * Geração de Dados
+ */
 public class Run {
 
     public static class Data
@@ -109,6 +113,87 @@ public class Run {
         ingredient.setName("morango");
         facade.save(ingredient);
 
+        //19
+        ingredient = facade.createIngredient();
+        ingredient.setName("whisky");
+        facade.save(ingredient);
+
+
+        //20
+        ingredient = facade.createIngredient();
+        ingredient.setName("whisky");
+        facade.save(ingredient);
+
+
+        //21
+        ingredient = facade.createIngredient();
+        ingredient.setName("chocolate");
+        facade.save(ingredient);
+
+        //22
+        ingredient = facade.createIngredient();
+        ingredient.setName("chocolate em pó");
+        facade.save(ingredient);
+
+        //23
+        ingredient = facade.createIngredient();
+        ingredient.setName("bagaço");
+        facade.save(ingredient);
+
+        //24
+        ingredient = facade.createIngredient();
+        ingredient.setName("agua ardente");
+        facade.save(ingredient);
+
+        //24
+        ingredient = facade.createIngredient();
+        ingredient.setName("cerveja");
+        facade.save(ingredient);
+
+        //25
+        ingredient = facade.createIngredient();
+        ingredient.setName("Licor Beirão");
+        facade.save(ingredient);
+
+        //26
+        ingredient = facade.createIngredient();
+        ingredient.setName("vinho do Porto");
+        facade.save(ingredient);
+
+        //27
+        ingredient = facade.createIngredient();
+        ingredient.setName("malibu");
+        facade.save(ingredient);
+
+        //28
+        ingredient = facade.createIngredient();
+        ingredient.setName("absinto");
+        facade.save(ingredient);
+
+        //29
+        ingredient = facade.createIngredient();
+        ingredient.setName("tequila");
+        facade.save(ingredient);
+
+        //30
+        ingredient = facade.createIngredient();
+        ingredient.setName("kiwi");
+        facade.save(ingredient);
+
+        //31
+        ingredient = facade.createIngredient();
+        ingredient.setName("amoras");
+        facade.save(ingredient);
+
+        //32
+        ingredient = facade.createIngredient();
+        ingredient.setName("frutos vermelhos");
+        facade.save(ingredient);
+
+        //33
+        ingredient = facade.createIngredient();
+        ingredient.setName("hortela");
+        facade.save(ingredient);
         }
 
 
@@ -125,48 +210,147 @@ public class Run {
 
 
         public void createConsumer() throws PersistentException {
+            Photo photo = facade.createPhoto();
+            photo.setName("profile.png");
+            photo.setFilePath("/images/user/1/profile.png");
+
+            Consumer consumer = facade.createConsumer();
+            consumer.setBirthday(new Date());
+            consumer.setDescription("Sou um jovem que gosta de beber a noite");
+            consumer.setFirstname("Carlos");
+            consumer.setLastname("Morais");
+            consumer.setSex("masculino");
+            consumer.setPassword("12345");
+            consumer.setProfession("estudante");
+            consumer.setEmail("jcm@gmail.com");
+            consumer.setPhoto(photo);
+            consumer.setCity(facade.getCityByORMID(1));
+            facade.save(consumer);
+
+            photo = facade.createPhoto();
+            photo.setName("profile.png");
+            photo.setFilePath("/images/user/2/profile.png");
+
+            consumer = facade.createConsumer();
+            consumer.setBirthday(new Date());
+            consumer.setDescription("gosto de aproveitar a vida e trabalhar");
+            consumer.setFirstname("Pedro");
+            consumer.setLastname("Pereira");
+            consumer.setSex("masculino");
+            consumer.setPassword("12345");
+            consumer.setProfession("progrador");
+            consumer.setEmail("jpc@gmail.com");
+            consumer.setPhoto(photo);
+            consumer.setCity(facade.getCityByORMID(1));
+            facade.save(consumer);
+
+
+
             Address address = facade.createAddress();
             address.setCity(facade.getCityByORMID(1));
             address.setPostalCode("4800-091");
             address.setStreet("rua do padre amaro");
 
-            Photo photo = facade.createPhoto();
-            photo.setName("default");
-            photo.setFilePath("/images/user/1/default.png");
+            photo = facade.createPhoto();
+            photo.setName("profile.png");
+            photo.setFilePath("/images/user/3/profile.png");
 
-            Consumer consumer = facade.createConsumer();
-            consumer.setBirthday(new Date());
-            consumer.setDescription("utilizador de teste");
-            consumer.setFirstname("carlos");
-            consumer.setLastname("morais");
-            consumer.setSex("masc");
-            consumer.setPassword("12345");
-            consumer.setProfession("operário de construção cívil");
-            consumer.setEmail("jcmorais93@gmail.com");
-            consumer.setPhoto(photo);
-            facade.save(consumer);
+            Bar bar = facade.createBar();
+            bar.setEmail("bar@gmail.com");
+            bar.setDescription("somos um bar dedicado a estudantes, temo excelentes bebidas!");
+            bar.setAddress(address);
+            bar.setPassword("12345");
+            bar.setContact("253253253");
+            bar.setPhoto(photo);
+
+
+            Weekday day = facade.createWeekday();
+            day.setDay(1);
+            day.setNameDay("Segunda-Feira");
+            day.setOpening("13:00");
+            day.setClosure("02:00");
+            bar.horary.add(day);
+
+            day = facade.createWeekday();
+            day.setDay(2);
+            day.setNameDay("Terça-Feira");
+            day.setOpening("13:00");
+            day.setClosure("02:00");
+            bar.horary.add(day);
+
+            day = facade.createWeekday();
+            day.setDay(5);
+            day.setNameDay("Sexa-Feira");
+            day.setOpening("13:00");
+            day.setClosure("04:00");
+            bar.horary.add(day);
+
+            day = facade.createWeekday();
+            day.setDay(6);
+            day.setNameDay("Sabado");
+            day.setOpening("13:00");
+            day.setClosure("04:00");
+            bar.horary.add(day);
+
+            day = facade.createWeekday();
+            day.setDay(7);
+            day.setNameDay("Domingo");
+            day.setOpening("13:00");
+            day.setClosure("04:00");
+            bar.horary.add(day);
+            facade.save(bar);
+
 
 
             address = facade.createAddress();
             address.setCity(facade.getCityByORMID(1));
-            address.setPostalCode("4800-091");
-            address.setStreet("rua do padre amaro");
+            address.setPostalCode("4880-777");
+            address.setStreet("rua do Joaquim");
 
             photo = facade.createPhoto();
-            photo.setName("default");
-            photo.setFilePath("/images/");
+            photo.setName("profile.png");
+            photo.setFilePath("/images/user/4/profile.png");
 
-            consumer = facade.createConsumer();
-            consumer.setBirthday(new Date());
-            consumer.setDescription("utilizador de teste");
-            consumer.setFirstname("Jose");
-            consumer.setLastname("morais");
-            consumer.setSex("masc");
-            consumer.setPassword("12345");
-            consumer.setProfession("operário de construção cívil");
-            consumer.setEmail("jcmorais93@gmail.com");
-            consumer.setPhoto(photo);
-            facade.save(consumer);
+            bar = facade.createBar();
+            bar.setEmail("bar2@gmail.com");
+            bar.setDescription("somos um bar dedicado a estudantes, temo excelentes bebidas!");
+            bar.setAddress(address);
+            bar.setPassword("12345");
+            bar.setContact("253253253");
+            bar.setPhoto(photo);
+
+
+            day = facade.createWeekday();
+            day.setDay(3);
+            day.setNameDay("Quarta-Feira");
+            day.setOpening("20:00");
+            day.setClosure("02:00");
+            bar.horary.add(day);
+
+            day = facade.createWeekday();
+            day.setDay(5);
+            day.setNameDay("Sexa-Feira");
+            day.setOpening("20:00");
+            day.setClosure("04:00");
+            bar.horary.add(day);
+
+            day = facade.createWeekday();
+            day.setDay(6);
+            day.setNameDay("Sabado");
+            day.setOpening("20:00");
+            day.setClosure("04:00");
+            bar.horary.add(day);
+
+            day = facade.createWeekday();
+            day.setDay(7);
+            day.setNameDay("Domingo");
+            day.setOpening("20:00");
+            day.setClosure("04:00");
+            bar.horary.add(day);
+            facade.save(bar);
+
+
+
         }
 
         public void createTypesOfDrink() throws PersistentException {
@@ -333,15 +517,15 @@ public class Run {
             drink.ingredients.add(drinkIngredient);
             step = facade.createStep();
             step.setNumber(1);
-            step.setDescription("descrição algo detalhada do passo 1");
+            step.setDescription("lavar todos os ingredientes");
             drink.steps.add(step);
             step = facade.createStep();
             step.setNumber(2);
-            step.setDescription("descrição intermédia, com alguns detalhes relevantes");
+            step.setDescription("cortar e preparar todos os ingredientes necessarios");
             drink.steps.add(step);
             step = facade.createStep();
             step.setNumber(3);
-            step.setDescription("descrição fina, bom apetite!!");
+            step.setDescription("juntar tudo ate obter um bom aspecto");
             drink.steps.add(step);
             albumDAO = new AlbumDAOImpl();
             album = albumDAO.createAlbum();
@@ -357,47 +541,17 @@ public class Run {
             facade.save(consumer);
         }
 
-
-
-
-        public void test() throws PersistentException {
-            EventDrinkDAO eventDAO = new EventDrinkDAOImpl();
-            EventDrink event = eventDAO.createEventDrink();
-            event.setDrink(facade.getDrinkByORMID(1));
-
-            Consumer consumer = facade.getConsumerByORMID(1);
-            consumer.events.add(event);
-            facade.save(consumer);
-        }
-
-
-
     }
 
 
 
 
     public static void main(String args[]) throws PersistentException {
-
-        
         Data data = new Data();
-
-
-
         data.createIngredients();
-
         data.createTypesOfDrink();
-
         data.createCountriesAndCities();
-
-        //data.createConsumer();
-
-        //data.createDriks();
-
-        //data.favoriteDrinks();
-
-
-        //data.test();
-
+        data.createConsumer();
+        data.createDriks();
     }
 }
