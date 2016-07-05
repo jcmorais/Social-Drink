@@ -15,13 +15,13 @@ import java.util.List;
  */
 @Controller
 @RequestMapping(value = "/user")
-@SessionAttributes({"session","following"})
+@SessionAttributes({"session","sessionid"})
 public class UserPageController {
     @Autowired
     private UserService userService = new UserServiceImpl();
 
-    @RequestMapping(value = "/{userId}", method = RequestMethod.GET)
-    public ModelAndView getUser(ModelAndView model, @PathVariable("userId") int userId){
+    @RequestMapping(value = "/{userId}/{sessionid}", method = RequestMethod.GET)
+    public ModelAndView getUser(ModelAndView model, @PathVariable("userId") int userId, @PathVariable("sessionid") int sessionid){
         User user = userService.getUserById(userId);
 
         if (user.drinks.size() > 4) {
@@ -69,6 +69,19 @@ public class UserPageController {
             } else {
                 model.addObject("followers",consumer.follow.toArray());
             }
+
+            User aux = userService.getUserById(sessionid);
+            User[] foll = ((Consumer) aux).follow.toArray();
+            int bool = 0;
+
+            for(int i=0; i< foll.length; i++) {
+                if(foll[i].getID() == userId) {
+                    bool = 1;
+                    break;
+                }
+            }
+
+            model.addObject("follow", bool);
 
         }
         

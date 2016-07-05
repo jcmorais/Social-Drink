@@ -38,7 +38,7 @@
         <c:if test="${not empty consumersRes}">
             <h2>Utilizadores</h2>
             <c:forEach var="consumerRes" items="${consumersRes}">
-                <a href="/SocialDrink/user/${consumerRes.getID()}" style="color: inherit">
+                <a href="/SocialDrink/user/${consumerRes.getID()}/${sessionid}" style="color: inherit">
                     <div class="col-md-12">
                         <div class="col-md-2">
                             <img height="150" width="150" class="img-responsive center-block" src="<c:url value="${consumerRes.getPhoto().getFilePath()}"/>"/>
@@ -58,7 +58,7 @@
         <c:if test="${not empty barsRes}">
             <h2>Bares</h2>
             <c:forEach var="barRes" items="${barsRes}">
-                <a href="/SocialDrink/user/${barRes.getID()}" style="color: inherit">
+                <a href="/SocialDrink/user/${barRes.getID()}/${sessionid}" style="color: inherit">
                     <div class="col-md-12">
                         <div class="col-md-2">
                             <img height="150" width="150" class="img-responsive center-block" src="<c:url value="${barRes.getPhoto().getFilePath()}"/>"/>

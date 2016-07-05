@@ -80,20 +80,19 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Consumer followUser(int session, int userId) {
+    public void followUser(int session, int userId) {
         try {
             Consumer consumer = facade.getConsumerByORMID(session);
             consumer.follow.add(facade.getConsumerByORMID(userId));
             facade.save(consumer);
-            return consumer;
         } catch (PersistentException e) {
             e.printStackTrace();
         }
-        return null;
+
     }
 
     @Override
-    public Consumer unfollowUser(int session, int userId) {
+    public void unfollowUser(int session, int userId) {
         try {
             Consumer consumer = facade.getConsumerByORMID(session);
             Iterator<User> it = consumer.follow.getIterator();
@@ -107,11 +106,10 @@ public class UserServiceImpl implements UserService {
                 }
             }
             facade.save(consumer);
-            return consumer;
         } catch (PersistentException e) {
             e.printStackTrace();
         }
-        return null;
+
     }
 
     @Override

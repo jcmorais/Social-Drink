@@ -23,7 +23,7 @@ public class SearchServiceImpl implements SearchService {
             List<Consumer> aux = new ArrayList<>();
 
             for(int i=0; i<temp.length; i++) {
-                if(temp[i].getFirstname().contains(name) || temp[i].getLastname().contains(name)) {
+                if(temp[i].getFirstname().toLowerCase().contains(name.toLowerCase()) || temp[i].getLastname().toLowerCase().contains(name.toLowerCase())) {
                     aux.add(temp[i]);
 
                 }
@@ -45,7 +45,7 @@ public class SearchServiceImpl implements SearchService {
             List<Bar> aux = new ArrayList<>();
 
             for(int i=0; i<temp.length; i++) {
-                if(temp[i].getName().contains(name)) {
+                if(temp[i].getName().toLowerCase().contains(name.toLowerCase())) {
                     aux.add(temp[i]);
                 }
             }

@@ -13,9 +13,9 @@ public interface UserService {
 
     void removeFavoriteDrink(int drinkId, int userId);
 
-    Consumer followUser(int session, int userId);
+    void followUser(int session, int userId);
 
-    Consumer unfollowUser(int session, int userId);
+    void unfollowUser(int session, int userId);
 
     Event[] getUserEvents();
 }

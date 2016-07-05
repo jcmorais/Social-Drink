@@ -16,7 +16,7 @@ import java.util.List;
  * Created by jpp on 04/07/16.
  */
 @Controller
-@SessionAttributes("sessionid")
+@SessionAttributes({"session", "sessionid"})
 public class SearchController {
     @Autowired
     private SearchService loginService = new SearchServiceImpl();

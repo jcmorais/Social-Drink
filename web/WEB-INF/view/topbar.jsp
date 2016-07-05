@@ -26,7 +26,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/SocialDrink/timeline"><img src="${pageContext.request.contextPath}/images/topbar/homebutton.png"></a></li>
                 <li><a href="/SocialDrink/drink/newdrink"><img src="${pageContext.request.contextPath}/images/topbar/drink.png"></a></li>
-                <li><a href="/SocialDrink/user/${sessionid}"><img width="25" height="25" class="img-responsive center-block" src="<c:url value="${user.getPhoto().getFilePath()}"/>"/></a></li>
+                <li><a href="/SocialDrink/user/${sessionid}/${sessionid}"><img width="25" height="25" class="img-responsive center-block" src="<c:url value="${session.getPhoto().getFilePath()}"/>"/></a></li>
                 <li><a href="/SocialDrink/logout"><img src="${pageContext.request.contextPath}/images/topbar/logout.png"></a></li>
 
             </ul>

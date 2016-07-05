@@ -19,7 +19,7 @@ import java.util.List;
  * Created by jpp on 03/07/16.
  */
 @Controller
-@SessionAttributes({"session","following","sessionid"})
+@SessionAttributes({"session","sessionid"})
 public class LoginController {
     @Autowired
     private LoginService loginService = new LoginServiceImpl();
@@ -31,21 +31,13 @@ public class LoginController {
     ) {
 
         User session = loginService.login(email, password);
-        List<Integer> following = new ArrayList<>();
-
-        if(session instanceof Consumer) {
-            for (User follow : ((Consumer) session).follow.toArray()) {
-                following.add(follow.getID());
-            }
-        }
 
         if(session == null) model.setViewName("redirect:/");
 
         else {
             model.addObject("session", session);
-            model.addObject("following", following.toArray());
             model.addObject("sessionid", session.getID());
-            model.setViewName("redirect:/user/" + session.getID());
+            model.setViewName("redirect:/user/" + session.getID() + "/" + session.getID());
         }
 
         return model;

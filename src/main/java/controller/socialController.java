@@ -17,7 +17,7 @@ import socialdrink.User;
 
 @Controller
 @RequestMapping(value = "/favorite")
-@SessionAttributes({"session","sessionid","following"})
+@SessionAttributes({"session","sessionid"})
 public class socialController {
     @Autowired
     private UserService userService;
@@ -38,32 +38,20 @@ public class socialController {
     @RequestMapping(value="/follow/{userId}/{sessionId}", method = RequestMethod.POST)
     @ResponseBody
     String follow(@PathVariable("userId") int userId,
-                  @PathVariable("sessionId") int sessionId,
-                  @ModelAttribute("following") int[] following){
+                  @PathVariable("sessionId") int sessionId)
+                  {
 
-        Consumer consumer = userService.followUser(sessionId, userId);
-        ModelAndView model = new ModelAndView();
-        int[] updated = new int[consumer.follow.size()];
-        for(int i=0; i<updated.length; i++) {
-            updated[i] = consumer.follow.toArray()[i].getID();
-        }
-        following = updated;
+        userService.followUser(sessionId, userId);
+
         return "sucesso";
     }
 
     @RequestMapping(value="/unfollow/{userId}/{sessionId}", method = RequestMethod.POST)
     @ResponseBody
-    String unfollow(@PathVariable("userId") int userId,
-                    @PathVariable("sessionId") int sessionId,
-                    @ModelAttribute("following") int[] following){
+    String unfollow(@PathVariable("userId") int userId, @PathVariable("sessionId") int sessionId) {
 
-        Consumer consumer = userService.unfollowUser(sessionId, userId);
-        ModelAndView model = new ModelAndView();
-        int[] updated = new int[consumer.follow.size()];
-        for(int i=0; i<updated.length; i++) {
-            updated[i] = consumer.follow.toArray()[i].getID();
-        }
-        following = updated;
+        userService.unfollowUser(sessionId, userId);
+
         return "sucesso";
     }
 

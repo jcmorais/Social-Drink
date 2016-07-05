@@ -38,18 +38,8 @@
 
                 <c:if test="${sessionid ne user.getID()}">
                 <c:if test="${sessionid != -1}">
-                    <c:set var="contains" value='false' />
-                    <c:set var="testID" value="${user.getID()}" />
 
-                    <c:forEach var="item" items="${followers}">
-                        <p>Test${testID} Item${item}</p>
-                        <c:if test="${item.ID == testID}">
-                            <c:set var="contains" value="true" />
-                        </c:if>
-                    </c:forEach>
-
-
-                        <c:if test="${contains == 'false'}">
+                        <c:if test="${follow == 0}">
                             <div id="follow">
                                 <a class="btn icon-btn btn-success" onclick="follow(${user.getID()},${sessionid})">
                                     <span class="glyphicon btn-glyphicon glyphicon-heart-empty img-circle text-success"></span>
@@ -63,7 +53,7 @@
                                 </a>
                             </div>
                         </c:if>
-                        <c:if test="${contains == 'true'}">
+                        <c:if test="${follow == 1}">
                             <div id="follow" style="display: none;">
                                 <a class="btn icon-btn btn-success" onclick="follow(${user.getID()},${sessionid})">
                                     <span class="glyphicon btn-glyphicon glyphicon-heart-empty img-circle text-success"></span>
@@ -157,7 +147,7 @@
                         Não existem seguidores.
                     </c:if>
                     <c:forEach var="follower" items="${followers}">
-                        <a href="/SocialDrink/user/${follower.ID}" style="color: inherit">
+                        <a href="/SocialDrink/user/${follower.ID}/${sessionid}" style="color: inherit">
                             <div class="col-md-2">
                                 <img height="50" width="50" class="img-responsive center-block" src="<c:url value="${follower.getPhoto().getFilePath()}"/>"/>
                             </div>
