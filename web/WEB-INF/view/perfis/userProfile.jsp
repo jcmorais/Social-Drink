@@ -37,13 +37,13 @@
 
 
                 <c:if test="${sessionid ne user.getID()}">
-                <c:if test="${ not empty session}">
+                <c:if test="${sessionid != -1}">
                     <c:set var="contains" value='false' />
                     <c:set var="testID" value="${user.getID()}" />
 
                     <c:forEach var="item" items="${followers}">
                         <p>Test${testID} Item${item}</p>
-                        <c:if test="${item == testID}">
+                        <c:if test="${item.ID == testID}">
                             <c:set var="contains" value="true" />
                         </c:if>
                     </c:forEach>

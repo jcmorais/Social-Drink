@@ -47,7 +47,7 @@
             <label class="control-label">Data de nascimento</label>
             <div class="date">
                 <div class="input-group input-append date" id="datePicker">
-                    <input type="date" class="form-control" name="date" />
+                    <input type="date" class="form-control" name="date" data-date-format="mm/dd/yyyy" />
                     <span class="input-group-addon add-on btn"><span class="glyphicon glyphicon-calendar"></span></span>
                 </div>
             </div>
