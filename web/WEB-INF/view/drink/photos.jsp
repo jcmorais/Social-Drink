@@ -20,9 +20,16 @@
 <jsp:include page="../topbar.jsp"/>
 
 <div style="margin-top: 100px" class="container">
+    <c:if test="${semmovies == 'yes'}">
+        <div>
+            <h1>Sem filmes :( </h1>
+        </div>
+    </c:if>
     <c:if test="${successMessage == 'yes'}">
         <div class="container">
-            <div class="success">${message}</div>
+            <div class="success">
+                Criado com sucesso ${message}
+            </div>
         </div>
     </c:if>
     <form id="photoForm" method="post" action="/SocialDrink/drink/${drinkId}/photo"  enctype="multipart/form-data">
@@ -45,7 +52,7 @@
                         </label>
                     </div>
                     <div class="col-md-6">
-                        <input id="submit-profile-photo" class="btn btn-success" onclick="uploadPhoto()" value="Upload!">
+                        <input id="submit-profile-photo" class="btn btn-success" onclick="uploadPhoto()" value="Confirmar">
                     </div>
                 </div>
             </div>

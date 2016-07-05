@@ -29,7 +29,7 @@
                             <p class="title"> ${movie.getTitle()} </p>
                             <img class="image center-block" src="<c:url value="${movie.getImg_path()}"/>"/>
                             <p class="year centered"> ${movie.getYear()}  </p>
-                            <button link="https://www.themoviedb.org/movie/${movie.getId()}" class="btn center-block">View</button>
+                            <a link="https://www.themoviedb.org/movie/${movie.getId()}" class="btn center-block">ver filme</a>
                         </div>
                     </c:forEach>
                 </div>

@@ -265,9 +265,10 @@
     $('#btnRight').click(function(e) {
         var selectedOpts = $('#lstBox1 option:selected');
         if (selectedOpts.length == 0) {
-            alert("Nothing to move.");
             e.preventDefault();
         }
+
+        $('#lstBox1 option:selected').remove();
 
         $('#lstBox2').append($(selectedOpts).clone());
         var table = document.getElementById("tabelaIng");
@@ -278,7 +279,7 @@
         var cell4 = row.insertCell(3);
         cell1.innerHTML = count;
         cell2.innerHTML = $(selectedOpts).text();
-        cell3.innerHTML = '<input name="quantidades[]" type="text">';
+        cell3.innerHTML = '<input value="1" name="quantidades[]" type="text">';
         cell4.innerHTML = '<a href="#" class="remover">Remover</a>';
         count = count + 1;
         $('#ingrediente').val('');
@@ -395,6 +396,8 @@
                     $('#formulario').append($(input));
                 });
             });
+
+
         }
         flag=0;
     });

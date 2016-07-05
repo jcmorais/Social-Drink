@@ -39,6 +39,7 @@ public class RestController {
             model.addObject("semmovies","yes");
         else
             model.addObject("semmovies","no");
+        model.addObject("movies",movies.getMovies());
         model.setViewName("service/movies");
         return model;
     }

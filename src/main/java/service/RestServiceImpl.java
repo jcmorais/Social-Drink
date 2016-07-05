@@ -49,12 +49,9 @@ public class RestServiceImpl implements RestService {
                     });
         }
         catch (Exception e){
-        }
-        if(response!=null)
-            return response.getBody();
-        else
             return new Movies();
-
+        }
+        return response.getBody();
     }
 
 
