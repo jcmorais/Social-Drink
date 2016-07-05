@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import socialdrink.Facade;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,7 +28,7 @@ public class RestServiceImpl implements RestService {
     private String urlFamilyMovies = "http://reel-ea1516.herokuapp.com/api/v1/genres/";
 
     //Canil
-    private String urlCanil = "http://localhost:8080/SocialDrink/canil";
+    private String urlCanil = "192.168.0.160/sheltersJson";
 
     public Movies getListMoviesByDrinkID(int drinkId){
         String url=urlMovies+drinkId;
@@ -59,16 +60,23 @@ public class RestServiceImpl implements RestService {
 
     public List<Canil> getListCanil(){
         RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<List<Canil>> response = restTemplate.exchange(
-                urlCanil,
-                HttpMethod.GET,
-                null,
-                new ParameterizedTypeReference<List<Canil>>() {});
+        ResponseEntity<List<Canil>> response = null;
+        try {
+            response = restTemplate.exchange(
+                    urlCanil,
+                    HttpMethod.GET,
+                    null,
+                    new ParameterizedTypeReference<List<Canil>>() {
+                    });
+        }
+        catch (Exception e){
+            return new ArrayList<Canil>();
+        }
         return response.getBody();
     }
 
 
-    /* Teste */
+    /* Teste
     public static void main(String args[]){
      RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<List<Movie>> response = restTemplate.exchange(
@@ -80,6 +88,7 @@ public class RestServiceImpl implements RestService {
         for (Movie m : movies) {
             System.out.println(m.toString());
         }
+        */
         /*
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<Movie> response = restTemplate.getForEntity(
@@ -87,7 +96,8 @@ public class RestServiceImpl implements RestService {
                 Movie.class);
 
         System.out.println(response.getBody().toString());
-        */
+
     }
+    */
 
 }

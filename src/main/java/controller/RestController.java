@@ -1,5 +1,6 @@
 package controller;
 
+import model.Canil;
 import model.Movies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import service.RestService;
+
+import java.util.List;
 
 /**
  * Created by carlosmorais on 04/07/16.
@@ -24,7 +27,12 @@ public class RestController {
     @RequestMapping(value="/canis", method = RequestMethod.GET)
     @ResponseBody
     ModelAndView canis(ModelAndView model) {
-        model.addObject("canis", restService.getListCanil());
+        List<Canil> canis = restService.getListCanil();
+        if(canis.size()==0)
+            model.addObject("semcanis","yes");
+        else
+            model.addObject("semcanis","no");
+        model.addObject("canis", canis);
         model.setViewName("service/canis");
         return model;
     }

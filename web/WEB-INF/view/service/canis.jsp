@@ -18,6 +18,11 @@
             </div>
             <div class="modal-body">
                 <div class="row">
+                    <c:if test="${semcanis == 'yes'}">
+                        <div>
+                            <h1>Sem canis :( </h1>
+                        </div>
+                    </c:if>
                     <c:forEach items="${canis}" var="canil">
                         <div class="col-md-4 col-centered animal">
                             <!--img class="logo" src="pata.gif" alt="" /-->
