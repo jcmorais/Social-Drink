@@ -365,6 +365,10 @@
 <script>
     var flag =1;
 
+    var userId = ${sessionid};
+
+
+
     $("form").submit(function(e) {
         if(flag==1) {
             $('#tabelaIng tr').each(function () {
@@ -376,6 +380,11 @@
                     $('#formulario').append($(input));
                 });
             });
+
+            var input = $("<input>")
+                    .attr("type", "hidden")
+                    .attr("name", "userId").val(userId);
+            $('#formulario').append($(input));
 
             $('#stepsTable tr').each(function () {
                 var $tds = $(this).find("td").eq(1);

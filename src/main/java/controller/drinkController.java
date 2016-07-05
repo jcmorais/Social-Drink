@@ -72,7 +72,8 @@ public class drinkController {
                                  @RequestParam("tipoBebida") int tipoBebida,
                                  @RequestParam("passos[]") List<String> passos,
                                  @RequestParam("ingredientes[]") List<Integer> ingredientes,
-                                 @RequestParam("quantidades[]") List<String> quantidades
+                                 @RequestParam("quantidades[]") List<String> quantidades,
+                                 @RequestParam("userId") int userId
     ){
 
         System.out.println("Nome " + nome);
@@ -93,7 +94,7 @@ public class drinkController {
             System.out.println("quantidade "+s);
         }
 
-        int drinkId = drinkService.addDrink(nome, descricao, tempo, tipoBebida, quantidade, passos, ingredientes, quantidades);
+        int drinkId = drinkService.addDrink(userId, nome, descricao, tempo, tipoBebida, quantidade, passos, ingredientes, quantidades);
         model.addObject("successMessage","yes");
         model.addObject("message","Drink criado com sucesso!");
         model.setViewName("redirect:"+drinkId+"/photos");

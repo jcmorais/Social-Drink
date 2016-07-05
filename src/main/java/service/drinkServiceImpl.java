@@ -173,7 +173,7 @@ public class drinkServiceImpl implements drinkService{
     }
 
 
-    public int addDrink(String nome, String descricao, int tempo, int tipoBebida, int quantidade, List<String> passos, List<Integer> ingredientes, List<String> quantidades) {
+    public int addDrink(int userId, String nome, String descricao, int tempo, int tipoBebida, int quantidade, List<String> passos, List<Integer> ingredientes, List<String> quantidades) {
         int drinkId=0;
         try {
             Drink drink = facade.createDrink();
@@ -216,7 +216,7 @@ public class drinkServiceImpl implements drinkService{
                 count++;
             }
 
-            User user = facade.getUserByORMID(1);
+            User user = facade.getUserByORMID(userId);
 
             if(user instanceof Consumer) {
                 EventDrink event = facade.createEventDrink();

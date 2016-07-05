@@ -20,7 +20,7 @@ public interface drinkService {
 
     public Ingredient[] getListIngredient();
 
-    public int addDrink(String nome, String descricao, int tempo, int tipoBebida, int quantidade, List<String> passos, List<Integer> ingredientes, List<String> quantidades);
+    public int addDrink(int userId, String nome, String descricao, int tempo, int tipoBebida, int quantidade, List<String> passos, List<Integer> ingredientes, List<String> quantidades);
 
     public Drink[] getAllDrinks();
 
