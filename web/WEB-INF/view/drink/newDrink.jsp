@@ -12,8 +12,14 @@
 
 </head>
 <body>
-<jsp:include page="../topbar.jsp"/>
+<c:if test="${sessionid == -1}">
+    <jsp:include page="../topbaranon.jsp"/>
 
+    <h1>É necessário estar autenticado para criar uma nova bebida.</h1>
+</c:if>
+
+<c:if test="${sessionid != -1}">
+    <jsp:include page="../topbar.jsp"/>
 <div class="container">
     <div class="stepwizard">
         <div class="stepwizard-row setup-panel">
@@ -196,6 +202,7 @@
         </div>
     </form>
 </div>
+</c:if>
 </body>
 </html>
 

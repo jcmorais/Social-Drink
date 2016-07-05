@@ -36,7 +36,7 @@
                 <h4><c:out value="${user.firstname} ${user.lastname}"></c:out></h4>
 
 
-                <c:if test="${session.getID() ne user.getID()}">
+                <c:if test="${sessionid ne user.getID()}">
                 <c:if test="${ not empty session}">
                     <c:set var="contains" value='false' />
                     <c:set var="testID" value="${user.getID()}" />
@@ -51,13 +51,13 @@
 
                         <c:if test="${contains == 'false'}">
                             <div id="follow">
-                                <a class="btn icon-btn btn-success" onclick="follow(${user.getID()},${session.getID()})">
+                                <a class="btn icon-btn btn-success" onclick="follow(${user.getID()},${sessionid})">
                                     <span class="glyphicon btn-glyphicon glyphicon-heart-empty img-circle text-success"></span>
                                     Seguir
                                 </a>
                             </div>
                             <div id="unfollow" style="display: none;">
-                                <a class="btn icon-btn btn-warning" onclick="unfollow(${user.getID()},${session.getID()})">
+                                <a class="btn icon-btn btn-warning" onclick="unfollow(${user.getID()},${sessionid})">
                                     <span class="glyphicon btn-glyphicon glyphicon-minus img-circle text-warning"></span>
                                     Não Seguir
                                 </a>
@@ -65,13 +65,13 @@
                         </c:if>
                         <c:if test="${contains == 'true'}">
                             <div id="follow" style="display: none;">
-                                <a class="btn icon-btn btn-success" onclick="follow(${user.getID()},${session.getID()})">
+                                <a class="btn icon-btn btn-success" onclick="follow(${user.getID()},${sessionid})">
                                     <span class="glyphicon btn-glyphicon glyphicon-heart-empty img-circle text-success"></span>
                                     Seguir
                                 </a>
                             </div>
                             <div id="unfollow">
-                                <a class="btn icon-btn btn-warning" onclick="unfollow(${user.getID()},${session.getID()})">
+                                <a class="btn icon-btn btn-warning" onclick="unfollow(${user.getID()},${sessionid})">
                                     <span class="glyphicon btn-glyphicon glyphicon-minus img-circle text-warning"></span>
                                     Não Seguir
                                 </a>

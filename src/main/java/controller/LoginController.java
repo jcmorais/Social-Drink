@@ -33,8 +33,10 @@ public class LoginController {
         User session = loginService.login(email, password);
         List<Integer> following = new ArrayList<>();
 
-        for(User follow : ((Consumer) session).follow.toArray()) {
-            following.add(follow.getID());
+        if(session instanceof Consumer) {
+            for (User follow : ((Consumer) session).follow.toArray()) {
+                following.add(follow.getID());
+            }
         }
 
         if(session == null) model.setViewName("redirect:/");

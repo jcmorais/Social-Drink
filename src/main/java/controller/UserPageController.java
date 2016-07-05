@@ -32,7 +32,6 @@ public class UserPageController {
                 drinks[i] = aux[i];
             }
 
-            //model.addObject("")
             model.addObject("userdrinks",drinks);
         } else {
             model.addObject("userdrinks",user.drinks.toArray());
