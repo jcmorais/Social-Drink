@@ -72,9 +72,15 @@
                 </div>
                 <div class="row">
                     <div class="">
+                        <a  class="btn btn-success btn-lg center-block" href="/SocialDrink/drink/${drink.getID()}/photos"  id="">Adicionar Fotos</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="">
                         <a  class="btn btn-primary btn-lg center-block" onclick="movies(${drink.getID()})" id="openBtn">Ver Filmes Sugeridos</a>
                     </div>
                 </div>
+
             </div>
             <div class="col-md-4 col-md-offset-1">
                 <div class="row">
@@ -192,11 +198,6 @@
 
                         </div>
                     </div>
-
-
-
-
-
                 </div>
                 <div class="row">
                     <h3 class="text-center">Descrição</h3>
@@ -443,4 +444,3 @@
 </script>
 
 <script type="text/javascript" src="<c:url value="/resources/bootstrap/js/modal.js" />"></script>
-<script type="text/javascript" src="<c:url value="/resources/bootstrap/js/myJavascript.js" />"></script>

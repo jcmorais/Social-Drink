@@ -390,9 +390,9 @@ public class Run {
 
         data.createCountriesAndCities();
 
-        data.createConsumer();
+        //data.createConsumer();
 
-        data.createDriks();
+        //data.createDriks();
 
         //data.favoriteDrinks();
 

@@ -76,27 +76,10 @@ public class drinkController {
                                  @RequestParam("userId") int userId
     ){
 
-        System.out.println("Nome " + nome);
-        System.out.println("Descrição " + descricao);
-        System.out.println("quantidade " + quantidade);
-        System.out.println("tempo " + tempo);
-        System.out.println("tipoBebida " + tipoBebida);
-
-        for (String passo : passos) {
-            System.out.println("passo "+passo);
-        }
-
-        for (int s : ingredientes) {
-            System.out.println("ingrediente "+s);
-        }
-
-        for (String s : quantidades) {
-            System.out.println("quantidade "+s);
-        }
-
         int drinkId = drinkService.addDrink(userId, nome, descricao, tempo, tipoBebida, quantidade, passos, ingredientes, quantidades);
         model.addObject("successMessage","yes");
         model.addObject("message","Drink criado com sucesso!");
+        model.addObject("drinkId",drinkId);
         model.setViewName("redirect:"+drinkId+"/photos");
         return model;
     }

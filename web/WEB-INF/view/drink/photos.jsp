@@ -50,6 +50,7 @@
                 </div>
             </div>
             </div>
+
         </div>
     </form>
 </div>
@@ -79,6 +80,14 @@
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                        <br>
+                        <div class="col-md-2 col-md-offset-8">
+                            <a href="/SocialDrink/drink/${drinkId}" class="btn btn-info pull-right">
+                                <span class="glyphicon glyphicon-circle-arrow-left" aria-hidden="true"></span> Voltar
+                            </a>
+                        </div>
+                    </div>
             </div>
 
 
