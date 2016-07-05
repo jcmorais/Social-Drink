@@ -217,6 +217,7 @@ public class Run {
             Consumer consumer = facade.createConsumer();
             consumer.setBirthday(new Date());
             consumer.setDescription("Sou um jovem que gosta de beber a noite");
+            consumer.setContact("912345678");
             consumer.setFirstname("Carlos");
             consumer.setLastname("Morais");
             consumer.setSex("masculino");
@@ -238,8 +239,9 @@ public class Run {
             consumer.setLastname("Pereira");
             consumer.setSex("masculino");
             consumer.setPassword("12345");
-            consumer.setProfession("progrador");
+            consumer.setProfession("programador");
             consumer.setEmail("jpc@gmail.com");
+            consumer.setContact("918765432");
             consumer.setPhoto(photo);
             consumer.setCity(facade.getCityByORMID(1));
             facade.save(consumer);
@@ -256,6 +258,7 @@ public class Run {
             photo.setFilePath("/images/user/3/profile.png");
 
             Bar bar = facade.createBar();
+            bar.setName("Bar 1");
             bar.setEmail("bar@gmail.com");
             bar.setDescription("somos um bar dedicado a estudantes, temo excelentes bebidas!");
             bar.setAddress(address);
@@ -312,6 +315,7 @@ public class Run {
             photo.setFilePath("/images/user/4/profile.png");
 
             bar = facade.createBar();
+            bar.setName("Bar 2");
             bar.setEmail("bar2@gmail.com");
             bar.setDescription("somos um bar dedicado a estudantes, temo excelentes bebidas!");
             bar.setAddress(address);

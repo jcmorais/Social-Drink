@@ -70,18 +70,20 @@ public class UserPageController {
                 model.addObject("followers",consumer.follow.toArray());
             }
 
-            User aux = userService.getUserById(sessionid);
-            User[] foll = ((Consumer) aux).follow.toArray();
-            int bool = 0;
+            if(sessionid != -1) {
+                User aux = userService.getUserById(sessionid);
+                User[] foll = ((Consumer) aux).follow.toArray();
+                int bool = 0;
 
-            for(int i=0; i< foll.length; i++) {
-                if(foll[i].getID() == userId) {
-                    bool = 1;
-                    break;
+                for (int i = 0; i < foll.length; i++) {
+                    if (foll[i].getID() == userId) {
+                        bool = 1;
+                        break;
+                    }
                 }
-            }
 
-            model.addObject("follow", bool);
+                model.addObject("follow", bool);
+            }
 
         }
         
