@@ -18,12 +18,18 @@
             </div>
             <div class="modal-body">
                 <div class="row">
+
+                    <c:if test="${semmovies == 'yes'}">
+                        <div>
+                           <h1>Sem filmes :( </h1>
+                        </div>
+                    </c:if>
                     <c:forEach items="${movies}" var="movie">
                         <div class="col-md-3 movie">
                             <p class="title"> ${movie.getTitle()} </p>
                             <img class="image center-block" src="<c:url value="${movie.getImg_path()}"/>"/>
                             <p class="year centered"> ${movie.getYear()}  </p>
-                            <button class="btn center-block">View</button>
+                            <button link="https://www.themoviedb.org/movie/${movie.getId()}" class="btn center-block">View</button>
                         </div>
                     </c:forEach>
                 </div>

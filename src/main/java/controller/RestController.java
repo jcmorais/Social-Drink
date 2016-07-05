@@ -1,5 +1,6 @@
 package controller;
 
+import model.Movies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -32,7 +33,12 @@ public class RestController {
     @ResponseBody
     ModelAndView movies(ModelAndView model,
                         @PathVariable("drinkId") int drinkId) {
-        model.addObject("movies", restService.getListMoviesByDrinkID(drinkId).getMovies());
+
+        Movies movies = restService.getListMoviesByDrinkID(drinkId);
+        if(movies.getMovies().size()==0)
+            model.addObject("semmovies","yes");
+        else
+            model.addObject("semmovies","no");
         model.setViewName("service/movies");
         return model;
     }

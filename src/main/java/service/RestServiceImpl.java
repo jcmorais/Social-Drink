@@ -39,12 +39,22 @@ public class RestServiceImpl implements RestService {
         }
 
         RestTemplate restTemplate = new RestTemplate();
-        ResponseEntity<Movies> response = restTemplate.exchange(
-                url,
-                HttpMethod.GET,
-                null,
-                new ParameterizedTypeReference<Movies>() {});
-        return response.getBody();
+        ResponseEntity<Movies> response = null;
+        try {
+            response = restTemplate.exchange(
+                    url,
+                    HttpMethod.GET,
+                    null,
+                    new ParameterizedTypeReference<Movies>() {
+                    });
+        }
+        catch (Exception e){
+        }
+        if(response!=null)
+            return response.getBody();
+        else
+            return new Movies();
+
     }
 
 

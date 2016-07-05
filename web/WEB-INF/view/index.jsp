@@ -33,7 +33,7 @@
     <div class="container centered">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <h1>The place where you can find all the bars recipes of cocktail. Do it all by yourself! </h1>
+                <h1>O lugar onde pode encontrar todas as receitas de bebidas do seu bar favorito. Faça tudo sozinho! </h1>
             </div>
         </div><!--/row-->
 

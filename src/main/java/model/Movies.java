@@ -2,6 +2,7 @@ package model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,6 +12,10 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Movies {
     private List<Movie> movies;
+
+    public Movies(){
+        this.movies = new ArrayList<>();
+    }
 
     public List<Movie> getMovies() {
         return movies;
