@@ -6,13 +6,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 import service.drinkService;
+import socialdrink.Consumer;
 import socialdrink.Drink;
+import socialdrink.User;
 
 /**
  * Created by carlosmorais on 09/06/16.
  */
 
 @Controller
+@SessionAttributes("sessionid")
 public class indexController {
 
     @Autowired
@@ -29,6 +32,7 @@ public class indexController {
 
         model.setViewName("index");
         model.addObject("bestDrinks", drinks);
+        model.addObject("sessionid", -1);
 
         return model;
     }
